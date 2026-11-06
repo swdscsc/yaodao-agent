@@ -1,0 +1,139 @@
+import type { ImageTurnHandler, ImageTurnResult } from "./image/imageTurnHandler";
+import type { ModelResolver } from "./model/configModelResolver";
+import type { VoiceTurnContext } from "./types";
+import { OFFICIAL_DEFAULT_VISION_MODEL } from "./config/legacyConfigAdapter";
+import { asAgentError, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
+import {
+  MEDICINE_VISION_PROMPT,
+  draftSummary,
+  draftToHistoryMarker,
+  nextQuestion,
+  noMedicineAnswer,
+  parseVisionOutput,
+  type MedicineDraft,
+} from "./medVision";
+
+/**
+ * 药到专属的「拍照识别药」处理器。
+ *
+ * 流程：图片归一化 → 调视觉模型（带药品识别 system prompt，要求输出结构化 JSON）
+ * → 解析成草稿 → 口语化念出已识别内容 + 就缺失项一项一项确认（多步确认）
+ * → 全部确认后由 med_plan_save 落库（落库发生在后续语音轮次）。
+ *
+ * 无论图片来自设备拍照（take_photo 设备能力回传）还是直接通过 nlu.custom.image 传入，
+ * 都会走到这里。
+ */
+export class MedicinePhotoHandler implements ImageTurnHandler {
+  async run(
+    context: VoiceTurnContext,
+    image: string,
+    modelResolver: ModelResolver,
+    onDelta: (text: string) => void,
+  ): Promise<ImageTurnResult> {
+    // 1) 归一化图片来源（兼容 data:base64 与 https url）
+    const normalized = normalizeClosedToolContent(
+      image.startsWith("data:")
+        ? { type: "image", kind: "input", data: image }
+        : { type: "image", kind: "input", url: image },
+    );
+    if (!normalized || normalized.type !== "image") {
+      return {
+        answer: "这张图片我有点看不清，您直接告诉我药名和吃法，我帮您记上就行。",
+        messages: [],
+      };
+    }
+    const src = (normalized.url ?? normalized.data) as string;
+
+    // 2) 解析视觉模型（与官方默认一致：优先 sidecars.vision，否则用官方默认视觉模型）
+    const provider =
+      context.config.runtime.model.sidecars?.vision ??
+      { type: "platform", model: OFFICIAL_DEFAULT_VISION_MODEL };
+    const resolved = modelResolver.resolveProvider(context, provider);
+    const config = context.config.runtime.model;
+
+    const messages: AgentChatMessage[] = [
+      { role: "system", content: MEDICINE_VISION_PROMPT },
+      {
+        role: "user",
+        content: [
+          {
+            type: "text",
+            text: context.userText || "请识别这张药品照片上的用药信息",
+          },
+          { type: "image_url", image_url: { url: src } },
+        ],
+      },
+    ];
+
+    try {
+      const handle = resolved.model.run(
+        {
+          modelCallId: `${context.turnId}:vision`,
+          purpose: "vision",
+          model: resolved.modelName,
+          messages: messages as never,
+          temperature: config.temperature,
+          maxTokens: config.maxTokens,
+          firstFrameTimeoutMs: 15_000,
+          idleTimeoutMs: 30_000,
+          totalTimeoutMs: config.timeoutMs ?? 120_000,
+        },
+        {
+          onTextDelta: (t) => {
+            if (t) onDelta(t);
+          },
+        },
+        {
+          sessionId: context.sessionId,
+          turnId: context.turnId,
+          appId: context.config.businessAppId,
+          requestId: `${context.requestId}:vision`,
+          cancellation: context.cancellation,
+        },
+      );
+      const result = await handle.completed;
+      const draft: MedicineDraft = parseVisionOutput(result.text);
+
+      // 3) 持久化草稿：作为跨轮确认的可靠状态（历史被裁剪时兜底）
+      host.kvSet(`yaodao.photo_draft.${context.deviceId || "global"}`, JSON.stringify(draft), null);
+
+      if (!draft.is_medicine) {
+        return { answer: noMedicineAnswer(), messages: photoHistory(src, draft) };
+      }
+
+      const summary = draftSummary(draft);
+      const next = nextQuestion(draft);
+      const answer = next
+        ? `我帮您看了看照片。${summary} 我再跟您确认一下——${next}`
+        : `我帮您看了看照片，${summary} 信息都齐了，我这就帮您记上。`;
+
+      return { answer, messages: photoHistory(src, draft) };
+    } catch (error) {
+      const e = asAgentError(error);
+      if (e.code === "AGENT_RESOURCE_FORBIDDEN") {
+        return {
+          answer: "抱歉，我暂时没法看图识别，您直接告诉我药名和吃法，我帮您记上就好。",
+          messages: [],
+        };
+      }
+      // 其它错误：降级为人工口述建档，不中断体验
+      return {
+        answer: "照片我一时没看清，您直接说药名和每天吃几次，我帮您记上就行。",
+        messages: [],
+      };
+    }
+  }
+}
+
+function photoHistory(src: string, draft: MedicineDraft): AgentChatMessage[] {
+  return [
+    {
+      role: "user",
+      content: [
+        { type: "text", text: "（用户拍了一张药品照片）" },
+        { type: "image_url", image_url: { url: src } },
+      ],
+    },
+    { role: "assistant", content: draftToHistoryMarker(draft) },
+  ];
+}

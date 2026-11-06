@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@listenai/agent-sdk": "file:./sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "esbuild": "^0.25.12",
+    "tsx": "^4.23.1",
+    "typescript": "^5.3.0"
+  },
+  "name": "listenai-voice-chat",
+  "private": true,
+  "scripts": {
+    "build": "ling app build",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module"
+}

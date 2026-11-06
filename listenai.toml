@@ -1,0 +1,14 @@
+product_id = "3154081c-0b1d-4cb7-9635-9c140bab301f"
+[project]
+name = "yaodao"
+version = "1.2.0"
+entry = "agent.ts"
+
+[product]
+id = "prod_yaodao"
+
+[providers]
+tts = ["listenai"]
+
+[dev]
+mock_device_enabled = true
