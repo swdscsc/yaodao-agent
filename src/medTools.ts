@@ -9,6 +9,7 @@ import { runtimeClient } from "./context/listenaiContextProvider";
 import { requestContext, type VoiceTurnContext } from "./types";
 import type { AgentRuntimeClient } from "@listenai/agent-sdk";
 import { MedStore, computeDueAnnouncement, expandSlots } from "./medStore";
+import { missingFields, nextQuestion, type MedicineDraft } from "./medVision";
 
 interface TurnRuntime {
   client: AgentRuntimeClient;
@@ -62,7 +63,7 @@ function photoDraftKey(deviceId: string): string {
 // 否则凌晨 0-8 点的打卡会被统计到「昨天」。
 const Z8_MS = 8 * 3_600_000;
 
-function nowString(): string {
+export function nowString(): string {
   return new Date(Date.now() + Z8_MS).toISOString().replace("T", " ").slice(0, 16);
 }
 
@@ -211,6 +212,39 @@ const medSnoozeDef: FunctionTool = {
   },
 };
 
+const medDraftGetDef: FunctionTool = {
+  type: "function",
+  function: {
+    name: "med_draft_get",
+    description:
+      "读取拍照建档草稿（含已识别字段与缺失项）。拍照建档的多步确认过程中，每轮都应先调用它查看当前状态；返回 missing 为空数组时说明信息已齐全，应调用 med_plan_save 落库。禁止把字段名或 JSON 念给用户。",
+    parameters: { type: "object", properties: {} },
+  },
+};
+
+const medDraftSetDef: FunctionTool = {
+  type: "function",
+  function: {
+    name: "med_draft_set",
+    description:
+      "把用户刚确认的一个字段写进拍照建档草稿。一次只写一个字段（用户答了什么写什么），写完调用 med_draft_get 看还缺什么。只传用户确认过的字段，绝不臆测。",
+    parameters: {
+      type: "object",
+      properties: {
+        drug: { type: "string", description: "药名（仅当用户念了药名才传）" },
+        per_day: { type: "number", description: "每天几次（仅当用户确认了才传）" },
+        meal: { type: "string", description: "饭前/饭后/空腹/随时（仅当用户确认了才传）" },
+        dosage: { type: "string", description: "每次剂量（仅当用户确认了才传）" },
+        times: {
+          type: "array",
+          items: { type: "string" },
+          description: "服药时间列表 HH:MM（仅当用户确认了才传）",
+        },
+      },
+    },
+  },
+};
+
 // ---------- Provider：每轮绑定设备 ID ----------
 
 function textResult(call: AgentToolCall, text: string, isError = false): AgentToolResult {
@@ -237,6 +271,8 @@ export class MedToolProvider extends DefaultToolProvider {
         { definition: medTakeDef, handlerId: "med_take" },
         { definition: medReportDef, handlerId: "med_report" },
         { definition: medSnoozeDef, handlerId: "med_snooze" },
+        { definition: medDraftGetDef, handlerId: "med_draft_get" },
+        { definition: medDraftSetDef, handlerId: "med_draft_set" },
       ],
       localExecutors: {
         med_plan_save: new LocalToolExecutor({
@@ -256,6 +292,12 @@ export class MedToolProvider extends DefaultToolProvider {
         }),
         med_snooze: new LocalToolExecutor({
           handler: (call) => this.onSnooze(call),
+        }),
+        med_draft_get: new LocalToolExecutor({
+          handler: (call) => this.onDraftGet(call),
+        }),
+        med_draft_set: new LocalToolExecutor({
+          handler: (call) => this.onDraftSet(call),
         }),
       },
     });
@@ -548,6 +590,71 @@ export class MedToolProvider extends DefaultToolProvider {
       JSON.stringify({
         ok: true,
         confirm_text: `好，${names}我等 ${minutes} 分钟后再提醒您。您先忙。`,
+      }),
+    );
+  }
+
+  private onDraftGet(call: AgentToolCall): AgentToolResult {
+    const draft = this.store.loadDraft();
+    if (!draft || !draft.is_medicine) {
+      return textResult(
+        call,
+        JSON.stringify({
+          ok: false,
+          confirm_text: "现在没有进行中的拍照建档。请用户重新拍一张药盒照片，或直接口述建档。",
+        }),
+      );
+    }
+    const missing = missingFields(draft);
+    const next = nextQuestion(draft);
+    return textResult(
+      call,
+      JSON.stringify({
+        ok: true,
+        draft: {
+          drug: draft.drug ?? "",
+          per_day: draft.per_day ?? 0,
+          meal: draft.meal ?? "",
+          dosage: draft.dosage ?? "",
+          times: draft.times ?? [],
+        },
+        missing,
+        next_question: next || "",
+        confirm_text: missing.length
+          ? `草稿状态：药名${draft.drug ? "已识别" : "缺失"}、次数${draft.per_day ? "已确认" : "缺失"}、餐次${draft.meal ? "已确认" : "缺失"}、剂量${draft.dosage ? "已确认" : "缺失"}。下一句只问：${next}`
+          : "全部确认齐了，请调用 med_plan_save 落库。",
+      }),
+    );
+  }
+
+  private onDraftSet(call: AgentToolCall): AgentToolResult {
+    let patch: Partial<MedicineDraft>;
+    try {
+      patch = JSON.parse(call.arguments || "{}") as Partial<MedicineDraft>;
+    } catch {
+      return textResult(call, "参数不是合法 JSON", true);
+    }
+    const draft = this.store.loadDraft();
+    if (!draft || !draft.is_medicine) {
+      return textResult(call, "没有进行中的拍照建档草稿", true);
+    }
+    if (typeof patch.drug === "string" && patch.drug.trim()) draft.drug = patch.drug.trim().slice(0, 40);
+    if (typeof patch.per_day === "number" && patch.per_day > 0 && patch.per_day <= MAX_PER_DAY) {
+      draft.per_day = Math.round(patch.per_day);
+    }
+    if (typeof patch.meal === "string" && patch.meal.trim()) draft.meal = patch.meal.trim().slice(0, 20);
+    if (typeof patch.dosage === "string" && patch.dosage.trim()) draft.dosage = patch.dosage.trim().slice(0, 20);
+    if (Array.isArray(patch.times)) draft.times = normalizeTimes(patch.times);
+    this.store.saveDraft(draft);
+    const missing = missingFields(draft);
+    return textResult(
+      call,
+      JSON.stringify({
+        ok: true,
+        missing,
+        confirm_text: missing.length
+          ? `已记录。还缺 ${missing.length} 项。`
+          : "全部确认齐了，请调用 med_plan_save 落库。",
       }),
     );
   }

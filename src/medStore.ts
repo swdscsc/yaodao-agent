@@ -1,4 +1,5 @@
 import type { MedPlan, MedDose } from "./medTools";
+import type { MedicineDraft } from "./medVision";
 
 // ---------- 键名（与 v1.0.x 保持兼容，测试也直接依赖这些前缀） ----------
 
@@ -16,6 +17,10 @@ export function announcedKey(deviceId: string): string {
 
 export function snoozeKey(deviceId: string): string {
   return `yaodao.snooze.${deviceId}`;
+}
+
+function photoDraftKey(deviceId: string): string {
+  return `yaodao.photo_draft.${deviceId}`;
 }
 
 // ---------- 共享存储：Provider 与 PromptBuilder 用同一实例 ----------
@@ -72,6 +77,18 @@ export class MedStore {
 
   loadSnooze(): Record<string, number> {
     return this.load<Record<string, number>>(snoozeKey(this.deviceKey), {});
+  }
+
+  loadDraft(): MedicineDraft | null {
+    return this.load<MedicineDraft | null>(photoDraftKey(this.deviceKey), null);
+  }
+
+  saveDraft(draft: MedicineDraft): void {
+    this.save(photoDraftKey(this.deviceKey), draft);
+  }
+
+  clearDraft(): void {
+    this.remove(photoDraftKey(this.deviceKey));
   }
 
   saveSnooze(map: Record<string, number>): void {

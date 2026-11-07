@@ -4,6 +4,8 @@ import type { VoiceTurnContext } from "./types";
 /** 平台多模态视觉模型：官方标准 API 指定图片输入必须用它（实测识别药盒成功）。 */
 const MEDICINE_VISION_FALLBACK_MODEL = "spark-vision-preview-1.0";
 import { asAgentError, log, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
+import { MedStore } from "./medStore";
+import { describePlan, nowString, type MedPlan } from "./medTools";
 import {
   MEDICINE_VISION_PROMPT,
   draftSummary,
@@ -25,6 +27,12 @@ import {
  * 都会走到这里。
  */
 export class MedicinePhotoHandler implements ImageTurnHandler {
+  private readonly store: MedStore;
+
+  constructor(store: MedStore = new MedStore()) {
+    this.store = store;
+  }
+
   async run(
     context: VoiceTurnContext,
     image: string,
@@ -110,9 +118,9 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
           totalTimeoutMs: config.timeoutMs ?? 120_000,
         },
         {
-          onTextDelta: (t) => {
-            if (t) onDelta(t);
-          },
+          // 不把视觉模型的原始输出（JSON 字段名等）流给 TTS；
+          // 解析完成后再把策展文本一次性经 onDelta 写出。
+          onTextDelta: () => {},
         },
         {
           sessionId: context.sessionId,
@@ -129,15 +137,35 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
       host.kvSet(`yaodao.photo_draft.${context.deviceId || "global"}`, JSON.stringify(draft), null);
 
       if (!draft.is_medicine) {
-        return { answer: noMedicineAnswer(), messages: photoHistory(src, draft) };
+        const fallbackAnswer = noMedicineAnswer();
+        onDelta(fallbackAnswer);
+        return { answer: fallbackAnswer, messages: photoHistory(src, draft) };
       }
 
       const summary = draftSummary(draft);
       const next = nextQuestion(draft);
-      const answer = next
-        ? `我帮您看了看照片。${summary} 我再跟您确认一下——${next}`
-        : `我帮您看了看照片，${summary} 信息都齐了，我这就帮您记上。`;
-
+      let answer: string;
+      if (next) {
+        answer = `我帮您看了看照片。${summary} 我再跟您确认一下——${next}`;
+      } else {
+        // 草稿齐全：直接落库，省一轮对话
+        const plans = this.store.loadPlans();
+        const plan: MedPlan = {
+          drug: draft.drug!,
+          per_day: draft.per_day!,
+          meal: draft.meal!,
+          dosage: draft.dosage!,
+          times: draft.times ?? [],
+          created_at: nowString(),
+        };
+        const index = plans.findIndex((p) => p.drug === plan.drug);
+        if (index >= 0) plans[index] = plan;
+        else plans.push(plan);
+        this.store.savePlans(plans);
+        this.store.clearDraft();
+        answer = `记好了：${describePlan(plan)}。您听听对不对？`;
+      }
+      onDelta(answer);
       return { answer, messages: photoHistory(src, draft) };
     } catch (error) {
       const e = asAgentError(error);
