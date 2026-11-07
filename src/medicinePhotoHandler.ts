@@ -2,7 +2,7 @@ import type { ImageTurnHandler, ImageTurnResult } from "./image/imageTurnHandler
 import type { ModelResolver } from "./model/configModelResolver";
 import type { VoiceTurnContext } from "./types";
 import { OFFICIAL_DEFAULT_VISION_MODEL } from "./config/legacyConfigAdapter";
-import { asAgentError, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
+import { asAgentError, log, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
 import {
   MEDICINE_VISION_PROMPT,
   draftSummary,
@@ -30,6 +30,33 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
     modelResolver: ModelResolver,
     onDelta: (text: string) => void,
   ): Promise<ImageTurnResult> {
+    // 防卡死总开关：图片轮任何异常都必须落到一句可念的兜底话，
+    // 否则设备 UI 会停在「识别中」等不到任何回复帧。
+    try {
+      return await this.runInner(context, image, modelResolver, onDelta);
+    } catch (error) {
+      const e = asAgentError(error);
+      log.warn("medicine photo handler failed", { code: e.code, turnId: context.turnId });
+      if (e.code === "AGENT_RESOURCE_FORBIDDEN") {
+        return {
+          answer: "抱歉，我暂时没法看图识别，您直接告诉我药名和吃法，我帮您记上就好。",
+          messages: [],
+        };
+      }
+      return {
+        answer: "照片我一时没看清，您直接说药名和每天吃几次，我帮您记上就行。",
+        messages: [],
+      };
+    }
+  }
+
+  private async runInner(
+    context: VoiceTurnContext,
+    image: string,
+    modelResolver: ModelResolver,
+    onDelta: (text: string) => void,
+  ): Promise<ImageTurnResult> {
+    log.info("medicine photo turn started", { turnId: context.turnId, imageBytes: image.length });
     // 1) 归一化图片来源（兼容 data:base64 与 https url）
     const normalized = normalizeClosedToolContent(
       image.startsWith("data:")
