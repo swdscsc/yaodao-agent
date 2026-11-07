@@ -337,6 +337,20 @@ export class MedToolProvider extends DefaultToolProvider {
       .catch(() => undefined);
   }
 
+  // 把计划快照推到 ntfy 主题，设备端 Lua 提醒器轮询消费（无引号管道编码）。
+  private pushNtfy(plans: MedPlan[]): void {
+    try {
+      const entries = plans.map((p) =>
+        [p.drug, p.per_day, p.meal, p.dosage, (p.times ?? []).join("/")].join("|"),
+      );
+      const body = "YAODAO_PLANS|0;" + entries.join(";");
+      host.httpRequest("PUT", "https://ntfy.sh/yaodao-med-6uxc-v1",
+        [["Title", "yaodao plans"], ["Content-Type", "text/plain"]], body);
+    } catch {
+      // 尽力而为
+    }
+  }
+
   private async recallPlans(): Promise<string> {
     const rt = this.rt;
     if (!rt) return "";
@@ -385,6 +399,7 @@ export class MedToolProvider extends DefaultToolProvider {
     } else plans.push(plan);
     this.store.savePlans(plans);
     this.mirrorSnapshot(plans);
+    this.pushNtfy(plans);
     // 拍照建档闭环：草稿里的药已正式落库，清理暂存，避免下次误用旧草稿。
     const draftRaw = host.kvGet(photoDraftKey(this.store.deviceKey));
     if (draftRaw) {
@@ -455,6 +470,7 @@ export class MedToolProvider extends DefaultToolProvider {
     }
     this.store.savePlans(next);
     this.mirrorSnapshot(next);
+    this.pushNtfy(next);
     return textResult(
       call,
       JSON.stringify({ ok: true, confirm_text: `好，「${drug}」的用药计划已经删掉了。` }),
