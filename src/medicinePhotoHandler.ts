@@ -72,12 +72,18 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
     }
     const src = (normalized.url ?? normalized.data) as string;
 
-    // 2) 解析视觉模型：优先 sidecars.vision（服务端下发），
-    //    否则用账号已授权的多模态模型 doubao-seed-1.6。
-    //    平台内部模型 ls-interaction-img2txt-v2 对自建应用未授权，识别会失败。
+    // 2) 解析视觉模型：
+    //    ① sidecars.vision（服务端下发，优先）；
+    //    ② 若应用配置了自定义模型接入（第三方多模态 API，经
+    //       `ling app config edit` 的 protocol/endpoint/model/authorization），
+    //       视觉直接走它——平台托管的文本模型收不到图片（实测 prompt_tokens=0）；
+    //    ③ 都没有则优雅降级为口述建档引导。
+    const runtimeModel = context.config.runtime.model;
     const provider =
-      context.config.runtime.model.sidecars?.vision ??
-      { type: "platform", model: MEDICINE_VISION_FALLBACK_MODEL };
+      runtimeModel.sidecars?.vision ??
+      (runtimeModel.primary.type !== "platform"
+        ? runtimeModel.primary
+        : { type: "platform", model: MEDICINE_VISION_FALLBACK_MODEL });
     const resolved = modelResolver.resolveProvider(context, provider);
     const config = context.config.runtime.model;
 
