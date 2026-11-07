@@ -140,7 +140,7 @@ describe("MedToolProvider 关键路径（mock host）", () => {
     });
     const json = jsonOf(saved);
     assert.equal(json.ok, true);
-    const plan = JSON.parse(store["yaodao.meds.global"])[0];
+    const plan = JSON.parse(store["yaodao.meds.global"]).plans[0];
     assert.equal(plan.drug.length, 40, "药名截断到 40 字");
     assert.equal(plan.per_day, 12, "每天次数封顶 12");
     assert.equal(plan.dosage.length, 20, "剂量截断到 20 字");

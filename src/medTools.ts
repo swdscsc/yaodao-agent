@@ -149,7 +149,7 @@ const medPlanListDef: FunctionTool = {
   function: {
     name: "med_plan_list",
     description:
-      "查询本设备已记录的全部用药计划。用户问「我要吃哪些药」「我的用药计划」「今天有什么药」时调用。返回为空时温和告知还没有记录，并举例教用户怎么建档。",
+      "查询本设备已记录的全部用药计划。用户问「我要吃哪些药」「我的用药计划」「今天有什么药」「早上该吃什么」时调用。调用后把返回的 confirm_text 完整念给用户。",
     parameters: { type: "object", properties: {} },
   },
 };
@@ -245,6 +245,24 @@ const medDraftSetDef: FunctionTool = {
   },
 };
 
+const medRemindOnceDef: FunctionTool = {
+  type: "function",
+  function: {
+    name: "med_remind_once",
+    description:
+      "设置一次性服药提醒（不是每天重复的计划）。用户说「X分钟后提醒我吃药」「X点X分提醒我吃XX」这类一次性请求时调用。in_minutes 与 at_time 二选一。成功后把 confirm_text 完整念给用户。",
+    parameters: {
+      type: "object",
+      properties: {
+        drug: { type: "string", description: "提醒内容，如「测试药」「降压药」" },
+        at_time: { type: "string", description: "绝对时间 HH:MM（北京时间）" },
+        in_minutes: { type: "number", description: "多少分钟后提醒" },
+      },
+      required: ["drug"],
+    },
+  },
+};
+
 // ---------- Provider：每轮绑定设备 ID ----------
 
 function textResult(call: AgentToolCall, text: string, isError = false): AgentToolResult {
@@ -271,6 +289,7 @@ export class MedToolProvider extends DefaultToolProvider {
         { definition: medTakeDef, handlerId: "med_take" },
         { definition: medReportDef, handlerId: "med_report" },
         { definition: medSnoozeDef, handlerId: "med_snooze" },
+        { definition: medRemindOnceDef, handlerId: "med_remind_once" },
         { definition: medDraftGetDef, handlerId: "med_draft_get" },
         { definition: medDraftSetDef, handlerId: "med_draft_set" },
       ],
@@ -292,6 +311,9 @@ export class MedToolProvider extends DefaultToolProvider {
         }),
         med_snooze: new LocalToolExecutor({
           handler: (call) => this.onSnooze(call),
+        }),
+        med_remind_once: new LocalToolExecutor({
+          handler: (call) => this.onRemindOnce(call),
         }),
         med_draft_get: new LocalToolExecutor({
           handler: (call) => this.onDraftGet(call),
@@ -337,17 +359,71 @@ export class MedToolProvider extends DefaultToolProvider {
       .catch(() => undefined);
   }
 
-  // 把计划快照推到 ntfy 主题，设备端 Lua 提醒器轮询消费（无引号管道编码）。
-  private pushNtfy(plans: MedPlan[]): void {
+  private static NTFY_URL = "https://ntfy.sh/yaodao-med-6uxc-v1";
+
+  // 无引号管道编码（设备端 Lua 解析同一格式）：
+  // YAODAO_PLANS|<ts>|药名|次数|餐次|剂量|HH:MM/HH:MM;药名2|...
+  private encodeSnapshot(ts: number, plans: MedPlan[]): string {
+    const entries = plans.map((p) =>
+      [p.drug, p.per_day, p.meal, p.dosage, (p.times ?? []).join("/")].join("|"),
+    );
+    return "YAODAO_PLANS|" + ts + ";" + entries.join(";");
+  }
+
+  private decodeSnapshot(text: string): { ts: number; plans: MedPlan[] } | null {
+    const m = text.match(/YAODAO_PLANS\|(\d+);([^\r\n]*)/);
+    if (!m) return null;
+    const ts = Number(m[1]);
+    const plans: MedPlan[] = [];
+    for (const item of m[2].split(";")) {
+      if (!item) continue;
+      const parts = item.split("|");
+      const drug = (parts[0] || "").trim();
+      const n = Number(parts[1]);
+      if (!drug || !Number.isFinite(n) || n <= 0) continue;
+      const times = (parts[4] || "").split("/").filter((t) => /^\d{1,2}:\d{2}$/.test(t));
+      plans.push({
+        drug: drug.slice(0, 40),
+        per_day: Math.min(Math.round(n), 12),
+        meal: ((parts[2] || "随时") || "随时").slice(0, 20),
+        dosage: (parts[3] || "").slice(0, 20),
+        times,
+        created_at: nowString(),
+      });
+    }
+    return { ts, plans };
+  }
+
+  // 快照推送到 ntfy：唯一事实源。设备 Lua 与其他云端实例都以它为准。
+  private pushNtfy(ts: number, plans: MedPlan[]): void {
     try {
-      const entries = plans.map((p) =>
-        [p.drug, p.per_day, p.meal, p.dosage, (p.times ?? []).join("/")].join("|"),
-      );
-      const body = "YAODAO_PLANS|0;" + entries.join(";");
-      host.httpRequest("PUT", "https://ntfy.sh/yaodao-med-6uxc-v1",
-        [["Title", "yaodao plans"], ["Content-Type", "text/plain"]], body);
+      host.httpRequest("PUT", MedToolProvider.NTFY_URL,
+        [["Title", "yaodao plans"], ["Content-Type", "text/plain"]],
+        this.encodeSnapshot(ts, plans));
     } catch {
       // 尽力而为
+    }
+  }
+
+  // 每个涉及计划的回合先从 ntfy 拉最新快照：时间戳新者胜，
+  // 消灭多实例 KV 分裂（此前测试药被其他实例的旧快照覆盖）。
+  private syncFromNtfy(): void {
+    try {
+      const raw = host.httpRequest("GET",
+        MedToolProvider.NTFY_URL + "/json?poll=1&since=30m", [], null);
+      if (!raw) return;
+      let best: { ts: number; plans: MedPlan[] } | null = null;
+      for (const line of raw.split("\n")) {
+        const msg = line.match(/"message":"([^"]*)"/);
+        if (!msg || !msg[1].includes("YAODAO_PLANS")) continue;
+        const decoded = this.decodeSnapshot(msg[1]);
+        if (decoded && (!best || decoded.ts > best.ts)) best = decoded;
+      }
+      if (!best) return;
+      const local = this.store.loadState();
+      if (best.ts > local.ts) this.store.saveState(best.ts, best.plans);
+    } catch {
+      // 网络失败就用本地状态
     }
   }
 
@@ -368,6 +444,7 @@ export class MedToolProvider extends DefaultToolProvider {
   }
 
   private onSave(call: AgentToolCall): AgentToolResult {
+    this.syncFromNtfy();
     let args: Partial<MedPlan>;
     try {
       args = JSON.parse(call.arguments || "{}") as Partial<MedPlan>;
@@ -397,9 +474,10 @@ export class MedToolProvider extends DefaultToolProvider {
     else if (plans.length >= MAX_PLANS) {
       return textResult(call, `用药计划已满 ${MAX_PLANS} 条，请先删除不需要的`, true);
     } else plans.push(plan);
-    this.store.savePlans(plans);
+    const ts = Date.now();
+    this.store.saveState(ts, plans);
     this.mirrorSnapshot(plans);
-    this.pushNtfy(plans);
+    this.pushNtfy(ts, plans);
     // 拍照建档闭环：草稿里的药已正式落库，清理暂存，避免下次误用旧草稿。
     const draftRaw = host.kvGet(photoDraftKey(this.store.deviceKey));
     if (draftRaw) {
@@ -421,6 +499,7 @@ export class MedToolProvider extends DefaultToolProvider {
   }
 
   private async onList(call: AgentToolCall): Promise<AgentToolResult> {
+    this.syncFromNtfy();
     const plans = this.store.loadPlans();
     if (plans.length === 0) {
       const memoryText = await this.recallPlans();
@@ -456,6 +535,7 @@ export class MedToolProvider extends DefaultToolProvider {
   }
 
   private onDelete(call: AgentToolCall): AgentToolResult {
+    this.syncFromNtfy();
     let args: { drug?: string };
     try {
       args = JSON.parse(call.arguments || "{}") as { drug?: string };
@@ -468,9 +548,10 @@ export class MedToolProvider extends DefaultToolProvider {
     if (next.length === plans.length) {
       return textResult(call, `没有找到名为「${drug}」的用药计划`, true);
     }
-    this.store.savePlans(next);
+    const ts2 = Date.now();
+    this.store.saveState(ts2, next);
     this.mirrorSnapshot(next);
-    this.pushNtfy(next);
+    this.pushNtfy(ts2, next);
     return textResult(
       call,
       JSON.stringify({ ok: true, confirm_text: `好，「${drug}」的用药计划已经删掉了。` }),
@@ -518,6 +599,7 @@ export class MedToolProvider extends DefaultToolProvider {
   // 当日用药依从性小结：纯本地 KV 计算，无需外部服务。
   // todayISO 可注入（测试用）；线上默认按北京时间算「今天」。
   private onReport(call: AgentToolCall, todayISO?: string): AgentToolResult {
+    this.syncFromNtfy();
     const plans = this.store.loadPlans();
     const doses = this.store.loadDoses();
     const today = todayISO ?? dayString();
@@ -606,6 +688,54 @@ export class MedToolProvider extends DefaultToolProvider {
       JSON.stringify({
         ok: true,
         confirm_text: `好，${names}我等 ${minutes} 分钟后再提醒您。您先忙。`,
+      }),
+    );
+  }
+
+  // 一次性提醒：per_day=1、times=[HH:MM] 的计划，播报去重保证只提醒一次。
+  private onRemindOnce(call: AgentToolCall): AgentToolResult {
+    this.syncFromNtfy();
+    let args: { drug?: string; at_time?: string; in_minutes?: number };
+    try {
+      args = JSON.parse(call.arguments || "{}") as typeof args;
+    } catch {
+      return textResult(call, "参数不是合法 JSON", true);
+    }
+    const drug = String(args.drug ?? "").trim().slice(0, 40);
+    if (!drug) return textResult(call, "缺少提醒内容", true);
+    let hhmm = String(args.at_time ?? "").trim();
+    if (!/^\d{1,2}:\d{2}$/.test(hhmm)) {
+      const mins = Number(args.in_minutes);
+      if (!Number.isFinite(mins) || mins <= 0 || mins > 24 * 60) {
+        return textResult(call, "需要 at_time(HH:MM) 或 in_minutes(分钟数)", true);
+      }
+      const t = new Date(Date.now() + 8 * 3_600_000 + mins * 60_000);
+      hhmm = t.toISOString().slice(11, 16);
+    } else {
+      const hhmmParts = hhmm.split(":").map(Number);
+      if (hhmmParts[0] > 23 || hhmmParts[1] > 59) {
+        return textResult(call, "时间不合法", true);
+      }
+      hhmm = `${String(hhmmParts[0]).padStart(2, "0")}:${String(hhmmParts[1]).padStart(2, "0")}`;
+    }
+    const plans = this.store.loadPlans().filter((p) => p.drug !== drug);
+    plans.push({
+      drug,
+      per_day: 1,
+      meal: "随时",
+      dosage: "",
+      times: [hhmm],
+      created_at: nowString(),
+    });
+    const ts = Date.now();
+    this.store.saveState(ts, plans);
+    this.mirrorSnapshot(plans);
+    this.pushNtfy(ts, plans);
+    return textResult(
+      call,
+      JSON.stringify({
+        ok: true,
+        confirm_text: `记好了，${hhmm} 我会提醒您${drug}。到点我主动开口喊您。`,
       }),
     );
   }

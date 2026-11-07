@@ -51,12 +51,24 @@ export class MedStore {
     host.kvSet(key, "", 1);
   }
 
+  /** 云端状态带时间戳：多实例间以 ntfy 日志的 ts 最新者为准。 */
+  loadState(): { ts: number; plans: MedPlan[] } {
+    const raw = this.load<{ ts: number; plans: MedPlan[] } | MedPlan[]>(medsKey(this.deviceKey), { ts: 0, plans: [] });
+    if (Array.isArray(raw)) return { ts: 0, plans: raw };
+    if (raw && Array.isArray(raw.plans)) return { ts: raw.ts || 0, plans: raw.plans };
+    return { ts: 0, plans: [] };
+  }
+
+  saveState(ts: number, plans: MedPlan[]): void {
+    this.save(medsKey(this.deviceKey), { ts, plans });
+  }
+
   loadPlans(): MedPlan[] {
-    return this.load<MedPlan[]>(medsKey(this.deviceKey), []);
+    return this.loadState().plans;
   }
 
   savePlans(plans: MedPlan[]): void {
-    this.save(medsKey(this.deviceKey), plans);
+    this.save(medsKey(this.deviceKey), { ts: Date.now(), plans });
   }
 
   loadDoses(): MedDose[] {
