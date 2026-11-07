@@ -1,8 +1,8 @@
 import type { ImageTurnHandler, ImageTurnResult } from "./image/imageTurnHandler";
 import type { ModelResolver } from "./model/configModelResolver";
 import type { VoiceTurnContext } from "./types";
-/** 自建应用可用的多模态兜底视觉模型（doubao-seed-1.6 支持图片输入）。 */
-const MEDICINE_VISION_FALLBACK_MODEL = "doubao-seed-1.6";
+/** 平台多模态视觉模型：官方标准 API 指定图片输入必须用它（实测识别药盒成功）。 */
+const MEDICINE_VISION_FALLBACK_MODEL = "spark-vision-preview-1.0";
 import { asAgentError, log, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
 import {
   MEDICINE_VISION_PROMPT,
@@ -72,18 +72,13 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
     }
     const src = (normalized.url ?? normalized.data) as string;
 
-    // 2) 解析视觉模型：
-    //    ① sidecars.vision（服务端下发，优先）；
-    //    ② 若应用配置了自定义模型接入（第三方多模态 API，经
-    //       `ling app config edit` 的 protocol/endpoint/model/authorization），
-    //       视觉直接走它——平台托管的文本模型收不到图片（实测 prompt_tokens=0）；
-    //    ③ 都没有则优雅降级为口述建档引导。
+    // 2) 解析视觉模型：优先 sidecars.vision（服务端下发），
+    //    否则用平台多模态模型 spark-vision-preview-1.0（官方标准 API
+    //    指定图片输入必须用此模型；doubao 等文本模型经平台代理收不到图）。
     const runtimeModel = context.config.runtime.model;
     const provider =
       runtimeModel.sidecars?.vision ??
-      (runtimeModel.primary.type !== "platform"
-        ? runtimeModel.primary
-        : { type: "platform", model: MEDICINE_VISION_FALLBACK_MODEL });
+      { type: "platform", model: MEDICINE_VISION_FALLBACK_MODEL };
     const resolved = modelResolver.resolveProvider(context, provider);
     const config = context.config.runtime.model;
 
