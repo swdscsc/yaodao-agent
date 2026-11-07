@@ -1,7 +1,8 @@
 import type { ImageTurnHandler, ImageTurnResult } from "./image/imageTurnHandler";
 import type { ModelResolver } from "./model/configModelResolver";
 import type { VoiceTurnContext } from "./types";
-import { OFFICIAL_DEFAULT_VISION_MODEL } from "./config/legacyConfigAdapter";
+/** 自建应用可用的多模态兜底视觉模型（doubao-seed-1.6 支持图片输入）。 */
+const MEDICINE_VISION_FALLBACK_MODEL = "doubao-seed-1.6";
 import { asAgentError, log, normalizeClosedToolContent, type AgentChatMessage } from "@listenai/agent-sdk";
 import {
   MEDICINE_VISION_PROMPT,
@@ -71,10 +72,12 @@ export class MedicinePhotoHandler implements ImageTurnHandler {
     }
     const src = (normalized.url ?? normalized.data) as string;
 
-    // 2) 解析视觉模型（与官方默认一致：优先 sidecars.vision，否则用官方默认视觉模型）
+    // 2) 解析视觉模型：优先 sidecars.vision（服务端下发），
+    //    否则用账号已授权的多模态模型 doubao-seed-1.6。
+    //    平台内部模型 ls-interaction-img2txt-v2 对自建应用未授权，识别会失败。
     const provider =
       context.config.runtime.model.sidecars?.vision ??
-      { type: "platform", model: OFFICIAL_DEFAULT_VISION_MODEL };
+      { type: "platform", model: MEDICINE_VISION_FALLBACK_MODEL };
     const resolved = modelResolver.resolveProvider(context, provider);
     const config = context.config.runtime.model;
 
