@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "main",
+    "duration_s": 274.75,
+    "voices": 44,
+    "voice_peak_dbfs": -1.77,
+    "score_peak_dbfs": -14.8,
+    "mix_peak_dbfs": -1.77,
+    "duck_floor": 0.251,
+    "duck_events": 44,
+    "score_source": "ORIGINAL programmatic synthesis (numpy)",
+    "sfx_source": "ORIGINAL programmatic synthesis (numpy)"
+  },
+  {
+    "tag": "vertical",
+    "duration_s": 50.5,
+    "voices": 13,
+    "voice_peak_dbfs": -3.13,
+    "score_peak_dbfs": -14.9,
+    "mix_peak_dbfs": -3.11,
+    "duck_floor": 0.251,
+    "duck_events": 13,
+    "score_source": "ORIGINAL programmatic synthesis (numpy)",
+    "sfx_source": "ORIGINAL programmatic synthesis (numpy)"
+  }
+]

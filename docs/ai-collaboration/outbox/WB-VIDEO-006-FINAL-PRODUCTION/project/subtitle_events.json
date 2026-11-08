@@ -1,0 +1,462 @@
+{
+  "main": [
+    {
+      "id": "N01",
+      "type": "narration",
+      "shot": "S01",
+      "start": 0.49,
+      "end": 6.602,
+      "text": "早上七点半，桌上有三盒药，一张写了又划掉的单子。"
+    },
+    {
+      "id": "N02",
+      "type": "narration",
+      "shot": "S02",
+      "start": 7.99,
+      "end": 12.878,
+      "text": "哪盒饭前，哪盒饭后，昨天到底吃没吃——"
+    },
+    {
+      "id": "N03",
+      "type": "narration",
+      "shot": "S04",
+      "start": 20.24,
+      "end": 25.608,
+      "text": "电话那头问一句『今天吃药了吗』，这头常常答不上来。"
+    },
+    {
+      "id": "S04-D01",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 25.828,
+      "end": 28.652,
+      "text": "妈，今天药吃了吗？"
+    },
+    {
+      "id": "S04-D02",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 28.872,
+      "end": 30.904,
+      "text": "……吃了吧。"
+    },
+    {
+      "id": "N04",
+      "type": "narration",
+      "shot": "S05",
+      "start": 32.24,
+      "end": 38.928,
+      "text": "不是不上心。是字太小，规矩太多，一天要记好几回。"
+    },
+    {
+      "id": "N05",
+      "type": "narration",
+      "shot": "S06",
+      "start": 40.24,
+      "end": 45.392,
+      "text": "在外的人，能做的也只剩再发一句『记得吃药』。"
+    },
+    {
+      "id": "N06",
+      "type": "narration",
+      "shot": "S07",
+      "start": 49.24,
+      "end": 53.408,
+      "text": "可这件事，本来不该靠谁替她记着。"
+    },
+    {
+      "id": "N07",
+      "type": "narration",
+      "shot": "S08",
+      "start": 58.24,
+      "end": 62.264,
+      "text": "她没打开什么 App，只是说了一句话。"
+    },
+    {
+      "id": "S08-D01",
+      "type": "dialogue",
+      "shot": "S08",
+      "start": 62.484,
+      "end": 66.268,
+      "text": "早饭后的那一次，帮我记上。"
+    },
+    {
+      "id": "S09-D01",
+      "type": "dialogue",
+      "shot": "S09",
+      "start": 67.49,
+      "end": 70.578,
+      "text": "您听听对不对：早饭后那一次。"
+    },
+    {
+      "id": "N08",
+      "type": "narration",
+      "shot": "S10",
+      "start": 74.49,
+      "end": 78.298,
+      "text": "药到。不用学，只要说。"
+    },
+    {
+      "id": "N09",
+      "type": "narration",
+      "shot": "S11",
+      "start": 82.49,
+      "end": 87.474,
+      "text": "这一段是设计示意，不是真机，也不是录屏。"
+    },
+    {
+      "id": "N10",
+      "type": "narration",
+      "shot": "S12",
+      "start": 89.49,
+      "end": 95.29,
+      "text": "按设计，它一次只说一件事，说完等你，不打断。"
+    },
+    {
+      "id": "N11",
+      "type": "narration",
+      "shot": "S13",
+      "start": 96.74,
+      "end": 102.996,
+      "text": "说定了，它把药名和时间复述一遍，问一句『您听听对不对』。"
+    },
+    {
+      "id": "N12",
+      "type": "narration",
+      "shot": "S15",
+      "start": 110.74,
+      "end": 115.868,
+      "text": "建档，只要一句话；它会复述，不替您猜。"
+    },
+    {
+      "id": "S15-D01",
+      "type": "dialogue",
+      "shot": "S15",
+      "start": 116.088,
+      "end": 119.872,
+      "text": "早饭后的那一次，帮我记上。"
+    },
+    {
+      "id": "N13",
+      "type": "narration",
+      "shot": "S16",
+      "start": 121.24,
+      "end": 125.312,
+      "text": "问早上吃什么，它只念早饭那一段。"
+    },
+    {
+      "id": "S16-D01",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 125.532,
+      "end": 127.996,
+      "text": "早上该吃什么？"
+    },
+    {
+      "id": "S16-D02",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 128.216,
+      "end": 130.824,
+      "text": "早饭这一段，就这些。"
+    },
+    {
+      "id": "N14",
+      "type": "narration",
+      "shot": "S17",
+      "start": 132.24,
+      "end": 137.08,
+      "text": "一句『我吃过了』，就算记上；漏了也不责怪。"
+    },
+    {
+      "id": "S17-D01",
+      "type": "dialogue",
+      "shot": "S17",
+      "start": 137.3,
+      "end": 139.332,
+      "text": "我吃过了。"
+    },
+    {
+      "id": "N15",
+      "type": "narration",
+      "shot": "S18",
+      "start": 140.74,
+      "end": 147.212,
+      "text": "问一句今天吃得怎么样，它算出还差几次，说得清清楚楚。"
+    },
+    {
+      "id": "S18-D01",
+      "type": "dialogue",
+      "shot": "S18",
+      "start": 147.432,
+      "end": 150.448,
+      "text": "我今天吃药情况怎样？"
+    },
+    {
+      "id": "N16",
+      "type": "narration",
+      "shot": "S19",
+      "start": 151.74,
+      "end": 156.82,
+      "text": "正忙着？说一声『等会儿』，它就晚一点再来。"
+    },
+    {
+      "id": "S19-D01",
+      "type": "dialogue",
+      "shot": "S19",
+      "start": 157.04,
+      "end": 159.528,
+      "text": "等会儿再提醒我。"
+    },
+    {
+      "id": "N17",
+      "type": "narration",
+      "shot": "S20",
+      "start": 160.99,
+      "end": 166.694,
+      "text": "下次唤醒它，到点还没打卡的那一次，它会先提一句。"
+    },
+    {
+      "id": "N18",
+      "type": "narration",
+      "shot": "S21",
+      "start": 168.99,
+      "end": 173.158,
+      "text": "记不清名字，就把药盒举起来给它看。"
+    },
+    {
+      "id": "S21-D01",
+      "type": "dialogue",
+      "shot": "S21",
+      "start": 173.378,
+      "end": 175.938,
+      "text": "帮我拍个照记上。"
+    },
+    {
+      "id": "N19",
+      "type": "narration",
+      "shot": "S22",
+      "start": 177.24,
+      "end": 182.368,
+      "text": "它念出认到的内容，认不清的，一次只问一件。"
+    },
+    {
+      "id": "S22-D01",
+      "type": "dialogue",
+      "shot": "S22",
+      "start": 182.588,
+      "end": 185.436,
+      "text": "是饭前吃还是饭后吃呀？"
+    },
+    {
+      "id": "N20",
+      "type": "narration",
+      "shot": "S24",
+      "start": 189.74,
+      "end": 194.556,
+      "text": "一天还是那些事：早饭、午饭、晚饭。"
+    },
+    {
+      "id": "N21",
+      "type": "narration",
+      "shot": "S25",
+      "start": 197.74,
+      "end": 202.58,
+      "text": "只是现在，她自己问得清，也自己答得上。"
+    },
+    {
+      "id": "S25-D01",
+      "type": "dialogue",
+      "shot": "S25",
+      "start": 202.8,
+      "end": 206.056,
+      "text": "早上那盒，我吃过了。"
+    },
+    {
+      "id": "N22",
+      "type": "narration",
+      "shot": "S26",
+      "start": 207.49,
+      "end": 212.186,
+      "text": "电话再响的时候，那句『吃了』，终于不用猜。"
+    },
+    {
+      "id": "S26-D01",
+      "type": "dialogue",
+      "shot": "S26",
+      "start": 212.406,
+      "end": 215.83,
+      "text": "吃了，早上那盒也吃了。"
+    },
+    {
+      "id": "N23",
+      "type": "narration",
+      "shot": "S28",
+      "start": 223.24,
+      "end": 228.056,
+      "text": "牵挂没变少，只是有了一个能被听见的地方。"
+    },
+    {
+      "id": "N24",
+      "type": "narration",
+      "shot": "S29",
+      "start": 229.49,
+      "end": 232.29,
+      "text": "有些问题，它不接。"
+    },
+    {
+      "id": "S29-D01",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 232.51,
+      "end": 234.782,
+      "text": "这药能停了吗？"
+    },
+    {
+      "id": "S29-D02",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 235.002,
+      "end": 238.498,
+      "text": "这事得问您大夫，我不敢替您拿主意。"
+    },
+    {
+      "id": "N25",
+      "type": "narration",
+      "shot": "S30",
+      "start": 239.74,
+      "end": 248.876,
+      "text": "不推荐药，不改剂量；不舒服就让您找家人、找大夫；紧急情况，先拨 120。"
+    },
+    {
+      "id": "N26",
+      "type": "narration",
+      "shot": "S31",
+      "start": 250.24,
+      "end": 254.624,
+      "text": "它管的不是病，是那句总被忘掉的『记得』。"
+    },
+    {
+      "id": "N27",
+      "type": "narration",
+      "shot": "S32",
+      "start": 259.24,
+      "end": 263.48,
+      "text": "老人不会用智能手机，但一定会说话。"
+    },
+    {
+      "id": "N28",
+      "type": "narration",
+      "shot": "S33",
+      "start": 267.24,
+      "end": 272.632,
+      "text": "今天，给爸妈打个电话，问一句：今天吃药了吗。"
+    }
+  ],
+  "vertical": [
+    {
+      "id": "V01",
+      "type": "narration",
+      "shot": "V01",
+      "start": 0.14,
+      "end": 4.14,
+      "text": "早上七点半，三盒药，一张划了又改的单子。"
+    },
+    {
+      "id": "V02",
+      "type": "narration",
+      "shot": "V02",
+      "start": 4.64,
+      "end": 8.448,
+      "text": "电话里问『今天吃药了吗』，这头常常答不上来。"
+    },
+    {
+      "id": "V02-D01",
+      "type": "dialogue",
+      "shot": "V02",
+      "start": 8.528,
+      "end": 11.232,
+      "text": "妈，今天药吃了吗？"
+    },
+    {
+      "id": "V03",
+      "type": "narration",
+      "shot": "V03",
+      "start": 11.64,
+      "end": 14.656,
+      "text": "药到。不用学，只要说。"
+    },
+    {
+      "id": "V04",
+      "type": "narration",
+      "shot": "V04",
+      "start": 15.14,
+      "end": 19.02,
+      "text": "下面是设计示意，不是真机，也不是录屏。"
+    },
+    {
+      "id": "V05",
+      "type": "narration",
+      "shot": "V05",
+      "start": 19.39,
+      "end": 22.958,
+      "text": "说一句话建档，它会复述，不替您猜。"
+    },
+    {
+      "id": "V06",
+      "type": "narration",
+      "shot": "V06",
+      "start": 23.64,
+      "end": 26.872,
+      "text": "问早上吃什么，它只念早饭那一段。"
+    },
+    {
+      "id": "V07",
+      "type": "narration",
+      "shot": "V07",
+      "start": 27.64,
+      "end": 30.248,
+      "text": "一句『我吃过了』，就算记上。"
+    },
+    {
+      "id": "V07-D01",
+      "type": "dialogue",
+      "shot": "V07",
+      "start": 30.328,
+      "end": 32.24,
+      "text": "我吃过了。"
+    },
+    {
+      "id": "V08",
+      "type": "narration",
+      "shot": "V08",
+      "start": 32.64,
+      "end": 35.272,
+      "text": "认不清的，一次只问一件。"
+    },
+    {
+      "id": "V09",
+      "type": "narration",
+      "shot": "V09",
+      "start": 36.64,
+      "end": 39.872,
+      "text": "有些问题，它不接，让您问大夫。"
+    },
+    {
+      "id": "V10",
+      "type": "narration",
+      "shot": "V10",
+      "start": 40.89,
+      "end": 45.466,
+      "text": "不推荐药，不改剂量；紧急情况，先拨 120。"
+    },
+    {
+      "id": "V11",
+      "type": "narration",
+      "shot": "V11",
+      "start": 45.89,
+      "end": 49.506,
+      "text": "今天，给爸妈打个电话：今天吃药了吗。"
+    }
+  ]
+}

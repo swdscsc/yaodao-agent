@@ -1,0 +1,1377 @@
+{
+  "fps": 24,
+  "sr": 48000,
+  "width": 1920,
+  "height": 1080,
+  "duration_s": 274.75,
+  "shots": [
+    {
+      "id": "S01",
+      "chapter": "C0 冷开场",
+      "kind": "table",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "三盒药 · 一张写了又划掉的单子"
+      ],
+      "narration": "N01",
+      "dialogues": [],
+      "start": 0.0,
+      "end": 7.5,
+      "dur": 7.5,
+      "planned_dur": 6
+    },
+    {
+      "id": "S02",
+      "chapter": "C0 冷开场",
+      "kind": "paper",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "早 / 午 / 晚",
+        "被划掉的那一行"
+      ],
+      "narration": "N02",
+      "dialogues": [],
+      "start": 7.5,
+      "end": 13.75,
+      "dur": 6.25,
+      "planned_dur": 6
+    },
+    {
+      "id": "S03",
+      "chapter": "C0 冷开场",
+      "kind": "clock",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [],
+      "narration": "",
+      "dialogues": [],
+      "start": 13.75,
+      "end": 19.75,
+      "dur": 6.0,
+      "planned_dur": 6
+    },
+    {
+      "id": "S04",
+      "chapter": "C1 痛点",
+      "kind": "call",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "电话那头",
+        "这头"
+      ],
+      "narration": "N03",
+      "dialogues": [
+        "S04-D01",
+        "S04-D02"
+      ],
+      "start": 19.75,
+      "end": 31.75,
+      "dur": 12.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S05",
+      "chapter": "C1 痛点",
+      "kind": "details",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "字太小",
+        "规矩太多",
+        "一天好几回"
+      ],
+      "narration": "N04",
+      "dialogues": [],
+      "start": 31.75,
+      "end": 39.75,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S06",
+      "chapter": "C1 痛点",
+      "kind": "chat",
+      "badge": "情景演绎 · 模拟聊天界面",
+      "heading": "",
+      "lines": [
+        "记得吃药",
+        "记得吃药",
+        "记得吃药"
+      ],
+      "narration": "N05",
+      "dialogues": [],
+      "start": 39.75,
+      "end": 48.75,
+      "dur": 9.0,
+      "planned_dur": 9
+    },
+    {
+      "id": "S07",
+      "chapter": "C1 痛点",
+      "kind": "table_wide",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [],
+      "narration": "N06",
+      "dialogues": [],
+      "start": 48.75,
+      "end": 57.75,
+      "dur": 9.0,
+      "planned_dur": 9
+    },
+    {
+      "id": "S08",
+      "chapter": "C2 转折",
+      "kind": "voice",
+      "badge": "情景演绎 · 功能对话示例 · 非用药建议",
+      "heading": "",
+      "lines": [
+        "只是说了一句话"
+      ],
+      "narration": "N07",
+      "dialogues": [
+        "S08-D01"
+      ],
+      "start": 57.75,
+      "end": 67.0,
+      "dur": 9.25,
+      "planned_dur": 7
+    },
+    {
+      "id": "S09",
+      "chapter": "C2 转折",
+      "kind": "reply",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "复述确认",
+      "lines": [
+        "早饭后那一次",
+        "您听听对不对？"
+      ],
+      "narration": "",
+      "dialogues": [
+        "S09-D01"
+      ],
+      "start": 67.0,
+      "end": 74.0,
+      "dur": 7.0,
+      "planned_dur": 7
+    },
+    {
+      "id": "S10",
+      "chapter": "C2 转折",
+      "kind": "brand",
+      "badge": "",
+      "heading": "",
+      "lines": [],
+      "narration": "N08",
+      "dialogues": [],
+      "start": 74.0,
+      "end": 82.0,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S11",
+      "chapter": "C3 产品形态",
+      "kind": "device_outline",
+      "badge": "产品设计示意（非真机 · 非实测）· 模拟界面",
+      "heading": "产品形态",
+      "lines": [
+        "只保留轮廓与留白"
+      ],
+      "narration": "N09",
+      "dialogues": [],
+      "start": 82.0,
+      "end": 89.0,
+      "dur": 7.0,
+      "planned_dur": 7
+    },
+    {
+      "id": "S12",
+      "chapter": "C3 产品形态",
+      "kind": "principles",
+      "badge": "产品设计示意（非真机 · 非实测）· 模拟界面",
+      "heading": "设计原则",
+      "lines": [
+        "一次只说一件事",
+        "说完等你",
+        "不打断"
+      ],
+      "narration": "N10",
+      "dialogues": [],
+      "start": 89.0,
+      "end": 96.25,
+      "dur": 7.25,
+      "planned_dur": 7
+    },
+    {
+      "id": "S13",
+      "chapter": "C3 产品形态",
+      "kind": "wave",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "复述确认",
+      "lines": [
+        "药名",
+        "时间",
+        "您听听对不对？"
+      ],
+      "narration": "N11",
+      "dialogues": [],
+      "start": 96.25,
+      "end": 104.25,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S14",
+      "chapter": "C3 产品形态",
+      "kind": "meals",
+      "badge": "原创图形 · 设计示意",
+      "heading": "",
+      "lines": [
+        "早",
+        "午",
+        "晚"
+      ],
+      "narration": "",
+      "dialogues": [],
+      "start": 104.25,
+      "end": 110.25,
+      "dur": 6.0,
+      "planned_dur": 6
+    },
+    {
+      "id": "S15",
+      "chapter": "C4 核心功能",
+      "kind": "ui_save",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 01 · 一句话建档",
+      "lines": [
+        "早饭后的那一次，帮我记上。",
+        "已复述：早饭后那一次"
+      ],
+      "narration": "N12",
+      "dialogues": [
+        "S15-D01"
+      ],
+      "start": 110.25,
+      "end": 120.75,
+      "dur": 10.5,
+      "planned_dur": 7
+    },
+    {
+      "id": "S16",
+      "chapter": "C4 核心功能",
+      "kind": "ui_list",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 02 · 按餐次查询",
+      "lines": [
+        "早饭这一段",
+        "午饭 · 不显示",
+        "晚饭 · 不显示"
+      ],
+      "narration": "N13",
+      "dialogues": [
+        "S16-D01",
+        "S16-D02"
+      ],
+      "start": 120.75,
+      "end": 131.75,
+      "dur": 11.0,
+      "planned_dur": 7
+    },
+    {
+      "id": "S17",
+      "chapter": "C4 核心功能",
+      "kind": "ui_check",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 03 · 吃过就记上",
+      "lines": [
+        "我吃过了",
+        "记上了，慢慢来"
+      ],
+      "narration": "N14",
+      "dialogues": [
+        "S17-D01"
+      ],
+      "start": 131.75,
+      "end": 140.25,
+      "dur": 8.5,
+      "planned_dur": 7
+    },
+    {
+      "id": "S18",
+      "chapter": "C4 核心功能",
+      "kind": "ui_report",
+      "badge": "模拟界面 · 非真机录屏 · 示意数据",
+      "heading": "功能 04 · 当日小结",
+      "lines": [
+        "应服 3",
+        "已服 2",
+        "还差 1"
+      ],
+      "narration": "N15",
+      "dialogues": [
+        "S18-D01"
+      ],
+      "start": 140.25,
+      "end": 151.25,
+      "dur": 11.0,
+      "planned_dur": 7
+    },
+    {
+      "id": "S19",
+      "chapter": "C4 核心功能",
+      "kind": "ui_clock",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 05 · 等会儿再提醒",
+      "lines": [
+        "等会儿再提醒我",
+        "稍后再来"
+      ],
+      "narration": "N16",
+      "dialogues": [
+        "S19-D01"
+      ],
+      "start": 151.25,
+      "end": 160.5,
+      "dur": 9.25,
+      "planned_dur": 7
+    },
+    {
+      "id": "S20",
+      "chapter": "C4 核心功能",
+      "kind": "ui_reminder",
+      "badge": "模拟界面 · 非真机录屏 · 唤醒后的下一轮对话提醒 · 无人唤醒时设备不会自己开口",
+      "heading": "功能 06 · 到药提醒",
+      "lines": [
+        "下次唤醒时，先提一句",
+        "无人唤醒时设备不会自己开口"
+      ],
+      "narration": "N17",
+      "dialogues": [],
+      "start": 160.5,
+      "end": 168.5,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S21",
+      "chapter": "C4 核心功能",
+      "kind": "photo",
+      "badge": "情景演绎 · 功能对话示例 · 非用药建议",
+      "heading": "功能 07 · 拍个照记上",
+      "lines": [
+        "药盒只保留色块与形状"
+      ],
+      "narration": "N18",
+      "dialogues": [
+        "S21-D01"
+      ],
+      "start": 168.5,
+      "end": 176.75,
+      "dur": 8.25,
+      "planned_dur": 7
+    },
+    {
+      "id": "S22",
+      "chapter": "C4 核心功能",
+      "kind": "ui_question",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 07 · 一次只问一件",
+      "lines": [
+        "是饭前吃还是饭后吃呀？",
+        "其余字段保持空白"
+      ],
+      "narration": "N19",
+      "dialogues": [
+        "S22-D01"
+      ],
+      "start": 176.75,
+      "end": 186.25,
+      "dur": 9.5,
+      "planned_dur": 7
+    },
+    {
+      "id": "S23",
+      "chapter": "C4 核心功能",
+      "kind": "ui_confirm",
+      "badge": "模拟界面 · 非真机录屏 · 识别结果需您确认",
+      "heading": "",
+      "lines": [
+        "识别结果需您确认"
+      ],
+      "narration": "",
+      "dialogues": [],
+      "start": 186.25,
+      "end": 189.25,
+      "dur": 3.0,
+      "planned_dur": 3
+    },
+    {
+      "id": "S24",
+      "chapter": "C5 一天",
+      "kind": "day",
+      "badge": "情景演绎 · 早",
+      "heading": "早",
+      "lines": [
+        "粥 · 水杯 · 药盒"
+      ],
+      "narration": "N20",
+      "dialogues": [],
+      "start": 189.25,
+      "end": 197.25,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S25",
+      "chapter": "C5 一天",
+      "kind": "day",
+      "badge": "情景演绎 · 午",
+      "heading": "午",
+      "lines": [
+        "她自己问得清"
+      ],
+      "narration": "N21",
+      "dialogues": [
+        "S25-D01"
+      ],
+      "start": 197.25,
+      "end": 207.0,
+      "dur": 9.75,
+      "planned_dur": 8
+    },
+    {
+      "id": "S26",
+      "chapter": "C5 一天",
+      "kind": "day",
+      "badge": "情景演绎 · 晚",
+      "heading": "晚",
+      "lines": [
+        "那句『吃了』，不用猜"
+      ],
+      "narration": "N22",
+      "dialogues": [
+        "S26-D01"
+      ],
+      "start": 207.0,
+      "end": 216.75,
+      "dur": 9.75,
+      "planned_dur": 8
+    },
+    {
+      "id": "S27",
+      "chapter": "C5 一天",
+      "kind": "commute",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [],
+      "narration": "",
+      "dialogues": [],
+      "start": 216.75,
+      "end": 222.75,
+      "dur": 6.0,
+      "planned_dur": 6
+    },
+    {
+      "id": "S28",
+      "chapter": "C5 一天",
+      "kind": "still_life",
+      "badge": "情景演绎 · 产品形态为设计示意",
+      "heading": "",
+      "lines": [
+        "药盒 · 老花镜 · 小屏设备"
+      ],
+      "narration": "N23",
+      "dialogues": [],
+      "start": 222.75,
+      "end": 229.0,
+      "dur": 6.25,
+      "planned_dur": 6
+    },
+    {
+      "id": "S29",
+      "chapter": "C6 安全边界",
+      "kind": "ui_refusal",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "它不接的问题",
+      "lines": [
+        "这药能停了吗？",
+        "这事得问您大夫，我不敢替您拿主意。"
+      ],
+      "narration": "N24",
+      "dialogues": [
+        "S29-D01",
+        "S29-D02"
+      ],
+      "start": 229.0,
+      "end": 239.25,
+      "dur": 10.25,
+      "planned_dur": 8
+    },
+    {
+      "id": "S30",
+      "chapter": "C6 安全边界",
+      "kind": "safety_list",
+      "badge": "安全边界 · 原创文字卡",
+      "heading": "安全边界",
+      "lines": [
+        "不推荐药物 / 剂量 / 疗程",
+        "不舒服建议联系家人或就医",
+        "紧急情况建议拨打 120"
+      ],
+      "narration": "N25",
+      "dialogues": [],
+      "start": 239.25,
+      "end": 249.75,
+      "dur": 10.5,
+      "planned_dur": 9
+    },
+    {
+      "id": "S31",
+      "chapter": "C6 安全边界",
+      "kind": "table_warm",
+      "badge": "情景演绎 · 原创文字卡",
+      "heading": "",
+      "lines": [
+        "只做提醒 · 记录 · 复述 · 转述医生嘱咐"
+      ],
+      "narration": "N26",
+      "dialogues": [],
+      "start": 249.75,
+      "end": 258.75,
+      "dur": 9.0,
+      "planned_dur": 9
+    },
+    {
+      "id": "S32",
+      "chapter": "C7 落版",
+      "kind": "brand",
+      "badge": "",
+      "heading": "",
+      "lines": [],
+      "narration": "N27",
+      "dialogues": [],
+      "start": 258.75,
+      "end": 266.75,
+      "dur": 8.0,
+      "planned_dur": 8
+    },
+    {
+      "id": "S33",
+      "chapter": "C7 落版",
+      "kind": "closing",
+      "badge": "",
+      "heading": "",
+      "lines": [],
+      "narration": "N28",
+      "dialogues": [],
+      "start": 266.75,
+      "end": 274.75,
+      "dur": 8.0,
+      "planned_dur": 8
+    }
+  ],
+  "voices": [
+    {
+      "id": "N01",
+      "type": "narration",
+      "shot": "S01",
+      "start": 0.55,
+      "end": 6.502,
+      "text": "早上七点半，桌上有三盒药，一张写了又划掉的单子。",
+      "wav": "tts/N01.wav",
+      "duration_s": 5.952
+    },
+    {
+      "id": "N02",
+      "type": "narration",
+      "shot": "S02",
+      "start": 8.05,
+      "end": 12.778,
+      "text": "哪盒饭前，哪盒饭后，昨天到底吃没吃——",
+      "wav": "tts/N02.wav",
+      "duration_s": 4.728
+    },
+    {
+      "id": "N03",
+      "type": "narration",
+      "shot": "S04",
+      "start": 20.3,
+      "end": 25.508,
+      "text": "电话那头问一句『今天吃药了吗』，这头常常答不上来。",
+      "wav": "tts/N03.wav",
+      "duration_s": 5.208
+    },
+    {
+      "id": "S04-D01",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 25.888,
+      "end": 28.552,
+      "text": "妈，今天药吃了吗？",
+      "wav": "tts/S04-D01.wav",
+      "duration_s": 2.664
+    },
+    {
+      "id": "S04-D02",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 28.932,
+      "end": 30.804,
+      "text": "……吃了吧。",
+      "wav": "tts/S04-D02.wav",
+      "duration_s": 1.872
+    },
+    {
+      "id": "N04",
+      "type": "narration",
+      "shot": "S05",
+      "start": 32.3,
+      "end": 38.828,
+      "text": "不是不上心。是字太小，规矩太多，一天要记好几回。",
+      "wav": "tts/N04.wav",
+      "duration_s": 6.528
+    },
+    {
+      "id": "N05",
+      "type": "narration",
+      "shot": "S06",
+      "start": 40.3,
+      "end": 45.292,
+      "text": "在外的人，能做的也只剩再发一句『记得吃药』。",
+      "wav": "tts/N05.wav",
+      "duration_s": 4.992
+    },
+    {
+      "id": "N06",
+      "type": "narration",
+      "shot": "S07",
+      "start": 49.3,
+      "end": 53.308,
+      "text": "可这件事，本来不该靠谁替她记着。",
+      "wav": "tts/N06.wav",
+      "duration_s": 4.008
+    },
+    {
+      "id": "N07",
+      "type": "narration",
+      "shot": "S08",
+      "start": 58.3,
+      "end": 62.164,
+      "text": "她没打开什么 App，只是说了一句话。",
+      "wav": "tts/N07.wav",
+      "duration_s": 3.864
+    },
+    {
+      "id": "S08-D01",
+      "type": "dialogue",
+      "shot": "S08",
+      "start": 62.544,
+      "end": 66.168,
+      "text": "早饭后的那一次，帮我记上。",
+      "wav": "tts/S08-D01.wav",
+      "duration_s": 3.624
+    },
+    {
+      "id": "S09-D01",
+      "type": "dialogue",
+      "shot": "S09",
+      "start": 67.55,
+      "end": 70.478,
+      "text": "您听听对不对：早饭后那一次。",
+      "wav": "tts/S09-D01.wav",
+      "duration_s": 2.928
+    },
+    {
+      "id": "N08",
+      "type": "narration",
+      "shot": "S10",
+      "start": 74.55,
+      "end": 78.198,
+      "text": "药到。不用学，只要说。",
+      "wav": "tts/N08.wav",
+      "duration_s": 3.648
+    },
+    {
+      "id": "N09",
+      "type": "narration",
+      "shot": "S11",
+      "start": 82.55,
+      "end": 87.374,
+      "text": "这一段是设计示意，不是真机，也不是录屏。",
+      "wav": "tts/N09.wav",
+      "duration_s": 4.824
+    },
+    {
+      "id": "N10",
+      "type": "narration",
+      "shot": "S12",
+      "start": 89.55,
+      "end": 95.19,
+      "text": "按设计，它一次只说一件事，说完等你，不打断。",
+      "wav": "tts/N10.wav",
+      "duration_s": 5.64
+    },
+    {
+      "id": "N11",
+      "type": "narration",
+      "shot": "S13",
+      "start": 96.8,
+      "end": 102.896,
+      "text": "说定了，它把药名和时间复述一遍，问一句『您听听对不对』。",
+      "wav": "tts/N11.wav",
+      "duration_s": 6.096
+    },
+    {
+      "id": "N12",
+      "type": "narration",
+      "shot": "S15",
+      "start": 110.8,
+      "end": 115.768,
+      "text": "建档，只要一句话；它会复述，不替您猜。",
+      "wav": "tts/N12.wav",
+      "duration_s": 4.968
+    },
+    {
+      "id": "S15-D01",
+      "type": "dialogue",
+      "shot": "S15",
+      "start": 116.148,
+      "end": 119.772,
+      "text": "早饭后的那一次，帮我记上。",
+      "wav": "tts/S15-D01.wav",
+      "duration_s": 3.624
+    },
+    {
+      "id": "N13",
+      "type": "narration",
+      "shot": "S16",
+      "start": 121.3,
+      "end": 125.212,
+      "text": "问早上吃什么，它只念早饭那一段。",
+      "wav": "tts/N13.wav",
+      "duration_s": 3.912
+    },
+    {
+      "id": "S16-D01",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 125.592,
+      "end": 127.896,
+      "text": "早上该吃什么？",
+      "wav": "tts/S16-D01.wav",
+      "duration_s": 2.304
+    },
+    {
+      "id": "S16-D02",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 128.276,
+      "end": 130.724,
+      "text": "早饭这一段，就这些。",
+      "wav": "tts/S16-D02.wav",
+      "duration_s": 2.448
+    },
+    {
+      "id": "N14",
+      "type": "narration",
+      "shot": "S17",
+      "start": 132.3,
+      "end": 136.98,
+      "text": "一句『我吃过了』，就算记上；漏了也不责怪。",
+      "wav": "tts/N14.wav",
+      "duration_s": 4.68
+    },
+    {
+      "id": "S17-D01",
+      "type": "dialogue",
+      "shot": "S17",
+      "start": 137.36,
+      "end": 139.232,
+      "text": "我吃过了。",
+      "wav": "tts/S17-D01.wav",
+      "duration_s": 1.872
+    },
+    {
+      "id": "N15",
+      "type": "narration",
+      "shot": "S18",
+      "start": 140.8,
+      "end": 147.112,
+      "text": "问一句今天吃得怎么样，它算出还差几次，说得清清楚楚。",
+      "wav": "tts/N15.wav",
+      "duration_s": 6.312
+    },
+    {
+      "id": "S18-D01",
+      "type": "dialogue",
+      "shot": "S18",
+      "start": 147.492,
+      "end": 150.348,
+      "text": "我今天吃药情况怎样？",
+      "wav": "tts/S18-D01.wav",
+      "duration_s": 2.856
+    },
+    {
+      "id": "N16",
+      "type": "narration",
+      "shot": "S19",
+      "start": 151.8,
+      "end": 156.72,
+      "text": "正忙着？说一声『等会儿』，它就晚一点再来。",
+      "wav": "tts/N16.wav",
+      "duration_s": 4.92
+    },
+    {
+      "id": "S19-D01",
+      "type": "dialogue",
+      "shot": "S19",
+      "start": 157.1,
+      "end": 159.428,
+      "text": "等会儿再提醒我。",
+      "wav": "tts/S19-D01.wav",
+      "duration_s": 2.328
+    },
+    {
+      "id": "N17",
+      "type": "narration",
+      "shot": "S20",
+      "start": 161.05,
+      "end": 166.594,
+      "text": "下次唤醒它，到点还没打卡的那一次，它会先提一句。",
+      "wav": "tts/N17.wav",
+      "duration_s": 5.544
+    },
+    {
+      "id": "N18",
+      "type": "narration",
+      "shot": "S21",
+      "start": 169.05,
+      "end": 173.058,
+      "text": "记不清名字，就把药盒举起来给它看。",
+      "wav": "tts/N18.wav",
+      "duration_s": 4.008
+    },
+    {
+      "id": "S21-D01",
+      "type": "dialogue",
+      "shot": "S21",
+      "start": 173.438,
+      "end": 175.838,
+      "text": "帮我拍个照记上。",
+      "wav": "tts/S21-D01.wav",
+      "duration_s": 2.4
+    },
+    {
+      "id": "N19",
+      "type": "narration",
+      "shot": "S22",
+      "start": 177.3,
+      "end": 182.268,
+      "text": "它念出认到的内容，认不清的，一次只问一件。",
+      "wav": "tts/N19.wav",
+      "duration_s": 4.968
+    },
+    {
+      "id": "S22-D01",
+      "type": "dialogue",
+      "shot": "S22",
+      "start": 182.648,
+      "end": 185.336,
+      "text": "是饭前吃还是饭后吃呀？",
+      "wav": "tts/S22-D01.wav",
+      "duration_s": 2.688
+    },
+    {
+      "id": "N20",
+      "type": "narration",
+      "shot": "S24",
+      "start": 189.8,
+      "end": 194.456,
+      "text": "一天还是那些事：早饭、午饭、晚饭。",
+      "wav": "tts/N20.wav",
+      "duration_s": 4.656
+    },
+    {
+      "id": "N21",
+      "type": "narration",
+      "shot": "S25",
+      "start": 197.8,
+      "end": 202.48,
+      "text": "只是现在，她自己问得清，也自己答得上。",
+      "wav": "tts/N21.wav",
+      "duration_s": 4.68
+    },
+    {
+      "id": "S25-D01",
+      "type": "dialogue",
+      "shot": "S25",
+      "start": 202.86,
+      "end": 205.956,
+      "text": "早上那盒，我吃过了。",
+      "wav": "tts/S25-D01.wav",
+      "duration_s": 3.096
+    },
+    {
+      "id": "N22",
+      "type": "narration",
+      "shot": "S26",
+      "start": 207.55,
+      "end": 212.086,
+      "text": "电话再响的时候，那句『吃了』，终于不用猜。",
+      "wav": "tts/N22.wav",
+      "duration_s": 4.536
+    },
+    {
+      "id": "S26-D01",
+      "type": "dialogue",
+      "shot": "S26",
+      "start": 212.466,
+      "end": 215.73,
+      "text": "吃了，早上那盒也吃了。",
+      "wav": "tts/S26-D01.wav",
+      "duration_s": 3.264
+    },
+    {
+      "id": "N23",
+      "type": "narration",
+      "shot": "S28",
+      "start": 223.3,
+      "end": 227.956,
+      "text": "牵挂没变少，只是有了一个能被听见的地方。",
+      "wav": "tts/N23.wav",
+      "duration_s": 4.656
+    },
+    {
+      "id": "N24",
+      "type": "narration",
+      "shot": "S29",
+      "start": 229.55,
+      "end": 232.19,
+      "text": "有些问题，它不接。",
+      "wav": "tts/N24.wav",
+      "duration_s": 2.64
+    },
+    {
+      "id": "S29-D01",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 232.57,
+      "end": 234.682,
+      "text": "这药能停了吗？",
+      "wav": "tts/S29-D01.wav",
+      "duration_s": 2.112
+    },
+    {
+      "id": "S29-D02",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 235.062,
+      "end": 238.398,
+      "text": "这事得问您大夫，我不敢替您拿主意。",
+      "wav": "tts/S29-D02.wav",
+      "duration_s": 3.336
+    },
+    {
+      "id": "N25",
+      "type": "narration",
+      "shot": "S30",
+      "start": 239.8,
+      "end": 248.776,
+      "text": "不推荐药，不改剂量；不舒服就让您找家人、找大夫；紧急情况，先拨 120。",
+      "wav": "tts/N25.wav",
+      "duration_s": 8.976
+    },
+    {
+      "id": "N26",
+      "type": "narration",
+      "shot": "S31",
+      "start": 250.3,
+      "end": 254.524,
+      "text": "它管的不是病，是那句总被忘掉的『记得』。",
+      "wav": "tts/N26.wav",
+      "duration_s": 4.224
+    },
+    {
+      "id": "N27",
+      "type": "narration",
+      "shot": "S32",
+      "start": 259.3,
+      "end": 263.38,
+      "text": "老人不会用智能手机，但一定会说话。",
+      "wav": "tts/N27.wav",
+      "duration_s": 4.08
+    },
+    {
+      "id": "N28",
+      "type": "narration",
+      "shot": "S33",
+      "start": 267.3,
+      "end": 272.532,
+      "text": "今天，给爸妈打个电话，问一句：今天吃药了吗。",
+      "wav": "tts/N28.wav",
+      "duration_s": 5.232
+    }
+  ],
+  "subtitles": [
+    {
+      "id": "N01",
+      "type": "narration",
+      "shot": "S01",
+      "start": 0.49,
+      "end": 6.602,
+      "text": "早上七点半，桌上有三盒药，一张写了又划掉的单子。"
+    },
+    {
+      "id": "N02",
+      "type": "narration",
+      "shot": "S02",
+      "start": 7.99,
+      "end": 12.878,
+      "text": "哪盒饭前，哪盒饭后，昨天到底吃没吃——"
+    },
+    {
+      "id": "N03",
+      "type": "narration",
+      "shot": "S04",
+      "start": 20.24,
+      "end": 25.608,
+      "text": "电话那头问一句『今天吃药了吗』，这头常常答不上来。"
+    },
+    {
+      "id": "S04-D01",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 25.828,
+      "end": 28.652,
+      "text": "妈，今天药吃了吗？"
+    },
+    {
+      "id": "S04-D02",
+      "type": "dialogue",
+      "shot": "S04",
+      "start": 28.872,
+      "end": 30.904,
+      "text": "……吃了吧。"
+    },
+    {
+      "id": "N04",
+      "type": "narration",
+      "shot": "S05",
+      "start": 32.24,
+      "end": 38.928,
+      "text": "不是不上心。是字太小，规矩太多，一天要记好几回。"
+    },
+    {
+      "id": "N05",
+      "type": "narration",
+      "shot": "S06",
+      "start": 40.24,
+      "end": 45.392,
+      "text": "在外的人，能做的也只剩再发一句『记得吃药』。"
+    },
+    {
+      "id": "N06",
+      "type": "narration",
+      "shot": "S07",
+      "start": 49.24,
+      "end": 53.408,
+      "text": "可这件事，本来不该靠谁替她记着。"
+    },
+    {
+      "id": "N07",
+      "type": "narration",
+      "shot": "S08",
+      "start": 58.24,
+      "end": 62.264,
+      "text": "她没打开什么 App，只是说了一句话。"
+    },
+    {
+      "id": "S08-D01",
+      "type": "dialogue",
+      "shot": "S08",
+      "start": 62.484,
+      "end": 66.268,
+      "text": "早饭后的那一次，帮我记上。"
+    },
+    {
+      "id": "S09-D01",
+      "type": "dialogue",
+      "shot": "S09",
+      "start": 67.49,
+      "end": 70.578,
+      "text": "您听听对不对：早饭后那一次。"
+    },
+    {
+      "id": "N08",
+      "type": "narration",
+      "shot": "S10",
+      "start": 74.49,
+      "end": 78.298,
+      "text": "药到。不用学，只要说。"
+    },
+    {
+      "id": "N09",
+      "type": "narration",
+      "shot": "S11",
+      "start": 82.49,
+      "end": 87.474,
+      "text": "这一段是设计示意，不是真机，也不是录屏。"
+    },
+    {
+      "id": "N10",
+      "type": "narration",
+      "shot": "S12",
+      "start": 89.49,
+      "end": 95.29,
+      "text": "按设计，它一次只说一件事，说完等你，不打断。"
+    },
+    {
+      "id": "N11",
+      "type": "narration",
+      "shot": "S13",
+      "start": 96.74,
+      "end": 102.996,
+      "text": "说定了，它把药名和时间复述一遍，问一句『您听听对不对』。"
+    },
+    {
+      "id": "N12",
+      "type": "narration",
+      "shot": "S15",
+      "start": 110.74,
+      "end": 115.868,
+      "text": "建档，只要一句话；它会复述，不替您猜。"
+    },
+    {
+      "id": "S15-D01",
+      "type": "dialogue",
+      "shot": "S15",
+      "start": 116.088,
+      "end": 119.872,
+      "text": "早饭后的那一次，帮我记上。"
+    },
+    {
+      "id": "N13",
+      "type": "narration",
+      "shot": "S16",
+      "start": 121.24,
+      "end": 125.312,
+      "text": "问早上吃什么，它只念早饭那一段。"
+    },
+    {
+      "id": "S16-D01",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 125.532,
+      "end": 127.996,
+      "text": "早上该吃什么？"
+    },
+    {
+      "id": "S16-D02",
+      "type": "dialogue",
+      "shot": "S16",
+      "start": 128.216,
+      "end": 130.824,
+      "text": "早饭这一段，就这些。"
+    },
+    {
+      "id": "N14",
+      "type": "narration",
+      "shot": "S17",
+      "start": 132.24,
+      "end": 137.08,
+      "text": "一句『我吃过了』，就算记上；漏了也不责怪。"
+    },
+    {
+      "id": "S17-D01",
+      "type": "dialogue",
+      "shot": "S17",
+      "start": 137.3,
+      "end": 139.332,
+      "text": "我吃过了。"
+    },
+    {
+      "id": "N15",
+      "type": "narration",
+      "shot": "S18",
+      "start": 140.74,
+      "end": 147.212,
+      "text": "问一句今天吃得怎么样，它算出还差几次，说得清清楚楚。"
+    },
+    {
+      "id": "S18-D01",
+      "type": "dialogue",
+      "shot": "S18",
+      "start": 147.432,
+      "end": 150.448,
+      "text": "我今天吃药情况怎样？"
+    },
+    {
+      "id": "N16",
+      "type": "narration",
+      "shot": "S19",
+      "start": 151.74,
+      "end": 156.82,
+      "text": "正忙着？说一声『等会儿』，它就晚一点再来。"
+    },
+    {
+      "id": "S19-D01",
+      "type": "dialogue",
+      "shot": "S19",
+      "start": 157.04,
+      "end": 159.528,
+      "text": "等会儿再提醒我。"
+    },
+    {
+      "id": "N17",
+      "type": "narration",
+      "shot": "S20",
+      "start": 160.99,
+      "end": 166.694,
+      "text": "下次唤醒它，到点还没打卡的那一次，它会先提一句。"
+    },
+    {
+      "id": "N18",
+      "type": "narration",
+      "shot": "S21",
+      "start": 168.99,
+      "end": 173.158,
+      "text": "记不清名字，就把药盒举起来给它看。"
+    },
+    {
+      "id": "S21-D01",
+      "type": "dialogue",
+      "shot": "S21",
+      "start": 173.378,
+      "end": 175.938,
+      "text": "帮我拍个照记上。"
+    },
+    {
+      "id": "N19",
+      "type": "narration",
+      "shot": "S22",
+      "start": 177.24,
+      "end": 182.368,
+      "text": "它念出认到的内容，认不清的，一次只问一件。"
+    },
+    {
+      "id": "S22-D01",
+      "type": "dialogue",
+      "shot": "S22",
+      "start": 182.588,
+      "end": 185.436,
+      "text": "是饭前吃还是饭后吃呀？"
+    },
+    {
+      "id": "N20",
+      "type": "narration",
+      "shot": "S24",
+      "start": 189.74,
+      "end": 194.556,
+      "text": "一天还是那些事：早饭、午饭、晚饭。"
+    },
+    {
+      "id": "N21",
+      "type": "narration",
+      "shot": "S25",
+      "start": 197.74,
+      "end": 202.58,
+      "text": "只是现在，她自己问得清，也自己答得上。"
+    },
+    {
+      "id": "S25-D01",
+      "type": "dialogue",
+      "shot": "S25",
+      "start": 202.8,
+      "end": 206.056,
+      "text": "早上那盒，我吃过了。"
+    },
+    {
+      "id": "N22",
+      "type": "narration",
+      "shot": "S26",
+      "start": 207.49,
+      "end": 212.186,
+      "text": "电话再响的时候，那句『吃了』，终于不用猜。"
+    },
+    {
+      "id": "S26-D01",
+      "type": "dialogue",
+      "shot": "S26",
+      "start": 212.406,
+      "end": 215.83,
+      "text": "吃了，早上那盒也吃了。"
+    },
+    {
+      "id": "N23",
+      "type": "narration",
+      "shot": "S28",
+      "start": 223.24,
+      "end": 228.056,
+      "text": "牵挂没变少，只是有了一个能被听见的地方。"
+    },
+    {
+      "id": "N24",
+      "type": "narration",
+      "shot": "S29",
+      "start": 229.49,
+      "end": 232.29,
+      "text": "有些问题，它不接。"
+    },
+    {
+      "id": "S29-D01",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 232.51,
+      "end": 234.782,
+      "text": "这药能停了吗？"
+    },
+    {
+      "id": "S29-D02",
+      "type": "dialogue",
+      "shot": "S29",
+      "start": 235.002,
+      "end": 238.498,
+      "text": "这事得问您大夫，我不敢替您拿主意。"
+    },
+    {
+      "id": "N25",
+      "type": "narration",
+      "shot": "S30",
+      "start": 239.74,
+      "end": 248.876,
+      "text": "不推荐药，不改剂量；不舒服就让您找家人、找大夫；紧急情况，先拨 120。"
+    },
+    {
+      "id": "N26",
+      "type": "narration",
+      "shot": "S31",
+      "start": 250.24,
+      "end": 254.624,
+      "text": "它管的不是病，是那句总被忘掉的『记得』。"
+    },
+    {
+      "id": "N27",
+      "type": "narration",
+      "shot": "S32",
+      "start": 259.24,
+      "end": 263.48,
+      "text": "老人不会用智能手机，但一定会说话。"
+    },
+    {
+      "id": "N28",
+      "type": "narration",
+      "shot": "S33",
+      "start": 267.24,
+      "end": 272.632,
+      "text": "今天，给爸妈打个电话，问一句：今天吃药了吗。"
+    }
+  ],
+  "overlaps": [],
+  "subtitle_events": 44
+}

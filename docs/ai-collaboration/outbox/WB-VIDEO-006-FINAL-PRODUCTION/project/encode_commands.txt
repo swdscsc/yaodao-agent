@@ -1,0 +1,22 @@
+# WB-VIDEO-006 reproducible pipeline (Windows / Python 3.13 / FFmpeg 7.1)
+# All paths relative to media/WB-VIDEO-006/
+python project/build_tts.py            # edge-tts -> 48 kHz mono WAV per line
+python project/make_timeline.py        # real TTS durations -> timeline + SRT
+python project/build_audio.py          # original score/SFX/ducking/mix
+python project/render.py main          # 1920x1080 @24 -> final_main.mp4
+python project/render.py vertical      # 1080x1920 @24 -> final_vertical.mp4
+python project/deliver.py              # assemble outbox + QA + hashes
+python project/write_reports.py        # quality_report.md / asset-sources.md / README.md
+
+# Audio delivery note: build_audio.py produces 48 kHz WAV working masters.
+# The outbox keeps the mandated voiceover.wav as WAV; the other seven masters
+# are delivered as lossless FLAC (ffmpeg -c:a flac) to keep the Git push small.
+# Decode any .flac back to WAV with: ffmpeg -i x.flac x.wav
+
+# The exact FFmpeg encode command used by render.py (rawvideo pipe):
+ffmpeg -y -f rawvideo -pix_fmt rgb24 -s 1920x1080 -r 24 -i - -i mix_main.wav \
+  -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p -r 24 \
+  -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart -t 274.75 final_main.mp4
+ffmpeg -y -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 24 -i - -i mix_vertical.wav \
+  -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p -r 24 \
+  -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart -t 50.50 final_vertical.mp4

@@ -1,0 +1,713 @@
+{
+  "task": "WB-VIDEO-006-FINAL-PRODUCTION",
+  "files": 63,
+  "total_bytes": 93449062,
+  "main": {
+    "tag": "main",
+    "file": "final_main.mp4",
+    "size_bytes": 10537954,
+    "sha256": "c6f98a5b31aeab22427184e6ca11e0acb9d502dbe8a22a8b40f969db536b8bb4",
+    "ffprobe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_time_base": "1/48",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1088,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "chroma_location": "left",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 3376128,
+          "duration": "274.750000",
+          "bit_rate": "110331",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "6594",
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "encoder": "Lavc61.19.100 libx264"
+          }
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_time_base": "1/48000",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 13188000,
+          "duration": "274.750000",
+          "bit_rate": "190962",
+          "max_bit_rate": "192000",
+          "nb_frames": "12880",
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler"
+          }
+        }
+      ],
+      "format": {
+        "filename": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-006-FINAL-PRODUCTION\\final_main.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "274.750000",
+        "size": "10537954",
+        "bit_rate": "306837",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf61.7.100"
+        }
+      }
+    },
+    "streams": {
+      "video": 1,
+      "audio": 1,
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": "24/1",
+      "audio_codec": "aac",
+      "sample_rate": "48000",
+      "channels": 2
+    },
+    "duration_s": 274.75,
+    "full_video_decode": {
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "full_audio_decode": {
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "black_detect": {
+      "returncode": 0,
+      "intervals": [],
+      "count": 0
+    },
+    "freeze_detect": {
+      "returncode": 0,
+      "intervals": [],
+      "count": 0
+    },
+    "volume": {
+      "mean_dbfs": -22.5,
+      "max_dbfs": -1.8
+    },
+    "silence_detect": {
+      "intervals": [],
+      "count": 0
+    },
+    "av_duration_delta_s": 0.0,
+    "expected_duration_s": 274.75,
+    "duration_delta_s": 0.0
+  },
+  "vertical": {
+    "tag": "vertical",
+    "file": "final_vertical.mp4",
+    "size_bytes": 2056331,
+    "sha256": "89d12425dfc4d8ea4d614a19b1b07d5910aac429c2c3740c393131e0ee56aa24",
+    "ffprobe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_time_base": "1/48",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1088,
+          "coded_height": 1920,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 40,
+          "chroma_location": "left",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 620544,
+          "duration": "50.500000",
+          "bit_rate": "129859",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "1212",
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "encoder": "Lavc61.19.100 libx264"
+          }
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_time_base": "1/48000",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 2424000,
+          "duration": "50.500000",
+          "bit_rate": "190121",
+          "max_bit_rate": "192000",
+          "nb_frames": "2369",
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler"
+          }
+        }
+      ],
+      "format": {
+        "filename": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-006-FINAL-PRODUCTION\\final_vertical.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "50.500000",
+        "size": "2056331",
+        "bit_rate": "325755",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf61.7.100"
+        }
+      }
+    },
+    "streams": {
+      "video": 1,
+      "audio": 1,
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "24/1",
+      "audio_codec": "aac",
+      "sample_rate": "48000",
+      "channels": 2
+    },
+    "duration_s": 50.5,
+    "full_video_decode": {
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "full_audio_decode": {
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "black_detect": {
+      "returncode": 0,
+      "intervals": [],
+      "count": 0
+    },
+    "freeze_detect": {
+      "returncode": 0,
+      "intervals": [],
+      "count": 0
+    },
+    "volume": {
+      "mean_dbfs": -21.2,
+      "max_dbfs": -3.1
+    },
+    "silence_detect": {
+      "intervals": [],
+      "count": 0
+    },
+    "av_duration_delta_s": 0.0,
+    "expected_duration_s": 50.5,
+    "duration_delta_s": 0.0
+  },
+  "subtitles": {
+    "main": {
+      "file": "final_main.srt",
+      "cues": 44,
+      "expected_cues": 44,
+      "overlaps": [],
+      "text_mismatch": [],
+      "banned_hits": [],
+      "garbled": [],
+      "covers_voice": true,
+      "monotonic": true
+    },
+    "vertical": {
+      "file": "final_vertical.srt",
+      "cues": 13,
+      "expected_cues": 13,
+      "overlaps": [],
+      "text_mismatch": [],
+      "banned_hits": [],
+      "garbled": [],
+      "covers_voice": true,
+      "monotonic": true
+    }
+  },
+  "banned_global_hits": [],
+  "contact_sheets": {
+    "main": "main-contact-sheet.jpg",
+    "vertical": "vertical-contact-sheet.jpg"
+  },
+  "contact_sheet_times": {
+    "main": [
+      8.5859375,
+      25.7578125,
+      42.9296875,
+      60.1015625,
+      77.2734375,
+      94.4453125,
+      111.6171875,
+      128.7890625,
+      145.9609375,
+      163.1328125,
+      180.3046875,
+      197.4765625,
+      214.6484375,
+      231.8203125,
+      248.9921875,
+      266.1640625
+    ],
+    "vertical": [
+      2.1041666666666665,
+      6.3125,
+      10.520833333333334,
+      14.729166666666666,
+      18.9375,
+      23.145833333333332,
+      27.354166666666668,
+      31.5625,
+      35.770833333333336,
+      39.979166666666664,
+      44.1875,
+      48.395833333333336
+    ]
+  },
+  "file_list": [
+    {
+      "path": "README.md",
+      "bytes": 960,
+      "sha256": "35954e77a6bc64e79afb8630111d091d4074015fab1656590dc2a6c49885337f"
+    },
+    {
+      "path": "asset-sources.md",
+      "bytes": 3002,
+      "sha256": "3ea9a6302476b59f27cea110e22fdf921cfa9a4d73e3562da9282df50af17e6a"
+    },
+    {
+      "path": "delivery_manifest.json",
+      "bytes": 21029,
+      "sha256": "4ae360863ac9affe269177cb4c2aa76d82b9b9f59ff875604ab1d687e7cbd872"
+    },
+    {
+      "path": "ffprobe.json",
+      "bytes": 6946,
+      "sha256": "1855475766f3dd973c213caf28ff02e0e9741d8a5ea65c680f0cb103751fb517"
+    },
+    {
+      "path": "final_main.mp4",
+      "bytes": 10537954,
+      "sha256": "c6f98a5b31aeab22427184e6ca11e0acb9d502dbe8a22a8b40f969db536b8bb4"
+    },
+    {
+      "path": "final_main.srt",
+      "bytes": 3719,
+      "sha256": "eabca507e0b258ae00a910fd6ab8c6c74020bc5c976d84c77bb2473b1de7f57c"
+    },
+    {
+      "path": "final_vertical.mp4",
+      "bytes": 2056331,
+      "sha256": "89d12425dfc4d8ea4d614a19b1b07d5910aac429c2c3740c393131e0ee56aa24"
+    },
+    {
+      "path": "final_vertical.srt",
+      "bytes": 1037,
+      "sha256": "55c3a98a6b51660333b0f3742aadd706739c5f0945de404efffa979977ddd55d"
+    },
+    {
+      "path": "keyframes/main-01.jpg",
+      "bytes": 57420,
+      "sha256": "90cb8e1a111b125589399b2ef2910d443ad17bbd6b6f59ed1ec39e49d81de315"
+    },
+    {
+      "path": "keyframes/main-02.jpg",
+      "bytes": 53694,
+      "sha256": "562df924a4ef64556b84b7bc858c2858b4c1458ad2b28db8c8688c66bb782fed"
+    },
+    {
+      "path": "keyframes/main-03.jpg",
+      "bytes": 62129,
+      "sha256": "e62506dd62577a62e56de867c28806746ee4f5b12d70b0e0873e687715717d95"
+    },
+    {
+      "path": "keyframes/main-04.jpg",
+      "bytes": 77117,
+      "sha256": "81ba976124556d6102b643b3b6fb0b68a32d02a5140da989fc75e4602d614787"
+    },
+    {
+      "path": "keyframes/main-05.jpg",
+      "bytes": 51827,
+      "sha256": "0c56a83d19abc209cda0a375c26b1da1a107755aef87a4be4f00292ac237ee88"
+    },
+    {
+      "path": "keyframes/main-06.jpg",
+      "bytes": 65621,
+      "sha256": "13eb0b6f4d13ac98a08afe9b9dfe479a4eb7d42f8d61bb9038254e355e312fa5"
+    },
+    {
+      "path": "keyframes/main-07.jpg",
+      "bytes": 73625,
+      "sha256": "c069c593ca7e67cea116ba4083851347e4cf92398575b1a2eedd10b195625c54"
+    },
+    {
+      "path": "keyframes/main-08.jpg",
+      "bytes": 82118,
+      "sha256": "d57b36cf9c8d0811a941923043f8ca61b49ea53e73e17882c274736479a382c0"
+    },
+    {
+      "path": "keyframes/main-09.jpg",
+      "bytes": 81492,
+      "sha256": "0da5aaf64dd4a6539c23af8962827a0d2b23d3329104e1935b94170ade5979aa"
+    },
+    {
+      "path": "keyframes/main-10.jpg",
+      "bytes": 83740,
+      "sha256": "321347b7c5ba74ea2ddfb506581497a08ed38479981ba790832bcc7f6202a30b"
+    },
+    {
+      "path": "keyframes/main-11.jpg",
+      "bytes": 86637,
+      "sha256": "6730eaebd73f9d7d727eeed3658e08c8ac1e0273ce20e1ba670566de17340213"
+    },
+    {
+      "path": "keyframes/main-12.jpg",
+      "bytes": 29537,
+      "sha256": "3e179313638fece3c5b850ac075ccab232363cc3c4659db18901748f3f52c42b"
+    },
+    {
+      "path": "keyframes/main-13.jpg",
+      "bytes": 49761,
+      "sha256": "772c0a81782ed003b7dc8a4a5af83b1216edb09f5d49f518feafed4f77c04808"
+    },
+    {
+      "path": "keyframes/main-14.jpg",
+      "bytes": 65545,
+      "sha256": "f5776d5222017bbb81f0ec6d37a5b330dd0bf6fb9c326880f228d16019788d98"
+    },
+    {
+      "path": "keyframes/main-15.jpg",
+      "bytes": 49979,
+      "sha256": "63f8a9a14852317fa6bb89d2ec72bce1d5961c329a8b9a149218fd700327e3f0"
+    },
+    {
+      "path": "keyframes/main-16.jpg",
+      "bytes": 40592,
+      "sha256": "c2a1e93969c3b5545bf480d6532ffe637bd7e526a5c0d9cc921e975e92fc92bb"
+    },
+    {
+      "path": "keyframes/main-contact-sheet.jpg",
+      "bytes": 171904,
+      "sha256": "f1326fdced18c11cf176f7e529cb370be872cca6fbd148aae5f60f0900da7de9"
+    },
+    {
+      "path": "keyframes/vertical-01.jpg",
+      "bytes": 62105,
+      "sha256": "e3fc32f5b17b6c94d3f35da46e09a7debf83c46a0e4ae757a29ed73b2fbfd432"
+    },
+    {
+      "path": "keyframes/vertical-02.jpg",
+      "bytes": 64830,
+      "sha256": "91748ada5322a1634d80244e80f67815ec79a6767f973bba1bc4ccb12a84c713"
+    },
+    {
+      "path": "keyframes/vertical-03.jpg",
+      "bytes": 61978,
+      "sha256": "6b1bc9fadb97c7a2fa0208be9c58838681ba90bea69b25c2ccf3d8f7e230e047"
+    },
+    {
+      "path": "keyframes/vertical-04.jpg",
+      "bytes": 33419,
+      "sha256": "bd1a45530e5a65f1dac2c3da264b87765bc39e2f36de5a861dba7112db586e32"
+    },
+    {
+      "path": "keyframes/vertical-05.jpg",
+      "bytes": 46725,
+      "sha256": "5144f24d96dc5c1d9373d69b5c5369d3619d6b9fce964a4d2514e42b5eb55309"
+    },
+    {
+      "path": "keyframes/vertical-06.jpg",
+      "bytes": 56760,
+      "sha256": "38c919bd464dbf983098c6bfef31c8128b57c5f541f38afd4d6905ec4983da03"
+    },
+    {
+      "path": "keyframes/vertical-07.jpg",
+      "bytes": 53673,
+      "sha256": "d16feb9a5dafec4b0e6ea4a449d61fcac4c1ab9024ee6ea7526ca83947fce5bb"
+    },
+    {
+      "path": "keyframes/vertical-08.jpg",
+      "bytes": 58010,
+      "sha256": "3e83f10132935c8724f22df3fbfcf1826d61d15dfa131331869402adf33e0933"
+    },
+    {
+      "path": "keyframes/vertical-09.jpg",
+      "bytes": 58433,
+      "sha256": "7fd15271eb03cda704017c7d1ac9230571255941a3117ba6a1739a45e72f3d1a"
+    },
+    {
+      "path": "keyframes/vertical-10.jpg",
+      "bytes": 48411,
+      "sha256": "e88b99b1980adaaa821c484423208180470b2242a2dda67eeb4cd42088b254c2"
+    },
+    {
+      "path": "keyframes/vertical-11.jpg",
+      "bytes": 61331,
+      "sha256": "9e75959b00d45b83e5bfd053f5ded44af00288d81a48e729c7247551850b9363"
+    },
+    {
+      "path": "keyframes/vertical-12.jpg",
+      "bytes": 77396,
+      "sha256": "3d4e35374783c9568b5bd894fcc469d9ca33d34100236908e6dadb5fde46f394"
+    },
+    {
+      "path": "keyframes/vertical-contact-sheet.jpg",
+      "bytes": 122682,
+      "sha256": "89ccfc9ea71a96f3402cf4989274ef60e0251a7a4cdc10f82355a1e8e77b6ed4"
+    },
+    {
+      "path": "mix_main.flac",
+      "bytes": 10821335,
+      "sha256": "9c3ec439c8e257f0a84390dc14cae8214893800c931fa898287a58b1ed225980"
+    },
+    {
+      "path": "mix_vertical.flac",
+      "bytes": 2240380,
+      "sha256": "fb5cef97a00913b642fa347d7a126dc347ad671c61558b1cbc4eb0782bc5037f"
+    },
+    {
+      "path": "music/main_score.flac",
+      "bytes": 7469800,
+      "sha256": "5169fb8c2a3c906f8277dada64bc4f9c39e46370f83df099c5f2a67aee2f729d"
+    },
+    {
+      "path": "music/vertical_score.flac",
+      "bytes": 1464391,
+      "sha256": "9451669cd3fd56a1b400eb2e9a53942c8bbf929b9fe07ac90ace3a44c1c5de62"
+    },
+    {
+      "path": "project/audio_stats.json",
+      "bytes": 691,
+      "sha256": "38ad448399465ae966f4ffe37c8fa54cdf5eb3fb3c79542e07fd3d9b994697d4"
+    },
+    {
+      "path": "project/build_audio.py",
+      "bytes": 11683,
+      "sha256": "f8abce370d354bce9d1210ae14ea4d52e8da5175aff033cab69d4e6c99b9c619"
+    },
+    {
+      "path": "project/build_tts.py",
+      "bytes": 3497,
+      "sha256": "953ca70a9afada6d6541d04160f02d60a0991a8d906a841e60499f392575abbd"
+    },
+    {
+      "path": "project/data.py",
+      "bytes": 13289,
+      "sha256": "898632a92329f7b913910fe68c9f77fc961f4f175d0e63c28f12e6f7a5f8fdca"
+    },
+    {
+      "path": "project/deliver.py",
+      "bytes": 16699,
+      "sha256": "b9a181f7c0ee05f46e9e221f9d7032bb67b9d2babdbb303ce42359ead70faf39"
+    },
+    {
+      "path": "project/encode_commands.txt",
+      "bytes": 1482,
+      "sha256": "b92a221ea46dde6828553d7a9defd559459b77068a26ad010e3410f3e9648f90"
+    },
+    {
+      "path": "project/make_timeline.py",
+      "bytes": 5799,
+      "sha256": "e0c79f7fba542117330b6daf041694d9fb6883e0593d3a88ff90266c1abb2463"
+    },
+    {
+      "path": "project/render.py",
+      "bytes": 44735,
+      "sha256": "cf629c78612dc10f480f095918499bd874d988350c67a6112382cd3b9f4fdcaa"
+    },
+    {
+      "path": "project/subtitle_events.json",
+      "bytes": 11366,
+      "sha256": "689d7789fe46993055fa5dfe1d7f218945becafa81edd79083d51affed1f90d0"
+    },
+    {
+      "path": "project/timeline_main.json",
+      "bytes": 34098,
+      "sha256": "b9ae249dc5b4e8a827ad97c58b1920e858751a310125d4611f70a7ff1eadd621"
+    },
+    {
+      "path": "project/timeline_vertical.json",
+      "bytes": 10451,
+      "sha256": "c1d55773bce0a8a9715efd2a83b0ec27906cd2de39f0d1db13b8febb00b7b1a8"
+    },
+    {
+      "path": "project/tts_index.json",
+      "bytes": 16810,
+      "sha256": "a56683bdd19fbb5bd721a35bbe4cc98da61ed462680d298379409f2cb32ad2e6"
+    },
+    {
+      "path": "project/write_reports.py",
+      "bytes": 19790,
+      "sha256": "243206a9a3fbaf4bfff504149efb059747717a988e57bc3fdfda16df25cf28a2"
+    },
+    {
+      "path": "quality_report.md",
+      "bytes": 9344,
+      "sha256": "946020a615ed463565ba0b2acfb25eaed3966f274d6c15c9d098d0cba4e85b37"
+    },
+    {
+      "path": "sfx/sfx_main.flac",
+      "bytes": 541504,
+      "sha256": "b25a71af064aacfc88d73868e9e3d4919d6a32a2ac4ae5c9777ed7210ba9dfbf"
+    },
+    {
+      "path": "sfx/sfx_vertical.flac",
+      "bytes": 165563,
+      "sha256": "7fb35b691525d7a6496cd935ac5e353e67cb72e745b6aeb5be98333117e2dd80"
+    },
+    {
+      "path": "tts_samples/N01.wav",
+      "bytes": 571470,
+      "sha256": "6a6ba782af23b123260eece9b870671e744d36c56a8a8049a1edc0d27edc0488"
+    },
+    {
+      "path": "tts_samples/N09.wav",
+      "bytes": 463182,
+      "sha256": "38022e226a5f134128c5ee829d7f8f379362b4d70f65308f6fe5618d9c68159f"
+    },
+    {
+      "path": "tts_samples/N25.wav",
+      "bytes": 861774,
+      "sha256": "bea4e2bb2df12d8612510c7770fbc1aba005d5b60d54e2d18803f1833dfa6632"
+    },
+    {
+      "path": "voiceover.wav",
+      "bytes": 52752044,
+      "sha256": "e81e1b2a16ba7a2961293146fbc4d3318f5ceee606c837ae6aeb59abb6e0e44c"
+    },
+    {
+      "path": "voiceover_vertical.flac",
+      "bytes": 1278416,
+      "sha256": "e91358cda60f42141158b4f708a7b880d5fff6eaf9509a3f81ee33e7367837fc"
+    }
+  ]
+}

@@ -1,0 +1,429 @@
+{
+  "fps": 24,
+  "sr": 48000,
+  "width": 1080,
+  "height": 1920,
+  "duration_s": 50.5,
+  "shots": [
+    {
+      "id": "V01",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "table",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "三盒药 · 写了又划掉的单子"
+      ],
+      "narration": "V01",
+      "dialogues": [],
+      "start": 0.0,
+      "end": 4.5,
+      "dur": 4.5,
+      "planned_dur": 3.8
+    },
+    {
+      "id": "V02",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "call",
+      "badge": "情景演绎",
+      "heading": "",
+      "lines": [
+        "电话那头",
+        "这头"
+      ],
+      "narration": "V02",
+      "dialogues": [
+        "V02-D01"
+      ],
+      "start": 4.5,
+      "end": 11.5,
+      "dur": 7.0,
+      "planned_dur": 4.2
+    },
+    {
+      "id": "V03",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "brand",
+      "badge": "",
+      "heading": "",
+      "lines": [],
+      "narration": "V03",
+      "dialogues": [],
+      "start": 11.5,
+      "end": 15.0,
+      "dur": 3.5,
+      "planned_dur": 3.2
+    },
+    {
+      "id": "V04",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "device_outline",
+      "badge": "产品设计示意（非真机 · 非实测）· 模拟界面",
+      "heading": "产品形态",
+      "lines": [
+        "只保留轮廓与留白"
+      ],
+      "narration": "V04",
+      "dialogues": [],
+      "start": 15.0,
+      "end": 19.25,
+      "dur": 4.25,
+      "planned_dur": 3.8
+    },
+    {
+      "id": "V05",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "ui_save",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 01",
+      "lines": [
+        "一句话建档",
+        "已复述：早饭后那一次"
+      ],
+      "narration": "V05",
+      "dialogues": [],
+      "start": 19.25,
+      "end": 23.5,
+      "dur": 4.25,
+      "planned_dur": 4.2
+    },
+    {
+      "id": "V06",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "ui_list",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 02",
+      "lines": [
+        "早饭这一段",
+        "午饭 · 不显示"
+      ],
+      "narration": "V06",
+      "dialogues": [],
+      "start": 23.5,
+      "end": 27.5,
+      "dur": 4.0,
+      "planned_dur": 4.0
+    },
+    {
+      "id": "V07",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "ui_check",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "功能 03",
+      "lines": [
+        "记上了，慢慢来"
+      ],
+      "narration": "V07",
+      "dialogues": [
+        "V07-D01"
+      ],
+      "start": 27.5,
+      "end": 32.5,
+      "dur": 5.0,
+      "planned_dur": 4.2
+    },
+    {
+      "id": "V08",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "ui_question",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "一次只问一件",
+      "lines": [
+        "是饭前吃还是饭后吃呀？"
+      ],
+      "narration": "V08",
+      "dialogues": [],
+      "start": 32.5,
+      "end": 36.5,
+      "dur": 4.0,
+      "planned_dur": 4.0
+    },
+    {
+      "id": "V09",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "ui_refusal",
+      "badge": "模拟界面 · 非真机录屏 · 功能对话示例 · 非用药建议",
+      "heading": "它不接的问题",
+      "lines": [
+        "这事得问您大夫"
+      ],
+      "narration": "V09",
+      "dialogues": [],
+      "start": 36.5,
+      "end": 40.75,
+      "dur": 4.25,
+      "planned_dur": 4.2
+    },
+    {
+      "id": "V10",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "safety_list",
+      "badge": "安全边界 · 原创文字卡",
+      "heading": "安全边界",
+      "lines": [
+        "不推荐药物 / 剂量 / 疗程",
+        "紧急情况建议拨打 120"
+      ],
+      "narration": "V10",
+      "dialogues": [],
+      "start": 40.75,
+      "end": 45.75,
+      "dur": 5.0,
+      "planned_dur": 4.6
+    },
+    {
+      "id": "V11",
+      "chapter": "竖屏浓缩叙事",
+      "kind": "closing",
+      "badge": "",
+      "heading": "",
+      "lines": [],
+      "narration": "V11",
+      "dialogues": [],
+      "start": 45.75,
+      "end": 50.5,
+      "dur": 4.75,
+      "planned_dur": 4.6
+    }
+  ],
+  "voices": [
+    {
+      "id": "V01",
+      "type": "narration",
+      "shot": "V01",
+      "start": 0.16,
+      "end": 4.12,
+      "text": "早上七点半，三盒药，一张划了又改的单子。",
+      "wav": "tts/V01.wav",
+      "duration_s": 3.96
+    },
+    {
+      "id": "V02",
+      "type": "narration",
+      "shot": "V02",
+      "start": 4.66,
+      "end": 8.428,
+      "text": "电话里问『今天吃药了吗』，这头常常答不上来。",
+      "wav": "tts/V02.wav",
+      "duration_s": 3.768
+    },
+    {
+      "id": "V02-D01",
+      "type": "dialogue",
+      "shot": "V02",
+      "start": 8.548,
+      "end": 11.212,
+      "text": "妈，今天药吃了吗？",
+      "wav": "tts/V02-D01.wav",
+      "duration_s": 2.664
+    },
+    {
+      "id": "V03",
+      "type": "narration",
+      "shot": "V03",
+      "start": 11.66,
+      "end": 14.636,
+      "text": "药到。不用学，只要说。",
+      "wav": "tts/V03.wav",
+      "duration_s": 2.976
+    },
+    {
+      "id": "V04",
+      "type": "narration",
+      "shot": "V04",
+      "start": 15.16,
+      "end": 19.0,
+      "text": "下面是设计示意，不是真机，也不是录屏。",
+      "wav": "tts/V04.wav",
+      "duration_s": 3.84
+    },
+    {
+      "id": "V05",
+      "type": "narration",
+      "shot": "V05",
+      "start": 19.41,
+      "end": 22.938,
+      "text": "说一句话建档，它会复述，不替您猜。",
+      "wav": "tts/V05.wav",
+      "duration_s": 3.528
+    },
+    {
+      "id": "V06",
+      "type": "narration",
+      "shot": "V06",
+      "start": 23.66,
+      "end": 26.852,
+      "text": "问早上吃什么，它只念早饭那一段。",
+      "wav": "tts/V06.wav",
+      "duration_s": 3.192
+    },
+    {
+      "id": "V07",
+      "type": "narration",
+      "shot": "V07",
+      "start": 27.66,
+      "end": 30.228,
+      "text": "一句『我吃过了』，就算记上。",
+      "wav": "tts/V07.wav",
+      "duration_s": 2.568
+    },
+    {
+      "id": "V07-D01",
+      "type": "dialogue",
+      "shot": "V07",
+      "start": 30.348,
+      "end": 32.22,
+      "text": "我吃过了。",
+      "wav": "tts/V07-D01.wav",
+      "duration_s": 1.872
+    },
+    {
+      "id": "V08",
+      "type": "narration",
+      "shot": "V08",
+      "start": 32.66,
+      "end": 35.252,
+      "text": "认不清的，一次只问一件。",
+      "wav": "tts/V08.wav",
+      "duration_s": 2.592
+    },
+    {
+      "id": "V09",
+      "type": "narration",
+      "shot": "V09",
+      "start": 36.66,
+      "end": 39.852,
+      "text": "有些问题，它不接，让您问大夫。",
+      "wav": "tts/V09.wav",
+      "duration_s": 3.192
+    },
+    {
+      "id": "V10",
+      "type": "narration",
+      "shot": "V10",
+      "start": 40.91,
+      "end": 45.446,
+      "text": "不推荐药，不改剂量；紧急情况，先拨 120。",
+      "wav": "tts/V10.wav",
+      "duration_s": 4.536
+    },
+    {
+      "id": "V11",
+      "type": "narration",
+      "shot": "V11",
+      "start": 45.91,
+      "end": 49.486,
+      "text": "今天，给爸妈打个电话：今天吃药了吗。",
+      "wav": "tts/V11.wav",
+      "duration_s": 3.576
+    }
+  ],
+  "subtitles": [
+    {
+      "id": "V01",
+      "type": "narration",
+      "shot": "V01",
+      "start": 0.14,
+      "end": 4.14,
+      "text": "早上七点半，三盒药，一张划了又改的单子。"
+    },
+    {
+      "id": "V02",
+      "type": "narration",
+      "shot": "V02",
+      "start": 4.64,
+      "end": 8.448,
+      "text": "电话里问『今天吃药了吗』，这头常常答不上来。"
+    },
+    {
+      "id": "V02-D01",
+      "type": "dialogue",
+      "shot": "V02",
+      "start": 8.528,
+      "end": 11.232,
+      "text": "妈，今天药吃了吗？"
+    },
+    {
+      "id": "V03",
+      "type": "narration",
+      "shot": "V03",
+      "start": 11.64,
+      "end": 14.656,
+      "text": "药到。不用学，只要说。"
+    },
+    {
+      "id": "V04",
+      "type": "narration",
+      "shot": "V04",
+      "start": 15.14,
+      "end": 19.02,
+      "text": "下面是设计示意，不是真机，也不是录屏。"
+    },
+    {
+      "id": "V05",
+      "type": "narration",
+      "shot": "V05",
+      "start": 19.39,
+      "end": 22.958,
+      "text": "说一句话建档，它会复述，不替您猜。"
+    },
+    {
+      "id": "V06",
+      "type": "narration",
+      "shot": "V06",
+      "start": 23.64,
+      "end": 26.872,
+      "text": "问早上吃什么，它只念早饭那一段。"
+    },
+    {
+      "id": "V07",
+      "type": "narration",
+      "shot": "V07",
+      "start": 27.64,
+      "end": 30.248,
+      "text": "一句『我吃过了』，就算记上。"
+    },
+    {
+      "id": "V07-D01",
+      "type": "dialogue",
+      "shot": "V07",
+      "start": 30.328,
+      "end": 32.24,
+      "text": "我吃过了。"
+    },
+    {
+      "id": "V08",
+      "type": "narration",
+      "shot": "V08",
+      "start": 32.64,
+      "end": 35.272,
+      "text": "认不清的，一次只问一件。"
+    },
+    {
+      "id": "V09",
+      "type": "narration",
+      "shot": "V09",
+      "start": 36.64,
+      "end": 39.872,
+      "text": "有些问题，它不接，让您问大夫。"
+    },
+    {
+      "id": "V10",
+      "type": "narration",
+      "shot": "V10",
+      "start": 40.89,
+      "end": 45.466,
+      "text": "不推荐药，不改剂量；紧急情况，先拨 120。"
+    },
+    {
+      "id": "V11",
+      "type": "narration",
+      "shot": "V11",
+      "start": 45.89,
+      "end": 49.506,
+      "text": "今天，给爸妈打个电话：今天吃药了吗。"
+    }
+  ],
+  "overlaps": [],
+  "subtitle_events": 13
+}
