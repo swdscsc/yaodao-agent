@@ -85,10 +85,10 @@
 
 ## §3 任务 C：文档一致性核查
 ### 3.1 导演蓝图 本地 vs GitHub
-- 本地 `phase2_director_blueprint.md` SHA256 前 16 = `a379e644c3254fbc`（编辑 PHASE2-08 注记后变更），**包含 PHASE2-07 注记**。
-- 远端 `phase2-blueprint-review` 分支同名文件 SHA256 前 16 = `c83a0b6dd8c04fd3`，**不含 PHASE2-07 注记**（仅含至 PHASE2-06）。
-- 结论：**PHASE2-07 对该文件的编辑未真正上传**（根因：PHASE2-07 上传脚本 `CONTENT` 列表遗漏 blueprint）。本地 ≠ 远端。
-- 处置：**本轮补传修复**——将本地蓝图（含 PHASE2-07 注记 + 新增 PHASE2-08 注记）PUT 至分支，byte-verify 后本地 = 远端。
+- **上传前**：本地 SHA256 前 16 = `a379e644c3254fbc`（含 PHASE2-07 注记），远端 = `c83a0b6dd8c04fd3`（仅至 PHASE2-06），**不一致**。
+- 根因：PHASE2-07 上传脚本 `CONTENT` 列表遗漏 blueprint，致 PHASE2-07 对该文件的编辑未真正上传。
+- **处置**：本轮通过 Git Data API（blob → tree → commit → update ref）补传修复。上传后蓝图新增 PHASE2-08 注记（描述本轮分析范围与一致性修复），SHA256 变更为 `2be7be0a66bfb3ac`。
+- **上传后**：远端 SHA256 前 16 = `2be7be0a66bfb3ac`，与本地 **一致**（match=True）。PHASE2-07 注记 + PHASE2-08 注记均已在远端确认存在。
 
 ### 3.2 听审清单完整性
 - `phase2_c1_c9_listening_worksheet.md` 本地存在、3885 字节、内容完整（见 §1）。本轮一并上传至分支（任务 C 授权：「先确认文件内容完整后再上传」）。
@@ -110,8 +110,11 @@
 - 遗留：c1–c9 听审（人工）、映射重建、8 镜头录制口径决策、L4 补拍或诚实限定确认、阶段三预算重算。
 - 下一步建议（待 ChatGPT 决策）：批准本轮文档交付与蓝图一致性修复；明确 8 镜头采用精简版还是延长镜头；授权进入阶段三的触发条件。
 
-## §6 SHA 校验（上传后回填）
-- phase2_director_blueprint.md：local `a379e644c3254fbc`（编辑后变更）→ remote 见上传校验日志
-- phase2_c1_c9_listening_worksheet.md：local `1dc65f53e161f286` → remote 见上传校验日志
-- phase2_08_analysis.md：local 见上传校验日志 → remote 见上传校验日志
-- 分支 HEAD：见上传校验日志（确认更新）；main：未动（确认未变）
+## §6 SHA 校验（上传后最终状态）
+- phase2_director_blueprint.md：local `2be7be0a66bfb3ac` → remote `2be7be0a66bfb3ac` **match=True**
+- phase2_c1_c9_listening_worksheet.md：local `1dc65f53e161f286` → remote `1dc65f53e161f286` **match=True**
+- phase2_08_analysis.md：local `9d9ec7d3a03a1301` → remote `9d9ec7d3a03a1301` **match=True**
+- 分支 HEAD：`44ccc264df33` → `dbfd51018b5c`（PHASE2-08 提交确认落地）
+- main HEAD：`9198a9aef578`（**未动**，已确认）
+- 上传方式：Git Data API（create blobs → create tree with base_tree → create commit → PATCH refs/heads/{BR}），避免 Contents API `?ref=` 参数被忽略导致误提交到 main
+- 历史问题处置：本轮首次上传误用 Contents API（缺 `?ref=` 参数）致 3 个文件提交到 main（`9198a9aef578` → `b622ff40`）；已通过 `PATCH git/refs/heads/main` force 回退至 `9198a9aef578`，main 恢复原始状态
