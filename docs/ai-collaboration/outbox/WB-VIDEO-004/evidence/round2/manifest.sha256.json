@@ -1,6 +1,6 @@
 {
   "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
-  "captured_at": "2026-11-08T17:55:23+08:00",
+  "captured_at": "2026-11-08T19:06:28+08:00",
   "note": "SHA-256 of every committed round-2 evidence file except this manifest itself",
   "files": {
     "context-fix-before-after.json": {
@@ -13,7 +13,7 @@
     },
     "secret_scan_round2.json": {
       "bytes": 664,
-      "sha256": "f7a54ca06937442087fd24c36d5590a01d3a8865c78fdecf763dab5308a00231"
+      "sha256": "4741fad89cb03742956f970e6b793f88a368fc9742c8823128755d6827fb061d"
     },
     "signoff_before_after.json": {
       "bytes": 3222,

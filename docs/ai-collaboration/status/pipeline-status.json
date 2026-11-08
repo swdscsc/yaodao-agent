@@ -408,6 +408,11 @@
       "ui_automation": 0,
       "public_publishing": 0,
       "plaintext_credentials_read": 0
-    }
+    },
+    "commit": "3fd5e99e000bb638561af1d8c1632717238f4db3",
+    "push_result": "8c26116..3fd5e99 main -> main, exit code 0; ls-remote origin refs/heads/main verified equal to local HEAD",
+    "push_method": "git -c credential.helper= -c credential.helper=wincred + GIT_TERMINAL_PROMPT=0 + local proxy; Windows OS protected credential store; no plaintext credential read, printed or committed; no force-push",
+    "addendum_commit_sha": "SELF_REFERENCE_IMPOSSIBLE__reported_in_final_session_reply",
+    "link_verification": "see addendum-round2.md section 8 for all GitHub links"
   }
 }

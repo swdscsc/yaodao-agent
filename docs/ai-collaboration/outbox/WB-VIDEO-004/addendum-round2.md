@@ -243,4 +243,23 @@ def evaluate_subtitle_fix(spec: dict, context: str | None = None) -> dict:
 
 ## 8. 提交与 GitHub 链接
 
-> 本节在推送成功后补记（主体交付内容不变），最终远端 HEAD 以补记提交为准。
+| 项 | 值 |
+|---|---|
+| 基准提交 | `8c261166253fbfc1f5d52669eca1277a0d776661` |
+| **主体交付 commit** | **`3fd5e99e000bb638561af1d8c1632717238f4db3`**（13 文件，2,563 行新增 / 78 行删除） |
+| 主体推送 | `8c26116..3fd5e99  main -> main`，退出码 0，`ls-remote origin refs/heads/main` 已核对一致 |
+| 推送方式 | `git -c credential.helper= -c credential.helper=wincred` + `GIT_TERMINAL_PROMPT=0` + 本机代理；Windows 系统受保护凭据。**未读取/打印/提交明文凭据**，无 force-push |
+| 补记 commit / 最终远端 HEAD | 见本轮会话最终回报；补记提交自身的 SHA 无法写入它自己的内容中（自引用不可能），本文件不虚构该值 |
+
+主要链接（仓库 `swdscsc/yaodao-agent`，分支 `main`）：
+
+- [本 addendum](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/addendum-round2.md)
+- [41 项 round-2 测试结果](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle-signoff-tests-round2.json)
+- [时间戳取证](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/round2/timestamp-audit.json)
+- [context 修复前后对比](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/round2/context-fix-before-after.json)
+- [字号措辞审计](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/round2/font-wording-audit.json)
+- [round-2 证据哈希清单](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/round2/manifest.sha256.json)
+- [WB-VIDEO-005 待批准草案](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/wb005-preparation.md)
+- [修复后的 subtitle_checks.py](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle_checks.py)
+- [机器状态文件](https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/status/pipeline-status.json)
+- [主体交付提交](https://github.com/swdscsc/yaodao-agent/commit/3fd5e99e000bb638561af1d8c1632717238f4db3)
