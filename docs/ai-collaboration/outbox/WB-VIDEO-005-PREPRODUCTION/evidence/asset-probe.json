@@ -1,0 +1,1212 @@
+{
+  "schema_version": "1.0",
+  "task_id": "WB-VIDEO-005-PREPRODUCTION",
+  "probe_type": "READ_ONLY_METADATA_INVENTORY",
+  "captured_at": "2026-11-08T19:33:07+08:00",
+  "method": "sha256 + ffmpeg -hide_banner -i stderr parse; ffprobe not installed on PATH",
+  "workspace_root_placeholder": "%WORKSPACE%",
+  "network_calls": 0,
+  "installs": 0,
+  "files_modified": 0,
+  "summary": {
+    "total_media_files": 56,
+    "real_product_footage_count": 0,
+    "in_repo_count": 7,
+    "local_only_count": 49,
+    "groups": {
+      "LOCAL_TEST_ASSETS": 5,
+      "LOCAL_RENDER_OUTPUTS": 18,
+      "LOCAL_QA_FIXTURES": 25,
+      "LOCAL_TTS_PROBE": 1,
+      "REPO_COMMITTED_EVIDENCE": 7
+    }
+  },
+  "records": [
+    {
+      "relative_path": "pipeline/assets/S001-A01.mp4",
+      "group": "LOCAL_TEST_ASSETS",
+      "bytes": 5848964,
+      "sha256": "3060a0fb115dda4c5d72f9c9bd47e8b9448058ce195b78d72a47b9669c0f502f",
+      "source_type": "ffmpeg_local_synthetic_test_asset",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:03.00",
+        "duration_seconds": 3.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 15457 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/assets/S002-A01.mp4",
+      "group": "LOCAL_TEST_ASSETS",
+      "bytes": 65193,
+      "sha256": "2a52919e90173a2903114cff445ed46bf244cf872b4eb358e03f528190636f3e",
+      "source_type": "ffmpeg_local_synthetic_test_asset",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:03.00",
+        "duration_seconds": 3.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 33 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/assets/S003-A01.mp4",
+      "group": "LOCAL_TEST_ASSETS",
+      "bytes": 11200,
+      "sha256": "6e5067062000df344738a91559b791be08b33d423164e33464cb88289211759b",
+      "source_type": "ffmpeg_local_synthetic_test_asset",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:02.00",
+        "duration_seconds": 2.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 29 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 2 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/assets/S003-A02.mp4",
+      "group": "LOCAL_TEST_ASSETS",
+      "bytes": 3903853,
+      "sha256": "b6f68835cbeed77b20f9977cb8fe2555c9960fef42bb182c13f80b117f1460f0",
+      "source_type": "ffmpeg_local_synthetic_test_asset",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:02.00",
+        "duration_seconds": 2.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 15473 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/assets/S003-A03.mp4",
+      "group": "LOCAL_TEST_ASSETS",
+      "bytes": 189712,
+      "sha256": "0242a724b2ba837646e13c546308edd1f9e2da98c1f975b9b78b994ba70c162c",
+      "source_type": "ffmpeg_local_synthetic_test_asset",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:02.00",
+        "duration_seconds": 2.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 618 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 126 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/bgm.wav",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 2304078,
+      "sha256": "92667bed3b963354d399f2c636772b8074b6e1a7fa047be7c64c12f45fe54481",
+      "source_type": "synthetic_test_signal_or_synthesised_audio",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.00",
+        "duration_seconds": 12.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s",
+            "kind": "audio",
+            "codec": "pcm_s16le",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": false,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_chapter.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 74692,
+      "sha256": "a9b3ead41b73ae30f1050ac82b055cb1fc93165f2b6ed37e3ae69ddd396e6524",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:01.00",
+        "duration_seconds": 1.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 448 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_chapter.png",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 30569,
+      "sha256": "891e501c457fb850189e88b08eb4bf77645052ef02b2239f074c42d34de2d8c0",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_intro.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 107770,
+      "sha256": "e365dcb5736d5a1f94f5b120827384d79cd193c303fd2e5d1f8796f46c578f3b",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:01.50",
+        "duration_seconds": 1.5,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 430 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 127 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_intro.png",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 44430,
+      "sha256": "db290828ff2c4f8d92b9f03894505ebef973f007050f96183f16065226f1cde8",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_outro.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 96475,
+      "sha256": "1a793861d254e3226eb6765a7d907ebca5774b0b652d06747c7f9520222bea3f",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:01.50",
+        "duration_seconds": 1.5,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 369 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/card_outro.png",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 36958,
+      "sha256": "e7ccba65a6f1ca97e5232ec4f9a1c0e8ce71fc8003a1221c337aec6021066756",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/final_horizontal.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 3993258,
+      "sha256": "19ada7014c829f5338c38d9bb25e887916cca4a964aa32af9ab823e3eae2e11e",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.04",
+        "duration_seconds": 12.04,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 2522 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/final_horizontal_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 2631613,
+      "sha256": "e80732faa6639f0632f1e478b45dde8450aeee59a13770dfae0161a0b0284539",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.04",
+        "duration_seconds": 12.04,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 1614 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/final_vertical.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 4430819,
+      "sha256": "cefeef6eb9e53c4ba50ca9ec51e73a0c4eb160451366052e336f370338c33450",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.04",
+        "duration_seconds": 12.04,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 2815 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/final_vertical_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 949375,
+      "sha256": "1f480fd0954c853493943580c45ec1b00aed64ea2b87cb4ff523e92e4da02d82",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.04",
+        "duration_seconds": 12.04,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 493 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/sfx.wav",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 76878,
+      "sha256": "43cf5a774755a2408a508feec4cbcb35663d21f5b2d39680f54259dc5c2a268f",
+      "source_type": "synthetic_test_signal_or_synthesised_audio",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:00.40",
+        "duration_seconds": 0.4,
+        "streams": [
+          {
+            "raw": "Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s",
+            "kind": "audio",
+            "codec": "pcm_s16le",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": false,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/timeline_raw.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 10090339,
+      "sha256": "ba85881fae41b74257c9b43e22a50fa9c1271cdb2366a43c660fb2be07ed6ab1",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.02",
+        "duration_seconds": 12.02,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 6589 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/timeline_raw_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 6376198,
+      "sha256": "33cf05f8670c257953ab2e563a0f7cc606443530381446a2815603ca8f46af4e",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.02",
+        "duration_seconds": 12.02,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 4113 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/timeline_subtitled.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 3992381,
+      "sha256": "3df21782a5b614a9fbe6b3a1fedc52f5275b2d7d38f05dee183b6621a5678a1f",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.03",
+        "duration_seconds": 12.03,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 2522 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/timeline_subtitled_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 2630544,
+      "sha256": "3af2cd807f4c3109ef5bacd5ca934ea462e649132f17219e2069b381bf7044a5",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.03",
+        "duration_seconds": 12.03,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 1614 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1920,
+            "height": 1080,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 129 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/vertical_nosub_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 2993521,
+      "sha256": "7543a522f045ba9242ee87c91cb72f9882670c6eddce8ddcd44507e9af70e825",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.00",
+        "duration_seconds": 12.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 1994 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0
+          }
+        ],
+        "has_video": true,
+        "has_audio": false
+      }
+    },
+    {
+      "relative_path": "pipeline/renders/vertical_subtitled_v2.mp4",
+      "group": "LOCAL_RENDER_OUTPUTS",
+      "bytes": 744722,
+      "sha256": "20163ebef316d6f2540993e15cb80e41c1beca97a1ad35a7170538dd30c0ed23",
+      "source_type": "reference_render_of_synthetic_test_assets",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:12.00",
+        "duration_seconds": 12.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 493 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 1080,
+            "height": 1920,
+            "fps": 30.0
+          }
+        ],
+        "has_video": true,
+        "has_audio": false
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/dynamic_mid_freeze.mp4",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 364805,
+      "sha256": "8b867aab27b52ab0227ae7e64b15f9067b3fd50b05f48db0f0cbafbc3889b89b",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:05.00",
+        "duration_seconds": 5.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 320x180 [SAR 1:1 DAR 16:9], 445 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/dynamic_ok.mp4",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 441900,
+      "sha256": "ef68c611541ad310342c50268211af2de1ffc8bd67e7722574f02336bad317c2",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:04.00",
+        "duration_seconds": 4.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 320x180 [SAR 1:1 DAR 16:9], 745 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/horizontal_v2_nosub_2.5s.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 96623,
+      "sha256": "d1c65b70eb87522d517bce028ed15180ad1a478ff6f54ad3512ceb9361a9405e",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/probe_freeze2.mp4",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 364805,
+      "sha256": "8b867aab27b52ab0227ae7e64b15f9067b3fd50b05f48db0f0cbafbc3889b89b",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:05.00",
+        "duration_seconds": 5.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 320x180 [SAR 1:1 DAR 16:9], 445 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/static_intro_dynamic.mp4",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 409386,
+      "sha256": "413f8173041e2c91b12e67320780dff61ccf79084c27d6916c96e9c610f7750c",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:05.00",
+        "duration_seconds": 5.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 320x180 [SAR 1:1 DAR 16:9], 517 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/static_intro_then_freeze.mp4",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 238351,
+      "sha256": "9744e23c2ee4af711d00de8cc8e129eae95d91cdd65b39af429dfcce3de0da89",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:06.00",
+        "duration_seconds": 6.0,
+        "streams": [
+          {
+            "raw": "Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 320x180 [SAR 1:1 DAR 16:9], 180 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+            "kind": "video",
+            "codec": "h264",
+            "width": 320,
+            "height": 180,
+            "fps": 30.0
+          },
+          {
+            "raw": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)",
+            "kind": "audio",
+            "codec": "aac",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": true,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_near_bottom.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 56820,
+      "sha256": "375ba0b74baef656834b22f6698340cec5bd7037387c19a109f5fa8abcd05159",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_near_bottom_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 47363,
+      "sha256": "e4f3e05bb4c6efce3f06c3320a8db4978662da9977fde013228ca3321accd4cb",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_normal.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 56515,
+      "sha256": "09f0254d68cfffaf22f99fa10f8ec22befd192f069441c4bc43a0aa190fd3437",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_normal_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 47363,
+      "sha256": "e4f3e05bb4c6efce3f06c3320a8db4978662da9977fde013228ca3321accd4cb",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_not_rendered.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 47363,
+      "sha256": "e4f3e05bb4c6efce3f06c3320a8db4978662da9977fde013228ca3321accd4cb",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_not_rendered_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 47363,
+      "sha256": "e4f3e05bb4c6efce3f06c3320a8db4978662da9977fde013228ca3321accd4cb",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_overflow.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 50370,
+      "sha256": "90e424cd5892204a0a02c3a45bcd55132dda073d0ea533a20a55c9562f0bd078",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_overflow_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 47363,
+      "sha256": "e4f3e05bb4c6efce3f06c3320a8db4978662da9977fde013228ca3321accd4cb",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_vertical_midframe.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 51875,
+      "sha256": "56c1bf9b6ce408725c1cb17f561594e17ca2521e012fc7044afdc210b7846742",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_vertical_midframe_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 45628,
+      "sha256": "08fc062495edafc53a78e43fc9286355f1b712764591cd61f2111e1269e50f2f",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_vertical_ok.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 52661,
+      "sha256": "e93ffe9d8b6336cd0320ced3a760a25c06398e4aa46cc137caef0299c8870477",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/sub_vertical_ok_ref.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 45628,
+      "sha256": "08fc062495edafc53a78e43fc9286355f1b712764591cd61f2111e1269e50f2f",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa003/vertical_v2_nosub_2.5s.jpg",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 62716,
+      "sha256": "1144d781d8686a7c2496f79af8ecfe8516ad3c815f7caffbf0ba482ad60bb613",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/low_contrast_frame.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 5406,
+      "sha256": "09ac1165d00f7ac9ea81c1564ee2bd6d23fdfc95ffdbee6b00c9dbedb0a6e456",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/low_contrast_ref.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 1582,
+      "sha256": "24fd85753a504c62e7018355ae75e9c356ae32c080207bff56f1c5c75efd3a64",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/no_burn_in_frame.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 1508,
+      "sha256": "babf82679da02e76bcd6c1ba5bc7c3f9401a5592a340149e5b42ff22c5f301d6",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/no_burn_in_ref.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 1508,
+      "sha256": "babf82679da02e76bcd6c1ba5bc7c3f9401a5592a340149e5b42ff22c5f301d6",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/normal_frame.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 7857,
+      "sha256": "fd335c46d67812d94ad8c94e154e4e06a9a87b4c96479b005d55563cb7f1a502",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/qa004/normal_ref.png",
+      "group": "LOCAL_QA_FIXTURES",
+      "bytes": 1508,
+      "sha256": "babf82679da02e76bcd6c1ba5bc7c3f9401a5592a340149e5b42ff22c5f301d6",
+      "source_type": "qa_synthetic_fixture",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "pipeline/tts004/audio_chain_test_tone.wav",
+      "group": "LOCAL_TTS_PROBE",
+      "bytes": 240078,
+      "sha256": "a24003869a02105b0ba9a354c2850e6fc5357bb3262441252c20b12d9cceadd5",
+      "source_type": "synthetic_test_signal_or_synthesised_audio",
+      "is_real_product_footage": "NO",
+      "in_git_repository": false,
+      "metadata": {
+        "probe": "ffmpeg_-i_stderr",
+        "duration_hhmmss": "00:00:02.50",
+        "duration_seconds": 2.5,
+        "streams": [
+          {
+            "raw": "Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s",
+            "kind": "audio",
+            "codec": "pcm_s16le",
+            "sample_rate_hz": 48000
+          }
+        ],
+        "has_video": false,
+        "has_audio": true
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence/S003-A03_f00_0.5s.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 43883,
+      "sha256": "5311a67ad23aa07fc1b1a4cd8bfb145d65414cf84ff167b0a7ff285351f4ceaf",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence/contact_sheet_v2.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 130432,
+      "sha256": "e5804603fa85aa11a754d53828b47fe90e11c4282bb85f396181cf2367dad7a7",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence/final_horizontal_v2_f01_2.5s.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 130922,
+      "sha256": "e9bc6d1a4ee2833ac6e3980cdac90f7f71b886f889fd48eed3b358edf50f9c0b",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence/final_vertical_v2_f01_2.5s.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 110882,
+      "sha256": "b1a4dee9599f1c7456ce120a36ef0a0997c403993e94892bd167226382c612fe",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-003/evidence/subtitle_contact_sheet.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 35854,
+      "sha256": "6b8386d6b9bbe23d65d8188ee187e42058dc515b63bc3e425ee6c3d130f7b211",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/signoff_sample_contact_sheet.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 8937,
+      "sha256": "d21c9d7d77ea2e29ee8b040c927fef288d82b0e6186f2942b74ecd8b4bd1b13a",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    },
+    {
+      "relative_path": "yaodao-agent/docs/ai-collaboration/outbox/WB-VIDEO-004/evidence/round2/signoff_sample_contact_sheet.jpg",
+      "group": "REPO_COMMITTED_EVIDENCE",
+      "bytes": 8937,
+      "sha256": "d21c9d7d77ea2e29ee8b040c927fef288d82b0e6186f2942b74ecd8b4bd1b13a",
+      "source_type": "qa_evidence_screenshot_or_test_frame",
+      "is_real_product_footage": "NO",
+      "in_git_repository": true,
+      "metadata": {
+        "probe": "image_no_av_probe",
+        "note": "still-image evidence frame"
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "file": "subtitle-draft.srt",
+  "status": "DRAFT_NOT_BURNED_IN",
+  "declared_in": [
+    "report.md",
+    "main-film-shotlist.csv:subtitle_status",
+    "narration-draft.md",
+    "vertical-cut-plan.md"
+  ],
+  "note": "Both SRT bodies are intentionally clean and standards-compliant so they can be handed straight to an editor. DRAFT status is declared in the filename and in the documents above, never injected as visible subtitle text.",
+  "track_design": {
+    "track_A": "subtitle-draft.srt — main narration, bottom safe area 0.86H",
+    "track_B": "evidence/dialogue-subtitle-draft.srt — in-scene dialogue, 0.72H",
+    "collision_policy": "two styled tracks, never stacked on the same line; re-align both to the real narration audio after recording"
+  },
+  "narration_cue_count": 28,
+  "dialogue_cue_count": 16,
+  "same_shot_timecode_collisions": 14,
+  "collisions": [
+    {
+      "shot": "S04",
+      "narration_ref": "N03",
+      "dialogue_ref": "S04-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S04",
+      "narration_ref": "N03",
+      "dialogue_ref": "S04-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S08",
+      "narration_ref": "N07",
+      "dialogue_ref": "S08-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S15",
+      "narration_ref": "N12",
+      "dialogue_ref": "S15-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S16",
+      "narration_ref": "N13",
+      "dialogue_ref": "S16-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S16",
+      "narration_ref": "N13",
+      "dialogue_ref": "S16-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S17",
+      "narration_ref": "N14",
+      "dialogue_ref": "S17-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S18",
+      "narration_ref": "N15",
+      "dialogue_ref": "S18-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S19",
+      "narration_ref": "N16",
+      "dialogue_ref": "S19-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S21",
+      "narration_ref": "N18",
+      "dialogue_ref": "S21-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S22",
+      "narration_ref": "N19",
+      "dialogue_ref": "S22-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S25",
+      "narration_ref": "N21",
+      "dialogue_ref": "S25-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S26",
+      "narration_ref": "N22",
+      "dialogue_ref": "S26-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    },
+    {
+      "shot": "S29",
+      "narration_ref": "N24",
+      "dialogue_ref": "S29-D",
+      "resolution": "keep two tracks; place dialogue at 0.72H and narration at 0.86H, or delay the narration cue until the dialogue ends; re-align to real audio"
+    }
+  ],
+  "timecode_basis": "planned 240.0 s main film, 25 fps; MUST be re-aligned to the real narration audio after recording. No narration audio exists yet.",
+  "language": "zh-CN"
+}

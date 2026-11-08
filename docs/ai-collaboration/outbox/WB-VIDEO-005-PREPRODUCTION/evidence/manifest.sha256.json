@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "task_id": "WB-VIDEO-005-PREPRODUCTION",
+  "generated_at": "2026-11-08T19:52:42+08:00",
+  "delivery_dir": "docs/ai-collaboration/outbox/WB-VIDEO-005-PREPRODUCTION/",
+  "file_count": 17,
+  "total_bytes": 194074,
+  "excludes_self": "evidence/manifest.sha256.json",
+  "appended_after_manifest": {
+    "paths": [
+      "evidence/push-verification.json"
+    ],
+    "reason": "commit SHA and remote link verification can only exist after the push",
+    "sha256_recorded_in": "the appended file records its own SHA-256 in its self_hash field"
+  },
+  "files": [
+    {
+      "path": "asset-inventory.csv",
+      "bytes": 12662,
+      "sha256": "3a46c37d00d0b1ce6d9d3345b0960dd945ba69e8131272fca2cffa0262057e9d"
+    },
+    {
+      "path": "creative-research.md",
+      "bytes": 7701,
+      "sha256": "9bb0429ca22794a4cf6de950a420af59bdcc18d94874e40dda632e13be316fde"
+    },
+    {
+      "path": "evidence/asset-probe.json",
+      "bytes": 43496,
+      "sha256": "a82e2d2a9690eff9bcc55692b94c456dbe6e878c856215be74810688f0a3f263"
+    },
+    {
+      "path": "evidence/capability-probe.json",
+      "bytes": 4877,
+      "sha256": "a448586c751432082348a947e3e1b9209d87d8191727d1fe45278d16fee18635"
+    },
+    {
+      "path": "evidence/consistency-check.json",
+      "bytes": 1991,
+      "sha256": "5e5aa43240aaf48c013cd883ab820635f6883af026f097b3d730bd5551325fdd"
+    },
+    {
+      "path": "evidence/delivery-verification.json",
+      "bytes": 538,
+      "sha256": "a8696df312deea7b0ae8ba89f920f47d84f5a234f9ca331183f49fb18abcda22"
+    },
+    {
+      "path": "evidence/dialogue-subtitle-draft.srt",
+      "bytes": 1019,
+      "sha256": "cd0ae3e6a8c12941b1312706b2ce1895be6ffff66ee0c32d328e03f929ee1b1c"
+    },
+    {
+      "path": "evidence/narration-table.md",
+      "bytes": 6019,
+      "sha256": "74328c70dd6e3de932d72e11c03feb13f5ce03135300ad438b4759920eddb546"
+    },
+    {
+      "path": "evidence/subtitle-draft.meta.json",
+      "bytes": 4658,
+      "sha256": "03a5e22cdf335fbd60a149a3fa281e7731d41e2b902038a700910fd7d1ba22d4"
+    },
+    {
+      "path": "first-cut-readiness.md",
+      "bytes": 10623,
+      "sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d"
+    },
+    {
+      "path": "main-film-script.md",
+      "bytes": 34974,
+      "sha256": "85897f839e3e19d20ce0f9e6d78ae7c2e4844bb9313cbdf305b6ed7f785e1fde"
+    },
+    {
+      "path": "main-film-shotlist.csv",
+      "bytes": 19083,
+      "sha256": "d8c50b72b753277c61df7c68dd4c278b69fa1c88f541938ff9887aa3fc231e39"
+    },
+    {
+      "path": "narration-draft.md",
+      "bytes": 10564,
+      "sha256": "da193cec93de2f59069d1de3dbf4adbc3caf4e80a72dc04cfb17cadf9d208df9"
+    },
+    {
+      "path": "product-claims-register.md",
+      "bytes": 8928,
+      "sha256": "2c09ffaf7ded41fd5142891eb6866f1fdef2c316eeab44c3660a95d58a6f3098"
+    },
+    {
+      "path": "report.md",
+      "bytes": 15251,
+      "sha256": "e34f27028a9ea5c753e89883006c0519ddab9badbf304f0cd58b193cc1777726"
+    },
+    {
+      "path": "subtitle-draft.srt",
+      "bytes": 2692,
+      "sha256": "2abb7d3e0c510cea569e2e56b4fc9a8ac9553506498a9c9cbb56d3f5c25a6d43"
+    },
+    {
+      "path": "vertical-cut-plan.md",
+      "bytes": 8998,
+      "sha256": "281c7dadb3d2a1eadad7b6ef395596a079df4b260abc9565affac48dda9e5333"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "task_id": "WB-VIDEO-005-PREPRODUCTION",
+  "probe_type": "READ_ONLY_HOST_CAPABILITY",
+  "captured_at": "2026-11-08T19:42:36+08:00",
+  "timezone": "中国标准时间",
+  "python": "3.13.14",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "ffmpeg": {
+    "argv": [
+      "ffmpeg",
+      "-version"
+    ],
+    "exit_code": 0,
+    "stdout_first_line": [
+      "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers"
+    ],
+    "stderr_lines": []
+  },
+  "ffprobe_on_path": false,
+  "ffprobe_result": {
+    "argv": [
+      "ffprobe",
+      "-version"
+    ],
+    "error": "EXECUTABLE_NOT_FOUND"
+  },
+  "ffmpeg_filters": [
+    {
+      "filter": "drawtext",
+      "found": true,
+      "lines": [
+        "T.C drawtext          V->V       Draw text on top of video frames using libfreetype library."
+      ]
+    },
+    {
+      "filter": "subtitles",
+      "found": true,
+      "lines": [
+        "... ass               V->V       Render ASS subtitles onto input video using the libass library.",
+        "... subtitles         V->V       Render text subtitles onto input video using the libass library."
+      ]
+    },
+    {
+      "filter": "ass ",
+      "found": true,
+      "lines": [
+        "TSC allpass           A->A       Apply a two-pole all-pass filter.",
+        "... anull             A->A       Pass the source unchanged to the output."
+      ]
+    },
+    {
+      "filter": "scale",
+      "found": true,
+      "lines": [
+        "... alphaextract      V->V       Extract an alpha channel as a grayscale image component.",
+        "... extractplanes     V->N       Extract planes as grayscale frames."
+      ]
+    },
+    {
+      "filter": "xfade",
+      "found": true,
+      "lines": [
+        ".S. xfade             VV->V      Cross fade one video with another video."
+      ]
+    },
+    {
+      "filter": "zoompan",
+      "found": true,
+      "lines": [
+        "... zoompan           V->V       Apply Zoom & Pan effect."
+      ]
+    }
+  ],
+  "chinese_fonts_present": [
+    "Deng.ttf",
+    "Dengb.ttf",
+    "Dengl.ttf",
+    "Noto Sans SC (TrueType).otf",
+    "Noto Sans SC Bold (TrueType).otf",
+    "Noto Sans SC Light (TrueType).otf",
+    "Noto Sans SC Medium (TrueType).otf",
+    "OLDENGL.TTF",
+    "STKAITI.TTF",
+    "SimsunExtG.ttf",
+    "msyh.ttc",
+    "msyhbd.ttc",
+    "msyhl.ttc",
+    "simhei.ttf",
+    "simsun.ttc",
+    "simsunb.ttf"
+  ],
+  "sapi_voice_tokens": {
+    "desktop": [
+      "TTS_MS_EN-US_ZIRA_11.0",
+      "TTS_MS_ZH-CN_HUIHUI_11.0"
+    ],
+    "onecore": [
+      "MSTTS_V110_zhCN_HuihuiM",
+      "MSTTS_V110_zhCN_KangkangM",
+      "MSTTS_V110_zhCN_YaoyaoM"
+    ],
+    "registry_read_only": true
+  },
+  "git_head": {
+    "argv": [
+      "git",
+      "-C",
+      "%WORKSPACE%/yaodao-agent",
+      "log",
+      "-1",
+      "--format=%H %cI %s"
+    ],
+    "exit_code": 0,
+    "stdout_first_line": [
+      "c753f0714e75bf7328b9263f957304a0ac69fcd3 2026-11-08T19:22:30+08:00 Start video production: create zero-risk preproduction task"
+    ],
+    "stderr_lines": []
+  },
+  "git_status": {
+    "argv": [
+      "git",
+      "-C",
+      "%WORKSPACE%/yaodao-agent",
+      "status",
+      "--short",
+      "--branch"
+    ],
+    "exit_code": 0,
+    "stdout_first_line": [
+      "## main...origin/main"
+    ],
+    "stderr_lines": []
+  },
+  "known_blockers_from_WB_VIDEO_004": {
+    "source": "docs/ai-collaboration/outbox/WB-VIDEO-004/tts-research.md",
+    "sapi_invocation_paths_blocked_by_tool_security_policy": [
+      "runtime .NET assembly load (Add-Type)",
+      "SAPI COM instantiation",
+      "Windows Script Host (cscript)"
+    ],
+    "security_policy_bypassed": false,
+    "chinese_tts_wav_generated": false,
+    "note": "Voice tokens EXIST but no legal invocation path was found in WB-004. ctypes/process-COM workarounds were NOT attempted and are NOT proposed here because they would circumvent the same security policy."
+  },
+  "jianying": {
+    "source": "docs/ai-collaboration/status/pipeline-status.json",
+    "host_token_gate_unresolved": true,
+    "existing_two_drafts_untouched": true,
+    "gui_operations_this_round": 0
+  },
+  "vidova": {
+    "source": "docs/ai-collaboration/status/pipeline-status.json",
+    "editor_window_gate_unresolved": true,
+    "quota_balance_unverified": true,
+    "generate_asset_calls_this_round": 0
+  },
+  "red_lines_this_round": {
+    "paid_or_quota_consuming_calls": 0,
+    "dependencies_installed": 0,
+    "models_downloaded": 0,
+    "online_tts_calls": 0,
+    "jianying_gui_operations": 0,
+    "ui_automation": 0,
+    "vidova_gui_operations": 0,
+    "public_publishing": 0,
+    "plaintext_credentials_read_or_printed": 0,
+    "source_assets_modified": 0,
+    "videos_rendered": 0
+  },
+  "network_calls_for_research": "two read-only public web searches for advertising narrative methodology; no media downloaded, no login, no paid service"
+}
