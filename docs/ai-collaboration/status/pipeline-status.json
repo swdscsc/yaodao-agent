@@ -12,8 +12,9 @@
   "timezone": "Asia/Shanghai (UTC+08:00)",
   "source_commit": "addca7883c59f8aeb490376d71478095799e5d97",
   "branch": "main",
-  "report_commit_sha": "PENDING_PUSH_ADDENDUM",
-  "push_method": "git credential.helper=wincred (Windows OS protected credential store); no plaintext PAT read, printed, copied or committed; no force-push",
+  "report_commit_sha": "a5659e3eba3b44969f964889df95ad19d4048ee6",
+  "push_method": "git -c credential.helper= -c credential.helper=wincred (global manager helper chain reset to avoid a GCM dialog) + GIT_TERMINAL_PROMPT=0 + local proxy; Windows OS protected credential store; no plaintext PAT read, printed, copied or committed; no force-push",
+  "push_result": "addca78..a5659e3 main -> main, exit code 0; ls-remote origin refs/heads/main verified equal. First attempt hung 5m52s on a global credential.helper=manager GCM dialog and was terminated before the successful retry.",
   "p0_signoff_fix": {
     "defect": "WB-VIDEO-003/subtitle_checks.py:319-320 accepted ONE global manual_review.APPROVED object; the three MANUAL_ITEMS were never individually reviewed",
     "state": "FIXED",
@@ -162,7 +163,7 @@
     "12_no_existing_project_or_asset_modified": true,
     "13_no_paid_service_or_credit_used": true,
     "14_no_fabricated_interfaces_or_results": true,
-    "15_commit_push_and_remote_head_verification": "pending at time of writing; see report.md section 12 addendum"
+    "15_commit_push_and_remote_head_verification": "confirmed: main delivery commit a5659e3eba3b44969f964889df95ad19d4048ee6 pushed and verified on remote; a small SHA addendum commit follows, final remote HEAD reported in the session"
   },
   "paths_policy": "Machine-specific absolute paths are stored ONLY in local uncommitted configs outside the repository. Committed evidence uses <LOCAL>, <JY_APP_DIR>, %LOCALAPPDATA%, <VIDOVA_EXE> placeholders and was verified by a scripted leak scan.",
   "approval_batch_for_next_stage": [

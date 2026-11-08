@@ -163,4 +163,22 @@
 
 ## 12. 提交与 GitHub 链接
 
-> 本节在推送成功后补记（主体交付内容不变），最终远端 HEAD 以补记提交为准。
+| 项 | 值 |
+|---|---|
+| 仓库 / 分支 | `swdscsc/yaodao-agent` / `main` |
+| 基准提交 | `addca7883c59f8aeb490376d71478095799e5d97` |
+| **主体交付 commit SHA** | **`a5659e3eba3b44969f964889df95ad19d4048ee6`** |
+| 推送结果 | `addca78..a5659e3  main -> main`，退出码 0；`ls-remote origin refs/heads/main` 已核对一致 |
+| 提交规模 | 25 个文件，7,617 行新增 / 101 行删除；含 11 份规定文档、2 份源码、10 份证据、状态文件、`.gitignore` |
+| 推送方式 | `git -c credential.helper= -c credential.helper=wincred`（先清空全局 `manager` helper 链）+ `GIT_TERMINAL_PROMPT=0` + 本机代理；**系统受保护凭据**，本轮未读取/打印/复制/提交明文 PAT；未 force-push、未改 remote 或全局 git 配置 |
+| 首次推送故障（如实记录） | 全局 `credential.helper=manager` 触发 GCM 弹窗挂起 5m52s，远端未更新；终止该后台任务后改用上面的 helper 链重置方式，一次成功。代理对 `github.com` 普通网页返回 504，但 git 协议端点可用 |
+| 补记说明 | 本节为推送成功后追加的元数据，随一次独立小修订提交推送；**最终远端 HEAD 会晚于 `a5659e3`**，以会话回报的 `ls-remote` 结果为准。主体交付内容未变 |
+
+主要链接（相对仓库 `main`）：
+
+- 主报告：`docs/ai-collaboration/outbox/WB-VIDEO-004/report.md`
+- P0 修复与测试：`subtitle-signoff-fix.md` / `subtitle-signoff-tests.json`
+- 研究：`github-project-research.md` / `skill-research.md` / `tts-research.md` / `vidova-jianying-next-steps.md`
+- 规范：`ad-director-workflow.md` / `product-ad-editing-guide.md` / `recommended-architecture.md`
+- 阻塞与批准清单：`blockers.md`
+- 机器可读状态：`docs/ai-collaboration/status/pipeline-status.json`
