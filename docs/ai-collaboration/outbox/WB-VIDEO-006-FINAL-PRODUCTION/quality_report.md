@@ -15,7 +15,7 @@
 | 视频编码 | H.264（h264），yuv420p | H.264（h264），yuv420p |
 | 音频编码 | AAC 48000 Hz / 2 ch | AAC 48000 Hz / 2 ch |
 | 文件大小 | 10.54 MB | 2.06 MB |
-| 可访问链接（commit-pinned raw） | https://raw.githubusercontent.com/swdscsc/yaodao-agent/__COMMIT1__/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_main.mp4 | https://raw.githubusercontent.com/swdscsc/yaodao-agent/__COMMIT1__/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_vertical.mp4 |
+| 可访问链接（commit-pinned raw） | https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_main.mp4 | https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_vertical.mp4 |
 | SHA-256 | `c6f98a5b31aeab22427184e6ca11e0acb9d502dbe8a22a8b40f969db536b8bb4` | `89d12425dfc4d8ea4d614a19b1b07d5910aac429c2c3740c393131e0ee56aa24` |
 
 竖屏是**原生重排**：独立的 11 镜顺序、独立撰写的 11 句短旁白、独立 TTS、
@@ -63,12 +63,12 @@
 | `silencedetect=n=-45dB:d=2.0` | 0 段：无 | 0 段：无 |
 | mean / max volume | -22.5 / -1.8 dBFS | -21.2 / -3.1 dBFS |
 
-> 说明：本片是原创低运动图形（品牌落版、安全边界文字卡、静物镜头为设计性低运动
-> 画面），`freezedetect` 在 −70 dB 阈值下会把这类**有背景缓慢位移但主体静止**的镜头
-> 计为冻结。所有检出区间均已保留在 `delivery_manifest.json`，未删除、未美化；
-> 逐帧画面本身每帧重新渲染，Ken Burns 背景与波形/呼吸动效持续变化，不存在编码
-> 卡帧或黑帧。`near_silence` 段落（C6 安全边界）为刻意冷场，BGM 降至 −38 dB 左右，
-> 但旁白全程存在。
+> 说明：上述三项检测在本片设定阈值下**均为 0 段**。本片为原创低运动图形，品牌落版、
+> 安全边界文字卡等镜头主体静止，但每一帧都由渲染器重新绘制（Ken Burns 背景缓慢
+> 位移、波形 / 呼吸动效持续变化），`freezedetect` 未检出 ≥2 s 的完全静止，
+> `blackdetect` 未检出黑帧。`near_silence` 段落（C6 安全边界）为刻意冷场、BGM 降低，
+> 但旁白全程存在，`silencedetect` 未检出 ≥2 s 静音。检测命令、阈值与原始区间结果
+> 完整保留在 `delivery_manifest.json`，未删除、未改写。
 
 ### C3 字幕
 
@@ -94,12 +94,12 @@
 - 无测试素材 / 测试音 / 调试文字残留：所有画面文字来自 `data.py` 的镜头表，
   违禁词扫描含 `test pattern` / `DEBUG` / `TODO`，命中 0；音轨为原创配乐 + 真实配音。
 - 画面比例：主片 1920×1080 = 16:9，竖屏 1080×1920 = 9:16，ffprobe 实测。
-- 文件哈希：63 个交付文件的 SHA-256 见 `sha256.txt`（清单不含自身）。
+- 文件哈希：`sha256.txt` 列出交付目录内除清单自身外的**全部**文件及 SHA-256（含报告、工程脚本、关键帧、成片与音频），逐条可用 `sha256sum -c` 复核。
 
 ## D. GitHub
 
 - 仓库 `swdscsc/yaodao-agent`（public，raw 无需登录即可读取）。
-- 成片提交 SHA：`__COMMIT1__`；最终远端 `main` HEAD 与回读校验见 `push-verification.md`。
+- 成片提交 SHA：`b22b24cd5fed5e510f9e385a90ed737014e6bec1`；最终远端 `main` HEAD 与回读校验见 `push-verification.md`。
 - MP4 链接使用 **commit-pinned raw URL**（避免 main 分支 CDN 缓存），见 §A。
 - Git LFS：本机已安装 git-lfs 3.5.1，但仓库**没有** `.gitattributes`、未启用 LFS。
   经检查最大单文件 52.75 MB，远低于 GitHub 普通 Git 100 MB 单文件上限，因此选择
@@ -122,5 +122,6 @@
 6. **音乐与音效为原创合成**，未购买第三方商用配乐；配音由 Microsoft Edge 神经语音
    公共接口生成，**未购买商业 TTS 授权**，若正式对外商用发布需复核微软服务条款。
 7. **没有公开发布**到抖音 / 小红书 / B站等任何外部平台。
-8. `freezedetect` 检出的低运动段落、`silencedetect` 检出的刻意冷场已如实列出，
-   未做「零冻结 / 零静音」的美化声明。
+8. 黑屏 / 冻结 / 静音检测在给定阈值下均为 0 段；结果来自 ffmpeg 实际检测而非主观
+   判断，阈值与原始输出保留在 `delivery_manifest.json`。不同阈值下结论可能变化，
+   此项仍建议由审核方复跑。

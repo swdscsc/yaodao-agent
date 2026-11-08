@@ -53,6 +53,7 @@ COPY_MAP = [
     ("project/render.py", "project/render.py"),
     ("project/deliver.py", "project/deliver.py"),
     ("project/write_reports.py", "project/write_reports.py"),
+    ("project/verify_remote.py", "project/verify_remote.py"),
     ("tts/N01.wav", "tts_samples/N01.wav"),
     ("tts/N09.wav", "tts_samples/N09.wav"),
     ("tts/N25.wav", "tts_samples/N25.wav"),
@@ -266,7 +267,8 @@ def main():
                        probe_tool="ffprobe 4.0.2 (ffprobe-static)",
                        note="Complete -show_streams / -show_format output")
     json.dump(ffprobe_doc, open(os.path.join(OUT, "ffprobe.json"), "w",
-                                encoding="utf-8"), ensure_ascii=False, indent=2)
+                                encoding="utf-8", newline="\n"),
+              ensure_ascii=False, indent=2)
     # encode commands (reproducible edit decision list)
     encode_txt = """# WB-VIDEO-006 reproducible pipeline (Windows / Python 3.13 / FFmpeg 7.1)
 # All paths relative to media/WB-VIDEO-006/
@@ -317,7 +319,8 @@ ffmpeg -y -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 24 -i - -i mix_vertical.wav
                     file_list=[dict(path=f, bytes=n, sha256=h)
                                for h, n, f in hashes])
     json.dump(manifest, open(os.path.join(OUT, "delivery_manifest.json"), "w",
-                             encoding="utf-8"), ensure_ascii=False, indent=2)
+                             encoding="utf-8", newline="\n"),
+              ensure_ascii=False, indent=2)
     print(json.dumps(dict(main=qm["streams"], vertical=qv["streams"],
                           main_dur=qm["duration_s"], vert_dur=qv["duration_s"],
                           decode=dict(
@@ -332,7 +335,7 @@ ffmpeg -y -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 24 -i - -i mix_vertical.wav
     # expose QA data for the report writer
     json.dump(dict(qm=qm, qv=qv, sm=sm, sv=sv, manifest=manifest),
               open(os.path.join(WORK, "qa_results.json"), "w",
-                   encoding="utf-8"), ensure_ascii=False, indent=2)
+                   encoding="utf-8", newline="\n"), ensure_ascii=False, indent=2)
     return 0
 
 

@@ -1,7 +1,7 @@
 {
   "task": "WB-VIDEO-006-FINAL-PRODUCTION",
-  "files": 63,
-  "total_bytes": 93449062,
+  "files": 65,
+  "total_bytes": 93459461,
   "main": {
     "tag": "main",
     "file": "final_main.mp4",
@@ -406,13 +406,13 @@
     },
     {
       "path": "delivery_manifest.json",
-      "bytes": 21029,
-      "sha256": "4ae360863ac9affe269177cb4c2aa76d82b9b9f59ff875604ab1d687e7cbd872"
+      "bytes": 20796,
+      "sha256": "eac8bce9cb5aa16fea737da5310e0fd7e433628c7a89216e5c287854a333e606"
     },
     {
       "path": "ffprobe.json",
-      "bytes": 6946,
-      "sha256": "1855475766f3dd973c213caf28ff02e0e9741d8a5ea65c680f0cb103751fb517"
+      "bytes": 6713,
+      "sha256": "9f9718bcb40a14b5509b1d154f9dbeca05307cd8994de4e5e1ce698ed000ee8b"
     },
     {
       "path": "final_main.mp4",
@@ -606,8 +606,8 @@
     },
     {
       "path": "project/audio_stats.json",
-      "bytes": 691,
-      "sha256": "38ad448399465ae966f4ffe37c8fa54cdf5eb3fb3c79542e07fd3d9b994697d4"
+      "bytes": 666,
+      "sha256": "97e097e86b70bc5dfe76de873fb33ccb3e75b95b7e99a891b14a5f3b5869ffb9"
     },
     {
       "path": "project/build_audio.py",
@@ -626,8 +626,8 @@
     },
     {
       "path": "project/deliver.py",
-      "bytes": 16699,
-      "sha256": "b9a181f7c0ee05f46e9e221f9d7032bb67b9d2babdbb303ce42359ead70faf39"
+      "bytes": 16831,
+      "sha256": "301e70c351af19ea0fd47eabeb157259614d562b51db2ad8c7c2276cfed380e7"
     },
     {
       "path": "project/encode_commands.txt",
@@ -646,33 +646,43 @@
     },
     {
       "path": "project/subtitle_events.json",
-      "bytes": 11366,
-      "sha256": "689d7789fe46993055fa5dfe1d7f218945becafa81edd79083d51affed1f90d0"
+      "bytes": 10905,
+      "sha256": "07d3fbbc59c73f640026cbc9a5fb1dd7601f4f628dcaa5bf2632a95637e37ed5"
     },
     {
       "path": "project/timeline_main.json",
-      "bytes": 34098,
-      "sha256": "b9ae249dc5b4e8a827ad97c58b1920e858751a310125d4611f70a7ff1eadd621"
+      "bytes": 32722,
+      "sha256": "f0848c3d279a8a9d45e3009a26af8777810a30eb6cfee49f534a65897b27f38b"
     },
     {
       "path": "project/timeline_vertical.json",
-      "bytes": 10451,
-      "sha256": "c1d55773bce0a8a9715efd2a83b0ec27906cd2de39f0d1db13b8febb00b7b1a8"
+      "bytes": 10023,
+      "sha256": "4cbd9077de3f1012c3b0d19b275a27490a58eb2f701109e31e865a4bfe4473bf"
     },
     {
       "path": "project/tts_index.json",
-      "bytes": 16810,
-      "sha256": "a56683bdd19fbb5bd721a35bbe4cc98da61ed462680d298379409f2cb32ad2e6"
+      "bytes": 16164,
+      "sha256": "959d6349ecf972daa4484f37362deea0a6554b77bb0502ace1562cf6454d0088"
+    },
+    {
+      "path": "project/verify_remote.py",
+      "bytes": 9019,
+      "sha256": "4605829b64153ee1de8641cbfbf0958a5bee4c0b1e7c1346afa4e8722ce8b2d9"
     },
     {
       "path": "project/write_reports.py",
-      "bytes": 19790,
-      "sha256": "243206a9a3fbaf4bfff504149efb059747717a988e57bc3fdfda16df25cf28a2"
+      "bytes": 20092,
+      "sha256": "d6a655b1bbaba8fbe389d549685e660a4028fa745f17dd9e71df90a7fc654175"
+    },
+    {
+      "path": "push-verification.md",
+      "bytes": 4007,
+      "sha256": "bd7e749d44aa02048b73602182c9cbee75357fcb341d3379d66734b4c1b80f7e"
     },
     {
       "path": "quality_report.md",
-      "bytes": 9344,
-      "sha256": "946020a615ed463565ba0b2acfb25eaed3966f274d6c15c9d098d0cba4e85b37"
+      "bytes": 9685,
+      "sha256": "89e098a97ec7795d094fc88b5993c76fcc3ccaebfa4b66fd5992581777dcd48f"
     },
     {
       "path": "sfx/sfx_main.flac",
@@ -709,5 +719,77 @@
       "bytes": 1278416,
       "sha256": "e91358cda60f42141158b4f708a7b880d5fff6eaf9509a3f81ee33e7367837fc"
     }
-  ]
+  ],
+  "remote_verification": {
+    "commit": "b22b24cd5fed5e510f9e385a90ed737014e6bec1",
+    "ls_remote": "",
+    "checks": [
+      {
+        "file": "final_main.mp4",
+        "url": "https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_main.mp4",
+        "http": "200",
+        "remote_bytes": 10537954,
+        "local_bytes": 10537954,
+        "remote_sha256": "c6f98a5b31aeab22427184e6ca11e0acb9d502dbe8a22a8b40f969db536b8bb4",
+        "local_sha256": "c6f98a5b31aeab22427184e6ca11e0acb9d502dbe8a22a8b40f969db536b8bb4",
+        "size_match": true,
+        "sha_match": true,
+        "curl_rc": 0,
+        "curl_err": ""
+      },
+      {
+        "file": "final_vertical.mp4",
+        "url": "https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_vertical.mp4",
+        "http": "200",
+        "remote_bytes": 2056331,
+        "local_bytes": 2056331,
+        "remote_sha256": "89d12425dfc4d8ea4d614a19b1b07d5910aac429c2c3740c393131e0ee56aa24",
+        "local_sha256": "89d12425dfc4d8ea4d614a19b1b07d5910aac429c2c3740c393131e0ee56aa24",
+        "size_match": true,
+        "sha_match": true,
+        "curl_rc": 0,
+        "curl_err": ""
+      },
+      {
+        "file": "final_main.srt",
+        "url": "https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_main.srt",
+        "http": "200",
+        "remote_bytes": 3719,
+        "local_bytes": 3719,
+        "remote_sha256": "eabca507e0b258ae00a910fd6ab8c6c74020bc5c976d84c77bb2473b1de7f57c",
+        "local_sha256": "eabca507e0b258ae00a910fd6ab8c6c74020bc5c976d84c77bb2473b1de7f57c",
+        "size_match": true,
+        "sha_match": true,
+        "curl_rc": 0,
+        "curl_err": ""
+      },
+      {
+        "file": "final_vertical.srt",
+        "url": "https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/final_vertical.srt",
+        "http": "200",
+        "remote_bytes": 1037,
+        "local_bytes": 1037,
+        "remote_sha256": "55c3a98a6b51660333b0f3742aadd706739c5f0945de404efffa979977ddd55d",
+        "local_sha256": "55c3a98a6b51660333b0f3742aadd706739c5f0945de404efffa979977ddd55d",
+        "size_match": true,
+        "sha_match": true,
+        "curl_rc": 0,
+        "curl_err": ""
+      },
+      {
+        "file": "ffprobe.json",
+        "url": "https://raw.githubusercontent.com/swdscsc/yaodao-agent/b22b24cd5fed5e510f9e385a90ed737014e6bec1/docs/ai-collaboration/outbox/WB-VIDEO-006-FINAL-PRODUCTION/ffprobe.json",
+        "http": "200",
+        "remote_bytes": 6713,
+        "local_bytes": 6713,
+        "remote_sha256": "9f9718bcb40a14b5509b1d154f9dbeca05307cd8994de4e5e1ce698ed000ee8b",
+        "local_sha256": "9f9718bcb40a14b5509b1d154f9dbeca05307cd8994de4e5e1ce698ed000ee8b",
+        "size_match": true,
+        "sha_match": true,
+        "curl_rc": 0,
+        "curl_err": ""
+      }
+    ],
+    "all_passed": true
+  }
 }
