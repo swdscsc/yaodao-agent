@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "task_id": "WB-VIDEO-005-PREPRODUCTION",
-  "verified_at": "2026-11-08T19:55:00+08:00",
+  "verified_at": "2026-11-08T19:59:12+08:00",
   "json_files_valid": 7,
   "csv_files_valid": 2,
   "csv_details": {
@@ -15,7 +15,7 @@
     }
   },
   "srt_files_valid": 2,
-  "manifest_entries_rehashed": 18,
+  "manifest_entries_rehashed": 16,
   "text_files_secret_scanned": 18,
   "secret_scan_findings": 0,
   "findings": [],

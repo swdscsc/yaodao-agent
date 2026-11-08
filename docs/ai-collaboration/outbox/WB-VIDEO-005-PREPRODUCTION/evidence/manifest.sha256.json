@@ -1,17 +1,24 @@
 {
   "schema_version": "1.0",
   "task_id": "WB-VIDEO-005-PREPRODUCTION",
-  "generated_at": "2026-11-08T19:55:21+08:00",
+  "generated_at": "2026-11-08T19:59:11+08:00",
   "delivery_dir": "docs/ai-collaboration/outbox/WB-VIDEO-005-PREPRODUCTION/",
-  "file_count": 17,
-  "total_bytes": 193983,
+  "file_count": 16,
+  "total_bytes": 193445,
   "excludes_self": "evidence/manifest.sha256.json",
+  "excludes_verification_files": [
+    "evidence/delivery-verification.json",
+    "evidence/push-verification-addendum.md",
+    "evidence/push-verification.json"
+  ],
   "appended_after_manifest": {
     "paths": [
+      "evidence/delivery-verification.json",
+      "evidence/push-verification-addendum.md",
       "evidence/push-verification.json"
     ],
-    "reason": "commit SHA and remote link verification can only exist after the push",
-    "sha256_recorded_in": "the appended file records its own SHA-256 in its self_hash field"
+    "reason": "commit SHA and remote link verification can only exist after the push; verification files are kept out of the manifest so generating them never changes the manifest",
+    "sha256_recorded_in": "push-verification-addendum.md (self-reference for the addendum itself is impossible; its SHA-256 is given in the session reply)"
   },
   "files": [
     {
@@ -38,11 +45,6 @@
       "path": "evidence/consistency-check.json",
       "bytes": 1991,
       "sha256": "f31f78776372cc7f04ad633e43c5b6315bc1579e09f70af378afa86f9f5dc26b"
-    },
-    {
-      "path": "evidence/delivery-verification.json",
-      "bytes": 538,
-      "sha256": "9386a72f415f9e174ccb037882cd045ac1ff0d324e5694bdebd89ba1b02acd2e"
     },
     {
       "path": "evidence/dialogue-subtitle-draft.srt",
