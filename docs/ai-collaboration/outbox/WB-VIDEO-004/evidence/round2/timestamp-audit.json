@@ -1,0 +1,410 @@
+{
+  "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+  "purpose": "Explain the apparent timestamp discrepancy raised by ChatGPT review. READ-ONLY forensic collection; no time is fabricated, back-filled or rewritten.",
+  "captured_at": "2026-11-08T17:47:37+08:00",
+  "captured_at_method": "datetime.now().astimezone() - READS the host timezone (round-1 probe scripts hardcoded UTC+08:00 instead)",
+  "honesty": "This file is NEW evidence. No historical report, evidence file or git commit was altered to change any timestamp.",
+  "host_clocks": {
+    "python_time_time_epoch": 1794131257,
+    "python_local_now": "2026-11-08T17:47:37",
+    "python_utc_now": "2026-11-08T09:47:37+00:00",
+    "python_astimezone_now": "2026-11-08T17:47:37+08:00",
+    "python_strftime_local": "2026-11-08T17:47:37+0800",
+    "python_strftime_utc": "2026-11-08T09:47:37Z",
+    "python_tzname": [
+      "中国标准时间",
+      "中国夏令时"
+    ],
+    "python_timezone_offset_seconds": 28800,
+    "git_var_committer_ident": "swdscsc <swdscsc@users.noreply.github.com> 1794131257 +0800",
+    "git_var_author_ident": "swdscsc <swdscsc@users.noreply.github.com> 1794131257 +0800"
+  },
+  "environment_date_overrides": {
+    "GIT_AUTHOR_DATE_present": false,
+    "GIT_COMMITTER_DATE_present": false,
+    "note": "Boolean presence only. Neither value is read, printed or stored."
+  },
+  "windows_timezone": {
+    "id": "China Standard Time",
+    "display": "(UTC+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi",
+    "utc_offset_hours": 8,
+    "supports_daylight_saving": false,
+    "is_daylight_saving_now": false,
+    "w32time_type": "NTP",
+    "w32time_ntp_server": "time.windows.com,0x9",
+    "source": "PowerShell Get-TimeZone / Get-Date / HKLM SYSTEM CurrentControlSet Services W32Time Parameters (read-only, collected separately)"
+  },
+  "git_commits": [
+    {
+      "sha": "8c261166253fbfc1f5d52669eca1277a0d776661",
+      "author_date_iso": "2026-11-08T17:28:13+08:00",
+      "committer_date_iso": "2026-11-08T17:28:13+08:00",
+      "author_epoch": 1794130093,
+      "committer_epoch": 1794130093,
+      "raw_object_author_epoch": 1794130093,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794130093,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T17:28:13",
+      "epoch_to_utc_check": "2026-11-08T09:28:13+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): record verified WB-VIDEO-004 push SHA and credential-helper reset"
+    },
+    {
+      "sha": "a5659e3eba3b44969f964889df95ad19d4048ee6",
+      "author_date_iso": "2026-11-08T17:21:03+08:00",
+      "committer_date_iso": "2026-11-08T17:21:03+08:00",
+      "author_epoch": 1794129663,
+      "committer_epoch": 1794129663,
+      "raw_object_author_epoch": 1794129663,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794129663,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T17:21:03",
+      "epoch_to_utc_check": "2026-11-08T09:21:03+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): WB-VIDEO-004 per-item subtitle sign-off, GitHub/Skill research, ad-director workflow and CONDITIONAL PASS report"
+    },
+    {
+      "sha": "addca7883c59f8aeb490376d71478095799e5d97",
+      "author_date_iso": "2026-11-08T16:06:00+08:00",
+      "committer_date_iso": "2026-11-08T16:06:00+08:00",
+      "author_epoch": 1794125160,
+      "committer_epoch": 1794125160,
+      "raw_object_author_epoch": 1794125160,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794125160,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T16:06:00",
+      "epoch_to_utc_check": "2026-11-08T08:06:00+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): record verified WB-VIDEO-003 push SHA and OS-credential-store method"
+    },
+    {
+      "sha": "f5e62e5f20ceb439cc954b271251a9ab73161fba",
+      "author_date_iso": "2026-11-08T16:05:18+08:00",
+      "committer_date_iso": "2026-11-08T16:05:18+08:00",
+      "author_epoch": 1794125118,
+      "committer_epoch": 1794125118,
+      "raw_object_author_epoch": 1794125118,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794125118,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T16:05:18",
+      "epoch_to_utc_check": "2026-11-08T08:05:18+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): WB-VIDEO-003 P0 QA fixes, environment audit, E2E plan and CONDITIONAL PASS report"
+    },
+    {
+      "sha": "08ffda5199cffccf762e810f139ab8bf1522fe2b",
+      "author_date_iso": "2026-11-08T15:27:14+08:00",
+      "committer_date_iso": "2026-11-08T15:27:14+08:00",
+      "author_epoch": 1794122834,
+      "committer_epoch": 1794122834,
+      "raw_object_author_epoch": 1794122834,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794122834,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T15:27:14",
+      "epoch_to_utc_check": "2026-11-08T07:27:14+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): record verified push SHA and GitHub links in WB-VIDEO-002 report"
+    },
+    {
+      "sha": "66d63f869116a25e88d07c5fc505721709d9af86",
+      "author_date_iso": "2026-11-08T15:26:26+08:00",
+      "committer_date_iso": "2026-11-08T15:26:26+08:00",
+      "author_epoch": 1794122786,
+      "committer_epoch": 1794122786,
+      "raw_object_author_epoch": 1794122786,
+      "raw_object_author_tz": "+0800",
+      "raw_object_committer_epoch": 1794122786,
+      "raw_object_committer_tz": "+0800",
+      "epoch_to_local_check": "2026-11-08T15:26:26",
+      "epoch_to_utc_check": "2026-11-08T07:26:26+00:00",
+      "author_equals_committer": true,
+      "subject": "docs(ai-collaboration): WB-VIDEO-002 full investigation, architecture, zero-quota E2E and rework evidence"
+    }
+  ],
+  "git_reflog_recent": [
+    "8c26116 HEAD@{2026-11-08 17:28:13 +0800}: commit: docs(ai-collaboration): record verified WB-VIDEO-004 push SHA and credential-helper reset",
+    "a5659e3 HEAD@{2026-11-08 17:21:03 +0800}: commit: docs(ai-collaboration): WB-VIDEO-004 per-item subtitle sign-off, GitHub/Skill research, ad-director workflow and CONDITIONAL PASS report",
+    "addca78 HEAD@{2026-11-08 16:06:00 +0800}: commit: docs(ai-collaboration): record verified WB-VIDEO-003 push SHA and OS-credential-store method",
+    "f5e62e5 HEAD@{2026-11-08 16:05:18 +0800}: commit: docs(ai-collaboration): WB-VIDEO-003 P0 QA fixes, environment audit, E2E plan and CONDITIONAL PASS report",
+    "08ffda5 HEAD@{2026-11-08 15:27:14 +0800}: commit: docs(ai-collaboration): record verified push SHA and GitHub links in WB-VIDEO-002 report",
+    "66d63f8 HEAD@{2026-11-08 15:26:26 +0800}: commit: docs(ai-collaboration): WB-VIDEO-002 full investigation, architecture, zero-quota E2E and rework evidence"
+  ],
+  "git_date_source": "git itself stamps AuthorDate/CommitDate from the OS system clock at commit creation; raw objects store <unix-epoch> <+0800>. No --date override, no environment date override, no amend and no history rewrite was used.",
+  "declared_window": {
+    "report_md_line_8": "| Start / End | 2026-11-08 16:30 / 17:06 +0800（Asia/Shanghai, UTC+8） |",
+    "pipeline_status_started_at": "2026-11-08T16:30:00+08:00",
+    "pipeline_status_ended_at": "2026-11-08T17:06:00+08:00",
+    "nature": "HUMAN-ESTIMATED execution window written into prose/metadata at authoring time; NOT a machine timestamp"
+  },
+  "file_timestamps": [
+    {
+      "file": ".gitignore",
+      "mtime_local": "2026-11-08T17:04:02",
+      "mtime_utc": "2026-11-08T09:04:02+00:00",
+      "bytes": 19
+    },
+    {
+      "file": "ad-director-workflow.md",
+      "mtime_local": "2026-11-08T16:59:43",
+      "mtime_utc": "2026-11-08T08:59:43+00:00",
+      "bytes": 14736
+    },
+    {
+      "file": "blockers.md",
+      "mtime_local": "2026-11-08T17:03:30",
+      "mtime_utc": "2026-11-08T09:03:30+00:00",
+      "bytes": 8273
+    },
+    {
+      "file": "evidence/github_repo_probe.json",
+      "mtime_local": "2026-11-08T16:41:40",
+      "mtime_utc": "2026-11-08T08:41:40+00:00",
+      "bytes": 145112,
+      "captured_at": "2026-11-08T16:41:40+08:00",
+      "captured_at_minus_mtime_seconds": -1.0
+    },
+    {
+      "file": "evidence/github_repo_probe_addendum.json",
+      "mtime_local": "2026-11-08T16:50:12",
+      "mtime_utc": "2026-11-08T08:50:12+00:00",
+      "bytes": 10167,
+      "captured_at": "2026-11-08T16:49:55+08:00",
+      "captured_at_minus_mtime_seconds": -17.2
+    },
+    {
+      "file": "evidence/jianying_host_research.json",
+      "mtime_local": "2026-11-08T16:50:14",
+      "mtime_utc": "2026-11-08T08:50:14+00:00",
+      "bytes": 1546,
+      "captured_at": "2026-11-08T16:50:12+08:00",
+      "captured_at_minus_mtime_seconds": -2.6
+    },
+    {
+      "file": "evidence/manifest.sha256.json",
+      "mtime_local": "2026-11-08T17:08:21",
+      "mtime_utc": "2026-11-08T09:08:21+00:00",
+      "bytes": 1494,
+      "captured_at": null
+    },
+    {
+      "file": "evidence/secret_scan_004.json",
+      "mtime_local": "2026-11-08T17:08:20",
+      "mtime_utc": "2026-11-08T09:08:20+00:00",
+      "bytes": 610,
+      "captured_at": "2026-11-08T17:08:20+08:00",
+      "captured_at_minus_mtime_seconds": -0.5
+    },
+    {
+      "file": "evidence/signoff_before_after.json",
+      "mtime_local": "2026-11-08T16:46:36",
+      "mtime_utc": "2026-11-08T08:46:36+00:00",
+      "bytes": 3222,
+      "captured_at": "2026-11-08T16:46:36+08:00",
+      "captured_at_minus_mtime_seconds": -0.9
+    },
+    {
+      "file": "evidence/signoff_sample_contact_sheet.jpg",
+      "mtime_local": "2026-11-08T16:46:36",
+      "mtime_utc": "2026-11-08T08:46:36+00:00",
+      "bytes": 8937
+    },
+    {
+      "file": "evidence/tts_probe_004.json",
+      "mtime_local": "2026-11-08T16:51:21",
+      "mtime_utc": "2026-11-08T08:51:21+00:00",
+      "bytes": 2911,
+      "captured_at": "2026-11-08T16:51:20+08:00",
+      "captured_at_minus_mtime_seconds": -1.1
+    },
+    {
+      "file": "evidence/vidova_deeplink_research.json",
+      "mtime_local": "2026-11-08T16:53:48",
+      "mtime_utc": "2026-11-08T08:53:48+00:00",
+      "bytes": 9220,
+      "captured_at": "2026-11-08T16:53:47+08:00",
+      "captured_at_minus_mtime_seconds": -1.8
+    },
+    {
+      "file": "evidence/vidova_window_research.json",
+      "mtime_local": "2026-11-08T16:52:41",
+      "mtime_utc": "2026-11-08T08:52:41+00:00",
+      "bytes": 11815,
+      "captured_at": "2026-11-08T16:52:39+08:00",
+      "captured_at_minus_mtime_seconds": -2.7
+    },
+    {
+      "file": "github-project-research.md",
+      "mtime_local": "2026-11-08T16:56:26",
+      "mtime_utc": "2026-11-08T08:56:26+00:00",
+      "bytes": 10718
+    },
+    {
+      "file": "product-ad-editing-guide.md",
+      "mtime_local": "2026-11-08T17:00:48",
+      "mtime_utc": "2026-11-08T09:00:48+00:00",
+      "bytes": 10657
+    },
+    {
+      "file": "recommended-architecture.md",
+      "mtime_local": "2026-11-08T17:01:46",
+      "mtime_utc": "2026-11-08T09:01:46+00:00",
+      "bytes": 8724
+    },
+    {
+      "file": "report.md",
+      "mtime_local": "2026-11-08T17:27:24",
+      "mtime_utc": "2026-11-08T09:27:24+00:00",
+      "bytes": 19332
+    },
+    {
+      "file": "run_signoff_tests.py",
+      "mtime_local": "2026-11-08T16:46:22",
+      "mtime_utc": "2026-11-08T08:46:22+00:00",
+      "bytes": 27614
+    },
+    {
+      "file": "skill-research.md",
+      "mtime_local": "2026-11-08T16:57:11",
+      "mtime_utc": "2026-11-08T08:57:11+00:00",
+      "bytes": 8128
+    },
+    {
+      "file": "subtitle-signoff-fix.md",
+      "mtime_local": "2026-11-08T16:54:51",
+      "mtime_utc": "2026-11-08T08:54:51+00:00",
+      "bytes": 12236
+    },
+    {
+      "file": "subtitle-signoff-tests.json",
+      "mtime_local": "2026-11-08T16:46:36",
+      "mtime_utc": "2026-11-08T08:46:36+00:00",
+      "bytes": 16762,
+      "captured_at": "2026-11-08T16:46:36+08:00",
+      "captured_at_minus_mtime_seconds": -0.9
+    },
+    {
+      "file": "subtitle_checks.py",
+      "mtime_local": "2026-11-08T16:43:28",
+      "mtime_utc": "2026-11-08T08:43:28+00:00",
+      "bytes": 38676
+    },
+    {
+      "file": "tts-research.md",
+      "mtime_local": "2026-11-08T16:58:00",
+      "mtime_utc": "2026-11-08T08:58:00+00:00",
+      "bytes": 8431
+    },
+    {
+      "file": "vidova-jianying-next-steps.md",
+      "mtime_local": "2026-11-08T17:02:37",
+      "mtime_utc": "2026-11-08T09:02:37+00:00",
+      "bytes": 9247
+    }
+  ],
+  "key_files": [
+    {
+      "file": "evidence/github_repo_probe.json",
+      "mtime_local": "2026-11-08T16:41:40",
+      "mtime_utc": "2026-11-08T08:41:40+00:00",
+      "bytes": 145112,
+      "captured_at": "2026-11-08T16:41:40+08:00",
+      "captured_at_minus_mtime_seconds": -1.0
+    },
+    {
+      "file": "evidence/secret_scan_004.json",
+      "mtime_local": "2026-11-08T17:08:20",
+      "mtime_utc": "2026-11-08T09:08:20+00:00",
+      "bytes": 610,
+      "captured_at": "2026-11-08T17:08:20+08:00",
+      "captured_at_minus_mtime_seconds": -0.5
+    },
+    {
+      "file": "evidence/signoff_before_after.json",
+      "mtime_local": "2026-11-08T16:46:36",
+      "mtime_utc": "2026-11-08T08:46:36+00:00",
+      "bytes": 3222,
+      "captured_at": "2026-11-08T16:46:36+08:00",
+      "captured_at_minus_mtime_seconds": -0.9
+    },
+    {
+      "file": "evidence/tts_probe_004.json",
+      "mtime_local": "2026-11-08T16:51:21",
+      "mtime_utc": "2026-11-08T08:51:21+00:00",
+      "bytes": 2911,
+      "captured_at": "2026-11-08T16:51:20+08:00",
+      "captured_at_minus_mtime_seconds": -1.1
+    },
+    {
+      "file": "evidence/vidova_deeplink_research.json",
+      "mtime_local": "2026-11-08T16:53:48",
+      "mtime_utc": "2026-11-08T08:53:48+00:00",
+      "bytes": 9220,
+      "captured_at": "2026-11-08T16:53:47+08:00",
+      "captured_at_minus_mtime_seconds": -1.8
+    },
+    {
+      "file": "report.md",
+      "mtime_local": "2026-11-08T17:27:24",
+      "mtime_utc": "2026-11-08T09:27:24+00:00",
+      "bytes": 19332
+    },
+    {
+      "file": "run_signoff_tests.py",
+      "mtime_local": "2026-11-08T16:46:22",
+      "mtime_utc": "2026-11-08T08:46:22+00:00",
+      "bytes": 27614
+    },
+    {
+      "file": "subtitle-signoff-tests.json",
+      "mtime_local": "2026-11-08T16:46:36",
+      "mtime_utc": "2026-11-08T08:46:36+00:00",
+      "bytes": 16762,
+      "captured_at": "2026-11-08T16:46:36+08:00",
+      "captured_at_minus_mtime_seconds": -0.9
+    },
+    {
+      "file": "subtitle_checks.py",
+      "mtime_local": "2026-11-08T16:43:28",
+      "mtime_utc": "2026-11-08T08:43:28+00:00",
+      "bytes": 38676
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "finding": "No host clock drift",
+      "evidence": "Windows (China Standard Time, UTC+8, no DST, NTP time.windows.com), Python datetime/strftime, git var GIT_COMMITTER_IDENT and the platform-injected session clock all agree on 2026-11-08 ~17:43 +0800."
+    },
+    {
+      "id": "F2",
+      "finding": "Git timestamps are authentic and self-consistent",
+      "evidence": "Raw commit objects carry epoch 1794130093 +0800 (17:28:13) and 1794129663 +0800 (17:21:03); %aI == %cI == epoch converted to +0800; author == committer; no date environment overrides."
+    },
+    {
+      "id": "F3",
+      "finding": "The 16:30/17:06 window is a prose estimate, not a clock",
+      "evidence": "report.md line 8 and pipeline-status.json started_at/ended_at were hand-written. Machine evidence spans 16:41:40 (earliest probe captured_at) to 17:28:13 (final commit). The prose end time under-runs the real commit by about 22 minutes."
+    },
+    {
+      "id": "F4",
+      "finding": "captured_at values are runtime-generated, not back-filled",
+      "evidence": "subtitle-signoff-tests.json captured_at 16:46:36+08:00 equals its own file mtime 16:46:36; signoff_before_after.json captured_at and mtime are both 16:46:36; other evidence files agree within seconds."
+    },
+    {
+      "id": "F5",
+      "finding": "Round-1 scripts hardcoded UTC+08:00 instead of reading host timezone",
+      "evidence": "probe scripts used datetime.now(timezone(timedelta(hours=8))). The host IS UTC+08:00 with no DST, so recorded values are correct, but the implementation is a robustness defect. Round-2 evidence uses datetime.now().astimezone()."
+    },
+    {
+      "id": "F6",
+      "finding": "The 16:34 session clock is a DIFFERENT clock source, not a time reversal",
+      "evidence": "It is the value quoted in the reviewer/session text. On this host, machine evidence in that period already existed at 16:41-16:46 (probe and test files). No file, commit or report was back-dated to match 16:34, and no future timestamp exists."
+    }
+  ],
+  "conclusion": "There is NO system clock drift, NO forged time and NO back-filling. The apparent anomaly is fully explained by (a) a human-estimated 16:30-17:06 prose window that understates the real 17:21/17:28 commits, (b) a separate session/clock source quoting 16:34, and (c) hardcoded +08:00 in round-1 probe scripts. Historical reports are left untouched; this addendum is the only place the discrepancy is explained."
+}

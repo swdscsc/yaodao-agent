@@ -34,6 +34,18 @@ Honesty rules
   overridden by a human APPROVED.
 * Automatic evidence and human sign-off are stored in two separate structures.
 * Synthetic/test reviewers are inadmissible in a production sign-off ledger.
+
+Review round 2 (ChatGPT findings)
+---------------------------------
+* ``evaluate_subtitle_fix()`` is the PRODUCTION decision entry. Its context is
+  now an INTERNAL CONSTANT. A caller-supplied ``context`` (parameter or
+  ``spec["manual_review"]["context"]``) is ignored/audited and can never turn
+  a unit-test observation into a production ``FIXED``. A separate isolated
+  ``evaluate_subtitle_fix_unit_test()`` exists for tests and NEVER returns
+  ``FIXED`` or a production-admissible record.
+* The frame-difference font routine is described ONLY as a PIXEL HEIGHT
+  ESTIMATE. It is NOT a precise font-size measurement. Production QA keeps a
+  named human font-size confirmation as a ``FIXED`` prerequisite.
 """
 from __future__ import annotations
 
@@ -85,6 +97,17 @@ EVIDENCE_PLACEHOLDERS = {
     "", "ok", "pass", "passed", "approved", "yes", "n/a", "na", "none",
     "-", "test", "placeholder", "looks good", "checked",
 }
+
+# Review round 2: production context is an INTERNAL CONSTANT, never a caller input.
+PRODUCTION_CONTEXT = "production"
+UNIT_TEST_CONTEXT = "unit_test"
+CONTEXT_SOURCE = "internal_constant"
+
+FONT_HUMAN_REQUIRED_FIELDS = [
+    "reviewer", "reviewed_at", "verdict", "evidence",
+    "frame_ref", "video_version", "subtitle_version",
+]
+
 TZ = timezone(timedelta(hours=8))
 EARLIEST_VALID_REVIEW = datetime(2020, 1, 1, tzinfo=TZ)
 
@@ -303,10 +326,12 @@ def measure_text_contrast(frame_path, reference_path, box) -> dict:
 
 
 def measure_font_px_from_frame(frame_path, reference_path, box) -> dict:
-    """Estimate glyph height from the longest run of changed pixel rows.
+    """PIXEL HEIGHT ESTIMATE from the longest run of changed pixel rows.
 
-    This is an ESTIMATE of the burned-in glyph bounding height, not the
-    renderer's font size and not a ground-truth typographic measurement.
+    This is ONLY a pixel-height estimate of changed rows in a frame-difference
+    mask. It is NOT the renderer's font size, NOT a typographic font metric,
+    and NOT a precise measurement of the real font size. Production QA must
+    keep a named human font-size confirmation.
     """
     a, b, np, err = _load_frame_pair(frame_path, reference_path)
     if err or a is None or b is None:
@@ -327,10 +352,21 @@ def measure_font_px_from_frame(frame_path, reference_path, box) -> dict:
             cur = [int(r)]
     groups.append(cur)
     height = max(len(g) for g in groups)
-    return {"available": True, "font_px_measured": height,
-            "method": "longest_changed_row_run_in_difference_mask",
-            "measurement_confidence": "estimate_glyph_height_not_font_size_truth",
-            "text_row_groups": len(groups)}
+    return {
+        "available": True,
+        "font_px_pixel_height_estimate": height,
+        "font_px_measured": height,  # DEPRECATED alias, kept for round-1 test compatibility
+        "is_precise_font_size_measurement": False,
+        "method": "pixel_height_estimate_from_frame_difference_mask",
+        "measurement_confidence": "pixel_height_estimate__not_a_font_size_measurement",
+        "measurement_note": (
+            "This is a PIXEL HEIGHT ESTIMATE of the longest changed-row run in a "
+            "frame-difference mask. It is NOT the renderer font size, NOT a "
+            "typographic font metric and NOT a precise font-size measurement. "
+            "Production QA must keep a named human font-size confirmation."),
+        "human_confirmation_required_in_production": True,
+        "text_row_groups": len(groups),
+    }
 
 
 def occlusion_metrics(subtitle_box, subjects) -> dict:
@@ -430,22 +466,29 @@ def inspect_subtitle(spec: dict) -> dict:
         "font_px_render_param": render_fp,
         "render_param_used_for_verdict": False,
         "render_param_decision_weight": 0,
-        "font_px_measured": m.get("font_px_measured"),
+        "font_px_pixel_height_estimate": m.get("font_px_pixel_height_estimate"),
+        "font_px_measured": m.get("font_px_pixel_height_estimate"),  # DEPRECATED alias
         "font_px_human_confirmed": None,
+        "is_precise_font_size_measurement": False,
         "measurement_method": m.get("method"),
         "measurement_confidence": m.get("measurement_confidence"),
-        "measurement_note": m.get("note"),
+        "measurement_note": m.get("measurement_note") or m.get("note"),
+        "verdict_scope": "pixel_height_estimate_threshold_only",
+        "production_font_size_human_review": "NEEDS_MANUAL_REVIEW",
+        "human_confirmation_required_in_production": True,
         "minimum_px": MIN_FONT_PX[orient],
         "three_states_recorded_separately": True,
     }
-    if not m.get("available") or m.get("font_px_measured") is None:
+    est = m.get("font_px_pixel_height_estimate")
+    if not m.get("available") or est is None:
         font_entry["verdict"] = "NEEDS_MANUAL_REVIEW"
-        font_entry["reason"] = "no reliable frame measurement; renderer parameter is not evidence"
+        font_entry["reason"] = ("no reliable pixel-height estimate; the renderer "
+                                "parameter is not evidence")
     else:
-        font_entry["verdict"] = "PASS" if m["font_px_measured"] >= MIN_FONT_PX[orient] else "FAIL"
+        font_entry["verdict"] = "PASS" if est >= MIN_FONT_PX[orient] else "FAIL"
         if render_fp is not None and render_fp > 0:
             font_entry["render_vs_measured_discrepancy_pct"] = round(
-                abs(render_fp - m["font_px_measured"]) / render_fp * 100, 1)
+                abs(render_fp - est) / render_fp * 100, 1)
     auto["font_size"] = font_entry
 
     # --- contrast: real text-vs-adjacent-background measurement -------------
@@ -767,37 +810,109 @@ def append_production_signoff(ledger_path, spec: dict, records) -> dict:
             result["signoff_integrity"]["signoff_hash"], "ledger": "production"}
 
 
+def validate_font_human_confirmation(spec: dict) -> dict:
+    """A NAMED HUMAN must confirm typographic size in production.
+
+    The frame-difference PIXEL HEIGHT ESTIMATE is not a font-size measurement,
+    so it can never replace this human confirmation as a FIXED prerequisite.
+    """
+    r = spec.get("font_size_human_confirmation")
+    errors: list[str] = []
+    if not isinstance(r, dict):
+        return {"valid": False, "verdict": "NEEDS_MANUAL_REVIEW",
+                "errors": ["font_size_human_confirmation_missing"],
+                "reviewer": None, "record_sha256": None,
+                "pixel_height_estimate_is_not_font_size_measurement": True,
+                "note": "No named production human confirmation of font size exists."}
+    for f in FONT_HUMAN_REQUIRED_FIELDS:
+        if f not in r or r[f] in (None, ""):
+            errors.append(f"missing_field:{f}")
+    reviewer = str(r.get("reviewer") or "").strip()
+    synthetic, reasons = _is_synthetic(r)
+    if synthetic:
+        errors.append("synthetic_reviewer_not_admissible:" + ",".join(reasons))
+    ok_ev, ev_note = _validate_evidence(r.get("evidence"))
+    if not ok_ev:
+        errors.append(f"invalid_evidence:{ev_note}")
+    ok_t, _ = _validate_reviewed_at(r.get("reviewed_at"))
+    if not ok_t:
+        errors.append("invalid_reviewed_at")
+    if str(r.get("verdict") or "").upper() != "APPROVED":
+        errors.append("verdict_is_not_APPROVED")
+    for f, anchor in (("frame_ref", "frame_id"), ("video_version", "video_version"),
+                      ("subtitle_version", "subtitle_version")):
+        if f in r and anchor in spec and str(r[f]) != str(spec[anchor]):
+            errors.append(f"{f}_does_not_match_spec")
+    valid = not errors
+    return {
+        "valid": valid,
+        "verdict": "APPROVED" if valid else "NEEDS_MANUAL_REVIEW",
+        "errors": errors,
+        "reviewer": reviewer if valid else None,
+        "reviewed_at": r.get("reviewed_at") if valid else None,
+        "record_sha256": hashlib.sha256(json.dumps(
+            r, sort_keys=True, ensure_ascii=False, default=str).encode("utf-8")).hexdigest(),
+        "method": "named_human_typographic_confirmation__not_a_frame_measurement",
+        "pixel_height_estimate_is_not_font_size_measurement": True,
+        "note": ("Production FIXED additionally requires this human confirmation; "
+                 "the automatic pixel-height estimate alone never proves font size."),
+    }
+
+
 def evaluate_subtitle_fix(spec: dict, context: str | None = None) -> dict:
-    """Decide whether a subtitle defect may be marked FIXED.
+    """PRODUCTION decision entry. The context is FIXED internally.
+
+    A caller-supplied ``context`` (this parameter OR
+    ``spec["manual_review"]["context"]``) is NEVER used to decide production
+    admissibility. A non-production parameter is rejected outright; a
+    non-production value inside the spec is ignored and recorded for audit.
+    Synthetic/test reviewers therefore cannot produce a production ``FIXED``.
+    Use ``evaluate_subtitle_fix_unit_test()`` for isolated test observations.
 
     FIXED requires ALL of: no automatic FAIL, positive burn-in pixel proof, a
-    produced render, a FRAME-MEASURED font size PASS, a real text-vs-background
-    contrast PASS, and THREE individually validated human sign-off records
-    bound to the exact frame / time range / video version / subtitle version.
+    produced render, a PIXEL-HEIGHT-ESTIMATE threshold pass, a measured
+    text-vs-background contrast pass, a NAMED HUMAN font-size confirmation,
+    and THREE individually validated human sign-off records bound to the exact
+    frame / time range / video version / subtitle version.
     """
+    if context is not None and context != PRODUCTION_CONTEXT:
+        raise SignoffError(
+            "evaluate_subtitle_fix() is the PRODUCTION decision entry; a "
+            f"caller-supplied non-production context ({context!r}) is refused. "
+            "Use evaluate_subtitle_fix_unit_test() for test observations.")
+
     report = inspect_subtitle(spec)
     supplied = spec.get("manual_review") or {}
-    ctx = context or supplied.get("context") or "production"
-    records = supplied.get("items")
-    review = verify_signoff_set(spec, records, context=ctx)
+    attempted_context = {
+        "parameter": context,
+        "spec_manual_review_context": supplied.get("context"),
+    }
+    review = verify_signoff_set(spec, supplied.get("items"), context=PRODUCTION_CONTEXT)
     report["manual_review"] = review
+    font_human = validate_font_human_confirmation(spec)
+    report["font_size_human_review"] = font_human
 
     checks = report["automatic"]["checks"]
     auto_fail = report["automatic"]["verdict"] == "FAIL"
     burn_ok = checks["burned_in_evidence"]["verdict"] == "PASS"
     artifact_ok = checks["artifact_exists"]["verdict"] == "PASS"
-    font_ok = checks["font_size"]["verdict"] == "PASS"
+    font_est_ok = checks["font_size"]["verdict"] == "PASS"
     contrast_ok = checks["contrast"]["verdict"] == "PASS"
-    human_ok = review["all_items_approved"] and review["signoff_integrity"]["binding_valid"]
+    integrity = review["signoff_integrity"]
+    human_ok = review["all_items_approved"] and integrity["binding_valid"]
 
     prerequisites = {
         "no_automatic_failure": not auto_fail,
         "burned_in_pixel_proof": burn_ok,
         "render_produced": artifact_ok,
-        "font_size_frame_measured_pass": font_ok,
+        "font_pixel_height_estimate_threshold_pass": font_est_ok,
         "text_contrast_measured_pass": contrast_ok,
+        "font_size_named_human_confirmation": font_human["valid"],
         "all_three_manual_items_individually_approved": human_ok,
-        "signoff_binding_valid": review["signoff_integrity"]["binding_valid"],
+        "signoff_binding_valid": integrity["binding_valid"],
+        "production_context_is_internal_constant": review["context"] == PRODUCTION_CONTEXT,
+        "production_signoff_admissible": integrity["production_admissible"],
+        "no_synthetic_reviewers_in_signoff": integrity["synthetic_records"] == 0,
     }
     can_mark_fixed = all(prerequisites.values())
 
@@ -812,25 +927,84 @@ def evaluate_subtitle_fix(spec: dict, context: str | None = None) -> dict:
         "can_mark_fixed": can_mark_fixed,
         "fix_result": fix_result,
         "prerequisites": prerequisites,
+        "context_policy": {
+            "source": CONTEXT_SOURCE,
+            "effective_context": PRODUCTION_CONTEXT,
+            "caller_cannot_override": True,
+            "caller_context_attempted_but_ignored": attempted_context,
+            "unit_test_context_cannot_produce_production_fixed": True,
+        },
         "decision_rule": (
             "FIXED requires: no automatic FAIL + burned-in pixel proof + produced render "
-            "+ FRAME-MEASURED font PASS + measured text/background contrast PASS "
-            "+ 3 independent per-item human APPROVED records, each with a named reviewer, "
-            "timestamp, substantive evidence, and a matching frame, time range, video "
-            "version and subtitle version. Automatic PASS is NOT a human PASS and a human "
-            "APPROVED cannot override an automatic FAIL. artifact_exists decision_weight=0."),
+            "+ PIXEL-HEIGHT-ESTIMATE threshold pass (NOT a font-size measurement) "
+            "+ measured text/background contrast PASS + a NAMED HUMAN font-size "
+            "confirmation + 3 independent per-item human APPROVED records, each with a "
+            "named reviewer, timestamp, substantive evidence, and a matching frame, time "
+            "range, video version and subtitle version. The production context is an "
+            "internal constant; a unit_test context can never yield FIXED. Automatic PASS "
+            "is NOT a human PASS and a human APPROVED cannot override an automatic FAIL. "
+            "artifact_exists decision_weight=0."),
         "automatic_and_manual_recorded_separately": True,
         "auto_pass_is_not_human_pass": True,
         "human_cannot_override_automatic_fail": True,
         "unverified_items": review["missing_or_invalid_items"],
         "font_size_states": {
             "render_parameter": checks["font_size"].get("font_px_render_param"),
-            "frame_measured": checks["font_size"].get("font_px_measured"),
-            "human_confirmed": None,
-            "note": "human_confirmed is populated only by a real production sign-off record, never by a test",
+            "pixel_height_estimate": checks["font_size"].get("font_px_pixel_height_estimate"),
+            "frame_measured": checks["font_size"].get("font_px_pixel_height_estimate"),
+            "human_confirmed": font_human["reviewer"],
+            "is_precise_font_size_measurement": False,
+            "note": ("frame_measured is a PIXEL HEIGHT ESTIMATE, not a font-size "
+                     "measurement; human_confirmed comes only from a validated named "
+                     "production confirmation record, never from a test."),
         },
     })
     return report
+
+
+def evaluate_subtitle_fix_unit_test(spec: dict) -> dict:
+    """ISOLATED test observation. NEVER emits a production ``FIXED``.
+
+    Synthetic reviewers may be observed here, but the result is explicitly
+    flagged ``admissible_for_production=False`` and must never be copied into
+    a production defect or sign-off ledger.
+    """
+    report = inspect_subtitle(spec)
+    supplied = spec.get("manual_review") or {}
+    review = verify_signoff_set(spec, supplied.get("items"), context=UNIT_TEST_CONTEXT)
+    report["manual_review"] = review
+    report["font_size_human_review"] = validate_font_human_confirmation(spec)
+    report["fix_result"] = "TEST_ONLY_OBSERVATION"
+    report["can_mark_fixed"] = False
+    report["test_only"] = True
+    report["admissible_for_production"] = False
+    report["effective_context"] = UNIT_TEST_CONTEXT
+    report["production_entry"] = "evaluate_subtitle_fix (fixed production context)"
+    report["note"] = ("This harness exists so tests can observe synthetic reviewers. "
+                      "It NEVER produces a production FIXED and its output must not "
+                      "be copied into a production defect ledger.")
+    return report
+
+
+def legacy_wb004_context_gate(spec: dict, records, context: str = "unit_test") -> dict:
+    """Reproduce the ROUND-1 defect for before/after evidence ONLY.
+
+    Round-1 ``evaluate_subtitle_fix()`` derived its context from the caller /
+    spec, so ``context="unit_test"`` plus synthetic reviewers could yield
+    ``fix_result="FIXED"`` even though the sign-off was not production
+    admissible. Evidence only - never use this as a decision.
+    """
+    review = verify_signoff_set(spec, records, context)
+    fixed = bool(review["all_items_approved"] and review["signoff_integrity"]["binding_valid"])
+    return {
+        "source": ("WB-VIDEO-004 round-1 evaluate_subtitle_fix(): "
+                   "ctx = context or supplied.get('context') or 'production'"),
+        "caller_context": context,
+        "fix_result": "FIXED" if fixed else "NOT_FIXED",
+        "production_admissible": review["signoff_integrity"]["production_admissible"],
+        "synthetic_records": review["signoff_integrity"]["synthetic_records"],
+        "warning": "DEFECTIVE round-1 behaviour; reproduced for evidence only.",
+    }
 
 
 def legacy_d004_verdict(render_path) -> dict:

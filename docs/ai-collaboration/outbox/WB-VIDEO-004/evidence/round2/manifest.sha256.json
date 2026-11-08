@@ -1,0 +1,31 @@
+{
+  "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+  "captured_at": "2026-11-08T17:55:23+08:00",
+  "note": "SHA-256 of every committed round-2 evidence file except this manifest itself",
+  "files": {
+    "context-fix-before-after.json": {
+      "bytes": 2109,
+      "sha256": "09c35672c6ad6673fc88852d9186fca6d9ccb61875caa884f59c1e6f09c9ea04"
+    },
+    "font-wording-audit.json": {
+      "bytes": 1113,
+      "sha256": "ffa928039ba8dd33bf02356a8cd4c29bcb39129c1d62086e8c92ccd17a99510e"
+    },
+    "secret_scan_round2.json": {
+      "bytes": 664,
+      "sha256": "f7a54ca06937442087fd24c36d5590a01d3a8865c78fdecf763dab5308a00231"
+    },
+    "signoff_before_after.json": {
+      "bytes": 3222,
+      "sha256": "51c0d2641d43fb739f624ee68548d0614069a19ea48b289b7371d48ba88f3893"
+    },
+    "signoff_sample_contact_sheet.jpg": {
+      "bytes": 8937,
+      "sha256": "d21c9d7d77ea2e29ee8b040c927fef288d82b0e6186f2942b74ecd8b4bd1b13a"
+    },
+    "timestamp-audit.json": {
+      "bytes": 17651,
+      "sha256": "5619535ec42120d8a6b70c23ece4cc5bb0330f3aa97c523b01c1f6e991b15363"
+    }
+  }
+}

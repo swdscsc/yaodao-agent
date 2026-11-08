@@ -1,0 +1,857 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "round": 2,
+  "captured_at": "2026-11-08T17:51:17+08:00",
+  "captured_at_method": "datetime.now().astimezone() - reads the host timezone (round-1 script hardcoded +08:00)",
+  "timezone": "host local timezone, China Standard Time UTC+08:00, no DST",
+  "module_under_test": "outbox/WB-VIDEO-004/subtitle_checks.py",
+  "policy": "per_item_signoff_v1",
+  "baseline_round1_snapshot": "subtitle-signoff-tests.json: 26 cases, preserved and NOT overwritten",
+  "new_round2_cases": 15,
+  "round2_findings_addressed": [
+    "production decision context is an internal constant; caller/spec unit_test context cannot yield FIXED",
+    "font frame-difference value is a PIXEL HEIGHT ESTIMATE only, not a precise font-size measurement",
+    "a named human font-size confirmation is required for production FIXED"
+  ],
+  "media_generation": "Local PIL test frames + local SRT only. Synthetic TEST SIGNAL frames are NOT real footage and NOT AI-generated assets. No network, no hosted quota, no paid service.",
+  "signoff_disclaimer": "All reviewer names in this test file are synthetic test data. No real human sign-off was performed and NO production sign-off ledger in the repository was written. D004 remains STILL_FAILING / REVIEW_REQUIRED.",
+  "signoff_policy": {
+    "required_items": [
+      "text_content_matches_srt",
+      "semantic_readability",
+      "occlusion_by_undeclared_content"
+    ],
+    "required_fields_per_item": [
+      "reviewer",
+      "reviewed_at",
+      "item_id",
+      "verdict",
+      "evidence",
+      "notes"
+    ],
+    "required_binding_fields_per_item": [
+      "frame_ref",
+      "time_range",
+      "video_version",
+      "subtitle_version"
+    ],
+    "spec_binding_anchors": [
+      "frame_id",
+      "review_time_range",
+      "video_version",
+      "subtitle_version"
+    ],
+    "rejects": [
+      "empty reviewer",
+      "empty/placeholder evidence",
+      "missing timestamp",
+      "future timestamp",
+      "wrong video version",
+      "wrong subtitle version",
+      "wrong frame reference",
+      "out-of-window time range",
+      "duplicate item record",
+      "non-APPROVED verdict",
+      "synthetic/test reviewer in production context",
+      "single global APPROVED object",
+      "caller-supplied or spec-level unit_test context in the production entry",
+      "missing / synthetic / wrongly-bound named human font-size confirmation"
+    ],
+    "auto_pass_is_not_human_pass": true,
+    "human_cannot_override_automatic_fail": true
+  },
+  "summary": {
+    "total": 41,
+    "passed": 41,
+    "failed": 0,
+    "all_passed": true
+  },
+  "exit_code": 0,
+  "cases": [
+    {
+      "group": "P0_signoff",
+      "name": "all_three_items_approved",
+      "expected": "FIXED with 3 independent per-item records",
+      "actual": "FIXED",
+      "passed": true,
+      "evidence": {
+        "approved_items": [
+          "text_content_matches_srt",
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ],
+        "prerequisites": {
+          "no_automatic_failure": true,
+          "burned_in_pixel_proof": true,
+          "render_produced": true,
+          "font_pixel_height_estimate_threshold_pass": true,
+          "text_contrast_measured_pass": true,
+          "font_size_named_human_confirmation": true,
+          "all_three_manual_items_individually_approved": true,
+          "signoff_binding_valid": true,
+          "production_context_is_internal_constant": true,
+          "production_signoff_admissible": true,
+          "no_synthetic_reviewers_in_signoff": true
+        },
+        "automatic_verdict": "PASS"
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "only_one_item_approved",
+      "expected": "NOT FIXED, 2 items still missing",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "approved_items": [
+          "text_content_matches_srt"
+        ],
+        "missing": [
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "one_item_not_reviewed",
+      "expected": "NOT_REVIEWED blocks FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "target_item_status": "NOT_REVIEWED",
+        "missing": [
+          "occlusion_by_undeclared_content"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "empty_reviewer_rejected",
+      "expected": "record invalid, no FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "empty_reviewer",
+          "synthetic_test_reviewer_not_admissible_in_production:reviewer_is_mock_or_anonymous"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "empty_evidence_rejected",
+      "expected": "record invalid, no FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "invalid_evidence:evidence text shorter than 12 characters"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_video_version_rejected",
+      "expected": "binding fails, no FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "video_version_does_not_match_spec"
+        ],
+        "binding_valid": false
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_subtitle_version_rejected",
+      "expected": "binding fails, no FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "subtitle_version_does_not_match_spec"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "auto_fail_but_human_approved",
+      "expected": "STILL_FAILING; human cannot override automatic FAIL",
+      "actual": "STILL_FAILING",
+      "passed": true,
+      "evidence": {
+        "automatic_failures": [
+          "contrast"
+        ],
+        "human_approved": true,
+        "human_cannot_override_automatic_fail": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "auto_pass_but_human_not_reviewed",
+      "expected": "NEEDS_MANUAL_REVIEW; auto PASS is not a human PASS",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "automatic_verdict": "PASS",
+        "missing": [
+          "text_content_matches_srt",
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ],
+        "auto_pass_is_not_human_pass": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "synthetic_reviewer_cannot_impersonate_production",
+      "expected": "all records invalid in production + ledger write refused",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": {
+          "text_content_matches_srt": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "semantic_readability": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "occlusion_by_undeclared_content": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ]
+        },
+        "production_ledger_write_refused": true,
+        "production_ledger_exists": false
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "legacy_global_approved_object_rejected",
+      "expected": "old gate signed=True; new gate requires 3 per-item records",
+      "actual": "NOT_PERFORMED",
+      "passed": true,
+      "evidence": {
+        "old_gate_signed_off": true,
+        "new_gate_approved_items": [],
+        "extraneous_records": [
+          {
+            "record": {
+              "verdict": "APPROVED",
+              "reviewer": "QA_LEAD_AAA",
+              "evidence": "looks good"
+            },
+            "reason": "legacy_global_signoff_object_has_no_per_item_records"
+          }
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "future_reviewed_at_rejected",
+      "expected": "invalid timestamp rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "invalid_reviewed_at:reviewed_at is in the future"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_frame_ref_rejected",
+      "expected": "frame binding rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "frame_ref_does_not_match_specified_frame"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "time_range_outside_window_rejected",
+      "expected": "time binding rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "time_range_outside_specified_review_window"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "duplicate_item_record_rejected",
+      "expected": "duplicate rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "duplicate_records_for_item:2"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "human_rejected_item_cannot_fix",
+      "expected": "REJECTED blocks FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "verdict_is_not_APPROVED"
+        ]
+      }
+    },
+    {
+      "group": "font",
+      "name": "font_size_render_param_only_not_pass",
+      "expected": "NEEDS_MANUAL_REVIEW; render param has decision_weight 0",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "font_size": {
+          "font_px_render_param": 36,
+          "render_param_used_for_verdict": false,
+          "render_param_decision_weight": 0,
+          "font_px_pixel_height_estimate": null,
+          "font_px_measured": null,
+          "font_px_human_confirmed": null,
+          "is_precise_font_size_measurement": false,
+          "measurement_method": null,
+          "measurement_confidence": null,
+          "measurement_note": "no-subtitle reference missing/undecodable",
+          "verdict_scope": "pixel_height_estimate_threshold_only",
+          "production_font_size_human_review": "NEEDS_MANUAL_REVIEW",
+          "human_confirmation_required_in_production": true,
+          "minimum_px": 24,
+          "three_states_recorded_separately": true,
+          "verdict": "NEEDS_MANUAL_REVIEW",
+          "reason": "no reliable pixel-height estimate; the renderer parameter is not evidence"
+        }
+      }
+    },
+    {
+      "group": "font",
+      "name": "font_three_states_recorded_separately",
+      "expected": "render / pixel-height estimate / human-confirmed are distinct fields",
+      "actual": [
+        "render_parameter",
+        "pixel_height_estimate",
+        "frame_measured",
+        "human_confirmed",
+        "is_precise_font_size_measurement",
+        "note"
+      ],
+      "passed": true,
+      "evidence": {
+        "states": {
+          "render_parameter": 36,
+          "pixel_height_estimate": 26,
+          "frame_measured": 26,
+          "human_confirmed": "QA_LEAD_TYPO",
+          "is_precise_font_size_measurement": false,
+          "note": "frame_measured is a PIXEL HEIGHT ESTIMATE, not a font-size measurement; human_confirmed comes only from a validated named production confirmation record, never from a test."
+        },
+        "note": "frame_measured is a PIXEL HEIGHT ESTIMATE, not a font-size measurement; human_confirmed comes only from a validated named production confirmation record, never from a test."
+      }
+    },
+    {
+      "group": "contrast",
+      "name": "contrast_measures_text_not_whole_band",
+      "expected": "FAIL even though band luma spread is large",
+      "actual": "FAIL",
+      "passed": true,
+      "evidence": {
+        "contrast": {
+          "method": "text_mask_from_frame_difference_vs_adjacent_background_ring",
+          "measurement_confidence": "estimate_srgb_gray_proxy_not_certified_wcag",
+          "band_spread_diagnostic_only": 145.0,
+          "band_spread_used_for_verdict": false,
+          "whole_band_spread_is_not_text_contrast": true,
+          "minimum_spread_diagnostic_only": 55.0,
+          "text_pixels": 1913,
+          "background_pixels": 3496,
+          "median_text_luma": 112.0,
+          "median_adjacent_background_luma": 101.0,
+          "contrast_ratio": 1.177,
+          "abs_luma_delta": 11.0,
+          "minimum_contrast_ratio": 4.5,
+          "verdict": "FAIL",
+          "note": null
+        }
+      }
+    },
+    {
+      "group": "contrast",
+      "name": "high_contrast_text_passes_real_measurement",
+      "expected": "PASS with measured ratio and luma delta",
+      "actual": "PASS",
+      "passed": true,
+      "evidence": {
+        "contrast": {
+          "method": "text_mask_from_frame_difference_vs_adjacent_background_ring",
+          "measurement_confidence": "estimate_srgb_gray_proxy_not_certified_wcag",
+          "band_spread_diagnostic_only": 215.0,
+          "band_spread_used_for_verdict": false,
+          "whole_band_spread_is_not_text_contrast": true,
+          "minimum_spread_diagnostic_only": 55.0,
+          "text_pixels": 4385,
+          "background_pixels": 5175,
+          "median_text_luma": 245.0,
+          "median_adjacent_background_luma": 38.0,
+          "contrast_ratio": 13.881,
+          "abs_luma_delta": 207.0,
+          "minimum_contrast_ratio": 4.5,
+          "verdict": "PASS",
+          "note": null
+        }
+      }
+    },
+    {
+      "group": "occlusion",
+      "name": "small_occluder_iou_miss_detected",
+      "expected": "new coverage signal FAILs where legacy IoU would PASS",
+      "actual": "FAIL",
+      "passed": true,
+      "evidence": {
+        "occlusion": {
+          "pairs": [
+            {
+              "box": [
+                300,
+                300,
+                8,
+                8
+              ],
+              "intersection_px": 64.0,
+              "iou": 0.0025,
+              "intersection_over_subject": 1.0,
+              "intersection_over_subtitle": 0.0025,
+              "subject_contained_in_subtitle": true
+            }
+          ],
+          "max_iou": 0.0025,
+          "max_intersection_over_subject": 1.0,
+          "max_intersection_over_subtitle": 0.0025,
+          "legacy_iou_would_pass": true,
+          "coverage_signal_detected": true,
+          "verdict": "FAIL"
+        }
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "automatic_and_manual_structures_separate",
+      "expected": "two independent data structures",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "automatic_keys": [
+          "checks",
+          "failures",
+          "needs_review",
+          "verdict"
+        ],
+        "manual_keys": [
+          "all_items_approved",
+          "approved_items",
+          "context",
+          "extraneous_records",
+          "items",
+          "missing_or_invalid_items",
+          "policy",
+          "required_items",
+          "signoff_integrity",
+          "verdict"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "per_item_independent_records",
+      "expected": "3 distinct reviewers, timestamps, evidence hashes",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "reviewers": [
+          "QA_LEAD_AAA",
+          "QA_LEAD_BBB",
+          "QA_LEAD_CCC"
+        ],
+        "timestamps": [
+          "2026-11-08T16:12:00+08:00",
+          "2026-11-08T16:15:00+08:00",
+          "2026-11-08T16:18:00+08:00"
+        ],
+        "signoff_hash": "8b9c786ebf948f2c50b2bba5c9968554504e216d9211177b452e2f276906bbfc"
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "synthetic_reviewers_confined_to_unit_test",
+      "expected": "allowed in unit_test only; never production-admissible",
+      "actual": {
+        "unit_test": true,
+        "production": false
+      },
+      "passed": true,
+      "evidence": {
+        "unit_test_admissible": false,
+        "production_admissible": false
+      }
+    },
+    {
+      "group": "regression",
+      "name": "srt_exists_but_no_burned_in_subtitle",
+      "expected": "automatic FAIL -> STILL_FAILING despite full sign-off",
+      "actual": "STILL_FAILING",
+      "passed": true,
+      "evidence": {
+        "burned_in_evidence": {
+          "verdict": "FAIL",
+          "available": true,
+          "mean_abs_diff": 0.0,
+          "threshold": 2.0,
+          "subtitle_visible_in_frame": false,
+          "note": "SRT exists but the rendered frame is identical to the no-subtitle frame"
+        },
+        "human_approved": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "production_ledger_accepts_valid_signoff",
+      "expected": "valid non-synthetic per-item sign-off is auditable",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "result": {
+          "written": true,
+          "lines_appended": 1,
+          "signoff_hash": "8b9c786ebf948f2c50b2bba5c9968554504e216d9211177b452e2f276906bbfc",
+          "ledger": "production"
+        },
+        "note": "test-only ledger in a local scratch directory; no production defect was signed off"
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "caller_supplied_unit_test_context_refused",
+      "expected": "production entry raises SignoffError",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "error": "evaluate_subtitle_fix() is the PRODUCTION decision entry; a caller-supplied non-production context ('unit_test') is refused. Use evaluate_subtitle_fix_unit_test() for test observations."
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "spec_unit_test_context_cannot_produce_fixed",
+      "expected": "context ignored; production validation rejects synthetic reviewers",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "fix_result": "NEEDS_MANUAL_REVIEW",
+        "context_policy": {
+          "source": "internal_constant",
+          "effective_context": "production",
+          "caller_cannot_override": true,
+          "caller_context_attempted_but_ignored": {
+            "parameter": null,
+            "spec_manual_review_context": "unit_test"
+          },
+          "unit_test_context_cannot_produce_production_fixed": true
+        },
+        "production_admissible": false,
+        "item_errors": {
+          "text_content_matches_srt": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "semantic_readability": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "occlusion_by_undeclared_content": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ]
+        }
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "production_context_source_is_internal_constant",
+      "expected": "source=internal_constant, effective=production",
+      "actual": {
+        "source": "internal_constant",
+        "effective_context": "production",
+        "caller_cannot_override": true,
+        "caller_context_attempted_but_ignored": {
+          "parameter": null,
+          "spec_manual_review_context": "production"
+        },
+        "unit_test_context_cannot_produce_production_fixed": true
+      },
+      "passed": true,
+      "evidence": {
+        "context_policy": {
+          "source": "internal_constant",
+          "effective_context": "production",
+          "caller_cannot_override": true,
+          "caller_context_attempted_but_ignored": {
+            "parameter": null,
+            "spec_manual_review_context": "production"
+          },
+          "unit_test_context_cannot_produce_production_fixed": true
+        }
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "production_admissible_is_fixed_prerequisite",
+      "expected": "all 11 prerequisites true for a valid production sign-off",
+      "actual": {
+        "no_automatic_failure": true,
+        "burned_in_pixel_proof": true,
+        "render_produced": true,
+        "font_pixel_height_estimate_threshold_pass": true,
+        "text_contrast_measured_pass": true,
+        "font_size_named_human_confirmation": true,
+        "all_three_manual_items_individually_approved": true,
+        "signoff_binding_valid": true,
+        "production_context_is_internal_constant": true,
+        "production_signoff_admissible": true,
+        "no_synthetic_reviewers_in_signoff": true
+      },
+      "passed": true,
+      "evidence": {
+        "prerequisites": {
+          "no_automatic_failure": true,
+          "burned_in_pixel_proof": true,
+          "render_produced": true,
+          "font_pixel_height_estimate_threshold_pass": true,
+          "text_contrast_measured_pass": true,
+          "font_size_named_human_confirmation": true,
+          "all_three_manual_items_individually_approved": true,
+          "signoff_binding_valid": true,
+          "production_context_is_internal_constant": true,
+          "production_signoff_admissible": true,
+          "no_synthetic_reviewers_in_signoff": true
+        }
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "unit_test_approval_does_not_unlock_production",
+      "expected": "unit_test all_items_approved=True but production FIXED impossible",
+      "actual": {
+        "unit_test": true,
+        "production": "NEEDS_MANUAL_REVIEW"
+      },
+      "passed": true,
+      "evidence": {
+        "unit_test_admissible": false,
+        "production_fix_result": "NEEDS_MANUAL_REVIEW"
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "test_harness_never_emits_production_fixed",
+      "expected": "TEST_ONLY_OBSERVATION, not admissible",
+      "actual": "TEST_ONLY_OBSERVATION",
+      "passed": true,
+      "evidence": {
+        "fix_result": "TEST_ONLY_OBSERVATION",
+        "test_only": true,
+        "admissible_for_production": false
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "test_harness_allows_synthetic_for_observation_only",
+      "expected": "synthetic reviewers observable but production_admissible=False",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "approved_items": [
+          "text_content_matches_srt",
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ],
+        "synthetic_records": 3
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "test_harness_signoff_refused_by_production_ledger",
+      "expected": "production ledger refuses synthetic reviewers",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "refused": true,
+        "ledger_exists": false
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "round1_context_gate_reproduces_defect",
+      "expected": "round-1: unit_test + synthetic -> FIXED but production_admissible=False",
+      "actual": {
+        "source": "WB-VIDEO-004 round-1 evaluate_subtitle_fix(): ctx = context or supplied.get('context') or 'production'",
+        "caller_context": "unit_test",
+        "fix_result": "FIXED",
+        "production_admissible": false,
+        "synthetic_records": 3,
+        "warning": "DEFECTIVE round-1 behaviour; reproduced for evidence only."
+      },
+      "passed": true,
+      "evidence": {
+        "legacy": {
+          "source": "WB-VIDEO-004 round-1 evaluate_subtitle_fix(): ctx = context or supplied.get('context') or 'production'",
+          "caller_context": "unit_test",
+          "fix_result": "FIXED",
+          "production_admissible": false,
+          "synthetic_records": 3,
+          "warning": "DEFECTIVE round-1 behaviour; reproduced for evidence only."
+        }
+      }
+    },
+    {
+      "group": "round2_context",
+      "name": "round2_gate_refuses_what_round1_allowed",
+      "expected": "same input: round1 FIXED -> round2 not FIXED",
+      "actual": {
+        "round1": "FIXED",
+        "round2": "NEEDS_MANUAL_REVIEW"
+      },
+      "passed": true,
+      "evidence": {
+        "round1": {
+          "source": "WB-VIDEO-004 round-1 evaluate_subtitle_fix(): ctx = context or supplied.get('context') or 'production'",
+          "caller_context": "unit_test",
+          "fix_result": "FIXED",
+          "production_admissible": false,
+          "synthetic_records": 3,
+          "warning": "DEFECTIVE round-1 behaviour; reproduced for evidence only."
+        },
+        "round2_fix_result": "NEEDS_MANUAL_REVIEW",
+        "round2_context_policy": {
+          "source": "internal_constant",
+          "effective_context": "production",
+          "caller_cannot_override": true,
+          "caller_context_attempted_but_ignored": {
+            "parameter": null,
+            "spec_manual_review_context": "unit_test"
+          },
+          "unit_test_context_cannot_produce_production_fixed": true
+        }
+      }
+    },
+    {
+      "group": "round2_font",
+      "name": "font_is_pixel_height_estimate_not_font_size_measurement",
+      "expected": "is_precise_font_size_measurement=False and estimate-named method",
+      "actual": "pixel_height_estimate_from_frame_difference_mask",
+      "passed": true,
+      "evidence": {
+        "font_size": {
+          "font_px_render_param": 36,
+          "render_param_used_for_verdict": false,
+          "render_param_decision_weight": 0,
+          "font_px_pixel_height_estimate": 26,
+          "font_px_measured": 26,
+          "font_px_human_confirmed": null,
+          "is_precise_font_size_measurement": false,
+          "measurement_method": "pixel_height_estimate_from_frame_difference_mask",
+          "measurement_confidence": "pixel_height_estimate__not_a_font_size_measurement",
+          "measurement_note": "This is a PIXEL HEIGHT ESTIMATE of the longest changed-row run in a frame-difference mask. It is NOT the renderer font size, NOT a typographic font metric and NOT a precise font-size measurement. Production QA must keep a named human font-size confirmation.",
+          "verdict_scope": "pixel_height_estimate_threshold_only",
+          "production_font_size_human_review": "NEEDS_MANUAL_REVIEW",
+          "human_confirmation_required_in_production": true,
+          "minimum_px": 24,
+          "three_states_recorded_separately": true,
+          "verdict": "PASS",
+          "render_vs_measured_discrepancy_pct": 27.8
+        }
+      }
+    },
+    {
+      "group": "round2_font",
+      "name": "font_size_human_confirmation_required_for_fixed",
+      "expected": "NEEDS_MANUAL_REVIEW when no named human confirmation exists",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "prerequisites": {
+          "no_automatic_failure": true,
+          "burned_in_pixel_proof": true,
+          "render_produced": true,
+          "font_pixel_height_estimate_threshold_pass": true,
+          "text_contrast_measured_pass": true,
+          "font_size_named_human_confirmation": false,
+          "all_three_manual_items_individually_approved": true,
+          "signoff_binding_valid": true,
+          "production_context_is_internal_constant": true,
+          "production_signoff_admissible": true,
+          "no_synthetic_reviewers_in_signoff": true
+        },
+        "font_size_human_review": {
+          "valid": false,
+          "verdict": "NEEDS_MANUAL_REVIEW",
+          "errors": [
+            "font_size_human_confirmation_missing"
+          ],
+          "reviewer": null,
+          "record_sha256": null,
+          "pixel_height_estimate_is_not_font_size_measurement": true,
+          "note": "No named production human confirmation of font size exists."
+        }
+      }
+    },
+    {
+      "group": "round2_font",
+      "name": "font_confirmation_mock_reviewer_rejected",
+      "expected": "synthetic reviewer cannot sign off font size",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "synthetic_reviewer_not_admissible:reviewer_is_mock_or_anonymous,reviewer_name_contains_synthetic_token"
+        ]
+      }
+    },
+    {
+      "group": "round2_font",
+      "name": "font_confirmation_wrong_video_version_rejected",
+      "expected": "binding to the reviewed video version enforced",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "video_version_does_not_match_spec"
+        ]
+      }
+    },
+    {
+      "group": "round2_font",
+      "name": "production_font_size_human_review_retained",
+      "expected": "automatic estimate never closes the human review item",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "production_font_size_human_review": "NEEDS_MANUAL_REVIEW",
+        "font_px_human_confirmed": null
+      }
+    }
+  ],
+  "limitations": [
+    "The frame-difference font value is a PIXEL HEIGHT ESTIMATE only; it is NOT a precise font-size measurement. A named human confirmation remains required in production.",
+    "Contrast is a sRGB grey-proxy estimate against adjacent background pixels, not a certified WCAG audit.",
+    "Occlusion coverage only covers DECLARED subject boxes; undeclared content stays a human item.",
+    "Tests prove the gate logic on synthetic frames; they do NOT prove any real subtitle defect was fixed."
+  ]
+}

@@ -6,11 +6,22 @@ written locally. No hosted quota, no network call, no paid service, no change
 to any user project. Test reviewers are synthetic and are kept OUT of any
 production sign-off ledger; the tests explicitly prove that.
 
-Outputs
--------
-* subtitle-signoff-tests.json          (required deliverable)
+Review round 2 (ChatGPT)
+------------------------
+* The production decision entry now fixes its context internally. New cases
+  prove a caller/spec ``unit_test`` context plus synthetic reviewers can NEVER
+  yield a production ``FIXED``, while an isolated test harness remains allowed.
+* The frame-difference font routine is now described ONLY as a pixel-height
+  estimate; a named human font-size confirmation became a FIXED prerequisite.
+
+Outputs (round 1 defaults, preserved as historical snapshots)
+------------------------------------------------------------
+* subtitle-signoff-tests.json          (round-1 26-case snapshot, NOT overwritten here)
 * evidence/signoff_before_after.json   (WB-VIDEO-003 vs WB-VIDEO-004 gate)
 * evidence/signoff_sample_contact_sheet.jpg (small visual evidence)
+
+Round-2 run uses --out subtitle-signoff-tests-round2.json and
+--evidence-dir evidence/round2 so no historical file is overwritten.
 """
 from __future__ import annotations
 
@@ -31,6 +42,7 @@ import subtitle_checks as sc  # noqa: E402
 TZ = timezone(timedelta(hours=8))
 MEDIA = ROOT / "pipeline/qa004"
 EVIDENCE = HERE / "evidence"
+OUT_NAME = "subtitle-signoff-tests.json"
 MEDIA.mkdir(parents=True, exist_ok=True)
 EVIDENCE.mkdir(parents=True, exist_ok=True)
 
@@ -41,6 +53,20 @@ VIDEO_VERSION = "wb003_vertical_v2_TEST_SIGNAL_ONLY"
 REVIEW_WINDOW = [4.0, 6.0]
 SRT_TEXT = "1\n00:00:04,800 --> 00:00:05,600\nTAKE WITH WATER AFTER MEALS\n\n"
 SUBTITLE_VERSION = "sha256:" + hashlib.sha256(SRT_TEXT.encode("utf-8")).hexdigest()[:16]
+
+# Round 2: a NAMED HUMAN font-size confirmation. The frame-difference value is
+# only a pixel-height estimate; production FIXED additionally needs this record.
+FONT_REVIEW = {
+    "reviewer": "QA_LEAD_TYPO",
+    "reviewed_at": "2026-11-08T16:20:00+08:00",
+    "verdict": "APPROVED",
+    "evidence": ("On frame_t5.0s at 4.8-5.2s I visually confirmed the typographic "
+                 "size is legible; the frame-difference value is only a pixel-height "
+                 "estimate, not a font-size measurement."),
+    "frame_ref": FRAME_ID,
+    "video_version": VIDEO_VERSION,
+    "subtitle_version": SUBTITLE_VERSION,
+}
 
 
 # ---------------------------------------------------------------------------
@@ -156,6 +182,7 @@ def base_spec(media: dict, srt: str, **over) -> dict:
         "subject_boxes": [[10, 10, 60, 40]],  # declared, non-overlapping
         "frame_id": FRAME_ID, "review_time_range": REVIEW_WINDOW,
         "video_version": VIDEO_VERSION, "subtitle_version": SUBTITLE_VERSION,
+        "font_size_human_confirmation": dict(FONT_REVIEW),
     }
     s.update(over)
     return s
@@ -175,6 +202,13 @@ def run_check(s: Suite, group, name, expected, actual, predicate, evidence=None)
 # Tests
 # ---------------------------------------------------------------------------
 def main() -> int:
+    global EVIDENCE, OUT_NAME
+    argv = sys.argv[1:]
+    if "--out" in argv:
+        OUT_NAME = argv[argv.index("--out") + 1]
+    if "--evidence-dir" in argv:
+        EVIDENCE = HERE / argv[argv.index("--evidence-dir") + 1]
+        EVIDENCE.mkdir(parents=True, exist_ok=True)
     s = Suite()
     good = make_pair("normal", 30, (245, 245, 245), False, True)
     low = make_pair("low_contrast", 100, (112, 112, 112), True, True)
@@ -371,11 +405,13 @@ def main() -> int:
     r = sc.evaluate_subtitle_fix(full)
     states = r["font_size_states"]
     run_check(s, "font", "font_three_states_recorded_separately",
-              "render / measured / human-confirmed are distinct fields",
+              "render / pixel-height estimate / human-confirmed are distinct fields",
               list(states.keys()),
               states["frame_measured"] is not None
+              and states["pixel_height_estimate"] == states["frame_measured"]
               and states["render_parameter"] == 36
-              and states["human_confirmed"] is None,
+              and states["human_confirmed"] is not None
+              and states["is_precise_font_size_measurement"] is False,
               {"states": states,
                "note": states["note"]})
 
@@ -461,6 +497,174 @@ def main() -> int:
               "valid non-synthetic per-item sign-off is auditable", written, written,
               {"result": w, "note": "test-only ledger in a local scratch directory; no production defect was signed off"})
 
+    # =====================================================================
+    # Review round 2 (ChatGPT findings 1 and 2)
+    # =====================================================================
+    synthetic = [dict(x, reviewer="MOCK_UNIT_REVIEWER", test_only=True,
+                      review_source="unit_test") for x in all_records()]
+    synthetic_spec = with_review(base, synthetic, context="unit_test")
+
+    # R2-1 caller-supplied unit_test context is refused by the production entry
+    refused, refusal_msg = False, None
+    try:
+        sc.evaluate_subtitle_fix(full, context="unit_test")
+    except sc.SignoffError as e:
+        refused, refusal_msg = True, str(e)
+    run_check(s, "round2_context", "caller_supplied_unit_test_context_refused",
+              "production entry raises SignoffError", refused, refused,
+              {"error": refusal_msg})
+
+    # R2-2 spec-level unit_test context + synthetic reviewers cannot produce FIXED
+    r_ctx = sc.evaluate_subtitle_fix(synthetic_spec)
+    run_check(s, "round2_context", "spec_unit_test_context_cannot_produce_fixed",
+              "context ignored; production validation rejects synthetic reviewers",
+              r_ctx["fix_result"],
+              r_ctx["fix_result"] != "FIXED"
+              and r_ctx["context_policy"]["effective_context"] == "production"
+              and r_ctx["context_policy"]["caller_context_attempted_but_ignored"]["spec_manual_review_context"] == "unit_test"
+              and not r_ctx["manual_review"]["all_items_approved"],
+              {"fix_result": r_ctx["fix_result"],
+               "context_policy": r_ctx["context_policy"],
+               "production_admissible": r_ctx["manual_review"]["signoff_integrity"]["production_admissible"],
+               "item_errors": {k: v["errors"] for k, v in r_ctx["manual_review"]["items"].items()}})
+
+    # R2-3 context source is an internal constant
+    r_ok = sc.evaluate_subtitle_fix(full)
+    run_check(s, "round2_context", "production_context_source_is_internal_constant",
+              "source=internal_constant, effective=production",
+              r_ok["context_policy"],
+              r_ok["context_policy"]["source"] == "internal_constant"
+              and r_ok["context_policy"]["effective_context"] == "production"
+              and r_ok["manual_review"]["context"] == "production"
+              and r_ok["context_policy"]["caller_cannot_override"] is True,
+              {"context_policy": r_ok["context_policy"]})
+
+    # R2-4 production admissibility is now a FIXED prerequisite
+    run_check(s, "round2_context", "production_admissible_is_fixed_prerequisite",
+              "all 11 prerequisites true for a valid production sign-off",
+              r_ok["prerequisites"],
+              len(r_ok["prerequisites"]) == 11
+              and r_ok["prerequisites"]["production_signoff_admissible"] is True
+              and r_ok["prerequisites"]["no_synthetic_reviewers_in_signoff"] is True
+              and r_ok["fix_result"] == "FIXED",
+              {"prerequisites": r_ok["prerequisites"]})
+
+    # R2-5 low-level unit_test approval does not unlock the production entry
+    v_ut = sc.verify_signoff_set(base, synthetic, "unit_test")
+    r_prod = sc.evaluate_subtitle_fix(synthetic_spec)
+    run_check(s, "round2_context", "unit_test_approval_does_not_unlock_production",
+              "unit_test all_items_approved=True but production FIXED impossible",
+              {"unit_test": v_ut["all_items_approved"], "production": r_prod["fix_result"]},
+              v_ut["all_items_approved"] is True
+              and v_ut["signoff_integrity"]["production_admissible"] is False
+              and r_prod["fix_result"] != "FIXED",
+              {"unit_test_admissible": v_ut["signoff_integrity"]["production_admissible"],
+               "production_fix_result": r_prod["fix_result"]})
+
+    # R2-6 / R2-7 isolated test harness
+    t = sc.evaluate_subtitle_fix_unit_test(synthetic_spec)
+    run_check(s, "round2_context", "test_harness_never_emits_production_fixed",
+              "TEST_ONLY_OBSERVATION, not admissible", t["fix_result"],
+              t["fix_result"] == "TEST_ONLY_OBSERVATION"
+              and t["admissible_for_production"] is False
+              and t["can_mark_fixed"] is False
+              and t["effective_context"] == "unit_test",
+              {"fix_result": t["fix_result"], "test_only": t["test_only"],
+               "admissible_for_production": t["admissible_for_production"]})
+    run_check(s, "round2_context", "test_harness_allows_synthetic_for_observation_only",
+              "synthetic reviewers observable but production_admissible=False",
+              t["manual_review"]["all_items_approved"],
+              t["manual_review"]["all_items_approved"] is True
+              and t["manual_review"]["signoff_integrity"]["production_admissible"] is False,
+              {"approved_items": t["manual_review"]["approved_items"],
+               "synthetic_records": t["manual_review"]["signoff_integrity"]["synthetic_records"]})
+
+    # R2-8 harness output cannot be written to a production ledger
+    ledger2 = MEDIA / "production_signoff_ledger_r2.jsonl"
+    if ledger2.exists():
+        ledger2.unlink()
+    ledger_refused = False
+    try:
+        sc.append_production_signoff(ledger2, base, synthetic)
+    except sc.SignoffError:
+        ledger_refused = True
+    run_check(s, "round2_context", "test_harness_signoff_refused_by_production_ledger",
+              "production ledger refuses synthetic reviewers", ledger_refused,
+              ledger_refused and not ledger2.exists(),
+              {"refused": ledger_refused, "ledger_exists": ledger2.exists()})
+
+    # R2-9 / R2-10 before/after reproduction of the round-1 defect
+    legacy = sc.legacy_wb004_context_gate(base, synthetic, "unit_test")
+    run_check(s, "round2_context", "round1_context_gate_reproduces_defect",
+              "round-1: unit_test + synthetic -> FIXED but production_admissible=False",
+              legacy,
+              legacy["fix_result"] == "FIXED"
+              and legacy["production_admissible"] is False,
+              {"legacy": legacy})
+    run_check(s, "round2_context", "round2_gate_refuses_what_round1_allowed",
+              "same input: round1 FIXED -> round2 not FIXED",
+              {"round1": legacy["fix_result"], "round2": r_prod["fix_result"]},
+              legacy["fix_result"] == "FIXED" and r_prod["fix_result"] != "FIXED",
+              {"round1": legacy, "round2_fix_result": r_prod["fix_result"],
+               "round2_context_policy": r_prod["context_policy"]})
+
+    # R2-11 font wording / scope
+    fs = sc.inspect_subtitle(base)["automatic"]["checks"]["font_size"]
+    run_check(s, "round2_font", "font_is_pixel_height_estimate_not_font_size_measurement",
+              "is_precise_font_size_measurement=False and estimate-named method",
+              fs["measurement_method"],
+              fs["is_precise_font_size_measurement"] is False
+              and fs["verdict_scope"] == "pixel_height_estimate_threshold_only"
+              and "pixel_height_estimate" in str(fs["measurement_method"])
+              and "ESTIMATE" in str(fs["measurement_note"])
+              and fs["production_font_size_human_review"] == "NEEDS_MANUAL_REVIEW",
+              {"font_size": fs})
+
+    # R2-12 production FIXED needs a named human font confirmation
+    no_conf = dict(base)
+    no_conf.pop("font_size_human_confirmation")
+    r_no = sc.evaluate_subtitle_fix(with_review(no_conf, all_records()))
+    run_check(s, "round2_font", "font_size_human_confirmation_required_for_fixed",
+              "NEEDS_MANUAL_REVIEW when no named human confirmation exists",
+              r_no["fix_result"],
+              r_no["fix_result"] == "NEEDS_MANUAL_REVIEW"
+              and r_no["prerequisites"]["font_size_named_human_confirmation"] is False
+              and r_no["font_size_human_review"]["verdict"] == "NEEDS_MANUAL_REVIEW",
+              {"prerequisites": r_no["prerequisites"],
+               "font_size_human_review": r_no["font_size_human_review"]})
+
+    # R2-13 mock reviewer in the font confirmation is rejected
+    bad_font = dict(base)
+    bad_font["font_size_human_confirmation"] = dict(FONT_REVIEW, reviewer="MOCK_REVIEWER")
+    r_bad = sc.evaluate_subtitle_fix(with_review(bad_font, all_records()))
+    run_check(s, "round2_font", "font_confirmation_mock_reviewer_rejected",
+              "synthetic reviewer cannot sign off font size", r_bad["fix_result"],
+              r_bad["fix_result"] != "FIXED"
+              and any("synthetic_reviewer_not_admissible" in e
+                      for e in r_bad["font_size_human_review"]["errors"]),
+              {"errors": r_bad["font_size_human_review"]["errors"]})
+
+    # R2-14 wrong-version font confirmation is rejected
+    bad_ver = dict(base)
+    bad_ver["font_size_human_confirmation"] = dict(FONT_REVIEW, video_version="other_render_v9")
+    r_ver = sc.evaluate_subtitle_fix(with_review(bad_ver, all_records()))
+    run_check(s, "round2_font", "font_confirmation_wrong_video_version_rejected",
+              "binding to the reviewed video version enforced", r_ver["fix_result"],
+              r_ver["fix_result"] != "FIXED"
+              and any("video_version_does_not_match_spec" in e
+                      for e in r_ver["font_size_human_review"]["errors"]),
+              {"errors": r_ver["font_size_human_review"]["errors"]})
+
+    # R2-15 production human review flag stays open
+    run_check(s, "round2_font", "production_font_size_human_review_retained",
+              "automatic estimate never closes the human review item",
+              fs["production_font_size_human_review"],
+              fs["production_font_size_human_review"] == "NEEDS_MANUAL_REVIEW"
+              and fs["human_confirmation_required_in_production"] is True
+              and fs["font_px_human_confirmed"] is None,
+              {"production_font_size_human_review": fs["production_font_size_human_review"],
+               "font_px_human_confirmed": fs["font_px_human_confirmed"]})
+
     # -----------------------------------------------------------------------
     # Before/after evidence + contact sheet
     # -----------------------------------------------------------------------
@@ -487,6 +691,69 @@ def main() -> int:
     (EVIDENCE / "signoff_before_after.json").write_text(
         json.dumps(before_after, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    # Round-2 evidence: context fix before/after and font wording audit
+    now_host = datetime.now().astimezone().isoformat(timespec="seconds")
+    ctx_evidence = {
+        "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+        "captured_at": now_host,
+        "captured_at_method": "datetime.now().astimezone() - host timezone READ, not hardcoded",
+        "finding": "Round-1 evaluate_subtitle_fix() derived its context from the caller / spec",
+        "same_input": {
+            "spec_manual_review_context": "unit_test",
+            "reviewers": "synthetic MOCK_UNIT_REVIEWER, test_only=true, review_source=unit_test",
+            "items": sc.MANUAL_ITEMS,
+        },
+        "before_round1": legacy,
+        "after_round2_production_entry": {
+            "entry": "evaluate_subtitle_fix(synthetic_spec)",
+            "effective_context": r_ctx["context_policy"]["effective_context"],
+            "context_source": r_ctx["context_policy"]["source"],
+            "fix_result": r_ctx["fix_result"],
+            "all_items_approved": r_ctx["manual_review"]["all_items_approved"],
+            "production_admissible": r_ctx["manual_review"]["signoff_integrity"]["production_admissible"],
+            "ignored_external_context": r_ctx["context_policy"]["caller_context_attempted_but_ignored"],
+        },
+        "caller_parameter_probe": {"context": "unit_test", "raised": refused, "error": refusal_msg},
+        "isolated_test_harness": {
+            "fix_result": t["fix_result"],
+            "admissible_for_production": t["admissible_for_production"],
+            "effective_context": t["effective_context"],
+        },
+        "comparison": ("Identical synthetic input: the round-1 gate emitted FIXED while "
+                       "production_admissible=False; the round-2 production entry ignores the "
+                       "test context, rejects synthetic reviewers and never emits FIXED. "
+                       "The isolated test harness returns TEST_ONLY_OBSERVATION and is "
+                       "explicitly not production-admissible."),
+    }
+    (EVIDENCE / "context-fix-before-after.json").write_text(
+        json.dumps(ctx_evidence, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    src = (HERE / "subtitle_checks.py").read_text(encoding="utf-8")
+    wording = {
+        "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+        "captured_at": now_host,
+        "source_file": "outbox/WB-VIDEO-004/subtitle_checks.py",
+        "source_sha256": hashlib.sha256(src.encode("utf-8")).hexdigest(),
+        "claim_checks": {
+            "is_precise_font_size_measurement_false_present": '"is_precise_font_size_measurement": False' in src,
+            "explicit_NOT_a_precise_measurement_present": "NOT a precise font-size measurement" in src,
+            "pixel_height_estimate_named": "pixel_height_estimate" in src,
+            "human_confirmation_required_in_production": '"human_confirmation_required_in_production": True' in src,
+            "production_font_size_human_review_open": '"production_font_size_human_review": "NEEDS_MANUAL_REVIEW"' in src,
+            "affirmative_precise_measurement_claim_absent": "precise measurement of the real font size is performed" not in src,
+        },
+        "policy": ("The frame-difference routine produces a PIXEL HEIGHT ESTIMATE only. "
+                   "It is NOT a precise font-size measurement. Production QA keeps a named "
+                   "human font-size confirmation as a FIXED prerequisite; the automatic "
+                   "estimate never closes that human review item."),
+        "historical_documents": ("report.md / subtitle-signoff-fix.md / pipeline-status.json "
+                                 "are left untouched; any round-1 wording that implied a real "
+                                 "font-size measurement is corrected by declaration in "
+                                 "addendum-round2.md, not by rewriting history."),
+    }
+    (EVIDENCE / "font-wording-audit.json").write_text(
+        json.dumps(wording, ensure_ascii=False, indent=2), encoding="utf-8")
+
     try:
         thumbs = []
         for p in [good["frame_path"], low["frame_path"], no_sub["frame_path"]]:
@@ -501,10 +768,19 @@ def main() -> int:
 
     doc = {
         "task_id": "WB-VIDEO-004",
-        "captured_at": datetime.now(TZ).isoformat(timespec="seconds"),
-        "timezone": "Asia/Shanghai (UTC+08:00)",
+        "round": 2,
+        "captured_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "captured_at_method": "datetime.now().astimezone() - reads the host timezone (round-1 script hardcoded +08:00)",
+        "timezone": "host local timezone, China Standard Time UTC+08:00, no DST",
         "module_under_test": "outbox/WB-VIDEO-004/subtitle_checks.py",
         "policy": "per_item_signoff_v1",
+        "baseline_round1_snapshot": "subtitle-signoff-tests.json: 26 cases, preserved and NOT overwritten",
+        "new_round2_cases": len([c for c in s.cases if c["group"].startswith("round2")]),
+        "round2_findings_addressed": [
+            "production decision context is an internal constant; caller/spec unit_test context cannot yield FIXED",
+            "font frame-difference value is a PIXEL HEIGHT ESTIMATE only, not a precise font-size measurement",
+            "a named human font-size confirmation is required for production FIXED",
+        ],
         "media_generation": ("Local PIL test frames + local SRT only. Synthetic TEST SIGNAL "
                              "frames are NOT real footage and NOT AI-generated assets. "
                              "No network, no hosted quota, no paid service."),
@@ -522,7 +798,9 @@ def main() -> int:
                         "wrong frame reference", "out-of-window time range",
                         "duplicate item record", "non-APPROVED verdict",
                         "synthetic/test reviewer in production context",
-                        "single global APPROVED object"],
+                        "single global APPROVED object",
+                        "caller-supplied or spec-level unit_test context in the production entry",
+                        "missing / synthetic / wrongly-bound named human font-size confirmation"],
             "auto_pass_is_not_human_pass": True,
             "human_cannot_override_automatic_fail": True,
         },
@@ -530,13 +808,13 @@ def main() -> int:
         "exit_code": 0 if s.summary["all_passed"] else 1,
         "cases": s.cases,
         "limitations": [
-            "Frame-measured font size is an estimated glyph height, not a certified font metric.",
+            "The frame-difference font value is a PIXEL HEIGHT ESTIMATE only; it is NOT a precise font-size measurement. A named human confirmation remains required in production.",
             "Contrast is a sRGB grey-proxy estimate against adjacent background pixels, not a certified WCAG audit.",
             "Occlusion coverage only covers DECLARED subject boxes; undeclared content stays a human item.",
             "Tests prove the gate logic on synthetic frames; they do NOT prove any real subtitle defect was fixed.",
         ],
     }
-    out = HERE / "subtitle-signoff-tests.json"
+    out = HERE / OUT_NAME
     out.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"WROTE {out.name}: {s.summary}")
     if not s.summary["all_passed"]:

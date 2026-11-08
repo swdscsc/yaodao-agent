@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "1.4",
   "task_id": "WB-VIDEO-004",
   "previous_task": "WB-VIDEO-003",
   "report_path": "docs/ai-collaboration/outbox/WB-VIDEO-004/report.md",
@@ -18,14 +18,29 @@
   "p0_signoff_fix": {
     "defect": "WB-VIDEO-003/subtitle_checks.py:319-320 accepted ONE global manual_review.APPROVED object; the three MANUAL_ITEMS were never individually reviewed",
     "state": "FIXED",
-    "files": ["docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle_checks.py", "docs/ai-collaboration/outbox/WB-VIDEO-004/run_signoff_tests.py"],
-    "replacement": "per_item_signoff_v1: each of text_content_matches_srt / semantic_readability / occlusion_by_undeclared_content needs its own reviewer, reviewed_at, item_id, verdict, evidence, notes plus frame_ref, time_range, video_version, subtitle_version binding; fail-closed validation; automatic and manual records stored separately; synthetic test reviewers rejected in production",
-    "fix_prerequisites": ["no_automatic_failure", "burned_in_pixel_proof", "render_produced", "font_size_frame_measured_pass", "text_contrast_measured_pass", "all_three_manual_items_individually_approved", "signoff_binding_valid"],
+    "files": [
+      "docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle_checks.py",
+      "docs/ai-collaboration/outbox/WB-VIDEO-004/run_signoff_tests.py"
+    ],
+    "replacement": "per_item_signoff_v1: each of text_content_matches_srt / semantic_readability / occlusion_by_undeclared_content needs its own reviewer, reviewed_at, item_id, verdict, evidence, notes plus frame_ref, time_range, video_version, subtitle_version binding; fail-closed validation; automatic and manual records stored separately; synthetic test reviewers rejected in production [round 2] production context is an internal constant; a unit_test context can never produce a production FIXED; an isolated unit-test harness exists for synthetic reviewers.",
+    "fix_prerequisites": [
+      "no_automatic_failure",
+      "burned_in_pixel_proof",
+      "render_produced",
+      "font_pixel_height_estimate_threshold_pass",
+      "text_contrast_measured_pass",
+      "font_size_named_human_confirmation",
+      "all_three_manual_items_individually_approved",
+      "signoff_binding_valid",
+      "production_context_is_internal_constant",
+      "production_signoff_admissible",
+      "no_synthetic_reviewers_in_signoff"
+    ],
     "auto_pass_is_not_human_pass": true,
     "human_cannot_override_automatic_fail": true,
     "before_after": "same single global APPROVED input: old gate signed_off=true; new gate approved 0 of 3 items and refuses FIXED",
     "additional_qa_fixes": {
-      "font_size": "three separate states (render parameter weight 0 / frame-measured estimate / human-confirmed); only frame measurement can auto-PASS",
+      "font_size": "three separate states (render parameter weight 0 / PIXEL HEIGHT ESTIMATE from frame difference / named human confirmation). The estimate is NOT a precise font-size measurement; production FIXED additionally requires validate_font_human_confirmation().",
       "contrast": "text mask from no-subtitle reference frame diff vs adjacent background ring, WCAG-style ratio; whole-band luma spread demoted to diagnostic only",
       "occlusion": "IoU plus intersection_over_subject, intersection_over_subtitle and containment; small fully-contained occluder IoU 0.0025 now correctly FAILs"
     }
@@ -37,17 +52,39 @@
     "failed": 0,
     "all_passed": true,
     "exit_code": 0,
-    "groups": {"P0_signoff": 20, "font": 2, "contrast": 2, "occlusion": 1, "regression": 1},
+    "groups": {
+      "P0_signoff": 20,
+      "font": 2,
+      "contrast": 2,
+      "occlusion": 1,
+      "regression": 1
+    },
     "media_generation": "local PIL frames + local SRT only; synthetic TEST SIGNAL frames, not real footage and not AI-generated assets",
     "python_compile": "subtitle_checks.py, run_signoff_tests.py pass",
     "json_validation": "all committed JSON files parse",
-    "signoff_disclaimer": "all reviewer names are synthetic test data; no real human sign-off performed; no production sign-off ledger in the repository"
+    "signoff_disclaimer": "all reviewer names are synthetic test data; no real human sign-off performed; no production sign-off ledger in the repository",
+    "round2": {
+      "path": "docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle-signoff-tests-round2.json",
+      "total": 41,
+      "passed": 41,
+      "failed": 0,
+      "all_passed": true,
+      "new_cases": 15,
+      "groups": {
+        "round2_context": 10,
+        "round2_font": 5
+      },
+      "note": "round-1 26-case snapshot preserved at subtitle-signoff-tests.json"
+    }
   },
   "research": {
     "github_repositories_inspected": 17,
     "directions_covered": 10,
     "probe_method": "GitHub REST API anonymous limit exhausted (403); used public HTML pages, commits Atom feeds and raw.githubusercontent.com with per-URL status/bytes/SHA-256 evidence",
-    "evidence": ["evidence/github_repo_probe.json", "evidence/github_repo_probe_addendum.json"],
+    "evidence": [
+      "evidence/github_repo_probe.json",
+      "evidence/github_repo_probe_addendum.json"
+    ],
     "licence_corrections": {
       "rany2/edge-tts": "LGPL-3.0 main + MIT for a single file (not MIT as auto-detected)",
       "Netflix/vmaf": "BSD-2-Clause-Patent",
@@ -60,8 +97,16 @@
     "third_party_projects_installed_or_run": 0,
     "skills_installed": 0,
     "skills_method_extracted": 6,
-    "cpu_friendly_candidates": ["faster-whisper (MIT, CTranslate2 CPU)", "PySceneDetect (BSD-3-Clause, pure CPU)", "MeloTTS (MIT, torch CPU)"],
-    "excluded": ["ComfyUI (GPU)", "edge-tts (online service + LGPL)", "MoneyPrinterTurbo/ShortGPT as whole-system replacements (paid LLM/material APIs)"]
+    "cpu_friendly_candidates": [
+      "faster-whisper (MIT, CTranslate2 CPU)",
+      "PySceneDetect (BSD-3-Clause, pure CPU)",
+      "MeloTTS (MIT, torch CPU)"
+    ],
+    "excluded": [
+      "ComfyUI (GPU)",
+      "edge-tts (online service + LGPL)",
+      "MoneyPrinterTurbo/ShortGPT as whole-system replacements (paid LLM/material APIs)"
+    ]
   },
   "applications": {
     "vidova": {
@@ -86,42 +131,134 @@
       "cli_external_help_exit_code": 3221226505,
       "cli_external_help_output": "empty stdout and stderr",
       "hubcli_host_requirement": "CUSTOM_AGENT_BUN_EXECUTABLE must be an absolute path supplied by Host",
-      "existing_drafts_sha256_prefix": ["75e07786574bf6d9", "0792b2c4e809a6b6"],
+      "existing_drafts_sha256_prefix": [
+        "75e07786574bf6d9",
+        "0792b2c4e809a6b6"
+      ],
       "existing_drafts_unchanged": true,
       "independent_test_draft_created": false,
       "real_import_edit_export": false
     },
     "tts": {
-      "sapi_voice_tokens": ["TTS_MS_EN-US_ZIRA_11.0", "TTS_MS_ZH-CN_HUIHUI_11.0"],
-      "blocked_capabilities": ["runtime .NET assembly load", "SAPI COM instantiation", "Windows Script Host invocation"],
+      "sapi_voice_tokens": [
+        "TTS_MS_EN-US_ZIRA_11.0",
+        "TTS_MS_ZH-CN_HUIHUI_11.0"
+      ],
+      "blocked_capabilities": [
+        "runtime .NET assembly load",
+        "SAPI COM instantiation",
+        "Windows Script Host invocation"
+      ],
       "security_policy_bypassed": false,
       "chinese_tts_wav_generated": false,
       "tts_status": "NOT_COMPLETE",
-      "synthetic_test_tone_wav": {"bytes": 240078, "sha256": "a24003869a02105b0ba9a354c2850e6fc5357bb3262441252c20b12d9cceadd5", "duration_seconds": 2.5, "mean_volume_db": -33.1, "max_volume_db": -30.1, "long_silence_events": 0, "is_speech": false, "is_narration": false},
+      "synthetic_test_tone_wav": {
+        "bytes": 240078,
+        "sha256": "a24003869a02105b0ba9a354c2850e6fc5357bb3262441252c20b12d9cceadd5",
+        "duration_seconds": 2.5,
+        "mean_volume_db": -33.1,
+        "max_volume_db": -30.1,
+        "long_silence_events": 0,
+        "is_speech": false,
+        "is_narration": false
+      },
       "audio_qa_chain_verified": true
     }
   },
   "capabilities": [
-    {"id": "per_item_subtitle_signoff_gate", "state": "confirmed_working", "evidence": "26/26 tests, before/after, production ledger refusal of synthetic reviewers"},
-    {"id": "font_three_states_and_frame_measurement", "state": "confirmed_working", "evidence": "frame-measured 26 px vs render param 36 px; render param weight 0"},
-    {"id": "text_vs_adjacent_background_contrast", "state": "confirmed_working", "evidence": "low-contrast band spread 145 but ratio 1.177 -> FAIL; high contrast ratio 13.881 -> PASS"},
-    {"id": "multi_signal_occlusion_detection", "state": "confirmed_working", "evidence": "IoU 0.0025 legacy PASS, intersection_over_subject 1.0 -> FAIL"},
-    {"id": "github_read_only_repository_inspection", "state": "confirmed_working", "evidence": "17 repos, per-URL status/bytes/SHA-256, licence corrections"},
-    {"id": "vidova_mcp_readonly", "state": "confirmed_working", "evidence": "initialize 200, 18 tools"},
-    {"id": "vidova_asar_and_registry_static_scan", "state": "confirmed_working", "evidence": "vidova_window_research.json, vidova_deeplink_research.json"},
-    {"id": "ffmpeg_audio_qa_chain", "state": "confirmed_working", "evidence": "ffprobe + volumedetect + silencedetect on local synthetic WAV"},
-    {"id": "ad_director_workflow_design", "state": "documented_not_executed", "evidence": "ad-director-workflow.md, product-ad-editing-guide.md, recommended-architecture.md"},
-    {"id": "vidova_deep_link_project_open", "state": "detected_not_tested", "evidence": "scheme registered but only auth callback URL found; no project-open URL/flag"},
-    {"id": "jianying_host_authorised_cli", "state": "blocked_by_permissions", "evidence": "Host-injected runtime + runtime token gate; no legal external path found"},
-    {"id": "real_chinese_tts", "state": "blocked_by_security_policy", "evidence": "three legal SAPI paths blocked; 0 speech WAV"},
-    {"id": "third_party_projects_local_execution", "state": "not_attempted", "evidence": "0 installs, 0 models downloaded; approval required"},
-    {"id": "real_asset_generation", "state": "not_attempted", "evidence": "quota approval boundary"},
-    {"id": "real_jianying_import_edit_export", "state": "not_attempted", "evidence": "Host token gate; no draft created"},
-    {"id": "full_promotional_video_production", "state": "not_permitted", "evidence": "final verdict B; stop condition"}
+    {
+      "id": "per_item_subtitle_signoff_gate",
+      "state": "confirmed_working",
+      "evidence": "26/26 tests, before/after, production ledger refusal of synthetic reviewers"
+    },
+    {
+      "id": "font_three_states_and_pixel_height_estimate",
+      "state": "confirmed_working",
+      "evidence": "pixel-height estimate 26 px vs render param 36 px; render param weight 0; is_precise_font_size_measurement=false; named human font-size confirmation is required for production FIXED"
+    },
+    {
+      "id": "text_vs_adjacent_background_contrast",
+      "state": "confirmed_working",
+      "evidence": "low-contrast band spread 145 but ratio 1.177 -> FAIL; high contrast ratio 13.881 -> PASS"
+    },
+    {
+      "id": "multi_signal_occlusion_detection",
+      "state": "confirmed_working",
+      "evidence": "IoU 0.0025 legacy PASS, intersection_over_subject 1.0 -> FAIL"
+    },
+    {
+      "id": "github_read_only_repository_inspection",
+      "state": "confirmed_working",
+      "evidence": "17 repos, per-URL status/bytes/SHA-256, licence corrections"
+    },
+    {
+      "id": "vidova_mcp_readonly",
+      "state": "confirmed_working",
+      "evidence": "initialize 200, 18 tools"
+    },
+    {
+      "id": "vidova_asar_and_registry_static_scan",
+      "state": "confirmed_working",
+      "evidence": "vidova_window_research.json, vidova_deeplink_research.json"
+    },
+    {
+      "id": "ffmpeg_audio_qa_chain",
+      "state": "confirmed_working",
+      "evidence": "ffprobe + volumedetect + silencedetect on local synthetic WAV"
+    },
+    {
+      "id": "ad_director_workflow_design",
+      "state": "documented_not_executed",
+      "evidence": "ad-director-workflow.md, product-ad-editing-guide.md, recommended-architecture.md"
+    },
+    {
+      "id": "vidova_deep_link_project_open",
+      "state": "detected_not_tested",
+      "evidence": "scheme registered but only auth callback URL found; no project-open URL/flag"
+    },
+    {
+      "id": "jianying_host_authorised_cli",
+      "state": "blocked_by_permissions",
+      "evidence": "Host-injected runtime + runtime token gate; no legal external path found"
+    },
+    {
+      "id": "real_chinese_tts",
+      "state": "blocked_by_security_policy",
+      "evidence": "three legal SAPI paths blocked; 0 speech WAV"
+    },
+    {
+      "id": "third_party_projects_local_execution",
+      "state": "not_attempted",
+      "evidence": "0 installs, 0 models downloaded; approval required"
+    },
+    {
+      "id": "real_asset_generation",
+      "state": "not_attempted",
+      "evidence": "quota approval boundary"
+    },
+    {
+      "id": "real_jianying_import_edit_export",
+      "state": "not_attempted",
+      "evidence": "Host token gate; no draft created"
+    },
+    {
+      "id": "full_promotional_video_production",
+      "state": "not_permitted",
+      "evidence": "final verdict B; stop condition"
+    }
   ],
   "defects": {
-    "D004": {"state": "STILL_FAILING", "reason": "vertical subtitle centre 0.6208 H, font 26 px < 32 px, horizontal bottom 0.947 H > 0.94 safe line", "native_vertical_relayout_plan": "outbox/WB-VIDEO-004/blockers.md section 2", "manual_items_signed": 0},
-    "D005": {"state": "OPEN / REVIEW_REQUIRED", "reason": "5.5-8.5 s smptebars is a local FFmpeg TEST SIGNAL placeholder, not a real shot", "must_be_marked": "is_placeholder=true, allow_edit=false"},
+    "D004": {
+      "state": "STILL_FAILING",
+      "reason": "vertical subtitle centre 0.6208 H, font 26 px < 32 px, horizontal bottom 0.947 H > 0.94 safe line",
+      "native_vertical_relayout_plan": "outbox/WB-VIDEO-004/blockers.md section 2",
+      "manual_items_signed": 0
+    },
+    "D005": {
+      "state": "OPEN / REVIEW_REQUIRED",
+      "reason": "5.5-8.5 s smptebars is a local FFmpeg TEST SIGNAL placeholder, not a real shot",
+      "must_be_marked": "is_placeholder=true, allow_edit=false"
+    },
     "rework_cycles_used": 2,
     "rework_cycles_max": 2,
     "third_cycle_allowed": false
@@ -134,7 +271,14 @@
     "dependencies_installed": 0,
     "models_downloaded": 0,
     "tokens_or_credentials_committed": false,
-    "plaintext_pat_read_or_printed_this_stage": false
+    "plaintext_pat_read_or_printed_this_stage": false,
+    "review_round2": {
+      "paid_or_quota_consuming_calls_made": 0,
+      "dependencies_installed": 0,
+      "models_downloaded": 0,
+      "jianying_gui_operations": 0,
+      "ui_automation_performed": 0
+    }
   },
   "safety": {
     "existing_projects_modified": false,
@@ -144,9 +288,18 @@
     "public_publishing": false,
     "large_media_committed": false,
     "absolute_paths_in_committed_evidence": false,
-    "secret_scan": {"scanned_files": 23, "findings": 0, "evidence": "evidence/secret_scan_004.json"},
+    "secret_scan": {
+      "scanned_files": 23,
+      "findings": 0,
+      "evidence": "evidence/secret_scan_004.json"
+    },
     "empty_vidova_test_project_preserved": "893d1af1-0d6e-42a9-9489-a996307faeb7",
-    "local_only_files": ["%WORKSPACE%/pipeline/config.local.json", "%WORKSPACE%/pipeline/qa004/*", "%WORKSPACE%/pipeline/tts004/*", "%WORKSPACE%/probe/research004/*"]
+    "local_only_files": [
+      "%WORKSPACE%/pipeline/config.local.json",
+      "%WORKSPACE%/pipeline/qa004/*",
+      "%WORKSPACE%/pipeline/tts004/*",
+      "%WORKSPACE%/probe/research004/*"
+    ]
   },
   "acceptance_criteria": {
     "1_p0_per_item_signoff_fixed_with_evidence": true,
@@ -163,7 +316,10 @@
     "12_no_existing_project_or_asset_modified": true,
     "13_no_paid_service_or_credit_used": true,
     "14_no_fabricated_interfaces_or_results": true,
-    "15_commit_push_and_remote_head_verification": "confirmed: main delivery commit a5659e3eba3b44969f964889df95ad19d4048ee6 pushed and verified on remote; a small SHA addendum commit follows, final remote HEAD reported in the session"
+    "15_commit_push_and_remote_head_verification": "confirmed: main delivery commit a5659e3eba3b44969f964889df95ad19d4048ee6 pushed and verified on remote; a small SHA addendum commit follows, final remote HEAD reported in the session",
+    "16_round2_review_items_addressed": true,
+    "17_timestamp_anomaly_explained_with_evidence": true,
+    "18_wb005_prepared_but_not_executed": true
   },
   "paths_policy": "Machine-specific absolute paths are stored ONLY in local uncommitted configs outside the repository. Committed evidence uses <LOCAL>, <JY_APP_DIR>, %LOCALAPPDATA%, <VIDOVA_EXE> placeholders and was verified by a scripted leak scan.",
   "approval_batch_for_next_stage": [
@@ -182,5 +338,76 @@
     "goal": "Unblock B1/B4/B6: one real asset + one independent Jianying draft + one real Chinese narration; run the 13-step minimal real E2E chain",
     "expected_report_path": "docs/ai-collaboration/outbox/WB-VIDEO-005/report.md",
     "stop_condition": "Stop before full promotional-video production; wait for ChatGPT review"
+  },
+  "review_round2": {
+    "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+    "addendum_path": "docs/ai-collaboration/outbox/WB-VIDEO-004/addendum-round2.md",
+    "preparation_draft_path": "docs/ai-collaboration/outbox/WB-VIDEO-004/wb005-preparation.md",
+    "baseline_commit": "8c261166253fbfc1f5d52669eca1277a0d776661",
+    "captured_at": "2026-11-08T17:54:00+08:00",
+    "captured_at_method": "datetime.now().astimezone() - host timezone READ (round-1 scripts hardcoded +08:00)",
+    "scope": "Three follow-up items from the first ChatGPT code/report review. No repeated WB-VIDEO-004 work.",
+    "items": {
+      "1_production_context_fixed": {
+        "state": "FIXED",
+        "round1_defect": "evaluate_subtitle_fix() derived ctx from caller parameter or spec.manual_review.context; can_mark_fixed never checked production_admissible, so unit_test context + synthetic reviewers could emit FIXED",
+        "fix": "PRODUCTION_CONTEXT is an internal constant; a non-production caller parameter raises SignoffError; spec-level context is ignored and audited; an isolated evaluate_subtitle_fix_unit_test() can never emit FIXED or a production-admissible record",
+        "before_after": "identical synthetic input: round-1 FIXED (production_admissible=false) -> round-2 NEEDS_MANUAL_REVIEW",
+        "evidence": "evidence/round2/context-fix-before-after.json"
+      },
+      "2_font_pixel_height_estimate_wording": {
+        "state": "FIXED_AND_TIGHTENED",
+        "wording": "frame-difference value is a PIXEL HEIGHT ESTIMATE only, NOT a precise font-size measurement; is_precise_font_size_measurement=false",
+        "production_human_review_retained": true,
+        "new_prerequisite": "validate_font_human_confirmation() requires a named human, a valid timestamp, substantive evidence and exact frame/video/subtitle version binding; synthetic or wrongly-bound confirmations are rejected",
+        "historical_wording_corrected_by": "addendum-round2.md section 3.1 declaration; historical report files were NOT rewritten",
+        "evidence": "evidence/round2/font-wording-audit.json"
+      },
+      "3_timestamp_forensics": {
+        "verdict": "NO_CLOCK_DRIFT_NO_FABRICATION_NO_BACKFILL",
+        "windows_timezone": "China Standard Time, UTC+08:00, no DST, W32Time NTP time.windows.com",
+        "git_raw_objects": {
+          "8c26116": "1794130093 +0800 = 2026-11-08T17:28:13+08:00 = UTC 09:28:13",
+          "a5659e3": "1794129663 +0800 = 2026-11-08T17:21:03+08:00"
+        },
+        "git_author_equals_committer": true,
+        "git_date_env_overrides_present": false,
+        "declared_window": "report.md line 8 and started_at/ended_at are HUMAN-ESTIMATED prose values (16:30 / 17:06); the real final commit is 17:28:13, about 22 minutes later",
+        "captured_at_vs_mtime_max_delta_seconds": 1.8,
+        "session_clock_16_34": "a DIFFERENT clock source quoted in the reviewer/session text, not a host time reversal; host machine evidence already existed at 16:41-16:46",
+        "round1_probe_implementation_defect": "hardcoded UTC+08:00 instead of reading host timezone; recorded values are correct because the host IS UTC+08:00 with no DST; round-2 uses astimezone()",
+        "evidence": "evidence/round2/timestamp-audit.json",
+        "historical_reports_untouched": true
+      }
+    },
+    "tests": {
+      "result_path": "docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle-signoff-tests-round2.json",
+      "total": 41,
+      "passed": 41,
+      "failed": 0,
+      "all_passed": true,
+      "round1_baseline_cases_preserved": 26,
+      "new_round2_cases": 15,
+      "historical_snapshot_not_overwritten": "subtitle-signoff-tests.json (26 cases, mtime 16:46:36)"
+    },
+    "fix_prerequisites_count_before": 7,
+    "fix_prerequisites_count_after": 11,
+    "files_modified": [
+      "docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle_checks.py",
+      "docs/ai-collaboration/outbox/WB-VIDEO-004/run_signoff_tests.py",
+      "docs/ai-collaboration/status/pipeline-status.json"
+    ],
+    "historical_reports_modified": false,
+    "verdict_unchanged": "B_CONDITIONAL_PASS",
+    "stop_condition": "Stop after the three supplements. WB-VIDEO-005 is a DRAFT ONLY: no Vidova quota, no dependency install, no model download, no Jianying GUI, no UI Automation until explicit per-item user approval.",
+    "red_lines_this_round": {
+      "paid_or_quota_consuming_calls": 0,
+      "dependencies_installed": 0,
+      "models_downloaded": 0,
+      "jianying_gui_operations": 0,
+      "ui_automation": 0,
+      "public_publishing": 0,
+      "plaintext_credentials_read": 0
+    }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+  "captured_at": "2026-11-08T17:51:17+08:00",
+  "source_file": "outbox/WB-VIDEO-004/subtitle_checks.py",
+  "source_sha256": "30878372a675b94d6c76b7792df2db6e375695b4f8db92d341f0d52996f19ce6",
+  "claim_checks": {
+    "is_precise_font_size_measurement_false_present": true,
+    "explicit_NOT_a_precise_measurement_present": true,
+    "pixel_height_estimate_named": true,
+    "human_confirmation_required_in_production": true,
+    "production_font_size_human_review_open": true,
+    "affirmative_precise_measurement_claim_absent": true
+  },
+  "policy": "The frame-difference routine produces a PIXEL HEIGHT ESTIMATE only. It is NOT a precise font-size measurement. Production QA keeps a named human font-size confirmation as a FIXED prerequisite; the automatic estimate never closes that human review item.",
+  "historical_documents": "report.md / subtitle-signoff-fix.md / pipeline-status.json are left untouched; any round-1 wording that implied a real font-size measurement is corrected by declaration in addendum-round2.md, not by rewriting history."
+}

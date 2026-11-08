@@ -1,0 +1,46 @@
+{
+  "task_id": "WB-VIDEO-004-REVIEW-ROUND2",
+  "captured_at": "2026-11-08T17:51:17+08:00",
+  "captured_at_method": "datetime.now().astimezone() - host timezone READ, not hardcoded",
+  "finding": "Round-1 evaluate_subtitle_fix() derived its context from the caller / spec",
+  "same_input": {
+    "spec_manual_review_context": "unit_test",
+    "reviewers": "synthetic MOCK_UNIT_REVIEWER, test_only=true, review_source=unit_test",
+    "items": [
+      "text_content_matches_srt",
+      "semantic_readability",
+      "occlusion_by_undeclared_content"
+    ]
+  },
+  "before_round1": {
+    "source": "WB-VIDEO-004 round-1 evaluate_subtitle_fix(): ctx = context or supplied.get('context') or 'production'",
+    "caller_context": "unit_test",
+    "fix_result": "FIXED",
+    "production_admissible": false,
+    "synthetic_records": 3,
+    "warning": "DEFECTIVE round-1 behaviour; reproduced for evidence only."
+  },
+  "after_round2_production_entry": {
+    "entry": "evaluate_subtitle_fix(synthetic_spec)",
+    "effective_context": "production",
+    "context_source": "internal_constant",
+    "fix_result": "NEEDS_MANUAL_REVIEW",
+    "all_items_approved": false,
+    "production_admissible": false,
+    "ignored_external_context": {
+      "parameter": null,
+      "spec_manual_review_context": "unit_test"
+    }
+  },
+  "caller_parameter_probe": {
+    "context": "unit_test",
+    "raised": true,
+    "error": "evaluate_subtitle_fix() is the PRODUCTION decision entry; a caller-supplied non-production context ('unit_test') is refused. Use evaluate_subtitle_fix_unit_test() for test observations."
+  },
+  "isolated_test_harness": {
+    "fix_result": "TEST_ONLY_OBSERVATION",
+    "admissible_for_production": false,
+    "effective_context": "unit_test"
+  },
+  "comparison": "Identical synthetic input: the round-1 gate emitted FIXED while production_admissible=False; the round-2 production entry ignores the test context, rejects synthetic reviewers and never emits FIXED. The isolated test harness returns TEST_ONLY_OBSERVATION and is explicitly not production-admissible."
+}
