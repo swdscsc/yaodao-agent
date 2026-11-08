@@ -49,7 +49,13 @@ CREDENTIAL_PATTERNS = {
         r"(?i)(password|api[_-]?key|access[_-]?token|secret)\s*[:=]\s*['\"][^'\"]{8,}['\"]"),
     "runtime_token_value": re.compile(r"(?i)JIANYING_AGENT_RUNTIME_TOKEN\s*=\s*[A-Za-z0-9_-]{12,}"),
 }
-LOCAL_PATH_PATTERN = re.compile(r"(?:C:\\Users\\|C:/Users/|/c/Users/)[^\s\"'|,)]{0,120}")
+# Assemble home-path prefixes at runtime: the scanner source itself must not
+# contain a literal absolute path, otherwise it reports self-referential hits.
+_USER_DIR = "Users"
+_BS2 = chr(92) * 2  # regex escape for one literal backslash
+LOCAL_PATH_PATTERN = re.compile(
+    "(?:C:" + _BS2 + _USER_DIR + _BS2 + "|C:/" + _USER_DIR
+    + "/|/c/" + _USER_DIR + "/)" + r"[^\s\"'|,)]{0,120}")
 
 
 def sha(p: str) -> str:
@@ -82,6 +88,8 @@ def main() -> None:
                          encoding="utf-8"))
     cleanup = json.load(open(os.path.join(R1_EVID, "cleanup-audit.json"),
                              encoding="utf-8"))
+    pycclean = json.load(open(os.path.join(R1_EVID, "pycache-cleanup-audit.json"),
+                              encoding="utf-8"))
 
     checks: dict[str, dict] = {}
 
@@ -183,12 +191,17 @@ def main() -> None:
                        for item in preserve["regenerated_in_place"])
 
     # no video / audio anywhere in the two delivery dirs --------------------------
+    # no bytecode caches either (build artefacts, not deliverables)
     media = []
+    caches = []
     for root in (OUT, R1_OUT):
         for base, _dirs, files in os.walk(root):
             for fn in files:
+                p = os.path.join(base, fn)
                 if fn.lower().endswith((".mp4", ".mov", ".webm", ".wav", ".mp3", ".m4a")):
-                    media.append(os.path.relpath(os.path.join(base, fn), WORKSPACE))
+                    media.append(os.path.relpath(p, WORKSPACE))
+                if fn.lower().endswith(".pyc") or "__pycache__" in base.replace("\\", "/").split("/"):
+                    caches.append(os.path.relpath(p, WORKSPACE))
 
     # JSON validity ---------------------------------------------------------------
     json_bad = []
@@ -253,6 +266,7 @@ def main() -> None:
         "r0_originals_present": originals_ok,
         "r0_originals_count": len(preserve["regenerated_in_place"]),
         "cleanup_verified": cleanup["cleanup_verified"],
+        "pycache_cleanup_verified": pycclean["cleanup_verified"],
         "generator_location_tests_passed": loc["all_tests_passed"],
         "keyframes_rendered": kf["frames_ok"],
         "keyframes_total": kf["frame_count"],
@@ -260,12 +274,14 @@ def main() -> None:
         "first_cut_duration_s": scoring["selected"]["duration_s"],
         "video_or_audio_files_in_delivery_dirs": media,
         "mp4_count": 0 if not media else len(media),
+        "bytecode_cache_files_in_delivery_dirs": caches,
         "invalid_json_files": json_bad,
         "secret_scan_verdict": secret["verdict"],
         "all_verifications_passed": (
             all(v["passed"] for v in checks.values()) and preservation_ok
-            and originals_ok and not media and not json_bad
+            and originals_ok and not media and not caches and not json_bad
             and not cred_hits and cleanup["cleanup_verified"]
+            and pycclean["cleanup_verified"]
             and loc["all_tests_passed"] and kf["frames_ok"] == kf["frame_count"]),
     }
     with open(os.path.join(R1_EVID, "revision-verification.json"), "w",
@@ -278,8 +294,11 @@ def main() -> None:
                 "evidence/push-verification-addendum.md"}
     files = []
     for root in (OUT, R1_OUT):
-        for base, _dirs, names in os.walk(root):
+        for base, dirs, names in os.walk(root):
+            dirs[:] = [d for d in dirs if d != "__pycache__"]
             for fn in names:
+                if fn.lower().endswith(".pyc"):
+                    continue
                 p = os.path.join(base, fn)
                 rel = os.path.relpath(p, root).replace("\\", "/")
                 key = os.path.relpath(root, os.path.dirname(OUT)).replace("\\", "/") + "/" + rel
@@ -309,9 +328,11 @@ def main() -> None:
         "r0_originals_present": originals_ok,
         "generator_location_tests": loc["all_tests_passed"],
         "keyframes": f"{kf['frames_ok']}/{kf['frame_count']}",
+        "pycache_cleanup_verified": pycclean["cleanup_verified"],
         "credential_hits": len(cred_hits),
         "local_path_hits": len(path_hits),
         "media_files": media,
+        "bytecode_caches": caches,
         "invalid_json": len(json_bad),
         "manifest_files": len(files),
         "all_verifications_passed": overall["all_verifications_passed"],

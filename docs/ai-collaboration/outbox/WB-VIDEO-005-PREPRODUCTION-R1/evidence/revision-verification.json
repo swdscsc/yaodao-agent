@@ -1,6 +1,6 @@
 {
   "verification_id": "R1-VERIFY-001",
-  "recorded_at": "2026-11-08T21:38:46+08:00",
+  "recorded_at": "2026-11-08T22:35:11+08:00",
   "baseline_commit": "334ddbc60a50a794300188fa886d388a85c9edd2",
   "checks": {
     "R1-1_claims_policy_consistent": {
@@ -154,6 +154,7 @@
   "r0_originals_present": true,
   "r0_originals_count": 11,
   "cleanup_verified": true,
+  "pycache_cleanup_verified": true,
   "generator_location_tests_passed": true,
   "keyframes_rendered": 9,
   "keyframes_total": 9,
@@ -161,6 +162,7 @@
   "first_cut_duration_s": 27,
   "video_or_audio_files_in_delivery_dirs": [],
   "mp4_count": 0,
+  "bytecode_cache_files_in_delivery_dirs": [],
   "invalid_json_files": [],
   "secret_scan_verdict": "PASS_NO_CREDENTIALS",
   "all_verifications_passed": true

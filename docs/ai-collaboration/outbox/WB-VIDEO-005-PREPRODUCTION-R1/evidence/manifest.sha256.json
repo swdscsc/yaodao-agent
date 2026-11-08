@@ -1,6 +1,6 @@
 {
   "manifest_id": "R1-MANIFEST-001",
-  "recorded_at": "2026-11-08T21:38:46+08:00",
+  "recorded_at": "2026-11-08T22:35:11+08:00",
   "scope": "Both WB-VIDEO-005-PREPRODUCTION and ...-R1 directories, current worktree",
   "note": "R0 evidence/manifest.sha256.json is a historical snapshot of commit 334ddbc60a50a794300188fa886d388a85c9edd2 and is NOT rewritten; the R1 manifest covers the current tree.",
   "excludes": [
@@ -11,8 +11,8 @@
   "files": [
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/README.md",
-      "bytes": 3157,
-      "sha256": "da2dfc4851dbdc343761378e3cb0e5b9445f02ce6fc93a73f6d5a7d26597fbbc"
+      "bytes": 3438,
+      "sha256": "87ea11733e52cc129e8964ec9d4f3489fbff10531b2caac289433dafd2213d08"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/asset-sources.md",
@@ -117,7 +117,7 @@
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/consistency-check.json",
       "bytes": 2427,
-      "sha256": "91ccc54b6c2280b3373e35eae1ea4cfd311973517c6a211a711efd5fc3200565"
+      "sha256": "b082b100a669507d044acc69fed9d2d28f34c77be71a1b556cdfebf6b12f2fcf"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/dialogue-cue-index.csv",
@@ -137,7 +137,7 @@
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/generator-location-tests.json",
       "bytes": 11791,
-      "sha256": "54ec20ca3fb0908d9b35edfa0cd566f99657b8f8dd64d973598890550cc06b9f"
+      "sha256": "8f18db6520f5db8b6b3e1f569d0dea3a72f528da96f4bf7fc66346745faddd0a"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/keyframe-render-log.json",
@@ -148,6 +148,11 @@
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/narration-table.md",
       "bytes": 6010,
       "sha256": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/pycache-cleanup-audit.json",
+      "bytes": 1715,
+      "sha256": "bfcd418a892c67b847dccab488ea9879bd61b5c4b914ff6eb8b6de88d1d747f1"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-file-preservation.json",
@@ -211,13 +216,13 @@
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/revision-verification.json",
-      "bytes": 5639,
-      "sha256": "4d40feb28675fafc977eb4a258a43ceebd67db0c59df622801ee77e4e6a3a6f2"
+      "bytes": 5722,
+      "sha256": "97552f1c8f7101a13d8bd66df511f8e588c5e7a306c5464976ba58fc5202cd0a"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/secret-scan.json",
-      "bytes": 1319,
-      "sha256": "2f3b6d3717a86bdda4e73bf3576850f671c2365e3bfc5e2ecf99be294739e29c"
+      "bytes": 1019,
+      "sha256": "a631b97300f874a23a76d5f940b172cfa03fa44003aef795da7b6772879e575f"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/subtitle-draft.meta.json",
@@ -271,23 +276,13 @@
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/report.md",
-      "bytes": 8622,
-      "sha256": "0ac0367cd823d8a032a86460a60b0b7dec4a36e84e5589c5aff21a0eeb6ee6c4"
+      "bytes": 9193,
+      "sha256": "c8d0a5fc217335553fa4aec011de827ffc2e843d7df0994ad8f1b4c20457f132"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/review-revision-log.md",
       "bytes": 7880,
       "sha256": "434b7edff2ee565bc7d20d622f700c183b10984df4a926d034a72f7d3588ffd1"
-    },
-    {
-      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/cleanup_audit.cpython-313.pyc",
-      "bytes": 9968,
-      "sha256": "83667bbb4424069766cd50c2b865ad61b7955da65a46e4b6bf58d680b637629a"
-    },
-    {
-      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/preserve_r0.cpython-313.pyc",
-      "bytes": 6801,
-      "sha256": "86dddf00d300a2b6fd015ee6cac76c326beace3d2bf5f7a8844399a1445e1324"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_assets.py",
@@ -306,13 +301,18 @@
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_r1_docs.py",
-      "bytes": 48142,
-      "sha256": "818d270efe189b732a06f0da6e4d22bdde029b291dc34775fb87f37af4a56984"
+      "bytes": 49185,
+      "sha256": "bc1c1ee5cf69f6e0dd5d7695fef05435c89885a583869297b0d29ee0c773af2a"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/cleanup_audit.py",
       "bytes": 5753,
       "sha256": "970b57173c67183ef4acc6f1ad74769ecbba809464ad3b6ab6fc0e5f40a30a6f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/cleanup_pycache.py",
+      "bytes": 5449,
+      "sha256": "f1fe8e8a1e6fbaa049cd45f2b650abd070a6956acd747860de0fbbc7f2260193"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/first_cut_selection.py",
@@ -321,8 +321,8 @@
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/generator_location_tests.py",
-      "bytes": 5650,
-      "sha256": "17fcaa0f8a6aa10a599f39d7e13d89f76925bb59baef0f5cf7a8fa7598a3c242"
+      "bytes": 5968,
+      "sha256": "d95159abeaf2074f7f57d083c4d0676fed8f1ab4f5096963d4cfa5376eaeb31f"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/preserve_r0.py",
@@ -336,8 +336,8 @@
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/verify_r1.py",
-      "bytes": 16392,
-      "sha256": "f5fbc12a341511f5e317a0d0e2f43ceb1371b3310f5fb13ecf452afe0523754b"
+      "bytes": 17517,
+      "sha256": "070e864f9f261dce993e10be62a9ff30cf34e65430c0737af64e1f81397a6581"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION-R1/subtitle-draft-revised.srt",
@@ -372,7 +372,7 @@
     {
       "path": "WB-VIDEO-005-PREPRODUCTION/evidence/consistency-check.json",
       "bytes": 2427,
-      "sha256": "91ccc54b6c2280b3373e35eae1ea4cfd311973517c6a211a711efd5fc3200565"
+      "sha256": "b082b100a669507d044acc69fed9d2d28f34c77be71a1b556cdfebf6b12f2fcf"
     },
     {
       "path": "WB-VIDEO-005-PREPRODUCTION/evidence/delivery-verification.json",

@@ -38,6 +38,9 @@
   `../WB-VIDEO-005-PREPRODUCTION/R1-SUPERSEDES.md`。
 - 上一轮失败运行误创建的目录已精确清理，前后审计见 `evidence/cleanup-audit.json`
   （目标 `C:\Users\asus\WorkBuddy\2026-11-08-14-19-50\pipeline\yaodao-agent`，清理后 `False`）。
+- 本轮收尾发现 `py_compile` 在交付目录留下 2 个
+  `.pyc`，已用 `git rm --cached`（不改历史提交）+ 删除磁盘文件 + 新增 `.gitignore` 规则处理，
+  前后哈希审计见 `evidence/pycache-cleanup-audit.json`，校验脚本已排除编译缓存。
 
 ## 审核边界
 

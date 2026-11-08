@@ -1,0 +1,44 @@
+{
+  "audit_id": "R1-PYCACHE-CLEANUP-001",
+  "recorded_at": "2026-11-08T22:30:37+08:00",
+  "scope": "Only the __pycache__ directory inside this round's delivered WB-VIDEO-005-PREPRODUCTION-R1/scripts/ directory.",
+  "reason": "Two .pyc files were created by py_compile and accidentally included in commit 9bb8ae1e9cb9b3120cecce37fa9d2afe7c1f0140 (local, not yet pushed). Python bytecode caches are build artefacts, not deliverables.",
+  "actions": [
+    "git rm --cached (index only, no history rewrite)",
+    "delete verified cache files from disk",
+    "remove the now-empty __pycache__ directory",
+    "add __pycache__/ and *.pyc to .gitignore"
+  ],
+  "before": {
+    "tracked_pyc_in_index": [
+      "docs/ai-collaboration/outbox/WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/cleanup_audit.cpython-313.pyc",
+      "docs/ai-collaboration/outbox/WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/preserve_r0.cpython-313.pyc"
+    ],
+    "disk_files_in_cache_dir": [
+      {
+        "file": "cleanup_audit.cpython-313.pyc",
+        "bytes": 9968,
+        "sha256": "83667bbb4424069766cd50c2b865ad61b7955da65a46e4b6bf58d680b637629a"
+      },
+      {
+        "file": "preserve_r0.cpython-313.pyc",
+        "bytes": 6801,
+        "sha256": "86dddf00d300a2b6fd015ee6cac76c326beace3d2bf5f7a8844399a1445e1324"
+      }
+    ],
+    "cache_dir_exists": true
+  },
+  "after": {
+    "tracked_pyc_in_index": [],
+    "disk_files_in_cache_dir": [],
+    "cache_dir_exists": false
+  },
+  "files_removed_from_disk": [
+    "cleanup_audit.cpython-313.pyc",
+    "preserve_r0.cpython-313.pyc"
+  ],
+  "gitignore_rules_present": true,
+  "cleanup_verified": true,
+  "source_files_untouched": true,
+  "historical_reports_untouched": true
+}

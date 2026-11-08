@@ -1,6 +1,6 @@
 {
   "test_id": "R1-GENERATOR-LOCATION-001",
-  "recorded_at": "2026-11-08T21:36:02+08:00",
+  "recorded_at": "2026-11-08T22:35:10+08:00",
   "requirement": "run the generator from the repository root AND from the script directory; verify the repo-root locator by two markers",
   "workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
   "stable_files_compared": [

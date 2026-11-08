@@ -47,7 +47,11 @@ def snapshot() -> dict:
 
 def run(label: str, cwd: str, script: str, args: list[str] | None = None) -> dict:
     cmd = [sys.executable, script] + (args or [])
-    p = subprocess.run(cmd, cwd=cwd, stdout=subprocess.PIPE,
+    # Imports from the delivered scripts/ snapshot would otherwise recreate a
+    # __pycache__ inside the delivery directory. Keep the tree bytecode-free.
+    env = dict(os.environ)
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    p = subprocess.run(cmd, cwd=cwd, env=env, stdout=subprocess.PIPE,
                        stderr=subprocess.PIPE, timeout=180)
     tail = p.stdout.decode("utf-8", "replace").strip()[-600:]
     return {"label": label, "cwd": cwd, "script": script,
@@ -87,11 +91,13 @@ def main() -> None:
     # workspace locator must resolve identically from every cwd
     locators = []
     for cwd in (HERE, REPO, DELIVERED_SCRIPTS, WORKSPACE):
+        env = dict(os.environ)
+        env["PYTHONDONTWRITEBYTECODE"] = "1"
         p = subprocess.run([sys.executable, "-c",
                             "import sys;sys.path.insert(0,r'" + HERE + "');"
                             "import build_deliverables_r1 as b;print(b.WORKSPACE)"],
-                           cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                           timeout=60)
+                           cwd=cwd, env=env, stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE, timeout=60)
         locators.append({"cwd": cwd, "resolved_workspace":
                          p.stdout.decode("utf-8", "replace").strip(),
                          "exit_code": p.returncode})

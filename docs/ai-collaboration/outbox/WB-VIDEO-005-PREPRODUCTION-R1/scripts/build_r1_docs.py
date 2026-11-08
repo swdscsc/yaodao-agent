@@ -50,6 +50,7 @@ def main() -> None:
     assets = load("asset-source-manifest.json")
     preserve = load("r0-file-preservation.json")
     cleanup = load("cleanup-audit.json")
+    pycclean = load("pycache-cleanup-audit.json")
     sel = scoring["selected"]
     seg = sel["shots"]
     by_id = {s["id"]: s for s in SHOTS}
@@ -134,6 +135,9 @@ def main() -> None:
   `../WB-VIDEO-005-PREPRODUCTION/R1-SUPERSEDES.md`。
 - 上一轮失败运行误创建的目录已精确清理，前后审计见 `evidence/cleanup-audit.json`
   （目标 `{cleanup['target_absolute_path']}`，清理后 `{cleanup['after']['exists']}`）。
+- 本轮收尾发现 `py_compile` 在交付目录留下 {len(pycclean['before']['disk_files_in_cache_dir'])} 个
+  `.pyc`，已用 `git rm --cached`（不改历史提交）+ 删除磁盘文件 + 新增 `.gitignore` 规则处理，
+  前后哈希审计见 `evidence/pycache-cleanup-audit.json`，校验脚本已排除编译缓存。
 
 ## 审核边界
 
@@ -600,6 +604,14 @@ def main() -> None:
 - 仓库根定位器改为**双标记判定**：候选目录必须同时含 `yaodao-agent/.git` 与
   `yaodao-agent/docs/ai-collaboration/inbox`，不再只凭目录名存在。
 - 从「脚本所在目录」与「仓库根目录」分别测试生成器，结果见 `evidence/generator-location-tests.json`。
+
+**收尾补充（提交前发现）**：`py_compile` 在 `scripts/__pycache__/` 留下了
+{len(pycclean['before']['disk_files_in_cache_dir'])} 个 `.pyc` 并误入首个本地提交。
+处理方式：`git rm --cached`（索引层移除，**不改写历史提交**）→ 校验哈希后删除磁盘文件 →
+移除空目录 → `.gitignore` 新增 `__pycache__/` 与 `*.pyc` → 生成器测试脚本加
+`PYTHONDONTWRITEBYTECODE=1` → 清单脚本主动排除编译缓存。前后审计见
+`evidence/pycache-cleanup-audit.json`，`cleanup_verified = {str(pycclean['cleanup_verified']).lower()}`；
+最终校验 `bytecode_cache_files_in_delivery_dirs = []`。
 
 ## 2. 六项审核修正（全部落在权威数据源）
 

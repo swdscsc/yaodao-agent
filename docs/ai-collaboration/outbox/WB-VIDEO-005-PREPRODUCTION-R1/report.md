@@ -26,6 +26,14 @@
   `yaodao-agent/docs/ai-collaboration/inbox`，不再只凭目录名存在。
 - 从「脚本所在目录」与「仓库根目录」分别测试生成器，结果见 `evidence/generator-location-tests.json`。
 
+**收尾补充（提交前发现）**：`py_compile` 在 `scripts/__pycache__/` 留下了
+2 个 `.pyc` 并误入首个本地提交。
+处理方式：`git rm --cached`（索引层移除，**不改写历史提交**）→ 校验哈希后删除磁盘文件 →
+移除空目录 → `.gitignore` 新增 `__pycache__/` 与 `*.pyc` → 生成器测试脚本加
+`PYTHONDONTWRITEBYTECODE=1` → 清单脚本主动排除编译缓存。前后审计见
+`evidence/pycache-cleanup-audit.json`，`cleanup_verified = true`；
+最终校验 `bytecode_cache_files_in_delivery_dirs = []`。
+
 ## 2. 六项审核修正（全部落在权威数据源）
 
 权威数据源是 `scripts/build_deliverables_r1.py` 的 `SHOTS` 表（33 镜）。
