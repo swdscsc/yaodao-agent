@@ -152,9 +152,9 @@
 |---|---|
 | 仓库 / 分支 | `swdscsc/yaodao-agent` / `main` |
 | 基准提交 | `08ffda5199cffccf762e810f139ab8bf1522fe2b` |
-| 主体交付 commit SHA | 见推送完成后的补记（`status/pipeline-status.json` 与会话回报） |
-| 报告 | https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-003/report.md |
-| 交付目录 | https://github.com/swdscsc/yaodao-agent/tree/main/docs/ai-collaboration/outbox/WB-VIDEO-003 |
-| 证据目录 | https://github.com/swdscsc/yaodao-agent/tree/main/docs/ai-collaboration/outbox/WB-VIDEO-003/evidence |
-| 状态文件 | https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/status/pipeline-status.json |
-| 推送方式 | 优先使用系统凭据管理器（GCM / wincred）等受保护存储；不读取、不打印、不提交明文 PAT；无 force-push |
+| **主体交付 commit SHA** | **`f5e62e5f20ceb439cc954b271251a9ab73161fba`** |
+| 推送结果 | `08ffda5..f5e62e5  main -> main`，退出码 0；`ls-remote origin HEAD` = `f5e62e5…`，已确认 |
+| 提交文件数 | 19（报告 6、源码 4、证据 7、状态文件 1、`.gitignore` 1），共 3,922 行新增 |
+| 提交时间 | 2026-11-08 16:05 +0800 |
+| 推送方式 | **Windows 凭据管理器（`git credential.helper=wincred`，系统受保护存储）**；本轮**未读取、未打印、未复制、未提交明文 PAT**；未使用 force-push、未改 remote / 全局 git 配置 |
+| 补记说明 | 本节为推送成功后追加的元数据，随一次独立的小修订提交推送；**最终远端 HEAD 会晚于 `f5e62e5`**，以会话回报的 `ls-remote` 结果为准。主体交付内容未变。 |

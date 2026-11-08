@@ -11,7 +11,9 @@
   "timezone": "Asia/Shanghai (UTC+08:00)",
   "source_commit": "08ffda5199cffccf762e810f139ab8bf1522fe2b",
   "branch": "main",
-  "report_commit_sha": "recorded in the push addendum commit; see session handoff",
+  "report_commit_sha": "f5e62e5f20ceb439cc954b271251a9ab73161fba",
+  "push_method": "git credential.helper=wincred (Windows OS protected credential store); no plaintext PAT was read, printed, copied or committed; no force-push; no remote or global git config change",
+  "push_result": "08ffda5..f5e62e5 main -> main, exit code 0; ls-remote origin HEAD verified equal",
   "p0_fixes": {
     "P0-1_global_freeze_exemption": {
       "state": "FIXED",
@@ -134,7 +136,7 @@
     "4_no_existing_project_or_asset_modified": true,
     "5_no_paid_service_or_credit_used": true,
     "6_no_fabricated_interfaces_or_results": true,
-    "7_commit_push_and_remote_head_verification": "see report section 11 addendum and session handoff"
+    "7_commit_push_and_remote_head_verification": "confirmed_working: commit f5e62e5f20ceb439cc954b271251a9ab73161fba pushed via OS credential store (wincred) as 08ffda5..f5e62e5 main -> main; ls-remote origin HEAD verified equal; final HEAD is the small SHA addendum commit reported in the session"
   },
   "paths_policy": "Machine-specific absolute paths are stored ONLY in local uncommitted configs outside the repository. Committed evidence uses <LOCAL>, <PIPELINE>, <QA003>, %LOCALAPPDATA% placeholders and was verified by a scripted leak scan.",
   "approval_batch_for_next_stage": [
