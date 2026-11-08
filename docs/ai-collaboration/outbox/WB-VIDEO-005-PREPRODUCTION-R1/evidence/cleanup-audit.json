@@ -1,0 +1,150 @@
+{
+  "audit_id": "R1-CLEANUP-001",
+  "recorded_at": "2026-11-08T21:15:56+08:00",
+  "cause": "R1 generator initially computed WORKSPACE with a fixed number of dirname() calls; after the script moved into pipeline/probe005/r1/ it resolved to pipeline/ and created a stray directory tree.",
+  "target_absolute_path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent",
+  "real_repository_path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+  "real_repository_untouched": true,
+  "real_repository_markers": {
+    ".git": true,
+    "docs/ai-collaboration/inbox": true
+  },
+  "guards": [
+    "target != real repository",
+    "target parent is pipeline/",
+    "all files match the 6-name generated whitelist",
+    "files unlinked individually; directories removed with rmdir() only when empty"
+  ],
+  "whitelist": [
+    "dialogue-cue-index.csv",
+    "dialogue-subtitle-draft.srt",
+    "main-film-shotlist.csv",
+    "narration-table.md",
+    "subtitle-draft.meta.json",
+    "subtitle-draft.srt"
+  ],
+  "before": {
+    "exists": true,
+    "files": [
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\evidence\\dialogue-cue-index.csv",
+        "bytes": 1489,
+        "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\dialogue-cue-index.csv",
+        "bytes": 1489,
+        "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\dialogue-subtitle-draft.srt",
+        "bytes": 1028,
+        "sha256": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\narration-table.md",
+        "bytes": 6010,
+        "sha256": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\subtitle-draft.meta.json",
+        "bytes": 5083,
+        "sha256": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\main-film-shotlist.csv",
+        "bytes": 19446,
+        "sha256": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4"
+      },
+      {
+        "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\subtitle-draft.srt",
+        "bytes": 2683,
+        "sha256": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e"
+      }
+    ],
+    "dirs": [
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\evidence",
+      "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence"
+    ]
+  },
+  "actions": [
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\evidence\\dialogue-cue-index.csv",
+      "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\dialogue-cue-index.csv",
+      "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\dialogue-subtitle-draft.srt",
+      "sha256": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\narration-table.md",
+      "sha256": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence\\subtitle-draft.meta.json",
+      "sha256": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\main-film-shotlist.csv",
+      "sha256": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4"
+    },
+    {
+      "action": "unlink",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\subtitle-draft.srt",
+      "sha256": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\evidence"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION\\evidence"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration\\outbox"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs\\ai-collaboration"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent\\docs"
+    },
+    {
+      "action": "rmdir_empty",
+      "path": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\yaodao-agent"
+    }
+  ],
+  "after": {
+    "exists": false,
+    "files": [],
+    "dirs": []
+  },
+  "cleanup_verified": true
+}

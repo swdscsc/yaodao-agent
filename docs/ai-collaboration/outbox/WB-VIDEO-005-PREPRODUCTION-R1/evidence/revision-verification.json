@@ -1,0 +1,167 @@
+{
+  "verification_id": "R1-VERIFY-001",
+  "recorded_at": "2026-11-08T21:38:46+08:00",
+  "baseline_commit": "334ddbc60a50a794300188fa886d388a85c9edd2",
+  "checks": {
+    "R1-1_claims_policy_consistent": {
+      "passed": true,
+      "detail": "台账含五条分类规则、A.1 一致性矩阵、A.2 设计示意表与新状态枚举"
+    },
+    "R1-2_design_intent_qualified": {
+      "passed": true,
+      "detail": "N09/N10 改为设计示意表述，识别能力与硬件形态宣称已删除"
+    },
+    "R1-3_single_character_count": {
+      "passed": true,
+      "machine_value": 471,
+      "declared_in": {
+        "main-film-script.md": [
+          "471"
+        ],
+        "narration-draft.md": [
+          "471"
+        ]
+      },
+      "stale_560_or_473_in_current_script_files": false,
+      "rule": "CJK Unified Ideographs only (U+4E00-U+9FFF); punctuation, digits, Latin letters and whitespace excluded"
+    },
+    "R1-4_unique_dialogue_cue_ids": {
+      "passed": true,
+      "cue_count": 16,
+      "unique_count": 16,
+      "s04_ids": [
+        "S04-D01",
+        "S04-D02"
+      ],
+      "s16_ids": [
+        "S16-D01",
+        "S16-D02"
+      ]
+    },
+    "R1-5_specific_drug_or_dosage_removed": {
+      "passed": true,
+      "production_text_hits": [],
+      "rule_statement_quotes_in_register": [
+        {
+          "file": "product-claims-register.md",
+          "word": "降压药"
+        },
+        {
+          "file": "product-claims-register.md",
+          "word": "一片"
+        },
+        {
+          "file": "product-claims-register.md",
+          "word": "两片"
+        },
+        {
+          "file": "product-claims-register.md",
+          "word": "半片"
+        },
+        {
+          "file": "product-claims-register.md",
+          "word": "毫克"
+        }
+      ],
+      "files_scanned": 21
+    },
+    "R1-6_consistency_re_run": {
+      "passed": true,
+      "errors": [],
+      "warnings": 14,
+      "r1_assertions": {
+        "cue_ids_globally_unique": true,
+        "collision_pairs_unique": true,
+        "specific_drug_or_dosage_removed": true,
+        "design_intent_qualifiers_present": true
+      }
+    }
+  },
+  "all_six_revision_checks_passed": true,
+  "historical_evidence_byte_identical_to_baseline": true,
+  "historical_evidence_files_checked": [
+    {
+      "path": "report.md",
+      "git_blob_sha256": "e34f27028a9ea5c753e89883006c0519ddab9badbf304f0cd58b193cc1777726",
+      "local_sha256": "e34f27028a9ea5c753e89883006c0519ddab9badbf304f0cd58b193cc1777726",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "first-cut-readiness.md",
+      "git_blob_sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d",
+      "local_sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "creative-research.md",
+      "git_blob_sha256": "9bb0429ca22794a4cf6de950a420af59bdcc18d94874e40dda632e13be316fde",
+      "local_sha256": "9bb0429ca22794a4cf6de950a420af59bdcc18d94874e40dda632e13be316fde",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "asset-inventory.csv",
+      "git_blob_sha256": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+      "local_sha256": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/asset-probe.json",
+      "git_blob_sha256": "a82e2d2a9690eff9bcc55692b94c456dbe6e878c856215be74810688f0a3f263",
+      "local_sha256": "a82e2d2a9690eff9bcc55692b94c456dbe6e878c856215be74810688f0a3f263",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/capability-probe.json",
+      "git_blob_sha256": "a448586c751432082348a947e3e1b9209d87d8191727d1fe45278d16fee18635",
+      "local_sha256": "a448586c751432082348a947e3e1b9209d87d8191727d1fe45278d16fee18635",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/manifest.sha256.json",
+      "git_blob_sha256": "54c086da76cecd6f232d162e3f071fe00bbfa3652596dee1406ba767591e7b95",
+      "local_sha256": "54c086da76cecd6f232d162e3f071fe00bbfa3652596dee1406ba767591e7b95",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/delivery-verification.json",
+      "git_blob_sha256": "fd5cab0d60a2ba0061879bd13a88c42ba1484537451453e146ea200cefed7cc5",
+      "local_sha256": "fd5cab0d60a2ba0061879bd13a88c42ba1484537451453e146ea200cefed7cc5",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/push-verification.json",
+      "git_blob_sha256": "fafc77557da888242690aea3cc6b73537f450a049f1fa1cf000b19f86b676a36",
+      "local_sha256": "fafc77557da888242690aea3cc6b73537f450a049f1fa1cf000b19f86b676a36",
+      "byte_identical": true,
+      "exit_code": 0
+    },
+    {
+      "path": "evidence/push-verification-addendum.md",
+      "git_blob_sha256": "2f18908d2b2624c9964c210d2e1f9aef096e73339c175423d323aa57d64ef17e",
+      "local_sha256": "2f18908d2b2624c9964c210d2e1f9aef096e73339c175423d323aa57d64ef17e",
+      "byte_identical": true,
+      "exit_code": 0
+    }
+  ],
+  "r0_originals_present": true,
+  "r0_originals_count": 11,
+  "cleanup_verified": true,
+  "generator_location_tests_passed": true,
+  "keyframes_rendered": 9,
+  "keyframes_total": 9,
+  "first_cut_selected": "S14-S17",
+  "first_cut_duration_s": 27,
+  "video_or_audio_files_in_delivery_dirs": [],
+  "mp4_count": 0,
+  "invalid_json_files": [],
+  "secret_scan_verdict": "PASS_NO_CREDENTIALS",
+  "all_verifications_passed": true
+}

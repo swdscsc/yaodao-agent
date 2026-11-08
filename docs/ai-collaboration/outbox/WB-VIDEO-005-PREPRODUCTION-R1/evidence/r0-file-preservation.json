@@ -1,0 +1,145 @@
+{
+  "audit_id": "R1-PRESERVATION-001",
+  "recorded_at": "2026-11-08T21:16:44+08:00",
+  "r0_baseline_commit": "334ddbc60a50a794300188fa886d388a85c9edd2",
+  "policy": "R1 regenerates derived artefacts from the corrected SHOTS table; the exact R0 bytes are preserved under evidence/r0-originals/; historical reports, probe results, manifests and push verification are never overwritten. vertical-cut-plan.md is revised in place (V04/V05 dialogue) with its R0 bytes preserved; first-cut-readiness.md is left byte-identical as a historical report and superseded by a pointer.",
+  "regenerated_in_place": [
+    {
+      "path": "main-film-shotlist.csv",
+      "bytes": 19049,
+      "sha256": "50aba84d665d39b93a133db45d2e009a5d2871123fecc36ba3e391deb3fce18c",
+      "preserved_copy": "evidence/r0-originals/main-film-shotlist.csv"
+    },
+    {
+      "path": "subtitle-draft.srt",
+      "bytes": 2692,
+      "sha256": "2abb7d3e0c510cea569e2e56b4fc9a8ac9553506498a9c9cbb56d3f5c25a6d43",
+      "preserved_copy": "evidence/r0-originals/subtitle-draft.srt"
+    },
+    {
+      "path": "narration-draft.md",
+      "bytes": 10564,
+      "sha256": "da193cec93de2f59069d1de3dbf4adbc3caf4e80a72dc04cfb17cadf9d208df9",
+      "preserved_copy": "evidence/r0-originals/narration-draft.md"
+    },
+    {
+      "path": "main-film-script.md",
+      "bytes": 34974,
+      "sha256": "85897f839e3e19d20ce0f9e6d78ae7c2e4844bb9313cbdf305b6ed7f785e1fde",
+      "preserved_copy": "evidence/r0-originals/main-film-script.md"
+    },
+    {
+      "path": "product-claims-register.md",
+      "bytes": 8928,
+      "sha256": "2c09ffaf7ded41fd5142891eb6866f1fdef2c316eeab44c3660a95d58a6f3098",
+      "preserved_copy": "evidence/r0-originals/product-claims-register.md"
+    },
+    {
+      "path": "evidence/consistency-check.json",
+      "bytes": 1991,
+      "sha256": "f31f78776372cc7f04ad633e43c5b6315bc1579e09f70af378afa86f9f5dc26b",
+      "preserved_copy": "evidence/r0-originals/evidence__consistency-check.json"
+    },
+    {
+      "path": "evidence/subtitle-draft.meta.json",
+      "bytes": 4658,
+      "sha256": "03a5e22cdf335fbd60a149a3fa281e7731d41e2b902038a700910fd7d1ba22d4",
+      "preserved_copy": "evidence/r0-originals/evidence__subtitle-draft.meta.json"
+    },
+    {
+      "path": "evidence/narration-table.md",
+      "bytes": 6019,
+      "sha256": "74328c70dd6e3de932d72e11c03feb13f5ce03135300ad438b4759920eddb546",
+      "preserved_copy": "evidence/r0-originals/evidence__narration-table.md"
+    },
+    {
+      "path": "evidence/dialogue-subtitle-draft.srt",
+      "bytes": 1019,
+      "sha256": "cd0ae3e6a8c12941b1312706b2ce1895be6ffff66ee0c32d328e03f929ee1b1c",
+      "preserved_copy": "evidence/r0-originals/evidence__dialogue-subtitle-draft.srt"
+    },
+    {
+      "path": "vertical-cut-plan.md",
+      "bytes": 8998,
+      "sha256": "281c7dadb3d2a1eadad7b6ef395596a079df4b260abc9565affac48dda9e5333",
+      "preserved_copy": "evidence/r0-originals/vertical-cut-plan.md",
+      "note": "vertical-cut-plan.md is revised in place in R1; first-cut-readiness.md is a historical report left byte-identical and only superseded by a pointer"
+    },
+    {
+      "path": "first-cut-readiness.md",
+      "bytes": 10623,
+      "sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d",
+      "preserved_copy": "evidence/r0-originals/first-cut-readiness.md",
+      "note": "vertical-cut-plan.md is revised in place in R1; first-cut-readiness.md is a historical report left byte-identical and only superseded by a pointer"
+    }
+  ],
+  "preserved_untouched": [
+    {
+      "path": "report.md",
+      "bytes": 15251,
+      "sha256": "e34f27028a9ea5c753e89883006c0519ddab9badbf304f0cd58b193cc1777726",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "first-cut-readiness.md",
+      "bytes": 10623,
+      "sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "creative-research.md",
+      "bytes": 7701,
+      "sha256": "9bb0429ca22794a4cf6de950a420af59bdcc18d94874e40dda632e13be316fde",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "asset-inventory.csv",
+      "bytes": 12605,
+      "sha256": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/asset-probe.json",
+      "bytes": 43496,
+      "sha256": "a82e2d2a9690eff9bcc55692b94c456dbe6e878c856215be74810688f0a3f263",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/capability-probe.json",
+      "bytes": 4877,
+      "sha256": "a448586c751432082348a947e3e1b9209d87d8191727d1fe45278d16fee18635",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/manifest.sha256.json",
+      "bytes": 3550,
+      "sha256": "54c086da76cecd6f232d162e3f071fe00bbfa3652596dee1406ba767591e7b95",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/delivery-verification.json",
+      "bytes": 538,
+      "sha256": "fd5cab0d60a2ba0061879bd13a88c42ba1484537451453e146ea200cefed7cc5",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/push-verification.json",
+      "bytes": 14944,
+      "sha256": "fafc77557da888242690aea3cc6b73537f450a049f1fa1cf000b19f86b676a36",
+      "r1_action": "NOT_MODIFIED"
+    },
+    {
+      "path": "evidence/push-verification-addendum.md",
+      "bytes": 7692,
+      "sha256": "2f18908d2b2624c9964c210d2e1f9aef096e73339c175423d323aa57d64ef17e",
+      "r1_action": "NOT_MODIFIED"
+    }
+  ],
+  "r1_revised_in_place_additional": [
+    {
+      "path": "vertical-cut-plan.md",
+      "reason": "R1 removed the specific drug/dosage wording from V04/V05 example dialogue; the exact R0 bytes are preserved in evidence/r0-originals/vertical-cut-plan.md",
+      "preserved_copy": "evidence/r0-originals/vertical-cut-plan.md"
+    }
+  ]
+}

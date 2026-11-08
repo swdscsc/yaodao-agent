@@ -1,0 +1,1334 @@
+{
+  "scoring_id": "R1-FIRST-CUT-SELECTION-001",
+  "recorded_at": "2026-11-08T21:25:35+08:00",
+  "data_source": "R1/scripts/build_deliverables_r1.py :: SHOTS (corrected authoritative table)",
+  "data_source_sha256": "0302c610fe7edbc477cd0dae469bb2153cb4c9a616bc5ff7143b2941f57597c2",
+  "shot_level_hard_gates": [
+    "H1 no live-action / no MISSING real-world footage",
+    "H2 no real product device photography",
+    "H3 usable as original motion graphic or labelled mock UI",
+    "H4 mock UI explicitly labelled on screen (N/A for pure text/graphic cards)",
+    "H5 function claim has source-code evidence, or the shot makes no product claim"
+  ],
+  "segment_level_metrics": [
+    "subtitle cue count",
+    "transition type count",
+    "J-cut / L-cut mentions",
+    "chapter or brand card count",
+    "sound-design cue count",
+    "duration 15-30 s"
+  ],
+  "r0_choice": {
+    "segment": "S08-S10",
+    "duration_s": 22,
+    "status": "REJECTED_BY_R1",
+    "reason": "S08 depends on live-action + real device; S09/S10 have no source-backed claim at the centre of the segment; R1 requirement forbids mechanically reusing it."
+  },
+  "shot_count_evaluated": 33,
+  "eligible_shot_count": 17,
+  "per_shot": [
+    {
+      "shot": "S01",
+      "chapter": "C0 冷开场",
+      "tin": 0,
+      "tout": 6,
+      "duration": 6,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 真实生活场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S02",
+      "chapter": "C0 冷开场",
+      "tin": 6,
+      "tout": 12,
+      "duration": 6,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 真实生活场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S03",
+      "chapter": "C0 冷开场",
+      "tin": 12,
+      "tout": 18,
+      "duration": 6,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 真实生活场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 0,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui"
+      ]
+    },
+    {
+      "shot": "S04",
+      "chapter": "C1 痛点",
+      "tin": 18,
+      "tout": 26,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 双场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 2,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S05",
+      "chapter": "C1 痛点",
+      "tin": 26,
+      "tout": 34,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 物件实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S06",
+      "chapter": "C1 痛点",
+      "tin": 34,
+      "tout": 43,
+      "duration": 9,
+      "truth_label": "DRAMATIZATION / MOCK_UI",
+      "source": "MISSING: 手机界面与人物实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S07",
+      "chapter": "C1 痛点",
+      "tin": 43,
+      "tout": 52,
+      "duration": 9,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 真实生活场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S08",
+      "chapter": "C2 转折",
+      "tin": 52,
+      "tout": 59,
+      "duration": 7,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 人物与设备同框实拍",
+      "claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui"
+      ]
+    },
+    {
+      "shot": "S09",
+      "chapter": "C2 转折",
+      "tin": 59,
+      "tout": 66,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "ORIGINAL_GRAPHIC: 可用本机字体与图形原创绘制（须标注模拟界面）",
+      "claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 0,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S10",
+      "chapter": "C2 转折",
+      "tin": 66,
+      "tout": 74,
+      "duration": 8,
+      "truth_label": "BRAND_CARD",
+      "source": "ORIGINAL_GRAPHIC: 原创字体排版",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S11",
+      "chapter": "C3 产品形态",
+      "tin": 74,
+      "tout": 81,
+      "duration": 7,
+      "truth_label": "ORIGINAL_GRAPHIC / MOCK_UI",
+      "source": "ORIGINAL_GRAPHIC: 原创示意图形（R1 起不再依赖真机外观素材）",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S12",
+      "chapter": "C3 产品形态",
+      "tin": 81,
+      "tout": 88,
+      "duration": 7,
+      "truth_label": "ORIGINAL_GRAPHIC / MOCK_UI",
+      "source": "ORIGINAL_GRAPHIC: 原创设计原则图形（R1 起不再依赖人物实拍）",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S13",
+      "chapter": "C3 产品形态",
+      "tin": 88,
+      "tout": 96,
+      "duration": 8,
+      "truth_label": "MOCK_UI",
+      "source": "ORIGINAL_GRAPHIC: 原创信息图形",
+      "claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S14",
+      "chapter": "C3 产品形态",
+      "tin": 96,
+      "tout": 102,
+      "duration": 6,
+      "truth_label": "TEXT_CARD",
+      "source": "ORIGINAL_GRAPHIC: 原创文字卡",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 0,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S15",
+      "chapter": "C4 核心功能",
+      "tin": 102,
+      "tout": 109,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S16",
+      "chapter": "C4 核心功能",
+      "tin": 109,
+      "tout": 116,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A02 按餐次分组查询 (med_plan_list)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 2,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S17",
+      "chapter": "C4 核心功能",
+      "tin": 116,
+      "tout": 123,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A03 打卡与温和反馈 (med_take)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S18",
+      "chapter": "C4 核心功能",
+      "tin": 123,
+      "tout": 130,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A04 当日小结 (med_report)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S19",
+      "chapter": "C4 核心功能",
+      "tin": 130,
+      "tout": 137,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A05 稍后提醒 (med_snooze)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S20",
+      "chapter": "C4 核心功能",
+      "tin": 137,
+      "tout": 145,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION / MOCK_UI",
+      "source": "MISSING: 人物与设备同框",
+      "claims": [
+        "A06 唤醒后提醒 (MedPromptBuilder)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 4,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action"
+      ]
+    },
+    {
+      "shot": "S21",
+      "chapter": "C4 核心功能",
+      "tin": 145,
+      "tout": 152,
+      "duration": 7,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 人物与药盒实拍",
+      "claims": [
+        "A07 拍照建档入口 (MedicinePhotoHandler)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui"
+      ]
+    },
+    {
+      "shot": "S22",
+      "chapter": "C4 核心功能",
+      "tin": 152,
+      "tout": 159,
+      "duration": 7,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A07 一次只问一件 (medVision.nextQuestion)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S23",
+      "chapter": "C4 核心功能",
+      "tin": 159,
+      "tout": 162,
+      "duration": 3,
+      "truth_label": "MOCK_UI",
+      "source": "ORIGINAL_GRAPHIC",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 0,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S24",
+      "chapter": "C5 一天",
+      "tin": 162,
+      "tout": 170,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 生活场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S25",
+      "chapter": "C5 一天",
+      "tin": 170,
+      "tout": 178,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 人物实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S26",
+      "chapter": "C5 一天",
+      "tin": 178,
+      "tout": 186,
+      "duration": 8,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 人物实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 1,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 2,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S27",
+      "chapter": "C5 一天",
+      "tin": 186,
+      "tout": 192,
+      "duration": 6,
+      "truth_label": "DRAMATIZATION",
+      "source": "MISSING: 通勤场景实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 0,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H3_original_graphic_or_mock_ui"
+      ]
+    },
+    {
+      "shot": "S28",
+      "chapter": "C5 一天",
+      "tin": 192,
+      "tout": 198,
+      "duration": 6,
+      "truth_label": "DRAMATIZATION / STILL_LIFE_REQUIRED",
+      "source": "MISSING: 静物实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": false,
+        "H3_original_graphic_or_mock_ui": false,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 1,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H2_no_real_device_capture",
+        "H3_original_graphic_or_mock_ui",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S29",
+      "chapter": "C6 安全边界",
+      "tin": 198,
+      "tout": 206,
+      "duration": 8,
+      "truth_label": "MOCK_UI",
+      "source": "MOCK_UI / ORIGINAL_GRAPHIC",
+      "claims": [
+        "A08 安全边界 (med_plan_delete)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 2,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S30",
+      "chapter": "C6 安全边界",
+      "tin": 206,
+      "tout": 215,
+      "duration": 9,
+      "truth_label": "TEXT_CARD",
+      "source": "ORIGINAL_GRAPHIC: 原创文字卡",
+      "claims": [
+        "A09 紧急拨打 120 (源码 120 提示语)"
+      ],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S31",
+      "chapter": "C6 安全边界",
+      "tin": 215,
+      "tout": 224,
+      "duration": 9,
+      "truth_label": "DRAMATIZATION / TEXT_CARD",
+      "source": "MISSING: 静物实拍",
+      "claims": [],
+      "claim_is_na_no_product_claim": false,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": false,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": false
+      },
+      "passed": 3,
+      "eligible": false,
+      "exclusion_reasons": [
+        "H1_no_live_action",
+        "H5_source_backed_claim_or_no_claim"
+      ]
+    },
+    {
+      "shot": "S32",
+      "chapter": "C7 落版",
+      "tin": 224,
+      "tout": 232,
+      "duration": 8,
+      "truth_label": "BRAND_CARD",
+      "source": "ORIGINAL_GRAPHIC: 原创字体排版",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    },
+    {
+      "shot": "S33",
+      "chapter": "C7 落版",
+      "tin": 232,
+      "tout": 240,
+      "duration": 8,
+      "truth_label": "BRAND_CARD / TEXT_CARD",
+      "source": "ORIGINAL_GRAPHIC: 原创字体排版",
+      "claims": [],
+      "claim_is_na_no_product_claim": true,
+      "narration_cues": 1,
+      "dialogue_cues": 0,
+      "has_sound_design": true,
+      "has_transition": true,
+      "checks": {
+        "H1_no_live_action": true,
+        "H2_no_real_device_capture": true,
+        "H3_original_graphic_or_mock_ui": true,
+        "H4_mock_ui_explicitly_labelled_or_na": true,
+        "H5_source_backed_claim_or_no_claim": true
+      },
+      "passed": 5,
+      "eligible": true,
+      "exclusion_reasons": []
+    }
+  ],
+  "candidate_segments_in_15_30s": 68,
+  "top_candidates": [
+    {
+      "segment": "S14-S17",
+      "shots": [
+        "S14",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "master_timecode": "96-123 s",
+      "duration_s": 27,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)",
+        "A02 按餐次分组查询 (med_plan_list)",
+        "A03 打卡与温和反馈 (med_take)"
+      ],
+      "source_backed_claim_count": 3,
+      "narration_cues": 3,
+      "dialogue_cues": 4,
+      "subtitle_cues_total": 7,
+      "transition_types": 4,
+      "jcut_mentions": 1,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 78,
+      "score": 195.0,
+      "rank": 1
+    },
+    {
+      "segment": "S15-S18",
+      "shots": [
+        "S15",
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "master_timecode": "102-130 s",
+      "duration_s": 28,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)",
+        "A02 按餐次分组查询 (med_plan_list)",
+        "A03 打卡与温和反馈 (med_take)",
+        "A04 当日小结 (med_report)"
+      ],
+      "source_backed_claim_count": 4,
+      "narration_cues": 4,
+      "dialogue_cues": 5,
+      "subtitle_cues_total": 9,
+      "transition_types": 3,
+      "jcut_mentions": 0,
+      "lcut_mentions": 2,
+      "chapter_or_brand_cards": 0,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 71,
+      "score": 193.5,
+      "rank": 2
+    },
+    {
+      "segment": "S16-S19",
+      "shots": [
+        "S16",
+        "S17",
+        "S18",
+        "S19"
+      ],
+      "master_timecode": "109-137 s",
+      "duration_s": 28,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A02 按餐次分组查询 (med_plan_list)",
+        "A03 打卡与温和反馈 (med_take)",
+        "A04 当日小结 (med_report)",
+        "A05 稍后提醒 (med_snooze)"
+      ],
+      "source_backed_claim_count": 4,
+      "narration_cues": 4,
+      "dialogue_cues": 5,
+      "subtitle_cues_total": 9,
+      "transition_types": 3,
+      "jcut_mentions": 0,
+      "lcut_mentions": 2,
+      "chapter_or_brand_cards": 0,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 71,
+      "score": 193.5,
+      "rank": 3
+    },
+    {
+      "segment": "S13-S16",
+      "shots": [
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "master_timecode": "88-116 s",
+      "duration_s": 28,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)",
+        "A02 按餐次分组查询 (med_plan_list)"
+      ],
+      "source_backed_claim_count": 2,
+      "narration_cues": 3,
+      "dialogue_cues": 3,
+      "subtitle_cues_total": 6,
+      "transition_types": 4,
+      "jcut_mentions": 1,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 75,
+      "score": 185.5,
+      "rank": 4
+    },
+    {
+      "segment": "S12-S15",
+      "shots": [
+        "S12",
+        "S13",
+        "S14",
+        "S15"
+      ],
+      "master_timecode": "81-109 s",
+      "duration_s": 28,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "source_backed_claim_count": 1,
+      "narration_cues": 3,
+      "dialogue_cues": 1,
+      "subtitle_cues_total": 4,
+      "transition_types": 4,
+      "jcut_mentions": 1,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 69,
+      "score": 173.5,
+      "rank": 5
+    },
+    {
+      "segment": "S15-S17",
+      "shots": [
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "master_timecode": "102-123 s",
+      "duration_s": 21,
+      "all_shots_eligible": true,
+      "eligible_shots": 3,
+      "shot_count": 3,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)",
+        "A02 按餐次分组查询 (med_plan_list)",
+        "A03 打卡与温和反馈 (med_take)"
+      ],
+      "source_backed_claim_count": 3,
+      "narration_cues": 3,
+      "dialogue_cues": 4,
+      "subtitle_cues_total": 7,
+      "transition_types": 3,
+      "jcut_mentions": 0,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 0,
+      "sound_design_cues": 3,
+      "editing_showcase_score": 57,
+      "score": 173.0,
+      "rank": 6
+    },
+    {
+      "segment": "S14-S16",
+      "shots": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "master_timecode": "96-116 s",
+      "duration_s": 20,
+      "all_shots_eligible": true,
+      "eligible_shots": 3,
+      "shot_count": 3,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)",
+        "A02 按餐次分组查询 (med_plan_list)"
+      ],
+      "source_backed_claim_count": 2,
+      "narration_cues": 2,
+      "dialogue_cues": 3,
+      "subtitle_cues_total": 5,
+      "transition_types": 3,
+      "jcut_mentions": 1,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 3,
+      "editing_showcase_score": 62,
+      "score": 171.5,
+      "rank": 7
+    },
+    {
+      "segment": "S16-S18",
+      "shots": [
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "master_timecode": "109-130 s",
+      "duration_s": 21,
+      "all_shots_eligible": true,
+      "eligible_shots": 3,
+      "shot_count": 3,
+      "source_backed_claims": [
+        "A02 按餐次分组查询 (med_plan_list)",
+        "A03 打卡与温和反馈 (med_take)",
+        "A04 当日小结 (med_report)"
+      ],
+      "source_backed_claim_count": 3,
+      "narration_cues": 3,
+      "dialogue_cues": 4,
+      "subtitle_cues_total": 7,
+      "transition_types": 2,
+      "jcut_mentions": 0,
+      "lcut_mentions": 2,
+      "chapter_or_brand_cards": 0,
+      "sound_design_cues": 3,
+      "editing_showcase_score": 55,
+      "score": 171.0,
+      "rank": 8
+    },
+    {
+      "segment": "S17-S19",
+      "shots": [
+        "S17",
+        "S18",
+        "S19"
+      ],
+      "master_timecode": "116-137 s",
+      "duration_s": 21,
+      "all_shots_eligible": true,
+      "eligible_shots": 3,
+      "shot_count": 3,
+      "source_backed_claims": [
+        "A03 打卡与温和反馈 (med_take)",
+        "A04 当日小结 (med_report)",
+        "A05 稍后提醒 (med_snooze)"
+      ],
+      "source_backed_claim_count": 3,
+      "narration_cues": 3,
+      "dialogue_cues": 3,
+      "subtitle_cues_total": 6,
+      "transition_types": 3,
+      "jcut_mentions": 0,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 0,
+      "sound_design_cues": 3,
+      "editing_showcase_score": 54,
+      "score": 170.0,
+      "rank": 9
+    },
+    {
+      "segment": "S10-S13",
+      "shots": [
+        "S10",
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "master_timecode": "66-96 s",
+      "duration_s": 30,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "source_backed_claim_count": 1,
+      "narration_cues": 4,
+      "dialogue_cues": 0,
+      "subtitle_cues_total": 4,
+      "transition_types": 4,
+      "jcut_mentions": 0,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 63,
+      "score": 166.5,
+      "rank": 10
+    },
+    {
+      "segment": "S09-S12",
+      "shots": [
+        "S09",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "master_timecode": "59-88 s",
+      "duration_s": 29,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "source_backed_claim_count": 1,
+      "narration_cues": 3,
+      "dialogue_cues": 1,
+      "subtitle_cues_total": 4,
+      "transition_types": 3,
+      "jcut_mentions": 0,
+      "lcut_mentions": 2,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 61,
+      "score": 165.0,
+      "rank": 11
+    },
+    {
+      "segment": "S11-S14",
+      "shots": [
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "master_timecode": "74-102 s",
+      "duration_s": 28,
+      "all_shots_eligible": true,
+      "eligible_shots": 4,
+      "shot_count": 4,
+      "source_backed_claims": [
+        "A01 一句话建档 + 复述确认 (med_plan_save)"
+      ],
+      "source_backed_claim_count": 1,
+      "narration_cues": 3,
+      "dialogue_cues": 0,
+      "subtitle_cues_total": 3,
+      "transition_types": 3,
+      "jcut_mentions": 1,
+      "lcut_mentions": 1,
+      "chapter_or_brand_cards": 1,
+      "sound_design_cues": 4,
+      "editing_showcase_score": 58,
+      "score": 162.5,
+      "rank": 12
+    }
+  ],
+  "selected": {
+    "segment": "S14-S17",
+    "shots": [
+      "S14",
+      "S15",
+      "S16",
+      "S17"
+    ],
+    "master_timecode": "96-123 s",
+    "duration_s": 27,
+    "all_shots_eligible": true,
+    "eligible_shots": 4,
+    "shot_count": 4,
+    "source_backed_claims": [
+      "A01 一句话建档 + 复述确认 (med_plan_save)",
+      "A02 按餐次分组查询 (med_plan_list)",
+      "A03 打卡与温和反馈 (med_take)"
+    ],
+    "source_backed_claim_count": 3,
+    "narration_cues": 3,
+    "dialogue_cues": 4,
+    "subtitle_cues_total": 7,
+    "transition_types": 4,
+    "jcut_mentions": 1,
+    "lcut_mentions": 1,
+    "chapter_or_brand_cards": 1,
+    "sound_design_cues": 4,
+    "editing_showcase_score": 78,
+    "score": 195.0,
+    "rank": 1
+  },
+  "narration_character_count_of_full_script": 471
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- WB-VIDEO-005-PREPRODUCTION-R1 | EDITABLE SOURCE, NOT AN EXPORTED VIDEO.
+     Every screen below is a LABELLED MOCK UI. No real device capture. -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>药到 · 首段 S14–S17 模拟界面（可编辑源文件）</title>
+<style>
+  :root { --bg:#F6F1E8; --card:#FFFCF6; --ink:#33312E; --muted:#6B655C;
+          --wood:#C8A98A; --green:#7E9B86; --clay:#D98E5F; --grey:#D9D2C6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:"Microsoft YaHei","Noto Sans SC",sans-serif; }
+  .note { max-width:1100px; margin:28px auto 8px; padding:14px 18px;
+          border-left:6px solid var(--clay); background:var(--card); font-size:15px; }
+  .scene { position:relative; width:960px; height:540px; margin:22px auto;
+           background:var(--bg); border-top:4px solid var(--wood); overflow:hidden; }
+  .tag { position:absolute; top:22px; left:60px; font-size:15px; color:var(--muted); }
+  .brand { position:absolute; top:22px; right:60px; font-size:15px; color:var(--muted); }
+  .footer { position:absolute; bottom:26px; left:60px; font-size:15px; color:var(--muted); }
+  .stamp { position:absolute; bottom:8px; left:60px; font-size:12px; color:var(--muted); }
+  h2 { position:absolute; top:100px; left:60px; font-size:30px; font-weight:600; }
+  .num { display:inline-block; width:45px; height:45px; line-height:45px;
+         text-align:center; background:var(--green); color:var(--card);
+         font-size:26px; margin-right:12px; vertical-align:middle; }
+  .panel { position:absolute; left:60px; top:170px; width:840px; height:260px;
+           background:var(--card); border-top:4px solid var(--clay); padding:22px 30px; }
+  .line { font-size:23px; margin:18px 0; opacity:0; animation:fade .35s ease forwards; }
+  .line:nth-child(1){animation-delay:.1s} .line:nth-child(2){animation-delay:.7s}
+  .line:nth-child(3){animation-delay:1.3s; color:var(--muted); font-size:19px}
+  @keyframes fade { to { opacity:1 } }
+  .cards { position:absolute; top:200px; left:110px; display:flex; gap:40px; }
+  .card { width:170px; height:170px; background:var(--card);
+          border-top:5px solid var(--green); font-size:65px; text-align:center;
+          line-height:170px; opacity:0; animation:land .4s ease forwards; }
+  .card:nth-child(1){animation-delay:.1s} .card:nth-child(2){animation-delay:.6s}
+  .card:nth-child(3){animation-delay:1.1s}
+  @keyframes land { from{transform:translateY(-40px);opacity:0} to{transform:none;opacity:1} }
+  .tick { display:inline-block; width:22px; height:22px; background:var(--green);
+          margin-right:10px; opacity:0; animation:fade .2s ease 1.1s forwards; }
+</style>
+</head>
+<body>
+<div class="note">
+  <strong>这是可编辑的原创模拟界面源文件，不是成片，也不是真机录屏。</strong><br>
+  对应首段 S14–S17（27 s）。动画仅为状态预览：卡片落位、逐行淡入、勾选动效。<br>
+  每一屏都常驻「模拟界面 · 非真机录屏」；涉及对白的屏另标「功能对话示例 · 非用药建议」。<br>
+  本文件不含任何外部资源、脚本请求或联网调用；0 个 MP4、0 个音频文件。
+</div>
+
+<div class="scene">
+  <div class="tag">原创动态图形 · 章节卡</div><div class="brand">药到 · 不用学，只要说</div>
+  <h2 style="top:120px">一天还是那些事</h2>
+  <div class="cards"><div class="card">早</div><div class="card">午</div><div class="card">晚</div></div>
+  <div class="footer">原创图形 · 非产品画面</div>
+  <div class="stamp">S14 · 三张卡片依次落位 · 预制作素材 · 非成片</div>
+</div>
+
+<div class="scene">
+  <div class="tag">模拟界面 · 非真机录屏</div><div class="brand">药到 · 不用学，只要说</div>
+  <h2><span class="num">01</span>功能 01 一句话建档</h2>
+  <div class="panel"><div class="line">早饭后的那一次，帮我记上。</div>
+    <div class="line">您听听对不对：早饭后的那一次。</div></div>
+  <div class="footer">功能对话示例 · 非用药建议 · 模拟界面</div>
+  <div class="stamp">S15 · 复述确认 · 对应 med_plan_save</div>
+</div>
+
+<div class="scene">
+  <div class="tag">模拟界面 · 非真机录屏</div><div class="brand">药到 · 不用学，只要说</div>
+  <h2><span class="num">02</span>功能 02 按餐次查询</h2>
+  <div class="panel"><div class="line">早上该吃什么？</div>
+    <div class="line">早饭这一段，就这些。</div>
+    <div class="line">午饭 · 晚饭 未展开</div></div>
+  <div class="footer">功能对话示例 · 示意数据 · 模拟界面</div>
+  <div class="stamp">S16 · 按餐次分组 · 对应 med_plan_list</div>
+</div>
+
+<div class="scene">
+  <div class="tag">模拟界面 · 非真机录屏</div><div class="brand">药到 · 不用学，只要说</div>
+  <h2><span class="num">03</span>功能 03 吃过就记上</h2>
+  <div class="panel"><div class="line">我吃过了。</div>
+    <div class="line"><span class="tick"></span>记上了，慢慢来。</div></div>
+  <div class="footer">功能对话示例 · 示意数据 · 模拟界面</div>
+  <div class="stamp">S17 · 打卡与温和反馈 · 对应 med_take</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F6F1E8"/>
+<rect x="0" y="0" width="192" height="1080" fill="#D9D2C6" fill-opacity="0.55"/>
+<rect x="1728" y="0" width="192" height="1080" fill="#D9D2C6" fill-opacity="0.55"/>
+<rect x="192" y="720" width="1536" height="60" fill="#7E9B86" fill-opacity="0.28"/>
+<rect x="192" y="870" width="1536" height="70" fill="#D98E5F" fill-opacity="0.28"/>
+<line x1="0" y1="972" x2="1920" y2="972" stroke="#D98E5F" stroke-width="4" stroke-dasharray="16 12"/>
+<text x="220" y="760" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="36" fill="#33312E">画内对白轨 0.72 H · 与旁白不同行</text>
+<text x="220" y="915" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="36" fill="#33312E">主旁白轨 0.86 H · 字号 &gt;= 40 px · 单行 &lt;= 20 字</text>
+<text x="220" y="1010" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="36" fill="#33312E">硬限制 0.90 H · 基线不越过 0.88 H</text>
+<text x="220" y="120" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="46" fill="#33312E">字幕安全区示意 · 原创图示 · 非成片</text>
+</svg>

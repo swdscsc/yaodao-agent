@@ -1,0 +1,38 @@
+{
+  "segment": "S14-S17",
+  "duration_s": 27,
+  "track_A_cues": 3,
+  "track_B_cues": 4,
+  "same_segment_overlaps": 4,
+  "overlaps": [
+    {
+      "track_A_cue": "N01",
+      "track_B_cue": "D01",
+      "overlap_start_s": 7.2,
+      "overlap_end_s": 9.6,
+      "resolution": "双轨不同行：对白 0.72H、旁白 0.86H；真实配音后必须重排时间码"
+    },
+    {
+      "track_A_cue": "N02",
+      "track_B_cue": "D02",
+      "overlap_start_s": 14.0,
+      "overlap_end_s": 16.0,
+      "resolution": "双轨不同行：对白 0.72H、旁白 0.86H；真实配音后必须重排时间码"
+    },
+    {
+      "track_A_cue": "N02",
+      "track_B_cue": "D03",
+      "overlap_start_s": 16.2,
+      "overlap_end_s": 16.9,
+      "resolution": "双轨不同行：对白 0.72H、旁白 0.86H；真实配音后必须重排时间码"
+    },
+    {
+      "track_A_cue": "N03",
+      "track_B_cue": "D04",
+      "overlap_start_s": 21.0,
+      "overlap_end_s": 22.8,
+      "resolution": "双轨不同行：对白 0.72H、旁白 0.86H；真实配音后必须重排时间码"
+    }
+  ],
+  "status": "DRAFT_PLANNED_TIMECODES_NOT_ALIGNED_TO_AUDIO"
+}

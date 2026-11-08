@@ -1,0 +1,458 @@
+{
+  "manifest_id": "R1-MANIFEST-001",
+  "recorded_at": "2026-11-08T21:38:46+08:00",
+  "scope": "Both WB-VIDEO-005-PREPRODUCTION and ...-R1 directories, current worktree",
+  "note": "R0 evidence/manifest.sha256.json is a historical snapshot of commit 334ddbc60a50a794300188fa886d388a85c9edd2 and is NOT rewritten; the R1 manifest covers the current tree.",
+  "excludes": [
+    "self",
+    "post-push verification files"
+  ],
+  "file_count": 89,
+  "files": [
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/README.md",
+      "bytes": 3157,
+      "sha256": "da2dfc4851dbdc343761378e3cb0e5b9445f02ce6fc93a73f6d5a7d26597fbbc"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/asset-sources.md",
+      "bytes": 4491,
+      "sha256": "cdc7b64b34dd6277487819d9e6f5a25d5156252136dcfd5e6d6474d77c4440bb"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/first-cut-mockui.html",
+      "bytes": 5277,
+      "sha256": "8750a15b3fbaaf6a9f0cc8d6ca896c908689e2af3afd56ded7415eb7f4d1c726"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s14-state1.png",
+      "bytes": 46499,
+      "sha256": "402674878b542d4515e224f51298c2f2aa3c6c67fe8de882d36d5a0a397aa97f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s14-state2.png",
+      "bytes": 48806,
+      "sha256": "6d4f86c40322117c4ad85cefba2a21e702954ba7b8b75882e797cb015b3d4184"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s14-state3.png",
+      "bytes": 52399,
+      "sha256": "1920e4464aebd26ebcc4d14d00bec5c5d85022b5bf8c51eab4e33176dab7c042"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s15-state1.png",
+      "bytes": 62853,
+      "sha256": "53ca1ba2e7c043d5d05979d59040c04a0b7ea62ab273d3a150896baacc65383b"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s15-state2.png",
+      "bytes": 74855,
+      "sha256": "d4cdad80e85ed0ca0cd7206786024db1a11807feab9135faf4ba42923055fa2f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s16-state1.png",
+      "bytes": 63124,
+      "sha256": "66fe538d6336757f0aa6628a8d22c46b492bf3e4689deb8be069e5c896cbea13"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s16-state2.png",
+      "bytes": 78388,
+      "sha256": "dd00ef3ac9953a1add6be5ca817c2ba0ca2b1265fe78b42e91da49a1ac73d6d5"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s17-state1.png",
+      "bytes": 59091,
+      "sha256": "7d43ca779b1efe9a049ffd3f339174ba945a3630604dd45cfe674fb17f5b356d"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/keyframes/s17-state2.png",
+      "bytes": 64008,
+      "sha256": "9a63105cd61b6a5e881767fce0ec1f0eaa042a403507064e4b3e3b835a222dea"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/s14-chapter-cards.svg",
+      "bytes": 1917,
+      "sha256": "feb12cb00a69604a70c79fe7c28411667f42feadfc99764ea2f3ba86268cb676"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/s15-mockui-save.svg",
+      "bytes": 1788,
+      "sha256": "01afa3f41cbda91b1d12978ce745078f6da3dc2e1fb78837f1157e52914587db"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/s16-mockui-query.svg",
+      "bytes": 1901,
+      "sha256": "2733877c1ca0d62ce8d0f5c3e61c925bb998b1a033d172d4a5c9625be505e64c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/s17-mockui-checkin.svg",
+      "bytes": 1744,
+      "sha256": "3e2e3a04d91a72056726538828dd8f7d637fd7084dbe58b66a87070f70a0ce41"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/assets/subtitle-safe-area.svg",
+      "bytes": 1257,
+      "sha256": "6b2e0eeb068737eb860890e4db53de485f62a81514b4c9c8330ae2be29f66ead"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/dialogue-subtitle-revised.srt",
+      "bytes": 1028,
+      "sha256": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/asset-source-manifest.json",
+      "bytes": 4339,
+      "sha256": "72e5acc28c19312b9d851d2c04127bfc63c9e89c7b51c1e684ce9db89621dddf"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/character-count-audit.json",
+      "bytes": 4976,
+      "sha256": "791202b76d334709a8d848170ba7dce8ad6af478be8894899ca74eb391e2e82c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/cleanup-audit.json",
+      "bytes": 7781,
+      "sha256": "ce1150587df3137c66d35292ddf006efcc47e602fae216deb1e147c7be6de823"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/consistency-check.json",
+      "bytes": 2427,
+      "sha256": "91ccc54b6c2280b3373e35eae1ea4cfd311973517c6a211a711efd5fc3200565"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/dialogue-cue-index.csv",
+      "bytes": 1489,
+      "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/first-cut-collisions.json",
+      "bytes": 1141,
+      "sha256": "1ce54938eac59cb5f20d884fedf59eff74ce06949bfb3e009b22ebaa58745f04"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/first-cut-scoring.json",
+      "bytes": 37811,
+      "sha256": "2905665d3359353db0d70be52e312033e8f8221a241ca683da25ebe36449f11b"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/generator-location-tests.json",
+      "bytes": 11791,
+      "sha256": "54ec20ca3fb0908d9b35edfa0cd566f99657b8f8dd64d973598890550cc06b9f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/keyframe-render-log.json",
+      "bytes": 19100,
+      "sha256": "20558a4b4d1123519c1fa5e56556ad29e591e2dddfb8e6213e38bbf2ecb37c4c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/narration-table.md",
+      "bytes": 6010,
+      "sha256": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-file-preservation.json",
+      "bytes": 5849,
+      "sha256": "ece982bf862a4c1392814657d811f9790525eec3b05c74da49d25df3a9aaf858"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/evidence__consistency-check.json",
+      "bytes": 1991,
+      "sha256": "f31f78776372cc7f04ad633e43c5b6315bc1579e09f70af378afa86f9f5dc26b"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/evidence__dialogue-subtitle-draft.srt",
+      "bytes": 1019,
+      "sha256": "cd0ae3e6a8c12941b1312706b2ce1895be6ffff66ee0c32d328e03f929ee1b1c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/evidence__narration-table.md",
+      "bytes": 6019,
+      "sha256": "74328c70dd6e3de932d72e11c03feb13f5ce03135300ad438b4759920eddb546"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/evidence__subtitle-draft.meta.json",
+      "bytes": 4658,
+      "sha256": "03a5e22cdf335fbd60a149a3fa281e7731d41e2b902038a700910fd7d1ba22d4"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/first-cut-readiness.md",
+      "bytes": 10623,
+      "sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/main-film-script.md",
+      "bytes": 34974,
+      "sha256": "85897f839e3e19d20ce0f9e6d78ae7c2e4844bb9313cbdf305b6ed7f785e1fde"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/main-film-shotlist.csv",
+      "bytes": 19049,
+      "sha256": "50aba84d665d39b93a133db45d2e009a5d2871123fecc36ba3e391deb3fce18c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/narration-draft.md",
+      "bytes": 10564,
+      "sha256": "da193cec93de2f59069d1de3dbf4adbc3caf4e80a72dc04cfb17cadf9d208df9"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/product-claims-register.md",
+      "bytes": 8928,
+      "sha256": "2c09ffaf7ded41fd5142891eb6866f1fdef2c316eeab44c3660a95d58a6f3098"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/subtitle-draft.srt",
+      "bytes": 2692,
+      "sha256": "2abb7d3e0c510cea569e2e56b4fc9a8ac9553506498a9c9cbb56d3f5c25a6d43"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/r0-originals/vertical-cut-plan.md",
+      "bytes": 8998,
+      "sha256": "281c7dadb3d2a1eadad7b6ef395596a079df4b260abc9565affac48dda9e5333"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/revision-verification.json",
+      "bytes": 5639,
+      "sha256": "4d40feb28675fafc977eb4a258a43ceebd67db0c59df622801ee77e4e6a3a6f2"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/secret-scan.json",
+      "bytes": 1319,
+      "sha256": "2f3b6d3717a86bdda4e73bf3576850f671c2365e3bfc5e2ecf99be294739e29c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/evidence/subtitle-draft.meta.json",
+      "bytes": 5083,
+      "sha256": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/first-cut-dialogue.srt",
+      "bytes": 241,
+      "sha256": "4318e08d9ab5066ad951f3415b5fec6e39b269fa0a4acefc247e2342d537ec10"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/first-cut-production-checklist.md",
+      "bytes": 8351,
+      "sha256": "887ab730d0c2b1cc2ff159a8fa03f997063f11e71036af1b3a1e2f5082d608a4"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/first-cut-selection.md",
+      "bytes": 8424,
+      "sha256": "530fee6f5f39af0c949976d3b546cf1ba1a4a5a5882e0205b980289ed9222bd1"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/first-cut-subtitles.srt",
+      "bytes": 270,
+      "sha256": "6fa76878f0e3a366cef22be626346a89eab144bfde33c647aa781a9832b72cbb"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/first-cut-timeline.csv",
+      "bytes": 2122,
+      "sha256": "9422d2ffa2bfd5c81c17555498c9933b17dbf6537cf8d81ad946e3f5e4d4004a"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/minimum-authorization.md",
+      "bytes": 3388,
+      "sha256": "b85e8f0fcd0bb6cf1f5fc815da22a72eea1ffb0d87a0dede176ddcdfba9c7877"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/music-sfx-plan.md",
+      "bytes": 3136,
+      "sha256": "223a0faac111ccebfafaddedcd3cae7702e57fbc662296580cf1afa0e23d561e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/narration-revised.md",
+      "bytes": 11590,
+      "sha256": "e7daac1af7ba2ac9cc40e5462c439d0672ea2f352ff91603e929087864177ba3"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/product-claims-register.md",
+      "bytes": 18263,
+      "sha256": "769241aa88ef838a8230a8df82acac0b390161b369924c3f5f7216154da7e827"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/report.md",
+      "bytes": 8622,
+      "sha256": "0ac0367cd823d8a032a86460a60b0b7dec4a36e84e5589c5aff21a0eeb6ee6c4"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/review-revision-log.md",
+      "bytes": 7880,
+      "sha256": "434b7edff2ee565bc7d20d622f700c183b10984df4a926d034a72f7d3588ffd1"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/cleanup_audit.cpython-313.pyc",
+      "bytes": 9968,
+      "sha256": "83667bbb4424069766cd50c2b865ad61b7955da65a46e4b6bf58d680b637629a"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/__pycache__/preserve_r0.cpython-313.pyc",
+      "bytes": 6801,
+      "sha256": "86dddf00d300a2b6fd015ee6cac76c326beace3d2bf5f7a8844399a1445e1324"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_assets.py",
+      "bytes": 18458,
+      "sha256": "8286ee48713698f3495d8c0cdee4384ad9daab7ff93ac7e90ef79d67367a4416"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_deliverables_r1.py",
+      "bytes": 50721,
+      "sha256": "0302c610fe7edbc477cd0dae469bb2153cb4c9a616bc5ff7143b2941f57597c2"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_markdown_r1.py",
+      "bytes": 18178,
+      "sha256": "906c51a0db09ab497a5c0fa36a9b93a4129e19e51c1d3c9517a7eb4390f96a15"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/build_r1_docs.py",
+      "bytes": 48142,
+      "sha256": "818d270efe189b732a06f0da6e4d22bdde029b291dc34775fb87f37af4a56984"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/cleanup_audit.py",
+      "bytes": 5753,
+      "sha256": "970b57173c67183ef4acc6f1ad74769ecbba809464ad3b6ab6fc0e5f40a30a6f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/first_cut_selection.py",
+      "bytes": 9252,
+      "sha256": "3991c8166d69a3a3ef90f6fc447da516758c42342cf6a3fb951fe6481764af55"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/generator_location_tests.py",
+      "bytes": 5650,
+      "sha256": "17fcaa0f8a6aa10a599f39d7e13d89f76925bb59baef0f5cf7a8fa7598a3c242"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/preserve_r0.py",
+      "bytes": 4448,
+      "sha256": "80b46824eafa95f11f0d88ec882018bda9ca18d84405a204516ba081ba64d8c7"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/render_keyframes.py",
+      "bytes": 10523,
+      "sha256": "516cc9262082f9835ffc99324f6d440ff34cfe957f62d63fdb395453041ee140"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/scripts/verify_r1.py",
+      "bytes": 16392,
+      "sha256": "f5fbc12a341511f5e317a0d0e2f43ceb1371b3310f5fb13ecf452afe0523754b"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION-R1/subtitle-draft-revised.srt",
+      "bytes": 2683,
+      "sha256": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/R1-SUPERSEDES.md",
+      "bytes": 3724,
+      "sha256": "d0b068bb5da97be2bda32e96bca82aebfc695e396199e1f123ca76cfe5fb202f"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/asset-inventory.csv",
+      "bytes": 12605,
+      "sha256": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/creative-research.md",
+      "bytes": 7701,
+      "sha256": "9bb0429ca22794a4cf6de950a420af59bdcc18d94874e40dda632e13be316fde"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/asset-probe.json",
+      "bytes": 43496,
+      "sha256": "a82e2d2a9690eff9bcc55692b94c456dbe6e878c856215be74810688f0a3f263"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/capability-probe.json",
+      "bytes": 4877,
+      "sha256": "a448586c751432082348a947e3e1b9209d87d8191727d1fe45278d16fee18635"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/consistency-check.json",
+      "bytes": 2427,
+      "sha256": "91ccc54b6c2280b3373e35eae1ea4cfd311973517c6a211a711efd5fc3200565"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/delivery-verification.json",
+      "bytes": 538,
+      "sha256": "fd5cab0d60a2ba0061879bd13a88c42ba1484537451453e146ea200cefed7cc5"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/dialogue-cue-index.csv",
+      "bytes": 1489,
+      "sha256": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/dialogue-subtitle-draft.srt",
+      "bytes": 1028,
+      "sha256": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/manifest.sha256.json",
+      "bytes": 3550,
+      "sha256": "54c086da76cecd6f232d162e3f071fe00bbfa3652596dee1406ba767591e7b95"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/narration-table.md",
+      "bytes": 6010,
+      "sha256": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/push-verification-addendum.md",
+      "bytes": 7692,
+      "sha256": "2f18908d2b2624c9964c210d2e1f9aef096e73339c175423d323aa57d64ef17e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/push-verification.json",
+      "bytes": 14944,
+      "sha256": "fafc77557da888242690aea3cc6b73537f450a049f1fa1cf000b19f86b676a36"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/evidence/subtitle-draft.meta.json",
+      "bytes": 5083,
+      "sha256": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/first-cut-readiness.md",
+      "bytes": 10623,
+      "sha256": "623e02dc75f3fe0f2fe8b4fe8482ac46a435e60066b5f7efb7b801fe027f325d"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/main-film-script.md",
+      "bytes": 35646,
+      "sha256": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/main-film-shotlist.csv",
+      "bytes": 19446,
+      "sha256": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/narration-draft.md",
+      "bytes": 11124,
+      "sha256": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/product-claims-register.md",
+      "bytes": 18263,
+      "sha256": "769241aa88ef838a8230a8df82acac0b390161b369924c3f5f7216154da7e827"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/report.md",
+      "bytes": 15251,
+      "sha256": "e34f27028a9ea5c753e89883006c0519ddab9badbf304f0cd58b193cc1777726"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/subtitle-draft.srt",
+      "bytes": 2683,
+      "sha256": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e"
+    },
+    {
+      "path": "WB-VIDEO-005-PREPRODUCTION/vertical-cut-plan.md",
+      "bytes": 9231,
+      "sha256": "5bb2a03a4a1528bd1461749f8e8e9c5c2757c48c2ece677f98d7a8d180055286"
+    }
+  ]
+}

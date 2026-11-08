@@ -1,0 +1,152 @@
+{
+  "test_id": "R1-GENERATOR-LOCATION-001",
+  "recorded_at": "2026-11-08T21:36:02+08:00",
+  "requirement": "run the generator from the repository root AND from the script directory; verify the repo-root locator by two markers",
+  "workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+  "stable_files_compared": [
+    "main-film-shotlist.csv",
+    "subtitle-draft.srt",
+    "asset-inventory.csv",
+    "evidence/dialogue-subtitle-draft.srt",
+    "evidence/narration-table.md",
+    "evidence/dialogue-cue-index.csv",
+    "evidence/subtitle-draft.meta.json",
+    "main-film-script.md",
+    "narration-draft.md"
+  ],
+  "volatile_field_normalised": "consistency-check.json : checked_at",
+  "runs": [
+    {
+      "label": "A_script_directory",
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\probe005\\r1",
+      "script": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\probe005\\r1\\build_deliverables_r1.py",
+      "exit_code": 0,
+      "stdout_tail": "{\r\n  \"shots\": 33,\r\n  \"duration\": 240.0,\r\n  \"narration_characters\": 471,\r\n  \"narration_sentences\": 28,\r\n  \"subtitle_cues\": 28,\r\n  \"dialogue_cues\": 16,\r\n  \"unique_dialogue_cue_ids\": 16,\r\n  \"timecode_collisions\": 14,\r\n  \"inventory_rows\": 56,\r\n  \"real_product_footage\": 0,\r\n  \"consistency_errors\": [],\r\n  \"warnings\": 14,\r\n  \"r1_assertions\": {\r\n    \"cue_ids_globally_unique\": true,\r\n    \"collision_pairs_unique\": true,\r\n    \"specific_drug_or_dosage_removed\": true,\r\n    \"design_intent_qualifiers_present\": true\r\n  },\r\n  \"all_passed\": true\r\n}",
+      "stderr_tail": "",
+      "outputs_after_run": {
+        "main-film-shotlist.csv": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4",
+        "subtitle-draft.srt": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e",
+        "asset-inventory.csv": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+        "evidence/dialogue-subtitle-draft.srt": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e",
+        "evidence/narration-table.md": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030",
+        "evidence/dialogue-cue-index.csv": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86",
+        "evidence/subtitle-draft.meta.json": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358",
+        "main-film-script.md": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a",
+        "narration-draft.md": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff",
+        "evidence/consistency-check.json__normalised": "7e5b89d449bf49be8e430c736fe207210b69a23f876b3cf3eafd60d3513fe63b"
+      }
+    },
+    {
+      "label": "B_repository_root",
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+      "script": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\probe005\\r1\\build_deliverables_r1.py",
+      "exit_code": 0,
+      "stdout_tail": "{\r\n  \"shots\": 33,\r\n  \"duration\": 240.0,\r\n  \"narration_characters\": 471,\r\n  \"narration_sentences\": 28,\r\n  \"subtitle_cues\": 28,\r\n  \"dialogue_cues\": 16,\r\n  \"unique_dialogue_cue_ids\": 16,\r\n  \"timecode_collisions\": 14,\r\n  \"inventory_rows\": 56,\r\n  \"real_product_footage\": 0,\r\n  \"consistency_errors\": [],\r\n  \"warnings\": 14,\r\n  \"r1_assertions\": {\r\n    \"cue_ids_globally_unique\": true,\r\n    \"collision_pairs_unique\": true,\r\n    \"specific_drug_or_dosage_removed\": true,\r\n    \"design_intent_qualifiers_present\": true\r\n  },\r\n  \"all_passed\": true\r\n}",
+      "stderr_tail": "",
+      "outputs_after_run": {
+        "main-film-shotlist.csv": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4",
+        "subtitle-draft.srt": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e",
+        "asset-inventory.csv": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+        "evidence/dialogue-subtitle-draft.srt": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e",
+        "evidence/narration-table.md": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030",
+        "evidence/dialogue-cue-index.csv": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86",
+        "evidence/subtitle-draft.meta.json": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358",
+        "main-film-script.md": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a",
+        "narration-draft.md": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff",
+        "evidence/consistency-check.json__normalised": "7e5b89d449bf49be8e430c736fe207210b69a23f876b3cf3eafd60d3513fe63b"
+      }
+    },
+    {
+      "label": "C_delivered_scripts_snapshot",
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+      "script": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\scripts\\build_deliverables_r1.py",
+      "exit_code": 0,
+      "stdout_tail": "{\r\n  \"shots\": 33,\r\n  \"duration\": 240.0,\r\n  \"narration_characters\": 471,\r\n  \"narration_sentences\": 28,\r\n  \"subtitle_cues\": 28,\r\n  \"dialogue_cues\": 16,\r\n  \"unique_dialogue_cue_ids\": 16,\r\n  \"timecode_collisions\": 14,\r\n  \"inventory_rows\": 56,\r\n  \"real_product_footage\": 0,\r\n  \"consistency_errors\": [],\r\n  \"warnings\": 14,\r\n  \"r1_assertions\": {\r\n    \"cue_ids_globally_unique\": true,\r\n    \"collision_pairs_unique\": true,\r\n    \"specific_drug_or_dosage_removed\": true,\r\n    \"design_intent_qualifiers_present\": true\r\n  },\r\n  \"all_passed\": true\r\n}",
+      "stderr_tail": "",
+      "outputs_after_run": {
+        "main-film-shotlist.csv": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4",
+        "subtitle-draft.srt": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e",
+        "asset-inventory.csv": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+        "evidence/dialogue-subtitle-draft.srt": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e",
+        "evidence/narration-table.md": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030",
+        "evidence/dialogue-cue-index.csv": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86",
+        "evidence/subtitle-draft.meta.json": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358",
+        "main-film-script.md": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a",
+        "narration-draft.md": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff",
+        "evidence/consistency-check.json__normalised": "7e5b89d449bf49be8e430c736fe207210b69a23f876b3cf3eafd60d3513fe63b"
+      }
+    },
+    {
+      "label": "D_markdown_from_repository_root",
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+      "script": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\probe005\\r1\\build_markdown_r1.py",
+      "exit_code": 0,
+      "stdout_tail": "{\r\n  \"narration_characters\": 471,\r\n  \"narration_sentences\": 28,\r\n  \"rule\": \"CJK Unified Ideographs only (U+4E00-U+9FFF); punctuation, digits, Latin letters and whitespace excluded\",\r\n  \"generated\": [\r\n    \"main-film-script.md\",\r\n    \"narration-draft.md\",\r\n    \"narration-revised.md\",\r\n    \"subtitle-draft-revised.srt\",\r\n    \"dialogue-subtitle-revised.srt\"\r\n  ]\r\n}",
+      "stderr_tail": "",
+      "outputs_after_run": {
+        "main-film-shotlist.csv": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4",
+        "subtitle-draft.srt": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e",
+        "asset-inventory.csv": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+        "evidence/dialogue-subtitle-draft.srt": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e",
+        "evidence/narration-table.md": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030",
+        "evidence/dialogue-cue-index.csv": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86",
+        "evidence/subtitle-draft.meta.json": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358",
+        "main-film-script.md": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a",
+        "narration-draft.md": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff",
+        "evidence/consistency-check.json__normalised": "7e5b89d449bf49be8e430c736fe207210b69a23f876b3cf3eafd60d3513fe63b"
+      }
+    },
+    {
+      "label": "E_markdown_from_delivered_scripts",
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+      "script": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\scripts\\build_markdown_r1.py",
+      "exit_code": 0,
+      "stdout_tail": "{\r\n  \"narration_characters\": 471,\r\n  \"narration_sentences\": 28,\r\n  \"rule\": \"CJK Unified Ideographs only (U+4E00-U+9FFF); punctuation, digits, Latin letters and whitespace excluded\",\r\n  \"generated\": [\r\n    \"main-film-script.md\",\r\n    \"narration-draft.md\",\r\n    \"narration-revised.md\",\r\n    \"subtitle-draft-revised.srt\",\r\n    \"dialogue-subtitle-revised.srt\"\r\n  ]\r\n}",
+      "stderr_tail": "",
+      "outputs_after_run": {
+        "main-film-shotlist.csv": "46daf4903441ac79cd1f81a984df9c09817443e3f76ba9ea5cba2e260afe8db4",
+        "subtitle-draft.srt": "16a8936ad4a3f0716f45dcbf8ec1625e7f07f0ee26640201d6c02e87ffe7886e",
+        "asset-inventory.csv": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c",
+        "evidence/dialogue-subtitle-draft.srt": "1accc7b18c223584a3b86027295938ee4376a143cdb53d2d074a2c23190a727e",
+        "evidence/narration-table.md": "40e6e41e4750260bd18140f05593aaf6bbb70dd06b53068675ba6dd64dfc7030",
+        "evidence/dialogue-cue-index.csv": "6404ac21aaace5a8b9e0a59f99dbfdf8e2dee4dd954b87c6efd83d254ca95d86",
+        "evidence/subtitle-draft.meta.json": "17452311eb793bb0eeae3d74c75b96f06358c2ec8d7c572df348a2c32adb0358",
+        "main-film-script.md": "934a6eb8ab302085d6c6662612192a383cc3cd1dc00e89acc481a645ae3cac6a",
+        "narration-draft.md": "17bfca5ffa460d96b0e29e1d261e91903161279462987501704cdb8de9b0c1ff",
+        "evidence/consistency-check.json__normalised": "7e5b89d449bf49be8e430c736fe207210b69a23f876b3cf3eafd60d3513fe63b"
+      }
+    }
+  ],
+  "byte_level_mismatches": {
+    "B_repository_root": {},
+    "C_delivered_scripts_snapshot": {},
+    "D_markdown_from_repository_root": {},
+    "E_markdown_from_delivered_scripts": {}
+  },
+  "locator_resolution": [
+    {
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\probe005\\r1",
+      "resolved_workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+      "exit_code": 0
+    },
+    {
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent",
+      "resolved_workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+      "exit_code": 0
+    },
+    {
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50\\yaodao-agent\\docs\\ai-collaboration\\outbox\\WB-VIDEO-005-PREPRODUCTION-R1\\scripts",
+      "resolved_workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+      "exit_code": 0
+    },
+    {
+      "cwd": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+      "resolved_workspace": "C:\\Users\\asus\\WorkBuddy\\2026-11-08-14-19-50",
+      "exit_code": 0
+    }
+  ],
+  "all_runs_exit_zero": true,
+  "all_outputs_byte_identical": true,
+  "locator_consistent": true,
+  "all_tests_passed": true
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="功能 01 一句话建档">
+  <rect width="1920" height="1080" fill="#F6F1E8"/>
+  <rect width="1920" height="8" fill="#C8A98A"/>
+  <text x="120" y="80" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="30" fill="#6B655C">模拟界面 · 非真机录屏</text>
+  <text x="1420" y="80" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="30" fill="#6B655C">药到 · 不用学，只要说</text>
+  <rect x="120" y="200" width="90" height="90" fill="#7E9B86"/>
+  <text x="145" y="262" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="52" fill="#FFFCF6">01</text>
+  <text x="240" y="262" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="60" fill="#33312E">功能 01 一句话建档</text>
+  <rect x="120" y="340" width="1680" height="520" fill="#FFFCF6"/>
+  <rect x="120" y="340" width="1680" height="8" fill="#D98E5F"/>
+  <text x="180" y="450" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="46" fill="#33312E">早饭后的那一次，帮我记上。</text>
+  <text x="180" y="580" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="46" fill="#33312E">您听听对不对：早饭后的那一次。</text>
+  <rect x="120" y="920" width="1680" height="2" fill="#C8A98A"/>
+  <text x="120" y="970" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="30" fill="#6B655C">功能对话示例 · 非用药建议 · 模拟界面</text>
+  <text x="120" y="1020" font-family="'Microsoft YaHei','Noto Sans SC',sans-serif" font-size="26" fill="#6B655C">WB-VIDEO-005-R1 · 预制作素材 · 非成片 · S15 复述确认 · 对应 med_plan_save</text>
+</svg>

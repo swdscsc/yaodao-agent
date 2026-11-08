@@ -1,0 +1,135 @@
+{
+  "manifest_id": "R1-ASSET-SOURCE-001",
+  "recorded_at": "2026-11-08T21:30:00+08:00",
+  "segment": "S14-S17",
+  "duration_s": 27,
+  "policy": "Every asset is ORIGINAL, locally generated, editable, and explicitly labelled as a mock UI or original graphic. No stock footage, no third-party template, no download, no real device capture, no MP4.",
+  "sources": {
+    "typography": "locally installed Microsoft YaHei / Noto Sans SC",
+    "vector": "hand-written SVG in this repository",
+    "keyframes": "FFmpeg 7.1 drawbox + drawtext, original shapes/text",
+    "html": "hand-written HTML/CSS in this repository",
+    "music_sfx": "NONE PRODUCED THIS ROUND (see music-sfx-plan.md)",
+    "narration_audio": "NONE PRODUCED THIS ROUND"
+  },
+  "counts": {
+    "svg": 5,
+    "html": 1,
+    "png_keyframes": 9,
+    "timeline_rows": 4,
+    "narration_cues": 3,
+    "dialogue_cues": 4,
+    "mp4": 0,
+    "audio": 0
+  },
+  "files": [
+    {
+      "path": "assets/s14-chapter-cards.svg",
+      "bytes": 1917,
+      "sha256": "feb12cb00a69604a70c79fe7c28411667f42feadfc99764ea2f3ba86268cb676",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/s15-mockui-save.svg",
+      "bytes": 1788,
+      "sha256": "01afa3f41cbda91b1d12978ce745078f6da3dc2e1fb78837f1157e52914587db",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/s16-mockui-query.svg",
+      "bytes": 1901,
+      "sha256": "2733877c1ca0d62ce8d0f5c3e61c925bb998b1a033d172d4a5c9625be505e64c",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/s17-mockui-checkin.svg",
+      "bytes": 1744,
+      "sha256": "3e2e3a04d91a72056726538828dd8f7d637fd7084dbe58b66a87070f70a0ce41",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/subtitle-safe-area.svg",
+      "bytes": 1257,
+      "sha256": "6b2e0eeb068737eb860890e4db53de485f62a81514b4c9c8330ae2be29f66ead",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/first-cut-mockui.html",
+      "bytes": 5277,
+      "sha256": "8750a15b3fbaaf6a9f0cc8d6ca896c908689e2af3afd56ded7415eb7f4d1c726",
+      "kind": "html"
+    },
+    {
+      "path": "first-cut-timeline.csv",
+      "bytes": 2122,
+      "sha256": "9422d2ffa2bfd5c81c17555498c9933b17dbf6537cf8d81ad946e3f5e4d4004a",
+      "kind": "csv"
+    },
+    {
+      "path": "first-cut-subtitles.srt",
+      "bytes": 270,
+      "sha256": "6fa76878f0e3a366cef22be626346a89eab144bfde33c647aa781a9832b72cbb",
+      "kind": "srt"
+    },
+    {
+      "path": "first-cut-dialogue.srt",
+      "bytes": 241,
+      "sha256": "4318e08d9ab5066ad951f3415b5fec6e39b269fa0a4acefc247e2342d537ec10",
+      "kind": "srt"
+    },
+    {
+      "path": "assets/keyframes/s14-state1.png",
+      "bytes": 46499,
+      "sha256": "402674878b542d4515e224f51298c2f2aa3c6c67fe8de882d36d5a0a397aa97f",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s14-state2.png",
+      "bytes": 48806,
+      "sha256": "6d4f86c40322117c4ad85cefba2a21e702954ba7b8b75882e797cb015b3d4184",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s14-state3.png",
+      "bytes": 52399,
+      "sha256": "1920e4464aebd26ebcc4d14d00bec5c5d85022b5bf8c51eab4e33176dab7c042",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s15-state1.png",
+      "bytes": 62853,
+      "sha256": "53ca1ba2e7c043d5d05979d59040c04a0b7ea62ab273d3a150896baacc65383b",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s15-state2.png",
+      "bytes": 74855,
+      "sha256": "d4cdad80e85ed0ca0cd7206786024db1a11807feab9135faf4ba42923055fa2f",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s16-state1.png",
+      "bytes": 63124,
+      "sha256": "66fe538d6336757f0aa6628a8d22c46b492bf3e4689deb8be069e5c896cbea13",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s16-state2.png",
+      "bytes": 78388,
+      "sha256": "dd00ef3ac9953a1add6be5ca817c2ba0ca2b1265fe78b42e91da49a1ac73d6d5",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s17-state1.png",
+      "bytes": 59091,
+      "sha256": "7d43ca779b1efe9a049ffd3f339174ba945a3630604dd45cfe674fb17f5b356d",
+      "kind": "png_keyframe"
+    },
+    {
+      "path": "assets/keyframes/s17-state2.png",
+      "bytes": 64008,
+      "sha256": "9a63105cd61b6a5e881767fce0ec1f0eaa042a403507064e4b3e3b835a222dea",
+      "kind": "png_keyframe"
+    }
+  ]
+}
