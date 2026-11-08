@@ -1,0 +1,1026 @@
+{
+  "asset_qa": {
+    "S001-A01": {
+      "path": "<PIPELINE>\\assets\\S001-A01.mp4",
+      "tag": "S001-A01",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 3.0,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 3.0,
+        "audio_duration": 3.0,
+        "size_bytes": 5848964,
+        "bit_rate": "15597237"
+      },
+      "qa_policy": {
+        "static_material_expected": false,
+        "freeze_detector_hit": false,
+        "note": null
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.8,
+        "mean_db": -24.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 3.0,
+        "audio_duration": 3.0,
+        "delta_seconds": 0.0
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "PASS",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "S001-A01_f00_0.5s.jpg",
+        "S001-A01_f01_1.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "S001-A01_f00_0.5s.jpg",
+            "mean_luma": 128.35,
+            "black_ratio": 0.0,
+            "bottom_text_band_luma": 128.69,
+            "file_bytes": 99347
+          },
+          {
+            "file": "S001-A01_f01_1.5s.jpg",
+            "mean_luma": 128.32,
+            "black_ratio": 0.0,
+            "bottom_text_band_luma": 127.96,
+            "file_bytes": 98688
+          }
+        ],
+        "near_duplicate_pairs": [
+          {
+            "pair": [
+              "S001-A01_f00_0.5s.jpg",
+              "S001-A01_f01_1.5s.jpg"
+            ],
+            "mean_abs_diff": 1.911
+          }
+        ],
+        "all_black": false
+      }
+    },
+    "S002-A01": {
+      "path": "<PIPELINE>\\assets\\S002-A01.mp4",
+      "tag": "S002-A01",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 3.0,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 3.0,
+        "audio_duration": 3.0,
+        "size_bytes": 65193,
+        "bit_rate": "173848"
+      },
+      "qa_policy": {
+        "static_material_expected": true,
+        "freeze_detector_hit": true,
+        "note": "A freeze was detected but this asset is declared static. The raw interval data is retained above; production footage must NOT set this flag."
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          }
+        ],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.8,
+        "mean_db": -24.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 3.0,
+        "audio_duration": 3.0,
+        "delta_seconds": 0.0
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "EXPECTED_STATIC",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "S002-A01_f00_0.5s.jpg",
+        "S002-A01_f01_1.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "S002-A01_f00_0.5s.jpg",
+            "mean_luma": 93.6,
+            "black_ratio": 0.1508,
+            "bottom_text_band_luma": 60.98,
+            "file_bytes": 24236
+          },
+          {
+            "file": "S002-A01_f01_1.5s.jpg",
+            "mean_luma": 93.6,
+            "black_ratio": 0.1508,
+            "bottom_text_band_luma": 60.98,
+            "file_bytes": 24236
+          }
+        ],
+        "near_duplicate_pairs": [
+          {
+            "pair": [
+              "S002-A01_f00_0.5s.jpg",
+              "S002-A01_f01_1.5s.jpg"
+            ],
+            "mean_abs_diff": 0.0
+          }
+        ],
+        "all_black": false
+      }
+    },
+    "S003-A01": {
+      "path": "<PIPELINE>\\assets\\S003-A01.mp4",
+      "tag": "S003-A01",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 2.0,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "size_bytes": 11200,
+        "bit_rate": "44800"
+      },
+      "qa_policy": {
+        "static_material_expected": false,
+        "freeze_detector_hit": true,
+        "note": null
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0,
+            "end": 1.966667,
+            "duration": 1.966667
+          }
+        ],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0,
+            "end": 2.005333,
+            "duration": 2.005333
+          }
+        ],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          }
+        ],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -91.0,
+        "mean_db": -91.0,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "delta_seconds": 0.0
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "FAIL",
+        "silence": "FAIL",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "FAIL",
+        "av_sync": "PASS"
+      },
+      "problems": [
+        "black_frames",
+        "silence",
+        "frozen_frames"
+      ],
+      "verdict": "FAIL",
+      "keyframes": [
+        "S003-A01_f00_0.5s.jpg",
+        "S003-A01_f01_1.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "S003-A01_f00_0.5s.jpg",
+            "mean_luma": 0.0,
+            "black_ratio": 1.0,
+            "bottom_text_band_luma": 0.0,
+            "file_bytes": 12461
+          },
+          {
+            "file": "S003-A01_f01_1.5s.jpg",
+            "mean_luma": 0.0,
+            "black_ratio": 1.0,
+            "bottom_text_band_luma": 0.0,
+            "file_bytes": 12461
+          }
+        ],
+        "near_duplicate_pairs": [
+          {
+            "pair": [
+              "S003-A01_f00_0.5s.jpg",
+              "S003-A01_f01_1.5s.jpg"
+            ],
+            "mean_abs_diff": 0.0
+          }
+        ],
+        "all_black": true
+      }
+    },
+    "S003-A02": {
+      "path": "<PIPELINE>\\assets\\S003-A02.mp4",
+      "tag": "S003-A02",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 2.0,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "size_bytes": 3903853,
+        "bit_rate": "15615412"
+      },
+      "qa_policy": {
+        "static_material_expected": false,
+        "freeze_detector_hit": false,
+        "note": null
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.7,
+        "mean_db": -24.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "delta_seconds": 0.0
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "PASS",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "S003-A02_f00_0.5s.jpg",
+        "S003-A02_f01_1.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "S003-A02_f00_0.5s.jpg",
+            "mean_luma": 128.35,
+            "black_ratio": 0.0,
+            "bottom_text_band_luma": 128.69,
+            "file_bytes": 99347
+          },
+          {
+            "file": "S003-A02_f01_1.5s.jpg",
+            "mean_luma": 128.32,
+            "black_ratio": 0.0,
+            "bottom_text_band_luma": 127.96,
+            "file_bytes": 98688
+          }
+        ],
+        "near_duplicate_pairs": [
+          {
+            "pair": [
+              "S003-A02_f00_0.5s.jpg",
+              "S003-A02_f01_1.5s.jpg"
+            ],
+            "mean_abs_diff": 1.911
+          }
+        ],
+        "all_black": false
+      }
+    },
+    "S003-A03": {
+      "path": "<PIPELINE>\\assets\\S003-A03.mp4",
+      "tag": "S003-A03",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 2.0,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "size_bytes": 189712,
+        "bit_rate": "758848"
+      },
+      "qa_policy": {
+        "static_material_expected": false,
+        "freeze_detector_hit": false,
+        "note": null
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.9,
+        "mean_db": -24.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 2.0,
+        "audio_duration": 2.0,
+        "delta_seconds": 0.0
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "PASS",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "S003-A03_f00_0.5s.jpg",
+        "S003-A03_f01_1.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "S003-A03_f00_0.5s.jpg",
+            "mean_luma": 128.54,
+            "black_ratio": 0.1262,
+            "bottom_text_band_luma": 132.07,
+            "file_bytes": 43883
+          },
+          {
+            "file": "S003-A03_f01_1.5s.jpg",
+            "mean_luma": 126.57,
+            "black_ratio": 0.1316,
+            "bottom_text_band_luma": 130.39,
+            "file_bytes": 43084
+          }
+        ],
+        "near_duplicate_pairs": [],
+        "all_black": false
+      }
+    }
+  },
+  "final_qa": {
+    "horizontal": {
+      "path": "<PIPELINE>\\renders\\final_horizontal.mp4",
+      "tag": "final_horizontal",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 12.036,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "size_bytes": 3993258,
+        "bit_rate": "2654209"
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.7,
+        "mean_db": -30.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "delta_seconds": 0.036
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "PASS",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "final_horizontal_f00_0.8s.jpg",
+        "final_horizontal_f01_2.5s.jpg",
+        "final_horizontal_f02_5.0s.jpg",
+        "final_horizontal_f03_8.0s.jpg",
+        "final_horizontal_f04_10.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "final_horizontal_f00_0.8s.jpg",
+            "mean_luma": 55.69,
+            "black_ratio": 0.041,
+            "bottom_text_band_luma": 58.16,
+            "file_bytes": 89878
+          },
+          {
+            "file": "final_horizontal_f01_2.5s.jpg",
+            "mean_luma": 127.89,
+            "black_ratio": 0.0056,
+            "bottom_text_band_luma": 125.07,
+            "file_bytes": 109017
+          },
+          {
+            "file": "final_horizontal_f02_5.0s.jpg",
+            "mean_luma": 52.6,
+            "black_ratio": 0.0405,
+            "bottom_text_band_luma": 57.89,
+            "file_bytes": 75099
+          },
+          {
+            "file": "final_horizontal_f03_8.0s.jpg",
+            "mean_luma": 94.14,
+            "black_ratio": 0.1517,
+            "bottom_text_band_luma": 63.71,
+            "file_bytes": 35658
+          },
+          {
+            "file": "final_horizontal_f04_10.5s.jpg",
+            "mean_luma": 54.36,
+            "black_ratio": 0.0407,
+            "bottom_text_band_luma": 57.83,
+            "file_bytes": 81238
+          }
+        ],
+        "near_duplicate_pairs": [],
+        "all_black": false
+      }
+    },
+    "vertical": {
+      "path": "<PIPELINE>\\renders\\final_vertical.mp4",
+      "tag": "final_vertical",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 12.036,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "size_bytes": 4430819,
+        "bit_rate": "2945044"
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.7,
+        "mean_db": -30.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "delta_seconds": 0.036
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "PASS",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "final_vertical_f00_0.8s.jpg",
+        "final_vertical_f01_2.5s.jpg",
+        "final_vertical_f02_5.0s.jpg",
+        "final_vertical_f03_8.0s.jpg",
+        "final_vertical_f04_10.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "final_vertical_f00_0.8s.jpg",
+            "mean_luma": 32.76,
+            "black_ratio": 0.5693,
+            "bottom_text_band_luma": 19.3,
+            "file_bytes": 62256
+          },
+          {
+            "file": "final_vertical_f01_2.5s.jpg",
+            "mean_luma": 103.6,
+            "black_ratio": 0.0197,
+            "bottom_text_band_luma": 83.56,
+            "file_bytes": 73817
+          },
+          {
+            "file": "final_vertical_f02_5.0s.jpg",
+            "mean_luma": 31.09,
+            "black_ratio": 0.5762,
+            "bottom_text_band_luma": 19.38,
+            "file_bytes": 51621
+          },
+          {
+            "file": "final_vertical_f03_8.0s.jpg",
+            "mean_luma": 63.02,
+            "black_ratio": 0.2124,
+            "bottom_text_band_luma": 20.86,
+            "file_bytes": 42610
+          },
+          {
+            "file": "final_vertical_f04_10.5s.jpg",
+            "mean_luma": 32.03,
+            "black_ratio": 0.5745,
+            "bottom_text_band_luma": 19.14,
+            "file_bytes": 56166
+          }
+        ],
+        "near_duplicate_pairs": [],
+        "all_black": false
+      }
+    },
+    "horizontal_v2": {
+      "path": "<PIPELINE>\\renders\\final_horizontal_v2.mp4",
+      "tag": "final_horizontal_v2",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 12.036,
+        "width": 1920,
+        "height": 1080,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "size_bytes": 2631613,
+        "bit_rate": "1749161"
+      },
+      "qa_policy": {
+        "static_material_expected": true,
+        "freeze_detector_hit": true,
+        "note": "A freeze was detected but this asset is declared static. The raw interval data is retained above; production footage must NOT set this flag."
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0330078,
+            "end": 1.533008,
+            "duration": 1.5
+          },
+          {
+            "start": 4.533008,
+            "end": 5.533008,
+            "duration": 1.0
+          },
+          {
+            "start": 5.533008,
+            "end": 8.533008,
+            "duration": 3.0
+          },
+          {
+            "start": 10.533008,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          }
+        ],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.7,
+        "mean_db": -30.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "delta_seconds": 0.036
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "EXPECTED_STATIC",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "final_horizontal_v2_f00_0.8s.jpg",
+        "final_horizontal_v2_f01_2.5s.jpg",
+        "final_horizontal_v2_f02_5.0s.jpg",
+        "final_horizontal_v2_f03_8.0s.jpg",
+        "final_horizontal_v2_f04_10.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "final_horizontal_v2_f00_0.8s.jpg",
+            "mean_luma": 55.69,
+            "black_ratio": 0.041,
+            "bottom_text_band_luma": 58.16,
+            "file_bytes": 89870
+          },
+          {
+            "file": "final_horizontal_v2_f01_2.5s.jpg",
+            "mean_luma": 126.18,
+            "black_ratio": 0.0218,
+            "bottom_text_band_luma": 116.5,
+            "file_bytes": 130922
+          },
+          {
+            "file": "final_horizontal_v2_f02_5.0s.jpg",
+            "mean_luma": 52.61,
+            "black_ratio": 0.0404,
+            "bottom_text_band_luma": 57.89,
+            "file_bytes": 75073
+          },
+          {
+            "file": "final_horizontal_v2_f03_8.0s.jpg",
+            "mean_luma": 94.54,
+            "black_ratio": 0.1529,
+            "bottom_text_band_luma": 65.71,
+            "file_bytes": 47910
+          },
+          {
+            "file": "final_horizontal_v2_f04_10.5s.jpg",
+            "mean_luma": 54.36,
+            "black_ratio": 0.0407,
+            "bottom_text_band_luma": 57.83,
+            "file_bytes": 81238
+          }
+        ],
+        "near_duplicate_pairs": [],
+        "all_black": false
+      }
+    },
+    "vertical_v2": {
+      "path": "<PIPELINE>\\renders\\final_vertical_v2.mp4",
+      "tag": "final_vertical_v2",
+      "probe": {
+        "ok": true,
+        "duration_seconds": 12.036,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "video_codec": "h264",
+        "audio_codec": "aac",
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "size_bytes": 949375,
+        "bit_rate": "631023"
+      },
+      "qa_policy": {
+        "static_material_expected": true,
+        "freeze_detector_hit": true,
+        "note": "A freeze was detected but this asset is declared static. The raw interval data is retained above; production footage must NOT set this flag."
+      },
+      "decode_ok": true,
+      "decode_stderr": "",
+      "black": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "silence": {
+        "available": true,
+        "detected": false,
+        "intervals": [],
+        "filter_error": false
+      },
+      "freeze": {
+        "available": true,
+        "detected": true,
+        "intervals": [
+          {
+            "start": 0.0,
+            "end": 1.5,
+            "duration": 1.5
+          },
+          {
+            "start": 4.5,
+            "end": 5.5,
+            "duration": 1.0
+          },
+          {
+            "start": 5.5,
+            "end": 8.5,
+            "duration": 3.0
+          },
+          {
+            "start": 10.5,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          }
+        ],
+        "filter_error": false
+      },
+      "volume": {
+        "peak_db": -20.7,
+        "mean_db": -30.1,
+        "clipping_risk": false,
+        "available": true
+      },
+      "av_sync": {
+        "ok": true,
+        "video_duration": 12.0,
+        "audio_duration": 12.036,
+        "delta_seconds": 0.036
+      },
+      "checks": {
+        "decode": "PASS",
+        "resolution": "PASS",
+        "fps": "PASS",
+        "black_screen": "PASS",
+        "silence": "PASS",
+        "audio_peak": "PASS",
+        "duration": "PASS",
+        "frozen_frame": "EXPECTED_STATIC",
+        "av_sync": "PASS"
+      },
+      "problems": [],
+      "verdict": "PASS",
+      "keyframes": [
+        "final_vertical_v2_f00_0.8s.jpg",
+        "final_vertical_v2_f01_2.5s.jpg",
+        "final_vertical_v2_f02_5.0s.jpg",
+        "final_vertical_v2_f03_8.0s.jpg",
+        "final_vertical_v2_f04_10.5s.jpg"
+      ],
+      "visual_scan": {
+        "available": true,
+        "frames": [
+          {
+            "file": "final_vertical_v2_f00_0.8s.jpg",
+            "mean_luma": 32.75,
+            "black_ratio": 0.5656,
+            "bottom_text_band_luma": 19.29,
+            "file_bytes": 61311
+          },
+          {
+            "file": "final_vertical_v2_f01_2.5s.jpg",
+            "mean_luma": 105.55,
+            "black_ratio": 0.054,
+            "bottom_text_band_luma": 97.3,
+            "file_bytes": 110882
+          },
+          {
+            "file": "final_vertical_v2_f02_5.0s.jpg",
+            "mean_luma": 31.04,
+            "black_ratio": 0.5735,
+            "bottom_text_band_luma": 19.21,
+            "file_bytes": 51342
+          },
+          {
+            "file": "final_vertical_v2_f03_8.0s.jpg",
+            "mean_luma": 65.64,
+            "black_ratio": 0.199,
+            "bottom_text_band_luma": 20.91,
+            "file_bytes": 72622
+          },
+          {
+            "file": "final_vertical_v2_f04_10.5s.jpg",
+            "mean_luma": 32.09,
+            "black_ratio": 0.5706,
+            "bottom_text_band_luma": 19.4,
+            "file_bytes": 55929
+          }
+        ],
+        "near_duplicate_pairs": [],
+        "all_black": false
+      }
+    }
+  }
+}

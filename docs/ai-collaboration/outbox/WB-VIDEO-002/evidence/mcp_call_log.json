@@ -1,0 +1,190 @@
+[
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "get_active_project",
+    "arguments": {},
+    "ok": true,
+    "response_excerpt": "{\n  \"id\": \"042ac827-fe6c-4e1e-8305-7cadf2b143fd\",\n  \"name\": \"Recording 2026-11-07 13-32-19\"\n}",
+    "elapsed_ms": 2
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "create_project",
+    "arguments": {
+      "name": "WB-E2E-20261108-TEST"
+    },
+    "ok": true,
+    "response_excerpt": "Created local project \"WB-E2E-20261108-TEST\" (893d1af1-0d6e-42a9-9489-a996307faeb7) and set it active. Open it in Vidova before using editor tools.",
+    "elapsed_ms": 7
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "import_asset",
+    "arguments": {
+      "action": "local",
+      "paths": [
+        "<PIPELINE>\\assets\\S001-A01.mp4",
+        "<PIPELINE>\\assets\\S002-A01.mp4",
+        "<PIPELINE>\\assets\\S003-A02.mp4"
+      ]
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 2
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 25
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "import_asset",
+    "arguments": {
+      "action": "local",
+      "files": [
+        "<PIPELINE>\\assets\\S001-A01.mp4",
+        "<PIPELINE>\\assets\\S002-A01.mp4",
+        "<PIPELINE>\\assets\\S003-A02.mp4"
+      ]
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 4
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "import_asset",
+    "arguments": {
+      "action": "local",
+      "filePaths": [
+        "<PIPELINE>\\assets\\S001-A01.mp4",
+        "<PIPELINE>\\assets\\S002-A01.mp4",
+        "<PIPELINE>\\assets\\S003-A02.mp4"
+      ]
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "import_asset",
+    "arguments": {
+      "action": "local",
+      "path": "<PIPELINE>\\assets\\S001-A01.mp4"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 2
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "import_asset",
+    "arguments": {
+      "action": "local",
+      "absolutePaths": [
+        "<PIPELINE>\\assets\\S001-A01.mp4",
+        "<PIPELINE>\\assets\\S002-A01.mp4",
+        "<PIPELINE>\\assets\\S003-A02.mp4"
+      ]
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 3
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 2
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "asset",
+    "arguments": {
+      "action": "list"
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 17
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "timeline_get_state",
+    "arguments": {},
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 2
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "preview",
+    "arguments": {
+      "action": "captureFrame",
+      "timecode": 1.0
+    },
+    "ok": false,
+    "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+    "elapsed_ms": 13
+  },
+  {
+    "ts": "2026-11-08T15:10:01+08:00",
+    "tool": "set_active_project",
+    "arguments": {
+      "projectId": "042ac827-fe6c-4e1e-8305-7cadf2b143fd"
+    },
+    "ok": true,
+    "response_excerpt": "Active local project set to: Recording 2026-11-07 13-32-19 (042ac827-fe6c-4e1e-8305-7cadf2b143fd)",
+    "elapsed_ms": 2
+  }
+]

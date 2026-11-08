@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "project_id": "WB-VIDEO-002-E2E",
+  "title": "药到 · 给爸妈的 AI 用药管家 — 最小端到端测试分镜",
+  "language": "zh-CN",
+  "note": "AI-director-shaped storyboard used as the scheduler input. Assets in this E2E are FFmpeg-synthesised LOCAL test material, NOT AI-generated and NOT real footage; no hosted generation quota is consumed.",
+  "shots": [
+    {
+      "shot_id": "S001",
+      "purpose": "开场：产品名与一句话价值",
+      "prompt": "warm kitchen, elderly person, soft morning light, title card",
+      "duration_seconds": 3.0,
+      "source_type": "local_synthetic",
+      "narration": "一句「我吃过药了」，就够了。",
+      "subtitle": "一句「我吃过药了」，就够了",
+      "timecode_start": 0.0
+    },
+    {
+      "shot_id": "S002",
+      "purpose": "章节一：一句话建档，按早中晚提醒",
+      "prompt": "three meal-time cards, morning noon evening, clear iconography",
+      "duration_seconds": 3.0,
+      "source_type": "local_synthetic",
+      "narration": "说一句服药规律，它复述确认，第二天还记得。",
+      "subtitle": "早 / 午 / 晚，按时提醒",
+      "timecode_start": 3.0
+    },
+    {
+      "shot_id": "S003",
+      "purpose": "片尾：安全边界与品牌落版",
+      "prompt": "calm end card with brand name and safety note",
+      "duration_seconds": 2.0,
+      "source_type": "local_synthetic",
+      "narration": "药到只做提醒和记录，用药问题请问您的大夫。",
+      "subtitle": "只做提醒 · 不替您拿主意",
+      "timecode_start": 6.0
+    }
+  ],
+  "audio": {
+    "bgm_spec": "low-volume synthesised tone (reference placeholder, not licensed music)",
+    "sfx_spec": ["short transition chime at each chapter card"],
+    "narration_tts": "NOT_AVAILABLE_PLACEHOLDER — no TTS engine verified in this stage; narration text and .srt are delivered, audio track is a labelled placeholder"
+  },
+  "delivery": {
+    "horizontal": "1920x1080 @30fps",
+    "vertical": "1080x1920 @30fps (letterbox reference render)"
+  }
+}

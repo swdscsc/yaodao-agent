@@ -1,0 +1,448 @@
+{
+  "task_id": "WB-VIDEO-002",
+  "started_at": "2026-11-08T15:09:56+08:00",
+  "root": "<PIPELINE>",
+  "policy": {
+    "hosted_quota_calls": 0,
+    "paid_credits": 0,
+    "existing_projects_modified": false,
+    "source_assets_deleted": false
+  },
+  "stages": {
+    "A_synthesise": [
+      {
+        "shot_id": "S001",
+        "path": "<PIPELINE>\\assets\\S001-A01.mp4",
+        "ok": true,
+        "cmd": "<LOCAL>/AppData/Roaming/npm/ffmpeg.exe -hide_banner -loglevel error -f lavfi -i testsrc2=size=1920x1080:rate=30 ...",
+        "stderr": ""
+      },
+      {
+        "shot_id": "S002",
+        "path": "<PIPELINE>\\assets\\S002-A01.mp4",
+        "ok": true,
+        "cmd": "<LOCAL>/AppData/Roaming/npm/ffmpeg.exe -hide_banner -loglevel error -f lavfi -i smptebars=size=1920x1080:rate=30 ...",
+        "stderr": ""
+      },
+      {
+        "shot_id": "S003",
+        "path": "<PIPELINE>\\assets\\S003-A01.mp4",
+        "ok": true,
+        "cmd": "<LOCAL>/AppData/Roaming/npm/ffmpeg.exe -hide_banner -loglevel error -f lavfi -i color=c=black:s=1920x1080:r=30 ...",
+        "stderr": ""
+      }
+    ],
+    "B_qa_manifest": {
+      "assets": 3,
+      "approved": [
+        "S001-A01",
+        "S002-A01"
+      ],
+      "failed": [
+        "S003-A01"
+      ]
+    },
+    "C_repair_loop": {
+      "defects": [
+        {
+          "source": "S003-A01",
+          "replacement": "S003-A02",
+          "re_qa": "PASS",
+          "upsert": "INSERTED",
+          "synthesis": true
+        }
+      ],
+      "cycles_used": 1,
+      "bounded_verified": {
+        "max_rework_cycles": 2,
+        "consecutive_cycle_numbers": [
+          1,
+          2,
+          3
+        ],
+        "third_cycle_allowed": false,
+        "max_generation_attempts": 3,
+        "human_review_gate": "REVIEW_REQUIRED"
+      },
+      "defect_ledger": [
+        {
+          "defect_id": "D001",
+          "timecode": "6.0s",
+          "description": "S003-A01: black_frames",
+          "severity": "high",
+          "category": "asset",
+          "owner_module": "vidova",
+          "asset_id": "S003-A01",
+          "fix_plan": "regenerate this shot under a NEW asset_id; never overwrite the defective source",
+          "fix_result": "FIXED",
+          "retry_count": 1,
+          "created_at": "2026-11-08T15:10:00+08:00",
+          "resolved_at": "2026-11-08T15:10:01+08:00"
+        },
+        {
+          "defect_id": "D002",
+          "timecode": "6.0s",
+          "description": "S003-A01: silence",
+          "severity": "medium",
+          "category": "audio",
+          "owner_module": "audio_module",
+          "asset_id": "S003-A01",
+          "fix_plan": "regenerate this shot under a NEW asset_id; never overwrite the defective source",
+          "fix_result": "FIXED",
+          "retry_count": 1,
+          "created_at": "2026-11-08T15:10:00+08:00",
+          "resolved_at": "2026-11-08T15:10:01+08:00"
+        }
+      ]
+    },
+    "D_vidova_mcp": {
+      "attempted": true,
+      "initialize": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "vidova-desktop",
+          "version": "1.0.0"
+        }
+      },
+      "tool_count": 18,
+      "tools": [
+        "list_projects",
+        "get_active_project",
+        "create_project",
+        "set_active_project",
+        "timeline_get_state",
+        "timeline_edit",
+        "clip_enhance",
+        "asset",
+        "inspect_media",
+        "import_asset",
+        "preview",
+        "generate_asset",
+        "sfx",
+        "component",
+        "branch_action",
+        "project_history",
+        "recipe",
+        "sleep"
+      ],
+      "original_active_project": "042ac827-fe6c-4e1e-8305-7cadf2b143fd",
+      "create_project": true,
+      "create_project_excerpt": "Created local project \"WB-E2E-20261108-TEST\" (893d1af1-0d6e-42a9-9489-a996307faeb7) and set it active. Open it in Vidova before using editor tools.",
+      "import_param_probe": [
+        {
+          "param_keys": [
+            "paths"
+          ],
+          "ok": false,
+          "assets_before": -1,
+          "assets_after": -1,
+          "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+        },
+        {
+          "param_keys": [
+            "files"
+          ],
+          "ok": false,
+          "assets_before": -1,
+          "assets_after": -1,
+          "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+        },
+        {
+          "param_keys": [
+            "filePaths"
+          ],
+          "ok": false,
+          "assets_before": -1,
+          "assets_after": -1,
+          "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+        },
+        {
+          "param_keys": [
+            "path"
+          ],
+          "ok": false,
+          "assets_before": -1,
+          "assets_after": -1,
+          "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+        },
+        {
+          "param_keys": [
+            "absolutePaths"
+          ],
+          "ok": false,
+          "assets_before": -1,
+          "assets_after": -1,
+          "response_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+        }
+      ],
+      "import_working_arguments": null,
+      "asset_count_after_import": 0,
+      "timeline_placements": [
+        {
+          "asset_id": "S001-A01",
+          "ok": false,
+          "reason": "assetId not found in Vidova project"
+        },
+        {
+          "asset_id": "S002-A01",
+          "ok": false,
+          "reason": "assetId not found in Vidova project"
+        },
+        {
+          "asset_id": "S003-A02",
+          "ok": false,
+          "reason": "assetId not found in Vidova project"
+        }
+      ],
+      "timeline_state_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+      "preview_capture_frame": {
+        "ok": false,
+        "content_types": [
+          "text"
+        ],
+        "excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7"
+      },
+      "active_project_restored": true,
+      "call_count": 17,
+      "quota_consuming_calls": []
+    },
+    "E_render": {
+      "attempted": true,
+      "cards": [
+        {
+          "card": "card_intro.png",
+          "png": {
+            "ok": true,
+            "path": "<PIPELINE>\\renders\\card_intro.png"
+          },
+          "clip": {
+            "ok": true,
+            "stderr": ""
+          }
+        },
+        {
+          "card": "card_chapter.png",
+          "png": {
+            "ok": true,
+            "path": "<PIPELINE>\\renders\\card_chapter.png"
+          },
+          "clip": {
+            "ok": true,
+            "stderr": ""
+          }
+        },
+        {
+          "card": "card_outro.png",
+          "png": {
+            "ok": true,
+            "path": "<PIPELINE>\\renders\\card_outro.png"
+          },
+          "clip": {
+            "ok": true,
+            "stderr": ""
+          }
+        }
+      ],
+      "segments": [
+        "renders/card_intro.mp4",
+        "assets/S001-A01.mp4",
+        "renders/card_chapter.mp4",
+        "assets/S002-A01.mp4",
+        "assets/S003-A02.mp4",
+        "renders/card_outro.mp4"
+      ],
+      "planned_duration_seconds": 12.0,
+      "concat_demuxer": {
+        "ok": true,
+        "stderr": ""
+      },
+      "subtitle_file": "renders/subtitles.srt",
+      "narration_file": "renders/narration.txt",
+      "subtitle_burn_in": {
+        "ok": true,
+        "stderr": "",
+        "note": "if false, the .srt is still delivered but NOT burned into the video"
+      },
+      "horizontal": {
+        "path": "renders/final_horizontal.mp4",
+        "ok": true,
+        "stderr": ""
+      },
+      "vertical": {
+        "path": "renders/final_vertical.mp4",
+        "ok": true,
+        "stderr": "",
+        "method": "blurred-background fill reference render (replaces letterbox after visual QA found 69% black bars)",
+        "size_bytes": 4430819
+      },
+      "narration_audio": "LABELLED_PLACEHOLDER_ONLY — no TTS engine was verified in this stage"
+    },
+    "F_final_qa": {
+      "horizontal": {
+        "verdict": "PASS",
+        "problems": [],
+        "checks": {
+          "decode": "PASS",
+          "resolution": "PASS",
+          "fps": "PASS",
+          "black_screen": "PASS",
+          "silence": "PASS",
+          "audio_peak": "PASS",
+          "duration": "PASS",
+          "frozen_frame": "PASS",
+          "av_sync": "PASS"
+        },
+        "duration": 12.036,
+        "resolution": [
+          1920,
+          1080
+        ],
+        "fps": 30.0,
+        "keyframes": [
+          "final_horizontal_f00_0.8s.jpg",
+          "final_horizontal_f01_2.5s.jpg",
+          "final_horizontal_f02_5.0s.jpg",
+          "final_horizontal_f03_8.0s.jpg",
+          "final_horizontal_f04_10.5s.jpg"
+        ],
+        "visual_scan": {
+          "available": true,
+          "frames": [
+            {
+              "file": "final_horizontal_f00_0.8s.jpg",
+              "mean_luma": 55.69,
+              "black_ratio": 0.041,
+              "bottom_text_band_luma": 58.16,
+              "file_bytes": 89878
+            },
+            {
+              "file": "final_horizontal_f01_2.5s.jpg",
+              "mean_luma": 127.89,
+              "black_ratio": 0.0056,
+              "bottom_text_band_luma": 125.07,
+              "file_bytes": 109017
+            },
+            {
+              "file": "final_horizontal_f02_5.0s.jpg",
+              "mean_luma": 52.6,
+              "black_ratio": 0.0405,
+              "bottom_text_band_luma": 57.89,
+              "file_bytes": 75099
+            },
+            {
+              "file": "final_horizontal_f03_8.0s.jpg",
+              "mean_luma": 94.14,
+              "black_ratio": 0.1517,
+              "bottom_text_band_luma": 63.71,
+              "file_bytes": 35658
+            },
+            {
+              "file": "final_horizontal_f04_10.5s.jpg",
+              "mean_luma": 54.36,
+              "black_ratio": 0.0407,
+              "bottom_text_band_luma": 57.83,
+              "file_bytes": 81238
+            }
+          ],
+          "near_duplicate_pairs": [],
+          "all_black": false
+        }
+      },
+      "vertical": {
+        "verdict": "PASS",
+        "problems": [],
+        "checks": {
+          "decode": "PASS",
+          "resolution": "PASS",
+          "fps": "PASS",
+          "black_screen": "PASS",
+          "silence": "PASS",
+          "audio_peak": "PASS",
+          "duration": "PASS",
+          "frozen_frame": "PASS",
+          "av_sync": "PASS"
+        },
+        "duration": 12.036,
+        "resolution": [
+          1080,
+          1920
+        ],
+        "fps": 30.0,
+        "keyframes": [
+          "final_vertical_f00_0.8s.jpg",
+          "final_vertical_f01_2.5s.jpg",
+          "final_vertical_f02_5.0s.jpg",
+          "final_vertical_f03_8.0s.jpg",
+          "final_vertical_f04_10.5s.jpg"
+        ],
+        "visual_scan": {
+          "available": true,
+          "frames": [
+            {
+              "file": "final_vertical_f00_0.8s.jpg",
+              "mean_luma": 32.76,
+              "black_ratio": 0.5693,
+              "bottom_text_band_luma": 19.3,
+              "file_bytes": 62256
+            },
+            {
+              "file": "final_vertical_f01_2.5s.jpg",
+              "mean_luma": 103.6,
+              "black_ratio": 0.0197,
+              "bottom_text_band_luma": 83.56,
+              "file_bytes": 73817
+            },
+            {
+              "file": "final_vertical_f02_5.0s.jpg",
+              "mean_luma": 31.09,
+              "black_ratio": 0.5762,
+              "bottom_text_band_luma": 19.38,
+              "file_bytes": 51621
+            },
+            {
+              "file": "final_vertical_f03_8.0s.jpg",
+              "mean_luma": 63.02,
+              "black_ratio": 0.2124,
+              "bottom_text_band_luma": 20.86,
+              "file_bytes": 42610
+            },
+            {
+              "file": "final_vertical_f04_10.5s.jpg",
+              "mean_luma": 32.03,
+              "black_ratio": 0.5745,
+              "bottom_text_band_luma": 19.14,
+              "file_bytes": 56166
+            }
+          ],
+          "near_duplicate_pairs": [],
+          "all_black": false
+        }
+      }
+    }
+  },
+  "ended_at": "2026-11-08T15:10:13+08:00",
+  "outputs": {
+    "manifest": "manifest.json",
+    "defects": "defects.json",
+    "state_log": "state_log.json",
+    "mcp_call_log": "mcp_call_log.json",
+    "qa_report": "qa/qa_report.json"
+  },
+  "summary": {
+    "assets_total": 4,
+    "assets_approved": 3,
+    "defects_found": 2,
+    "defects_fixed": 2,
+    "state_transitions": 39,
+    "quota_consuming_calls": [],
+    "render_files": [
+      "renders/final_horizontal.mp4",
+      "renders/final_vertical.mp4"
+    ]
+  }
+}
