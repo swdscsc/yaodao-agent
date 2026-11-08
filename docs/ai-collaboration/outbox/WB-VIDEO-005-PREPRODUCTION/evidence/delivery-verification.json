@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "task_id": "WB-VIDEO-005-PREPRODUCTION",
-  "verified_at": "2026-11-08T19:52:42+08:00",
-  "json_files_valid": 5,
+  "verified_at": "2026-11-08T19:55:00+08:00",
+  "json_files_valid": 7,
   "csv_files_valid": 2,
   "csv_details": {
     "asset-inventory.csv": {
@@ -15,8 +15,8 @@
     }
   },
   "srt_files_valid": 2,
-  "manifest_entries_rehashed": 16,
-  "text_files_secret_scanned": 16,
+  "manifest_entries_rehashed": 18,
+  "text_files_secret_scanned": 18,
   "secret_scan_findings": 0,
   "findings": [],
   "errors": [],

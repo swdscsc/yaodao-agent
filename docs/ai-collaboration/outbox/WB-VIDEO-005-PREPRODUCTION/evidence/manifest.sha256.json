@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "task_id": "WB-VIDEO-005-PREPRODUCTION",
-  "generated_at": "2026-11-08T19:52:42+08:00",
+  "generated_at": "2026-11-08T19:55:21+08:00",
   "delivery_dir": "docs/ai-collaboration/outbox/WB-VIDEO-005-PREPRODUCTION/",
   "file_count": 17,
-  "total_bytes": 194074,
+  "total_bytes": 193983,
   "excludes_self": "evidence/manifest.sha256.json",
   "appended_after_manifest": {
     "paths": [
@@ -16,8 +16,8 @@
   "files": [
     {
       "path": "asset-inventory.csv",
-      "bytes": 12662,
-      "sha256": "3a46c37d00d0b1ce6d9d3345b0960dd945ba69e8131272fca2cffa0262057e9d"
+      "bytes": 12605,
+      "sha256": "e6370684ededfc31c538162e286e614e2d4013df42caf72a8088752579f1b35c"
     },
     {
       "path": "creative-research.md",
@@ -37,12 +37,12 @@
     {
       "path": "evidence/consistency-check.json",
       "bytes": 1991,
-      "sha256": "5e5aa43240aaf48c013cd883ab820635f6883af026f097b3d730bd5551325fdd"
+      "sha256": "f31f78776372cc7f04ad633e43c5b6315bc1579e09f70af378afa86f9f5dc26b"
     },
     {
       "path": "evidence/delivery-verification.json",
       "bytes": 538,
-      "sha256": "a8696df312deea7b0ae8ba89f920f47d84f5a234f9ca331183f49fb18abcda22"
+      "sha256": "9386a72f415f9e174ccb037882cd045ac1ff0d324e5694bdebd89ba1b02acd2e"
     },
     {
       "path": "evidence/dialogue-subtitle-draft.srt",
@@ -71,8 +71,8 @@
     },
     {
       "path": "main-film-shotlist.csv",
-      "bytes": 19083,
-      "sha256": "d8c50b72b753277c61df7c68dd4c278b69fa1c88f541938ff9887aa3fc231e39"
+      "bytes": 19049,
+      "sha256": "50aba84d665d39b93a133db45d2e009a5d2871123fecc36ba3e391deb3fce18c"
     },
     {
       "path": "narration-draft.md",
