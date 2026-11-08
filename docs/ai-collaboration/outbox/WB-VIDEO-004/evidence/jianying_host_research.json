@@ -1,0 +1,52 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:50:12+08:00",
+  "purpose": "read-only research into the LEGAL Host authorisation chain; no token value read, extracted, forged or stored",
+  "runtime_token_env_present_boolean_only": false,
+  "any_jianying_env_var_names": [],
+  "cli_candidates": [
+    "<JY_APP_DIR>\\jianying-agent-cli-tests.exe",
+    "<JY_APP_DIR>\\jianying-agent-cli.exe"
+  ],
+  "cli_help": {
+    "--help": {
+      "returncode": 3221226505,
+      "stdout_head": "",
+      "stderr_head": ""
+    },
+    "draft --help": {
+      "returncode": 3221226505,
+      "stdout_head": "",
+      "stderr_head": ""
+    }
+  },
+  "token_related_option_mentioned_in_help": false,
+  "hubcli_contract_files": [
+    {
+      "relative": "Resources\\agent_runtime_env\\bin\\hubcli",
+      "bytes": 632
+    },
+    {
+      "relative": "Resources\\agent_runtime_env\\bin\\hubcli.cmd",
+      "bytes": 626
+    },
+    {
+      "relative": "Resources\\agent_runtime_env\\cli\\hubcli",
+      "bytes": null
+    }
+  ],
+  "port_20066_listening": false,
+  "existing_drafts_read_only": [
+    {
+      "draft": "11月7日",
+      "sha256_prefix": "75e07786574bf6d9",
+      "bytes": 4928
+    },
+    {
+      "draft": "yaodao_yaodao_ep",
+      "sha256_prefix": "0792b2c4e809a6b6",
+      "bytes": 29205
+    }
+  ],
+  "conclusion": "No external token option is documented in CLI help; Host-held token is not present in this shell environment; local runtime port closed because main process is not running."
+}

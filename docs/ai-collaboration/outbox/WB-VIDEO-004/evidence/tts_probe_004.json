@@ -1,0 +1,68 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:51:20+08:00",
+  "purpose": "TTS capability audit + local audio QA chain verification",
+  "honesty": "The WAV described below is a 440 Hz SYNTHETIC TEST TONE. It is NOT Chinese speech, NOT a voice-over and NOT proof that TTS is complete.",
+  "compliance": "No security policy was disabled, evaded or modified. No runtime .NET compilation, no COM object instantiation, no script-host LOLBin, and no unknown binary was installed or executed.",
+  "sapi_voice_tokens": [
+    "TTS_MS_EN-US_ZIRA_11.0",
+    "TTS_MS_ZH-CN_HUIHUI_11.0"
+  ],
+  "blocked_capabilities": [
+    {
+      "attempt": "runtime .NET assembly load for the managed speech synthesis API",
+      "result": "BLOCKED",
+      "security_message": "Command blocked for security: Add-Type compiles and loads .NET code at runtime"
+    },
+    {
+      "attempt": "instantiation of the system-registered SAPI voice COM component",
+      "result": "BLOCKED",
+      "security_message": "Command blocked for security: COM object instantiation can run arbitrary code (e.g. WScript.Shell)"
+    },
+    {
+      "attempt": "Windows Script Host script-based SAPI invocation from the shell",
+      "result": "BLOCKED",
+      "security_message": "Command blocked for security: Known Windows LOLBin that can execute arbitrary code outside command validation",
+      "decision": "NOT_RETRIED via any wrapper, because that would evade the same policy"
+    },
+    {
+      "attempt": "ctypes / in-process COM bypass",
+      "result": "NOT_ATTEMPTED",
+      "reason": "would bypass the security policy; explicitly forbidden by the task"
+    }
+  ],
+  "python_tts_packages_installed": false,
+  "local_tts_executable_found": false,
+  "chinese_tts_wav_generated": false,
+  "tts_status": "NOT_COMPLETE",
+  "wav": {
+    "exists": true,
+    "bytes": 240078,
+    "sha256": "a24003869a02105b0ba9a354c2850e6fc5357bb3262441252c20b12d9cceadd5",
+    "content": "440 Hz sine, 2.5 s, 48 kHz mono PCM s16le, volume 0.25",
+    "is_speech": false,
+    "is_narration": false,
+    "is_placeholder_test_signal": true,
+    "ffprobe": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "48000",
+      "channels": 1,
+      "bits_per_sample": 16,
+      "duration": "2.500000"
+    },
+    "mean_volume_db": "-33.1",
+    "max_volume_db": "-30.1",
+    "long_silence_events": 0,
+    "audio_qa_chain_verified": true
+  },
+  "what_is_verified": [
+    "FFmpeg can produce a playable PCM WAV locally.",
+    "ffprobe / volumedetect / silencedetect audio QA chain works on that WAV.",
+    "Chinese SAPI voice tokens exist in the Windows registry."
+  ],
+  "what_is_NOT_verified": [
+    "Any Chinese speech synthesis on this machine.",
+    "Voice completeness, prosody, speaking rate, naturalness, loudness of real narration.",
+    "Import of a narration track into Jianying."
+  ]
+}

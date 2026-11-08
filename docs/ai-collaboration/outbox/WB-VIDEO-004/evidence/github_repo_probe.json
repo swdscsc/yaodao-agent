@@ -1,0 +1,3290 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:41:40+08:00",
+  "timezone": "Asia/Shanghai (UTC+08:00)",
+  "probe_method": "Read-only HTTPS GET through the local HTTP proxy. GitHub REST API was returning HTTP 403 because the anonymous 60/hour rate limit was exhausted, so repository metadata was verified via public HTML pages and the public commits Atom feed; licence / dependency / source excerpts were fetched from raw.githubusercontent.com. Every URL, HTTP status, byte count and SHA-256 of the fetched body is recorded. No project was cloned, installed or executed on this machine.",
+  "limitations": [
+    "Static inspection only: README, licence, dependency manifest and one entry-point source file per project.",
+    "No project was installed or run; 'works on this Windows machine' is NOT claimed.",
+    "A guessed source path that returns 404 is recorded honestly, not replaced with invented content.",
+    "Star counts / release versions were not read from the REST API; maintenance is estimated from the Atom feed timestamp."
+  ],
+  "repository_count": 17,
+  "repositories": [
+    {
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "directions": [
+        "ai_video_director",
+        "script_to_video",
+        "auto_editing"
+      ],
+      "repository_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/README.md",
+          "bytes": 39463,
+          "sha256": "b2e1ef65da546c9a971992b67cd7a6a63f58b7bc0910165b392d25df1eb60b48",
+          "excerpt": [
+            "<div align=\"center\">",
+            "",
+            "# MoneyPrinterTurbo 💸",
+            "",
+            "### 一站式 AI 短视频生成工具",
+            "",
+            "只需提供视频<b>主题</b>或<b>关键词</b>，即可自动生成视频脚本、匹配素材、生成字幕和背景音乐，并合成高清短视频。",
+            "",
+            "[![Version](https://img.shields.io/github/v/release/harry0703/MoneyPrinterTurbo?color=blue&label=version)](https://github.com/harry0703/MoneyPrinterTurbo/releases)",
+            "[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)",
+            "[![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)",
+            "[![Downloads](https://img.shields.io/github/downloads/harry0703/MoneyPrinterTurbo/total)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)",
+            "",
+            "<a href=\"https://trendshift.io/repositories/8731\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/8731\" alt=\"harry0703%2FMoneyPrinterTurbo | Trendshift\" style=\"width: ",
+            "<a href=\"https://www.star-history.com/harry0703/moneyprinterturbo\"><img src=\"https://api.star-history.com/badge?repo=harry0703/MoneyPrinterTurbo\" alt=\"Star History Rank\" style=\"height: 55px;",
+            "",
+            "简体中文 | [English](README-en.md) | [日本語](README-ja.md) | [版本发布](https://github.com/harry0703/MoneyPrinterTurbo/releases) | [问题反馈](https://github.com/harry0703/MoneyPrinterTurbo/issues)",
+            "",
+            "</div>",
+            "",
+            "## 界面预览 🖥️",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 39463
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/LICENSE",
+          "bytes": 1061,
+          "sha256": "87dd19b6a0779e14a91c1b06423ef251df37e89666160c031130a26bae68c229",
+          "excerpt": [
+            "MIT License",
+            "",
+            "Copyright (c) 2024 Harry",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in all",
+            "copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+            "SOFTWARE."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1061
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "requirements.txt",
+          "url": "https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/requirements.txt",
+          "bytes": 898,
+          "sha256": "d19ab95b30689d9da8c693646e84bd6c002f1771ee7f8432d49bc65dcaa89f6b",
+          "excerpt": [
+            "# Keep legacy pip install support; primary deps moved to pyproject.toml / uv.lock.",
+            "# For patched Pillow despite MoviePy's cap, use:",
+            "# uv pip install --overrides requirements-security.txt -r requirements.txt",
+            "moviepy==2.2.1",
+            "streamlit==1.66.1",
+            "starlette==1.3.1",
+            "streamlit-tour==1.1.0",
+            "edge_tts==7.3.1",
+            "fastapi==0.136.3",
+            "uvicorn==0.32.1",
+            "openai==2.24.0",
+            "faster-whisper==1.1.0",
+            "# faster-whisper passes metadata_errors to av.open(), which PyAV 19 removed",
+            "av<19",
+            "toml==0.10.2",
+            "imageio-ffmpeg==0.6.0",
+            "loguru==0.7.3",
+            "google-genai==2.11.0",
+            "dashscope==1.20.14",
+            "azure-cognitiveservices-speech==1.41.1",
+            "redis==5.2.0",
+            "python-multipart==0.0.30"
+          ],
+          "attempts": [
+            {
+              "path": "requirements.txt",
+              "http_status": 200,
+              "bytes": 898
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "app/services/video.py",
+          "url": "https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/app/services/video.py",
+          "bytes": 95421,
+          "sha256": "a1f049612ab90c3cd28e9826457fcc888dba109f3f104b613da0f241bfaf6462",
+          "excerpt": [
+            "import itertools",
+            "import hashlib",
+            "from concurrent.futures import ThreadPoolExecutor",
+            "import io",
+            "import math",
+            "import os",
+            "import random",
+            "import gc",
+            "import subprocess",
+            "import sys",
+            "import tempfile",
+            "import threading",
+            "import time",
+            "import unicodedata",
+            "from contextlib import ExitStack, contextmanager, redirect_stdout",
+            "from functools import lru_cache",
+            "from typing import Callable, List",
+            "from loguru import logger",
+            "import numpy as np",
+            "from moviepy import (",
+            "    AudioFileClip,",
+            "    ColorClip,"
+          ],
+          "attempts": [
+            {
+              "path": "app/services/video.py",
+              "http_status": 200,
+              "bytes": 95421
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/LICENSE",
+        "excerpt": [
+          "MIT License",
+          "",
+          "Copyright (c) 2024 Harry",
+          "",
+          "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "of this software and associated documentation files (the \"Software\"), to deal",
+          "in the Software without restriction, including without limitation the rights",
+          "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/harry0703/MoneyPrinterTurbo/commits/main.atom",
+        "feed_updated": "2026-11-07T23:52:23Z",
+        "most_recent_entry_updated": "2026-11-07T23:52:23Z",
+        "entry_count": 20,
+        "sample_entry_title": "fix(llm): strip script code fences (#1780)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - harry0703/MoneyPrinterTurbo: 利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow. · GitHub",
+        "description": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow. - harry0703/MoneyPrinterTurbo",
+        "bytes": 500106
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "# Keep legacy pip install support; primary deps moved to pyproject.toml / uv.lock.",
+        "# For patched Pillow despite MoviePy's cap, use:",
+        "# uv pip install --overrides requirements-security.txt -r requirements.txt",
+        "moviepy==2.2.1",
+        "streamlit==1.66.1",
+        "starlette==1.3.1",
+        "streamlit-tour==1.1.0",
+        "edge_tts==7.3.1",
+        "fastapi==0.136.3",
+        "uvicorn==0.32.1",
+        "openai==2.24.0",
+        "faster-whisper==1.1.0",
+        "# faster-whisper passes metadata_errors to av.open(), which PyAV 19 removed",
+        "av<19",
+        "toml==0.10.2",
+        "imageio-ffmpeg==0.6.0",
+        "loguru==0.7.3",
+        "google-genai==2.11.0",
+        "dashscope==1.20.14",
+        "azure-cognitiveservices-speech==1.41.1",
+        "redis==5.2.0",
+        "python-multipart==0.0.30"
+      ]
+    },
+    {
+      "repo": "RayVentura/ShortGPT",
+      "directions": [
+        "ai_video_director",
+        "auto_editing",
+        "agent_workflow"
+      ],
+      "repository_url": "https://github.com/RayVentura/ShortGPT",
+      "checks": {
+        "readme": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "licence": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "LICENSE.md",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "deps": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "requirements.txt",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "setup.py",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "source": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "shortgpt/engine/content_video_engine.py",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "shortgpt/config.py",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "runShortGPT.py",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "UNKNOWN"
+      },
+      "latest_commit": {
+        "found": false
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - RayVentura/ShortGPT: 🚀🎬 ShortGPT - Experimental AI framework for youtube shorts / tiktok channel automation · GitHub",
+        "description": "🚀🎬 ShortGPT - Experimental AI framework for youtube shorts / tiktok channel automation - RayVentura/ShortGPT",
+        "bytes": 325579
+      },
+      "branch_used": "main",
+      "atom_found": false,
+      "dependency_excerpt": []
+    },
+    {
+      "repo": "Breakthrough/PySceneDetect",
+      "directions": [
+        "auto_editing",
+        "shot_detection",
+        "ffmpeg_post"
+      ],
+      "repository_url": "https://github.com/Breakthrough/PySceneDetect",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/README.md",
+          "bytes": 7770,
+          "sha256": "ff45f6f05b01cfd5e6e796e494e5fb5ee83741925da7b6485d4a18c53b755ba7",
+          "excerpt": [
+            "",
+            "<picture>",
+            "  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/website/pages/img/pyscenedetect_logo_small_darkmode.png\">",
+            "  <img alt=\"PySceneDetect\" src=\"https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/website/pages/img/pyscenedetect_logo_small.png\">",
+            "</picture>",
+            "",
+            "# Video Cut Detection and Analysis Tool",
+            "",
+            "[![Build Status](https://img.shields.io/github/actions/workflow/status/Breakthrough/PySceneDetect/build.yml)](https://github.com/Breakthrough/PySceneDetect/actions)",
+            "[![PyPI Status](https://img.shields.io/pypi/status/scenedetect.svg)](https://pypi.python.org/pypi/scenedetect/)",
+            "[![PyPI Version](https://img.shields.io/pypi/v/scenedetect?color=blue)](https://pypi.python.org/pypi/scenedetect/)",
+            "[![PyPI License](https://img.shields.io/pypi/l/scenedetect.svg)](https://scenedetect.com/copyright/)",
+            "",
+            "----------------------------------------------------------",
+            "",
+            "### Latest Release: v0.7.2 (October 11, 2026)",
+            "",
+            "**Website**:  [scenedetect.com](https://www.scenedetect.com)",
+            "",
+            "**Quickstart Example**: [scenedetect.com/cli/](https://www.scenedetect.com/cli/)",
+            "",
+            "**Documentation**:  [scenedetect.com/docs/](https://www.scenedetect.com/docs/)"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 7770
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/LICENSE",
+          "bytes": 1505,
+          "sha256": "e855ca89e457a7d0b6b7c92ad475d1120a9a5b5bf4e5048c706b1b3889fbc349",
+          "excerpt": [
+            "BSD 3-Clause License",
+            "",
+            "Copyright (C) 2014, Brandon Castellano",
+            "",
+            "Redistribution and use in source and binary forms, with or without",
+            "modification, are permitted provided that the following conditions are met:",
+            "",
+            "1. Redistributions of source code must retain the above copyright notice, this",
+            "   list of conditions and the following disclaimer.",
+            "",
+            "2. Redistributions in binary form must reproduce the above copyright notice,",
+            "   this list of conditions and the following disclaimer in the documentation",
+            "   and/or other materials provided with the distribution.",
+            "",
+            "3. Neither the name of the copyright holder nor the names of its",
+            "   contributors may be used to endorse or promote products derived from",
+            "   this software without specific prior written permission.",
+            "",
+            "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"",
+            "AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE",
+            "IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE",
+            "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE"
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1505
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "pyproject.toml",
+          "url": "https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/pyproject.toml",
+          "bytes": 5661,
+          "sha256": "f7c8c2475c307bf64ac1f2fe5aad7b6a48332dbe7e504bf74c8a63f2239a0270",
+          "excerpt": [
+            "#",
+            "#         PySceneDetect: Python-Based Video Scene Detector",
+            "#   ---------------------------------------------------------------",
+            "#     [  Site: http://www.bcastell.com/projects/PySceneDetect/   ]",
+            "#     [  Github: https://github.com/Breakthrough/PySceneDetect/  ]",
+            "#     [  Documentation: http://www.scenedetect.com/docs/         ]",
+            "#",
+            "# Copyright (C) 2014 Brandon Castellano <http://www.bcastell.com>.",
+            "#",
+            "",
+            "[build-system]",
+            "requires = [\"setuptools>=77\"]",
+            "build-backend = \"setuptools.build_meta\"",
+            "",
+            "[project]",
+            "name = \"scenedetect-core\"",
+            "dynamic = [\"version\"]",
+            "description = \"The detection pipeline for PySceneDetect (core library, minimal dependencies).\"",
+            "readme = { file = \"packaging/package-info.rst\", content-type = \"text/x-rst\" }",
+            "license = \"BSD-3-Clause\"",
+            "license-files = [\"LICENSE\"]",
+            "requires-python = \">=3.10\""
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 200,
+              "bytes": 5661
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "scenedetect/detectors/content_detector.py",
+          "url": "https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/scenedetect/detectors/content_detector.py",
+          "bytes": 11123,
+          "sha256": "fbbf66502b943bebdfc673318e953f76847ef32922358be675d93c5b5536fe63",
+          "excerpt": [
+            "#",
+            "#            PySceneDetect: Python-Based Video Scene Detector",
+            "#   -------------------------------------------------------------------",
+            "#     [  Site:    https://scenedetect.com                           ]",
+            "#     [  Docs:    https://scenedetect.com/docs/                     ]",
+            "#     [  Github:  https://github.com/Breakthrough/PySceneDetect/    ]",
+            "#",
+            "# Copyright (C) 2018 Brandon Castellano <http://www.bcastell.com>.",
+            "# PySceneDetect is licensed under the BSD 3-Clause License; see the",
+            "# included LICENSE file, or visit one of the above pages for details.",
+            "#",
+            "\"\"\":class:`ContentDetector` compares the difference in content between adjacent frames against a",
+            "set threshold/score, which if exceeded, triggers a scene cut.",
+            "",
+            "This detector is available from the command-line as the `detect-content` command.",
+            "\"\"\"",
+            "",
+            "import math",
+            "import typing as ty",
+            "from dataclasses import dataclass",
+            "",
+            "import cv2"
+          ],
+          "attempts": [
+            {
+              "path": "scenedetect/detectors/content_detector.py",
+              "http_status": 200,
+              "bytes": 11123
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "BSD",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/Breakthrough/PySceneDetect/main/LICENSE",
+        "excerpt": [
+          "BSD 3-Clause License",
+          "",
+          "Copyright (C) 2014, Brandon Castellano",
+          "",
+          "Redistribution and use in source and binary forms, with or without",
+          "modification, are permitted provided that the following conditions are met:",
+          "",
+          "1. Redistributions of source code must retain the above copyright notice, this"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/Breakthrough/PySceneDetect/commits/main.atom",
+        "feed_updated": "2026-11-08T01:29:42Z",
+        "most_recent_entry_updated": "2026-11-08T01:29:42Z",
+        "entry_count": 20,
+        "sample_entry_title": "[output] Fix time drift in EDL output #593"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - Breakthrough/PySceneDetect: :movie_camera: Python and OpenCV-based scene cut/transition detection program &amp; library. · GitHub",
+        "description": ":movie_camera: Python and OpenCV-based scene cut/transition detection program &amp; library. - Breakthrough/PySceneDetect",
+        "bytes": 298752
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "#",
+        "#         PySceneDetect: Python-Based Video Scene Detector",
+        "#   ---------------------------------------------------------------",
+        "#     [  Site: http://www.bcastell.com/projects/PySceneDetect/   ]",
+        "#     [  Github: https://github.com/Breakthrough/PySceneDetect/  ]",
+        "#     [  Documentation: http://www.scenedetect.com/docs/         ]",
+        "#",
+        "# Copyright (C) 2014 Brandon Castellano <http://www.bcastell.com>.",
+        "#",
+        "",
+        "[build-system]",
+        "requires = [\"setuptools>=77\"]",
+        "build-backend = \"setuptools.build_meta\"",
+        "",
+        "[project]",
+        "name = \"scenedetect-core\"",
+        "dynamic = [\"version\"]",
+        "description = \"The detection pipeline for PySceneDetect (core library, minimal dependencies).\"",
+        "readme = { file = \"packaging/package-info.rst\", content-type = \"text/x-rst\" }",
+        "license = \"BSD-3-Clause\"",
+        "license-files = [\"LICENSE\"]",
+        "requires-python = \">=3.10\""
+      ]
+    },
+    {
+      "repo": "kkroening/ffmpeg-python",
+      "directions": [
+        "ffmpeg_post",
+        "auto_editing"
+      ],
+      "repository_url": "https://github.com/kkroening/ffmpeg-python",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/README.md",
+          "bytes": 12178,
+          "sha256": "990de31cda3a5e0a20e6cc14cd7aa9fefdfac5044c138a44958c989e23a9ecd6",
+          "excerpt": [
+            "# ffmpeg-python: Python bindings for FFmpeg",
+            "",
+            "[![CI][ci-badge]][ci]",
+            "",
+            "[ci-badge]: https://github.com/kkroening/ffmpeg-python/actions/workflows/ci.yml/badge.svg",
+            "[ci]: https://github.com/kkroening/ffmpeg-python/actions/workflows/ci.yml",
+            "",
+            "<img src=\"https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/doc/formula.png\" alt=\"ffmpeg-python logo\" width=\"60%\" />",
+            "",
+            "## Overview",
+            "",
+            "There are tons of Python FFmpeg wrappers out there but they seem to lack complex filter support.  `ffmpeg-python` works well for simple as well as complex signal graphs.",
+            "",
+            "",
+            "## Quickstart",
+            "",
+            "Flip a video horizontally:",
+            "```python",
+            "import ffmpeg",
+            "stream = ffmpeg.input('input.mp4')",
+            "stream = ffmpeg.hflip(stream)",
+            "stream = ffmpeg.output(stream, 'output.mp4')"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 12178
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/LICENSE",
+          "bytes": 11343,
+          "sha256": "40815e0df8f66931bf913c6ba1af6ae07f6a463290af9a345bc71456b519fcc2",
+          "excerpt": [
+            "                                 Apache License",
+            "                           Version 2.0, January 2004",
+            "                        http://www.apache.org/licenses/",
+            "",
+            "   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+            "",
+            "   1. Definitions.",
+            "",
+            "      \"License\" shall mean the terms and conditions for use, reproduction,",
+            "      and distribution as defined by Sections 1 through 9 of this document.",
+            "",
+            "      \"Licensor\" shall mean the copyright owner or entity authorized by",
+            "      the copyright owner that is granting the License.",
+            "",
+            "      \"Legal Entity\" shall mean the union of the acting entity and all",
+            "      other entities that control, are controlled by, or are under common",
+            "      control with that entity. For the purposes of this definition,",
+            "      \"control\" means (i) the power, direct or indirect, to cause the",
+            "      direction or management of such entity, whether by contract or",
+            "      otherwise, or (ii) ownership of fifty percent (50%) or more of the",
+            "      outstanding shares, or (iii) beneficial ownership of such entity.",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 11343
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "setup.py",
+          "url": "https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/setup.py",
+          "bytes": 2403,
+          "sha256": "52e8c60aeb676e16db13a3c122de023464744629804c359b6e0f2777bf107cbe",
+          "excerpt": [
+            "from setuptools import setup",
+            "from textwrap import dedent",
+            "",
+            "version = '0.2.0'",
+            "download_url = 'https://github.com/kkroening/ffmpeg-python/archive/v{}.zip'.format(",
+            "    version",
+            ")",
+            "",
+            "long_description = dedent(",
+            "    '''\\",
+            "    ffmpeg-python: Python bindings for FFmpeg",
+            "    =========================================",
+            "",
+            "    :Github: https://github.com/kkroening/ffmpeg-python",
+            "    :API Reference: https://kkroening.github.io/ffmpeg-python/",
+            "'''",
+            ")",
+            "",
+            "",
+            "file_formats = [",
+            "    'aac',",
+            "    'ac3',"
+          ],
+          "attempts": [
+            {
+              "path": "setup.py",
+              "http_status": 200,
+              "bytes": 2403
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "ffmpeg/_run.py",
+          "url": "https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/ffmpeg/_run.py",
+          "bytes": 11592,
+          "sha256": "6adabe00525ce60e6f3938dba741e24f7145cd4eafb2fe49cc8e4ce6562c972f",
+          "excerpt": [
+            "from __future__ import unicode_literals",
+            "from .dag import get_outgoing_edges, topo_sort",
+            "from ._utils import basestring, convert_kwargs_to_cmd_line_args",
+            "from builtins import str",
+            "from functools import reduce",
+            "import copy",
+            "import operator",
+            "import subprocess",
+            "",
+            "from ._ffmpeg import input, output",
+            "from .nodes import (",
+            "    get_stream_spec_nodes,",
+            "    FilterNode,",
+            "    GlobalNode,",
+            "    InputNode,",
+            "    OutputNode,",
+            "    output_operator,",
+            ")",
+            "",
+            "try:",
+            "    from collections.abc import Iterable",
+            "except ImportError:"
+          ],
+          "attempts": [
+            {
+              "path": "ffmpeg/_run.py",
+              "http_status": 200,
+              "bytes": 11592
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "Apache-2.0",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/kkroening/ffmpeg-python/master/LICENSE",
+        "excerpt": [
+          "                                 Apache License",
+          "                           Version 2.0, January 2004",
+          "                        http://www.apache.org/licenses/",
+          "",
+          "   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+          "",
+          "   1. Definitions.",
+          ""
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/kkroening/ffmpeg-python/commits/master.atom",
+        "feed_updated": "2022-07-11T21:03:07Z",
+        "most_recent_entry_updated": "2022-07-11T21:03:07Z",
+        "entry_count": 20,
+        "sample_entry_title": "Let&#39;s implicitly fix a typo (#681)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - kkroening/ffmpeg-python: Python bindings for FFmpeg - with complex filtering support · GitHub",
+        "description": "Python bindings for FFmpeg - with complex filtering support - kkroening/ffmpeg-python",
+        "bytes": 310465
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "from setuptools import setup",
+        "from textwrap import dedent",
+        "",
+        "version = '0.2.0'",
+        "download_url = 'https://github.com/kkroening/ffmpeg-python/archive/v{}.zip'.format(",
+        "    version",
+        ")",
+        "",
+        "long_description = dedent(",
+        "    '''\\",
+        "    ffmpeg-python: Python bindings for FFmpeg",
+        "    =========================================",
+        "",
+        "    :Github: https://github.com/kkroening/ffmpeg-python",
+        "    :API Reference: https://kkroening.github.io/ffmpeg-python/",
+        "'''",
+        ")",
+        "",
+        "",
+        "file_formats = [",
+        "    'aac',",
+        "    'ac3',"
+      ]
+    },
+    {
+      "repo": "openai/whisper",
+      "directions": [
+        "subtitle_generation",
+        "asr",
+        "audio_post"
+      ],
+      "repository_url": "https://github.com/openai/whisper",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/openai/whisper/main/README.md",
+          "bytes": 8246,
+          "sha256": "38c180c2a8d8ba628a3e131ad42bf06c8a51bb681efb30fbe28d5a0f4b65f288",
+          "excerpt": [
+            "# Whisper",
+            "",
+            "[[Blog]](https://openai.com/blog/whisper)",
+            "[[Paper]](https://arxiv.org/abs/2212.04356)",
+            "[[Model card]](https://github.com/openai/whisper/blob/main/model-card.md)",
+            "[[Colab example]](https://colab.research.google.com/github/openai/whisper/blob/master/notebooks/LibriSpeech.ipynb)",
+            "",
+            "Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multitasking model that can perform multilingual speech recognition, sp",
+            "",
+            "",
+            "## Approach",
+            "",
+            "![Approach](https://raw.githubusercontent.com/openai/whisper/main/approach.png)",
+            "",
+            "A Transformer sequence-to-sequence model is trained on various speech processing tasks, including multilingual speech recognition, speech translation, spoken language identification, and voi",
+            "",
+            "",
+            "## Setup",
+            "",
+            "We used Python 3.9.9 and [PyTorch](https://pytorch.org/) 1.10.1 to train and test our models, but the codebase is expected to be compatible with Python 3.8-3.11 and recent PyTorch versions. ",
+            "",
+            "    pip install -U openai-whisper"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 8246
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/openai/whisper/main/LICENSE",
+          "bytes": 1063,
+          "sha256": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d",
+          "excerpt": [
+            "MIT License",
+            "",
+            "Copyright (c) 2022 OpenAI",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in all",
+            "copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+            "SOFTWARE."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1063
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "requirements.txt",
+          "url": "https://raw.githubusercontent.com/openai/whisper/main/requirements.txt",
+          "bytes": 140,
+          "sha256": "70063b7cde70331c8d9187bb459c27fbe87bf3335cebc3ee55675b9d91262599",
+          "excerpt": [
+            "numba",
+            "numpy",
+            "torch",
+            "tqdm",
+            "more-itertools",
+            "tiktoken",
+            "triton>=2.0.0;platform_machine==\"x86_64\" and sys_platform==\"linux\" or sys_platform==\"linux2\""
+          ],
+          "attempts": [
+            {
+              "path": "setup.py",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "requirements.txt",
+              "http_status": 200,
+              "bytes": 140
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "whisper/transcribe.py",
+          "url": "https://raw.githubusercontent.com/openai/whisper/main/whisper/transcribe.py",
+          "bytes": 30375,
+          "sha256": "176f5ab30e961bec2a7872f5701a1f5bf3cbfc77946e50512f0f0cf00a1ceacf",
+          "excerpt": [
+            "import argparse",
+            "import os",
+            "import traceback",
+            "import warnings",
+            "from typing import TYPE_CHECKING, List, Optional, Tuple, Union",
+            "",
+            "import numpy as np",
+            "import torch",
+            "import tqdm",
+            "",
+            "from .audio import (",
+            "    FRAMES_PER_SECOND,",
+            "    HOP_LENGTH,",
+            "    N_FRAMES,",
+            "    N_SAMPLES,",
+            "    SAMPLE_RATE,",
+            "    log_mel_spectrogram,",
+            "    pad_or_trim,",
+            ")",
+            "from .decoding import DecodingOptions, DecodingResult",
+            "from .timing import add_word_timestamps",
+            "from .tokenizer import LANGUAGES, TO_LANGUAGE_CODE, get_tokenizer"
+          ],
+          "attempts": [
+            {
+              "path": "whisper/transcribe.py",
+              "http_status": 200,
+              "bytes": 30375
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/openai/whisper/main/LICENSE",
+        "excerpt": [
+          "MIT License",
+          "",
+          "Copyright (c) 2022 OpenAI",
+          "",
+          "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "of this software and associated documentation files (the \"Software\"), to deal",
+          "in the Software without restriction, including without limitation the rights",
+          "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/openai/whisper/commits/main.atom",
+        "feed_updated": "2026-08-31T17:19:19Z",
+        "most_recent_entry_updated": "2026-08-31T17:19:19Z",
+        "entry_count": 20,
+        "sample_entry_title": "Only spell out a standalone 1 in the English number normalizer (#2836)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - openai/whisper: Robust Speech Recognition via Large-Scale Weak Supervision · GitHub",
+        "description": "Robust Speech Recognition via Large-Scale Weak Supervision - openai/whisper",
+        "bytes": 283853
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "numba",
+        "numpy",
+        "torch",
+        "tqdm",
+        "more-itertools",
+        "tiktoken",
+        "triton>=2.0.0;platform_machine==\"x86_64\" and sys_platform==\"linux\" or sys_platform==\"linux2\""
+      ]
+    },
+    {
+      "repo": "SYSTRAN/faster-whisper",
+      "directions": [
+        "subtitle_generation",
+        "asr",
+        "cpu_only"
+      ],
+      "repository_url": "https://github.com/SYSTRAN/faster-whisper",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/README.md",
+          "bytes": 15249,
+          "sha256": "43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b",
+          "excerpt": [
+            "[![CI](https://github.com/SYSTRAN/faster-whisper/workflows/CI/badge.svg)](https://github.com/SYSTRAN/faster-whisper/actions?query=workflow%3ACI) [![PyPI version](https://badge.fury.io/py/fas",
+            "",
+            "# Faster Whisper transcription with CTranslate2",
+            "",
+            "**faster-whisper** is a reimplementation of OpenAI's Whisper model using [CTranslate2](https://github.com/OpenNMT/CTranslate2/), which is a fast inference engine for Transformer models.",
+            "",
+            "This implementation is up to 4 times faster than [openai/whisper](https://github.com/openai/whisper) for the same accuracy while using less memory. The efficiency can be further improved wit",
+            "",
+            "## Benchmark",
+            "",
+            "### Whisper",
+            "",
+            "For reference, here's the time and memory usage that are required to transcribe [**13 minutes**](https://www.youtube.com/watch?v=0u7tTptBo9I) of audio using different implementations:",
+            "",
+            "* [openai/whisper](https://github.com/openai/whisper)@[v20240930](https://github.com/openai/whisper/tree/v20240930)",
+            "* [whisper.cpp](https://github.com/ggerganov/whisper.cpp)@[v1.7.2](https://github.com/ggerganov/whisper.cpp/tree/v1.7.2)",
+            "* [transformers](https://github.com/huggingface/transformers)@[v4.46.3](https://github.com/huggingface/transformers/tree/v4.46.3)",
+            "* [faster-whisper](https://github.com/SYSTRAN/faster-whisper)@[v1.1.0](https://github.com/SYSTRAN/faster-whisper/tree/v1.1.0)",
+            "",
+            "### Large-v2 model on GPU",
+            "",
+            "| Implementation | Precision | Beam size | Time | VRAM Usage |"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 15249
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/LICENSE",
+          "bytes": 1064,
+          "sha256": "af6798135e729f8aa6c853936d037dfdea449734d26b8ea6a89805fca758c0d5",
+          "excerpt": [
+            "MIT License",
+            "",
+            "Copyright (c) 2023 SYSTRAN",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in all",
+            "copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+            "SOFTWARE."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1064
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "requirements.txt",
+          "url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/requirements.txt",
+          "bytes": 96,
+          "sha256": "32896d8045e27cff269fa9005fb42bcf064b83d6d358544b8f7266ef6ea0e4a3",
+          "excerpt": [
+            "ctranslate2>=4.0,<5",
+            "huggingface_hub>=0.23",
+            "tokenizers>=0.13,<1",
+            "onnxruntime>=1.14,<2",
+            "av>=11",
+            "tqdm"
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "requirements.txt",
+              "http_status": 200,
+              "bytes": 96
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "faster_whisper/transcribe.py",
+          "url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/faster_whisper/transcribe.py",
+          "bytes": 82457,
+          "sha256": "d88c67a88a98a57d41b8b15ea419c8d2e95177b763156a008ac0173046da8159",
+          "excerpt": [
+            "import itertools",
+            "import json",
+            "import logging",
+            "import os",
+            "import zlib",
+            "",
+            "from dataclasses import asdict, dataclass",
+            "from inspect import signature",
+            "from math import ceil",
+            "from typing import BinaryIO, Iterable, List, Optional, Tuple, Union",
+            "from warnings import warn",
+            "",
+            "import ctranslate2",
+            "import numpy as np",
+            "import tokenizers",
+            "",
+            "from tqdm import tqdm",
+            "",
+            "from faster_whisper.audio import decode_audio, pad_or_trim",
+            "from faster_whisper.feature_extractor import FeatureExtractor",
+            "from faster_whisper.tokenizer import _LANGUAGE_CODES, Tokenizer",
+            "from faster_whisper.utils import download_model, format_timestamp, get_end, get_logger"
+          ],
+          "attempts": [
+            {
+              "path": "faster_whisper/transcribe.py",
+              "http_status": 200,
+              "bytes": 82457
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/LICENSE",
+        "excerpt": [
+          "MIT License",
+          "",
+          "Copyright (c) 2023 SYSTRAN",
+          "",
+          "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "of this software and associated documentation files (the \"Software\"), to deal",
+          "in the Software without restriction, including without limitation the rights",
+          "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/SYSTRAN/faster-whisper/commits/master.atom",
+        "feed_updated": "2026-11-06T17:24:51Z",
+        "most_recent_entry_updated": "2026-11-06T17:24:51Z",
+        "entry_count": 20,
+        "sample_entry_title": "Make collect_chunks() linear in the number of chunks (#1692)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - SYSTRAN/faster-whisper: Faster Whisper transcription with CTranslate2 · GitHub",
+        "description": "Faster Whisper transcription with CTranslate2. Contribute to SYSTRAN/faster-whisper development by creating an account on GitHub.",
+        "bytes": 354224
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "ctranslate2>=4.0,<5",
+        "huggingface_hub>=0.23",
+        "tokenizers>=0.13,<1",
+        "onnxruntime>=1.14,<2",
+        "av>=11",
+        "tqdm"
+      ]
+    },
+    {
+      "repo": "m-bain/whisperX",
+      "directions": [
+        "subtitle_generation",
+        "word_level_alignment",
+        "subtitle_layout"
+      ],
+      "repository_url": "https://github.com/m-bain/whisperX",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/m-bain/whisperX/main/README.md",
+          "bytes": 16507,
+          "sha256": "98ebee691ebee0ca5bdd9257dad72e1e74a9c216ff3adb7fa68d5164007a84ea",
+          "excerpt": [
+            "<h1 align=\"center\">WhisperX</h1>",
+            "",
+            "## Recall.ai - Meeting Transcription API",
+            "",
+            "If you’re looking for a transcription API for meetings, consider checking out [Recall.ai's Meeting Transcription API](https://www.recall.ai/product/meeting-transcription-api?utm_source=githu",
+            "",
+            "",
+            "<p align=\"center\">",
+            "  <a href=\"https://github.com/m-bain/whisperX/stargazers\">",
+            "    <img src=\"https://img.shields.io/github/stars/m-bain/whisperX.svg?colorA=orange&colorB=orange&logo=github\"",
+            "         alt=\"GitHub stars\">",
+            "  </a>",
+            "  <a href=\"https://github.com/m-bain/whisperX/issues\">",
+            "        <img src=\"https://img.shields.io/github/issues/m-bain/whisperx.svg\"",
+            "             alt=\"GitHub issues\">",
+            "  </a>",
+            "  <a href=\"https://github.com/m-bain/whisperX/blob/master/LICENSE\">",
+            "        <img src=\"https://img.shields.io/github/license/m-bain/whisperX.svg\"",
+            "             alt=\"GitHub license\">",
+            "  </a>",
+            "  <a href=\"https://arxiv.org/abs/2303.00747\">",
+            "        <img src=\"http://img.shields.io/badge/Arxiv-2303.00747-B31B1B.svg\""
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 16507
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/m-bain/whisperX/main/LICENSE",
+          "bytes": 1297,
+          "sha256": "cddc25bce26226b4a04ed12839d9006b7a4403da9020ef6428ef7282a6567441",
+          "excerpt": [
+            "BSD 2-Clause License",
+            "",
+            "Copyright (c) 2024, Max Bain",
+            "",
+            "Redistribution and use in source and binary forms, with or without",
+            "modification, are permitted provided that the following conditions are met:",
+            "",
+            "1. Redistributions of source code must retain the above copyright notice, this",
+            "   list of conditions and the following disclaimer.",
+            "",
+            "2. Redistributions in binary form must reproduce the above copyright notice,",
+            "   this list of conditions and the following disclaimer in the documentation",
+            "   and/or other materials provided with the distribution.",
+            "",
+            "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"",
+            "AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE",
+            "IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE",
+            "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE",
+            "FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL",
+            "DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR",
+            "SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER",
+            "CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,"
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1297
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "pyproject.toml",
+          "url": "https://raw.githubusercontent.com/m-bain/whisperX/main/pyproject.toml",
+          "bytes": 2717,
+          "sha256": "35516a23c3a01c230eeff2a95192bf3db6365171c4875468d6d8a4e35544d061",
+          "excerpt": [
+            "[project]",
+            "urls = { repository = \"https://github.com/m-bain/whisperx\" }",
+            "authors = [{ name = \"Max Bain\" }]",
+            "name = \"whisperx\"",
+            "version = \"3.8.7rc1\"",
+            "description = \"Time-Accurate Automatic Speech Recognition using Whisper.\"",
+            "readme = \"README.md\"",
+            "requires-python = \">=3.10, <3.14\"",
+            "license = { text = \"BSD-2-Clause\" }",
+            "",
+            "dependencies = [",
+            "    \"ctranslate2>=4.5.0\",",
+            "    \"faster-whisper>=1.2.0\",",
+            "    \"nltk>=3.9.1\",",
+            "    \"numpy>=2.1.0\",",
+            "    \"omegaconf>=2.3.0\",",
+            "    \"pandas>=2.2.3\",",
+            "    \"pyannote-audio>=4.0.0\",",
+            "    \"huggingface-hub>=0.28.1\",",
+            "    \"torch~=2.8.0\",",
+            "    \"torchvision~=0.23.0\",",
+            "    \"torchcodec>=0.6.0,<0.8.0; (sys_platform == 'linux' and platform_machine == 'x86_64') or sys_platform == 'darwin' or sys_platform == 'win32'\","
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 200,
+              "bytes": 2717
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "whisperx/alignment.py",
+          "url": "https://raw.githubusercontent.com/m-bain/whisperX/main/whisperx/alignment.py",
+          "bytes": 26926,
+          "sha256": "df1e565ebe9e039c9c32f2fafff427ee1b7107bdb45699f0fe636163a62957f2",
+          "excerpt": [
+            "\"\"\"",
+            "Forced Alignment with Whisper",
+            "C. Max Bain",
+            "\"\"\"",
+            "from dataclasses import dataclass",
+            "from typing import Iterable, Optional, Union, List",
+            "",
+            "import numpy as np",
+            "import pandas as pd",
+            "import torch",
+            "try:",
+            "    import torchaudio",
+            "except Exception:  # broken installs (missing native libs, ABI mismatch) should",
+            "    torchaudio = None  # degrade to the HuggingFace path, not crash the import",
+            "from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor",
+            "",
+            "try:",
+            "    from numba import njit",
+            "    _HAS_NUMBA = True",
+            "except Exception:",
+            "    _HAS_NUMBA = False",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "whisperx/alignment.py",
+              "http_status": 200,
+              "bytes": 26926
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "BSD",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/m-bain/whisperX/main/LICENSE",
+        "excerpt": [
+          "BSD 2-Clause License",
+          "",
+          "Copyright (c) 2024, Max Bain",
+          "",
+          "Redistribution and use in source and binary forms, with or without",
+          "modification, are permitted provided that the following conditions are met:",
+          "",
+          "1. Redistributions of source code must retain the above copyright notice, this"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/m-bain/whisperX/commits/main.atom",
+        "feed_updated": "2026-10-22T14:53:43Z",
+        "most_recent_entry_updated": "2026-10-22T14:53:43Z",
+        "entry_count": 20,
+        "sample_entry_title": "Merge pull request #1469 from li-lizhe/fix-optional-torchaudio"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - m-bain/whisperX: WhisperX: Automatic Speech Recognition with Word-level Timestamps (&amp; Diarization) · GitHub",
+        "description": "WhisperX:  Automatic Speech Recognition with Word-level Timestamps (&amp; Diarization) - m-bain/whisperX",
+        "bytes": 360917
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "[project]",
+        "urls = { repository = \"https://github.com/m-bain/whisperx\" }",
+        "authors = [{ name = \"Max Bain\" }]",
+        "name = \"whisperx\"",
+        "version = \"3.8.7rc1\"",
+        "description = \"Time-Accurate Automatic Speech Recognition using Whisper.\"",
+        "readme = \"README.md\"",
+        "requires-python = \">=3.10, <3.14\"",
+        "license = { text = \"BSD-2-Clause\" }",
+        "",
+        "dependencies = [",
+        "    \"ctranslate2>=4.5.0\",",
+        "    \"faster-whisper>=1.2.0\",",
+        "    \"nltk>=3.9.1\",",
+        "    \"numpy>=2.1.0\",",
+        "    \"omegaconf>=2.3.0\",",
+        "    \"pandas>=2.2.3\",",
+        "    \"pyannote-audio>=4.0.0\",",
+        "    \"huggingface-hub>=0.28.1\",",
+        "    \"torch~=2.8.0\",",
+        "    \"torchvision~=0.23.0\",",
+        "    \"torchcodec>=0.6.0,<0.8.0; (sys_platform == 'linux' and platform_machine == 'x86_64') or sys_platform == 'darwin' or sys_platform == 'win32'\","
+      ]
+    },
+    {
+      "repo": "Aegisub/Aegisub",
+      "directions": [
+        "subtitle_layout",
+        "subtitle_typesetting"
+      ],
+      "repository_url": "https://github.com/Aegisub/Aegisub",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/Aegisub/Aegisub/master/README.md",
+          "bytes": 5415,
+          "sha256": "34c3b3306df7e1037e6c9d21316a7b7a6837f99687b51b9e2215c1217de5c913",
+          "excerpt": [
+            "# Aegisub",
+            "",
+            "For binaries and general information [see the homepage](http://www.aegisub.org).",
+            "",
+            "The bug tracker can be found at http://devel.aegisub.org.",
+            "",
+            "Support is available on [the forums](http://forum.aegisub.org) or [on IRC](irc://irc.rizon.net/aegisub).",
+            "",
+            "## Building Aegisub",
+            "",
+            "### Windows",
+            "",
+            "Prerequisites:",
+            "",
+            "1. Visual Studio 2015 (the free Community edition is good enough)",
+            "2. The June 2010 DirectX SDK (the final release before DirectSound was dropped)",
+            "3. [Yasm](http://yasm.tortall.net/) installed to somewhere on your path.",
+            "",
+            "There are a few optional dependencies:",
+            "",
+            "1. msgfmt, to build the translations",
+            "2. WinRAR, to build the portable installer"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 5415
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENCE",
+          "url": "https://raw.githubusercontent.com/Aegisub/Aegisub/master/LICENCE",
+          "bytes": 1980,
+          "sha256": "dac4a32575f6272a1285e03e957d5f67cd8682db717cab92d83c55a9dadbe748",
+          "excerpt": [
+            "Copyright (c) 2004-2012, Aegisub Project",
+            "All rights reserved.",
+            "",
+            "Redistribution and use in source and binary forms, with or without",
+            "modification, are permitted provided that the following conditions are met:",
+            "",
+            "  * Redistributions of source code must retain the above copyright notice,",
+            "    this list of conditions and the following disclaimer.",
+            "  * Redistributions in binary form must reproduce the above copyright notice,",
+            "    this list of conditions and the following disclaimer in the documentation",
+            "    and/or other materials provided with the distribution.",
+            "  * Neither the name of the Aegisub Group nor the names of its contributors",
+            "    may be used to endorse or promote products derived from this software",
+            "    without specific prior written permission.",
+            "",
+            "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"",
+            "AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE",
+            "IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE",
+            "ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE",
+            "LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR",
+            "CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF",
+            "SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS"
+          ],
+          "attempts": [
+            {
+              "path": "LICENCE",
+              "http_status": 200,
+              "bytes": 1980
+            }
+          ]
+        },
+        "deps": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "CMakeLists.txt",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "src/subtitle_format.cpp",
+          "url": "https://raw.githubusercontent.com/Aegisub/Aegisub/master/src/subtitle_format.cpp",
+          "bytes": 10682,
+          "sha256": "3c7e6e01c0da12fdaf41e9aeb8527fbe04baeb5567965c581ca1728b91e9fb99",
+          "excerpt": [
+            "// Copyright (c) 2006, Rodrigo Braz Monteiro",
+            "// All rights reserved.",
+            "//",
+            "// Redistribution and use in source and binary forms, with or without",
+            "// modification, are permitted provided that the following conditions are met:",
+            "//",
+            "//   * Redistributions of source code must retain the above copyright notice,",
+            "//     this list of conditions and the following disclaimer.",
+            "//   * Redistributions in binary form must reproduce the above copyright notice,",
+            "//     this list of conditions and the following disclaimer in the documentation",
+            "//     and/or other materials provided with the distribution.",
+            "//   * Neither the name of the Aegisub Group nor the names of its contributors",
+            "//     may be used to endorse or promote products derived from this software",
+            "//     without specific prior written permission.",
+            "//",
+            "// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"",
+            "// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE",
+            "// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE",
+            "// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE",
+            "// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR",
+            "// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF",
+            "// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS"
+          ],
+          "attempts": [
+            {
+              "path": "src/subtitle_format.cpp",
+              "http_status": 200,
+              "bytes": 10682
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENCE",
+        "license_url": "https://raw.githubusercontent.com/Aegisub/Aegisub/master/LICENCE",
+        "excerpt": [
+          "Copyright (c) 2004-2012, Aegisub Project",
+          "All rights reserved.",
+          "",
+          "Redistribution and use in source and binary forms, with or without",
+          "modification, are permitted provided that the following conditions are met:",
+          "",
+          "  * Redistributions of source code must retain the above copyright notice,",
+          "    this list of conditions and the following disclaimer."
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/Aegisub/Aegisub/commits/master.atom",
+        "feed_updated": "2019-10-06T19:46:06Z",
+        "most_recent_entry_updated": "2019-10-06T19:46:06Z",
+        "entry_count": 20,
+        "sample_entry_title": "Use appropriate DPI images in more places on macOS"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - Aegisub/Aegisub: Cross-platform advanced subtitle editor · GitHub",
+        "description": "Cross-platform advanced subtitle editor. Contribute to Aegisub/Aegisub development by creating an account on GitHub.",
+        "bytes": 282434
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": []
+    },
+    {
+      "repo": "myshell-ai/MeloTTS",
+      "directions": [
+        "tts",
+        "chinese_narration",
+        "cpu_only"
+      ],
+      "repository_url": "https://github.com/myshell-ai/MeloTTS",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/README.md",
+          "bytes": 3492,
+          "sha256": "ee0722f303183c227dc2008069d2fe6cd2c72867d4062c61598a5435b1b55205",
+          "excerpt": [
+            "<div align=\"center\">",
+            "  <div>&nbsp;</div>",
+            "  <img src=\"logo.png\" width=\"300\"/> <br>",
+            "  <a href=\"https://trendshift.io/repositories/8133\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/8133\" alt=\"myshell-ai%2FMeloTTS | Trendshift\" style=\"width: 250px; ",
+            "</div>",
+            "",
+            "## Introduction",
+            "MeloTTS is a **high-quality multi-lingual** text-to-speech library by [MIT](https://www.mit.edu/) and [MyShell.ai](https://myshell.ai). Supported languages include:",
+            "",
+            "| Language | Example |",
+            "| --- | --- |",
+            "| English (American)    | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/en/EN-US/speed_1.0/sent_000.wav) |",
+            "| English (British)     | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/en/EN-BR/speed_1.0/sent_000.wav) |",
+            "| English (Indian)      | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/en/EN_INDIA/speed_1.0/sent_000.wav) |",
+            "| English (Australian)  | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/en/EN-AU/speed_1.0/sent_000.wav) |",
+            "| English (Default)     | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/en/EN-Default/speed_1.0/sent_000.wav) |",
+            "| Spanish               | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/es/ES/speed_1.0/sent_000.wav) |",
+            "| French                | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/fr/FR/speed_1.0/sent_000.wav) |",
+            "| Chinese (mix EN)      | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/zh/ZH/speed_1.0/sent_008.wav) |",
+            "| Japanese              | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/jp/JP/speed_1.0/sent_000.wav) |",
+            "| Korean                | [Link](https://myshell-public-repo-host.s3.amazonaws.com/myshellttsbase/examples/kr/KR/speed_1.0/sent_000.wav) |",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 3492
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/LICENSE",
+          "bytes": 1053,
+          "sha256": "88a50e5a02bbc2a5c2f084dc19da751aa97b1690f5fda76cd8005c8634d1ca70",
+          "excerpt": [
+            "Copyright (c) 2024 MyShell.ai",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in all",
+            "copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+            "SOFTWARE."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1053
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "requirements.txt",
+          "url": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/requirements.txt",
+          "bytes": 424,
+          "sha256": "c6a93954979338efb8cd15afa773d43967481fdfe25d7e0fe189ceff5a80c54d",
+          "excerpt": [
+            "txtsplit",
+            "torch",
+            "torchaudio",
+            "cached_path",
+            "transformers==4.27.4",
+            "num2words==0.5.12",
+            "unidic_lite==1.0.8",
+            "unidic==1.1.0",
+            "mecab-python3==1.0.9",
+            "pykakasi==2.2.1",
+            "fugashi==1.3.0",
+            "g2p_en==2.1.0",
+            "anyascii==0.3.2",
+            "jamo==0.4.1",
+            "gruut[de,es,fr]==2.2.3",
+            "g2pkk>=0.1.1",
+            "librosa==0.9.1",
+            "pydub==0.25.1",
+            "eng_to_ipa==0.0.2",
+            "inflect==7.0.0",
+            "unidecode==1.3.7",
+            "pypinyin==0.50.0"
+          ],
+          "attempts": [
+            {
+              "path": "requirements.txt",
+              "http_status": 200,
+              "bytes": 424
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "melo/api.py",
+          "url": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/melo/api.py",
+          "bytes": 5108,
+          "sha256": "942f773a2a90ace001108d996e645e48f338c513733f0f6667c6070e04df7a70",
+          "excerpt": [
+            "import os",
+            "import re",
+            "import json",
+            "import torch",
+            "import librosa",
+            "import soundfile",
+            "import torchaudio",
+            "import numpy as np",
+            "import torch.nn as nn",
+            "from tqdm import tqdm",
+            "import torch",
+            "",
+            "from . import utils",
+            "from . import commons",
+            "from .models import SynthesizerTrn",
+            "from .split_utils import split_sentence",
+            "from .mel_processing import spectrogram_torch, spectrogram_torch_conv",
+            "from .download_utils import load_or_download_config, load_or_download_model",
+            "",
+            "class TTS(nn.Module):",
+            "    def __init__(self,",
+            "                language,"
+          ],
+          "attempts": [
+            {
+              "path": "melo/api.py",
+              "http_status": 200,
+              "bytes": 5108
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/LICENSE",
+        "excerpt": [
+          "Copyright (c) 2024 MyShell.ai",
+          "",
+          "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "of this software and associated documentation files (the \"Software\"), to deal",
+          "in the Software without restriction, including without limitation the rights",
+          "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+          "copies of the Software, and to permit persons to whom the Software is",
+          "furnished to do so, subject to the following conditions:"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/myshell-ai/MeloTTS/commits/main.atom",
+        "feed_updated": "2024-12-24T19:17:13Z",
+        "most_recent_entry_updated": "2024-12-24T19:17:13Z",
+        "entry_count": 20,
+        "sample_entry_title": "Update README.md"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - myshell-ai/MeloTTS: High-quality multi-lingual text-to-speech library by MyShell.ai. Support English, Spanish, French, Chinese, Japanese and Korean. · GitHub",
+        "description": "High-quality multi-lingual text-to-speech library by MyShell.ai. Support English, Spanish, French, Chinese, Japanese and Korean. - myshell-ai/MeloTTS",
+        "bytes": 238276
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "txtsplit",
+        "torch",
+        "torchaudio",
+        "cached_path",
+        "transformers==4.27.4",
+        "num2words==0.5.12",
+        "unidic_lite==1.0.8",
+        "unidic==1.1.0",
+        "mecab-python3==1.0.9",
+        "pykakasi==2.2.1",
+        "fugashi==1.3.0",
+        "g2p_en==2.1.0",
+        "anyascii==0.3.2",
+        "jamo==0.4.1",
+        "gruut[de,es,fr]==2.2.3",
+        "g2pkk>=0.1.1",
+        "librosa==0.9.1",
+        "pydub==0.25.1",
+        "eng_to_ipa==0.0.2",
+        "inflect==7.0.0",
+        "unidecode==1.3.7",
+        "pypinyin==0.50.0"
+      ]
+    },
+    {
+      "repo": "coqui-ai/TTS",
+      "directions": [
+        "tts",
+        "chinese_narration"
+      ],
+      "repository_url": "https://github.com/coqui-ai/TTS",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/coqui-ai/TTS/dev/README.md",
+          "bytes": 17429,
+          "sha256": "3be56d1fa633aa71947b8f52788ac85a3603f0ad52abad4fe6710d60a5aa8314",
+          "excerpt": [
+            "",
+            "## 🐸Coqui.ai News",
+            "- 📣 ⓍTTSv2 is here with 16 languages and better performance across the board.",
+            "- 📣 ⓍTTS fine-tuning code is out. Check the [example recipes](https://github.com/coqui-ai/TTS/tree/dev/recipes/ljspeech).",
+            "- 📣 ⓍTTS can now stream with <200ms latency.",
+            "- 📣 ⓍTTS, our production TTS model that can speak 13 languages, is released [Blog Post](https://coqui.ai/blog/tts/open_xtts), [Demo](https://huggingface.co/spaces/coqui/xtts), [Docs](https:/",
+            "- 📣 [🐶Bark](https://github.com/suno-ai/bark) is now available for inference with unconstrained voice cloning. [Docs](https://tts.readthedocs.io/en/dev/models/bark.html)",
+            "- 📣 You can use [~1100 Fairseq models](https://github.com/facebookresearch/fairseq/tree/main/examples/mms) with 🐸TTS.",
+            "- 📣 🐸TTS now supports 🐢Tortoise with faster inference. [Docs](https://tts.readthedocs.io/en/dev/models/tortoise.html)",
+            "",
+            "<div align=\"center\">",
+            "<img src=\"https://static.scarf.sh/a.png?x-pxid=cf317fe7-2188-4721-bc01-124bb5d5dbb2\" />",
+            "",
+            "## <img src=\"https://raw.githubusercontent.com/coqui-ai/TTS/main/images/coqui-log-green-TTS.png\" height=\"56\"/>",
+            "",
+            "",
+            "**🐸TTS is a library for advanced Text-to-Speech generation.**",
+            "",
+            "🚀 Pretrained models in +1100 languages.",
+            "",
+            "🛠️ Tools for training new models and fine-tuning existing models in any language.",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 17429
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/coqui-ai/TTS/dev/LICENSE.txt",
+          "bytes": 16726,
+          "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+          "excerpt": [
+            "Mozilla Public License Version 2.0",
+            "==================================",
+            "",
+            "1. Definitions",
+            "--------------",
+            "",
+            "1.1. \"Contributor\"",
+            "    means each individual or legal entity that creates, contributes to",
+            "    the creation of, or owns Covered Software.",
+            "",
+            "1.2. \"Contributor Version\"",
+            "    means the combination of the Contributions of others (if any) used",
+            "    by a Contributor and that particular Contributor's Contribution.",
+            "",
+            "1.3. \"Contribution\"",
+            "    means Covered Software of a particular Contributor.",
+            "",
+            "1.4. \"Covered Software\"",
+            "    means Source Code Form to which the initial Contributor has attached",
+            "    the notice in Exhibit A, the Executable Form of such Source Code",
+            "    Form, and Modifications of such Source Code Form, in each case",
+            "    including portions thereof."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE.txt",
+              "http_status": 200,
+              "bytes": 16726
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "pyproject.toml",
+          "url": "https://raw.githubusercontent.com/coqui-ai/TTS/dev/pyproject.toml",
+          "bytes": 282,
+          "sha256": "8a68c1413d169f82a40a4a2988688745bcd672d9720f1546044ff11bbfe625c5",
+          "excerpt": [
+            "[build-system]",
+            "requires = [",
+            "    \"setuptools\",",
+            "    \"wheel\",",
+            "    \"cython~=0.29.30\",",
+            "    \"numpy>=1.22.0\",",
+            "    \"packaging\",",
+            "]",
+            "",
+            "[flake8]",
+            "max-line-length=120",
+            "",
+            "[tool.black]",
+            "line-length = 120",
+            "target-version = ['py39']",
+            "",
+            "[tool.isort]",
+            "line_length = 120",
+            "profile = \"black\"",
+            "multi_line_output = 3"
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 200,
+              "bytes": 282
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "TTS/api.py",
+          "url": "https://raw.githubusercontent.com/coqui-ai/TTS/dev/TTS/api.py",
+          "bytes": 20575,
+          "sha256": "2117270a2541721928b03616d5b383e79033005eb9192c91d8448b8a9853763f",
+          "excerpt": [
+            "import tempfile",
+            "import warnings",
+            "from pathlib import Path",
+            "from typing import Union",
+            "",
+            "import numpy as np",
+            "from torch import nn",
+            "",
+            "from TTS.utils.audio.numpy_transforms import save_wav",
+            "from TTS.utils.manage import ModelManager",
+            "from TTS.utils.synthesizer import Synthesizer",
+            "from TTS.config import load_config",
+            "",
+            "",
+            "class TTS(nn.Module):",
+            "    \"\"\"TODO: Add voice conversion and Capacitron support.\"\"\"",
+            "",
+            "    def __init__(",
+            "        self,",
+            "        model_name: str = \"\",",
+            "        model_path: str = None,",
+            "        config_path: str = None,"
+          ],
+          "attempts": [
+            {
+              "path": "TTS/api.py",
+              "http_status": 200,
+              "bytes": 20575
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MPL-2.0",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE.txt",
+        "license_url": "https://raw.githubusercontent.com/coqui-ai/TTS/dev/LICENSE.txt",
+        "excerpt": [
+          "Mozilla Public License Version 2.0",
+          "==================================",
+          "",
+          "1. Definitions",
+          "--------------",
+          "",
+          "1.1. \"Contributor\"",
+          "    means each individual or legal entity that creates, contributes to"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/coqui-ai/TTS/commits/dev.atom",
+        "feed_updated": "2024-02-10T14:20:58Z",
+        "most_recent_entry_updated": "2024-02-10T14:20:58Z",
+        "entry_count": 20,
+        "sample_entry_title": "Update generic_utils.py (#3561)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - coqui-ai/TTS: 🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production · GitHub",
+        "description": "🐸💬 - a deep learning toolkit for Text-to-Speech, battle-tested in research and production - coqui-ai/TTS",
+        "bytes": 435225
+      },
+      "branch_used": "dev",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "[build-system]",
+        "requires = [",
+        "    \"setuptools\",",
+        "    \"wheel\",",
+        "    \"cython~=0.29.30\",",
+        "    \"numpy>=1.22.0\",",
+        "    \"packaging\",",
+        "]",
+        "",
+        "[flake8]",
+        "max-line-length=120",
+        "",
+        "[tool.black]",
+        "line-length = 120",
+        "target-version = ['py39']",
+        "",
+        "[tool.isort]",
+        "line_length = 120",
+        "profile = \"black\"",
+        "multi_line_output = 3"
+      ]
+    },
+    {
+      "repo": "rany2/edge-tts",
+      "directions": [
+        "tts",
+        "free_but_online"
+      ],
+      "repository_url": "https://github.com/rany2/edge-tts",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/rany2/edge-tts/master/README.md",
+          "bytes": 5189,
+          "sha256": "7f8b8d1941037c3bc341deae0bb148de7a95d9b41a47dc89c90093d3cc61a0e9",
+          "excerpt": [
+            "# edge-tts",
+            "",
+            "`edge-tts` is a Python module that allows you to use Microsoft Edge's online text-to-speech service from within your Python code or using the provided `edge-tts` or `edge-playback` command.",
+            "",
+            "## Installation",
+            "",
+            "To install it, run the following command:",
+            "",
+            "    $ pip install edge-tts",
+            "",
+            "If you only want to use the `edge-tts` and `edge-playback` commands, it would be better to use `pipx`:",
+            "",
+            "    $ pipx install edge-tts",
+            "",
+            "## Usage",
+            "",
+            "### Basic usage",
+            "",
+            "If you want to use the `edge-tts` command, you can simply run it with the following command:",
+            "",
+            "    $ edge-tts --text \"Hello, world!\" --write-media hello.mp3 --write-subtitles hello.srt",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 5189
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/rany2/edge-tts/master/LICENSE",
+          "bytes": 9041,
+          "sha256": "3613045a46a5bce847f80eadbbf013e4260ef19d728ffd061d61e792689ec3a8",
+          "excerpt": [
+            "The MIT license is used for 'src/edge_tts/srt_composer.py' only. All",
+            "remaining files are licensed under the LGPLv3.",
+            "",
+            "-----------------------------------------------------------------------",
+            "",
+            "The MIT License",
+            "",
+            "Copyright (c) 2014-2023 Christopher Down",
+            "Copyright (c) 2025- rany <rany@riseup.net>",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in",
+            "all copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,"
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 9041
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "setup.py",
+          "url": "https://raw.githubusercontent.com/rany2/edge-tts/master/setup.py",
+          "bytes": 307,
+          "sha256": "7fd0a46b68268f694a5855fcfc465c4d8e2225d10c34826265072bbf907a47af",
+          "excerpt": [
+            "from setuptools import setup",
+            "",
+            "# Metadata goes in setup.cfg. These are here for GitHub's dependency graph.",
+            "setup(",
+            "    name=\"edge-tts\",",
+            "    install_requires=[",
+            "        \"aiohttp>=3.8.0,<4.0.0\",",
+            "        \"certifi>=2023.11.17\",",
+            "        \"tabulate>=0.4.4,<1.0.0\",",
+            "        \"typing-extensions>=4.1.0,<5.0.0\",",
+            "    ],",
+            ")"
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "setup.py",
+              "http_status": 200,
+              "bytes": 307
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "src/edge_tts/communicate.py",
+          "url": "https://raw.githubusercontent.com/rany2/edge-tts/master/src/edge_tts/communicate.py",
+          "bytes": 24364,
+          "sha256": "aa4a494c744149df0bcb164de540eb36a1a351941399b4b31481f6364b53d9a2",
+          "excerpt": [
+            "\"\"\"Communicate with the service. Only the Communicate class should be used by",
+            "end-users. The other classes and functions are for internal use only.\"\"\"",
+            "",
+            "import asyncio",
+            "import concurrent.futures",
+            "import json",
+            "import ssl",
+            "import time",
+            "import uuid",
+            "from contextlib import nullcontext",
+            "from io import TextIOWrapper",
+            "from queue import Queue",
+            "from typing import (",
+            "    AsyncGenerator,",
+            "    ContextManager,",
+            "    Dict,",
+            "    Generator,",
+            "    List,",
+            "    Optional,",
+            "    Tuple,",
+            "    Union,",
+            ")"
+          ],
+          "attempts": [
+            {
+              "path": "src/edge_tts/communicate.py",
+              "http_status": 200,
+              "bytes": 24364
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/rany2/edge-tts/master/LICENSE",
+        "excerpt": [
+          "The MIT license is used for 'src/edge_tts/srt_composer.py' only. All",
+          "remaining files are licensed under the LGPLv3.",
+          "",
+          "-----------------------------------------------------------------------",
+          "",
+          "The MIT License",
+          "",
+          "Copyright (c) 2014-2023 Christopher Down"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/rany2/edge-tts/commits/master.atom",
+        "feed_updated": "2026-10-14T09:30:52Z",
+        "most_recent_entry_updated": "2026-10-14T09:30:52Z",
+        "entry_count": 20,
+        "sample_entry_title": "fix: propagate errors from stream_sync instead of hanging"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - rany2/edge-tts: Use Microsoft Edge&#39;s online text-to-speech service from Python WITHOUT needing Microsoft Edge · GitHub",
+        "description": "Use Microsoft Edge&#39;s online text-to-speech service from Python WITHOUT needing Microsoft Edge - rany2/edge-tts",
+        "bytes": 265060
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "from setuptools import setup",
+        "",
+        "# Metadata goes in setup.cfg. These are here for GitHub's dependency graph.",
+        "setup(",
+        "    name=\"edge-tts\",",
+        "    install_requires=[",
+        "        \"aiohttp>=3.8.0,<4.0.0\",",
+        "        \"certifi>=2023.11.17\",",
+        "        \"tabulate>=0.4.4,<1.0.0\",",
+        "        \"typing-extensions>=4.1.0,<5.0.0\",",
+        "    ],",
+        ")"
+      ]
+    },
+    {
+      "repo": "Netflix/vmaf",
+      "directions": [
+        "video_quality_metric"
+      ],
+      "repository_url": "https://github.com/Netflix/vmaf",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/Netflix/vmaf/master/README.md",
+          "bytes": 6595,
+          "sha256": "8715aef04da031857bee5f7d395c970131abf8750542918ea40d55707d6bd649",
+          "excerpt": [
+            "# VMAF - Video Multi-Method Assessment Fusion",
+            "",
+            "[![libvmaf](https://github.com/Netflix/vmaf/actions/workflows/libvmaf.yml/badge.svg)](https://github.com/Netflix/vmaf/actions/workflows/libvmaf.yml)",
+            "[![Windows](https://github.com/Netflix/vmaf/actions/workflows/windows.yml/badge.svg)](https://github.com/Netflix/vmaf/actions/workflows/windows.yml)",
+            "[![ffmpeg](https://github.com/Netflix/vmaf/actions/workflows/ffmpeg.yml/badge.svg)](https://github.com/Netflix/vmaf/actions/workflows/ffmpeg.yml)",
+            "[![Docker](https://github.com/Netflix/vmaf/actions/workflows/docker.yml/badge.svg)](https://github.com/Netflix/vmaf/actions/workflows/docker.yml)",
+            "",
+            "VMAF is an [Emmy-winning](https://theemmys.tv/) perceptual video quality assessment algorithm developed by Netflix. This software package includes a stand-alone C library `libvmaf` and its w",
+            "",
+            "Read [this](https://medium.com/netflix-techblog/toward-a-practical-perceptual-video-quality-metric-653f208b9652) tech blog post for an overview, [this](https://medium.com/netflix-techblog/vm",
+            "",
+            "Also included in `libvmaf` are implementations of several other metrics: PSNR, PSNR-HVS, SSIM, MS-SSIM and CIEDE2000.",
+            "",
+            "![vmaf logo](resource/images/vmaf_logo.jpg)",
+            "",
+            "## News",
+            "",
+            "- (2026-10-26) We are releasing an HDR version for VMAF-v1. Please refer to [models_v1.md](resource/doc/models_v1.md#hdr-models) for more information.",
+            "- (2026-06) We are releasing a new set of VMAF models (**v1**). See [tech blog](https://medium.com/netflix-techblog/vmaf-v1-good-is-not-good-enough-60d7e4244ea8) for more information on v1. ",
+            "- (2023-12-07) We are releasing `libvmaf v3.0.0`. It contains several optimizations and bug fixes, and a full removal of the APIs which were deprecated in `v2.0.0`.",
+            "- (2021-12-15) We have added to CAMBI the `full_ref` input parameter to allow running CAMBI as a full-reference metric, taking into account the banding that was already present on the source",
+            "- (2021-12-1) We have added to CAMBI the `max_log_contrast` input parameter to allow to capture banding with higher contrasts than the default. We have also sped up CAMBI (e.g., around 4.5x "
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 6595
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/Netflix/vmaf/master/LICENSE",
+          "bytes": 2833,
+          "sha256": "a6fdb51d02b9dfe198e55534bb8047fe6d756eda117f4ff83de98f92c1952710",
+          "excerpt": [
+            "LICENSE - BSD+Patent",
+            "SPDX short identifier: BSD-2-Clause-Patent",
+            "",
+            "Note: This license is designed to provide: a) a simple permissive license; b) that is compatible with the GNU General",
+            "Public License (GPL), version 2; and c) which also has an express patent grant included.",
+            "",
+            "Copyright (c) 2020 Netflix, Inc.",
+            "",
+            "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the",
+            "following conditions are met:",
+            "",
+            "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following",
+            "disclaimer.",
+            "",
+            "2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following",
+            "disclaimer in the documentation and/or other materials provided with the distribution.",
+            "",
+            "Subject to the terms and conditions of this license, each copyright holder and contributor hereby grants to those",
+            "receiving rights under this license a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except",
+            "for failure to satisfy the conditions of this license) patent license to make, have made, use, offer to sell, sell,",
+            "import, and otherwise transfer this software, where such license applies only to those patent claims, already acquired",
+            "or hereafter acquired, licensable by such copyright holder or contributor that are necessarily infringed by:"
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 2833
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "libvmaf/meson.build",
+          "url": "https://raw.githubusercontent.com/Netflix/vmaf/master/libvmaf/meson.build",
+          "bytes": 6773,
+          "sha256": "8517c72a54aae9c2af91e74f0949e57fe0c0592a8ef710d23b83335ee273f1cf",
+          "excerpt": [
+            "project('libvmaf', ['c', 'cpp'],",
+            "    version : '3.2.0',",
+            "    default_options : ['c_std=c11',",
+            "                       'cpp_std=c++11',",
+            "                       'warning_level=2',",
+            "                       'buildtype=release',",
+            "                       'default_library=both',",
+            "                      ],",
+            "    meson_version: '>= 0.56.1')",
+            "",
+            "vmaf_soname_version       = '3.2.0'",
+            "vmaf_api_version_array    = vmaf_soname_version.split('.')",
+            "vmaf_api_version_major    = vmaf_api_version_array[0]",
+            "vmaf_api_version_minor    = vmaf_api_version_array[1]",
+            "vmaf_api_version_revision = vmaf_api_version_array[2]",
+            "",
+            "libvmaf_src_root = meson.current_source_dir()",
+            "cc = meson.get_compiler('c')",
+            "libvmaf_inc = include_directories(['include'])",
+            "",
+            "# Arguments in test_args will be used even on feature tests",
+            "test_args = []"
+          ],
+          "attempts": [
+            {
+              "path": "libvmaf/meson.build",
+              "http_status": 200,
+              "bytes": 6773
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "python/vmaf/core/quality_runner.py",
+          "url": "https://raw.githubusercontent.com/Netflix/vmaf/master/python/vmaf/core/quality_runner.py",
+          "bytes": 62899,
+          "sha256": "0ab4812513f516fd2b1bfbace90c28312e4b21cee92eb13238a99345f1c6cbc4",
+          "excerpt": [
+            "import os",
+            "from abc import ABCMeta, abstractmethod, ABC",
+            "import re",
+            "from collections import defaultdict",
+            "from xml.etree import ElementTree",
+            "import copy",
+            "",
+            "import numpy as np",
+            "",
+            "from libsvm import svmutil",
+            "",
+            "import vmaf",
+            "from vmaf.config import VmafConfig",
+            "from vmaf import ExternalProgramCaller, convert_pixel_format_ffmpeg2vmafexec",
+            "from vmaf.core.executor import Executor",
+            "from vmaf.core.niqe_train_test_model import NiqeTrainTestModel",
+            "from vmaf.core.result import Result",
+            "from vmaf.core.feature_assembler import FeatureAssembler",
+            "from vmaf.core.train_test_model import TrainTestModel, LibsvmNusvrTrainTestModel, \\",
+            "    BootstrapLibsvmNusvrTrainTestModel",
+            "from vmaf.core.cambi_feature_extractor import CambiFeatureExtractor, CambiFullReferenceFeatureExtractor",
+            "from vmaf.core.feature_extractor import SsimFeatureExtractor, \\"
+          ],
+          "attempts": [
+            {
+              "path": "libvmaf/src/vmaf.c",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "python/vmaf/core/quality_runner.py",
+              "http_status": 200,
+              "bytes": 62899
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "BSD",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/Netflix/vmaf/master/LICENSE",
+        "excerpt": [
+          "LICENSE - BSD+Patent",
+          "SPDX short identifier: BSD-2-Clause-Patent",
+          "",
+          "Note: This license is designed to provide: a) a simple permissive license; b) that is compatible with the GNU General",
+          "Public License (GPL), version 2; and c) which also has an express patent grant included.",
+          "",
+          "Copyright (c) 2020 Netflix, Inc.",
+          ""
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/Netflix/vmaf/commits/master.atom",
+        "feed_updated": "2026-11-02T23:19:42Z",
+        "most_recent_entry_updated": "2026-11-02T23:19:42Z",
+        "entry_count": 20,
+        "sample_entry_title": "libvmaf/tools: read y4m with mixed bitdepths under common_bitdepth"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - Netflix/vmaf: Perceptual video quality assessment based on multi-method fusion. · GitHub",
+        "description": "Perceptual video quality assessment based on multi-method fusion. - Netflix/vmaf",
+        "bytes": 263654
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "project('libvmaf', ['c', 'cpp'],",
+        "    version : '3.2.0',",
+        "    default_options : ['c_std=c11',",
+        "                       'cpp_std=c++11',",
+        "                       'warning_level=2',",
+        "                       'buildtype=release',",
+        "                       'default_library=both',",
+        "                      ],",
+        "    meson_version: '>= 0.56.1')",
+        "",
+        "vmaf_soname_version       = '3.2.0'",
+        "vmaf_api_version_array    = vmaf_soname_version.split('.')",
+        "vmaf_api_version_major    = vmaf_api_version_array[0]",
+        "vmaf_api_version_minor    = vmaf_api_version_array[1]",
+        "vmaf_api_version_revision = vmaf_api_version_array[2]",
+        "",
+        "libvmaf_src_root = meson.current_source_dir()",
+        "cc = meson.get_compiler('c')",
+        "libvmaf_inc = include_directories(['include'])",
+        "",
+        "# Arguments in test_args will be used even on feature tests",
+        "test_args = []"
+      ]
+    },
+    {
+      "repo": "comfyanonymous/ComfyUI",
+      "directions": [
+        "shot_consistency",
+        "character_consistency",
+        "image_to_video"
+      ],
+      "repository_url": "https://github.com/comfyanonymous/ComfyUI",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/README.md",
+          "bytes": 29314,
+          "sha256": "1f5452375de6170925930393ade6380f73a01974d00c7e784d1521a86e5b388a",
+          "excerpt": [
+            "<div align=\"center\">",
+            "",
+            "# ComfyUI",
+            "**The most powerful and modular AI engine for content creation.**",
+            "",
+            "",
+            "[![Website][website-shield]][website-url]",
+            "[![Dynamic JSON Badge][discord-shield]][discord-url]",
+            "[![Twitter][twitter-shield]][twitter-url]",
+            "[![Matrix][matrix-shield]][matrix-url]",
+            "<br>",
+            "[![][github-release-shield]][github-release-link]",
+            "[![][github-release-date-shield]][github-release-link]",
+            "[![][github-downloads-shield]][github-downloads-link]",
+            "[![][github-downloads-latest-shield]][github-downloads-link]",
+            "",
+            "[matrix-shield]: https://img.shields.io/badge/Matrix-000000?style=flat&logo=matrix&logoColor=white",
+            "[matrix-url]: https://app.element.io/#/room/%23comfyui_space%3Amatrix.org",
+            "[website-shield]: https://img.shields.io/badge/ComfyOrg-4285F4?style=flat",
+            "[website-url]: https://www.comfy.org/",
+            "<!-- Workaround to display total user from https://github.com/badges/shields/issues/4500#issuecomment-2060079995 -->",
+            "[discord-shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fcomfyorg%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logo"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 29314
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/LICENSE",
+          "bytes": 35149,
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "excerpt": [
+            "                    GNU GENERAL PUBLIC LICENSE",
+            "                       Version 3, 29 June 2007",
+            "",
+            " Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+            " Everyone is permitted to copy and distribute verbatim copies",
+            " of this license document, but changing it is not allowed.",
+            "",
+            "                            Preamble",
+            "",
+            "  The GNU General Public License is a free, copyleft license for",
+            "software and other kinds of works.",
+            "",
+            "  The licenses for most software and other practical works are designed",
+            "to take away your freedom to share and change the works.  By contrast,",
+            "the GNU General Public License is intended to guarantee your freedom to",
+            "share and change all versions of a program--to make sure it remains free",
+            "software for all its users.  We, the Free Software Foundation, use the",
+            "GNU General Public License for most of our software; it applies also to",
+            "any other work released this way by its authors.  You can apply it to",
+            "your programs, too.",
+            "",
+            "  When we speak of free software, we are referring to freedom, not"
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 35149
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "requirements.txt",
+          "url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/requirements.txt",
+          "bytes": 529,
+          "sha256": "8fd6eda0dc98a705d4d4d6dbfffbff2535e6af91098afb57bceed5bd50a1d8a0",
+          "excerpt": [
+            "comfyui-frontend-package==1.58.5",
+            "comfyui-workflow-templates==0.11.103",
+            "comfyui-embedded-docs==0.5.16",
+            "torch",
+            "torchsde",
+            "torchvision",
+            "numpy>=1.25.0",
+            "einops",
+            "transformers>=4.50.3",
+            "tokenizers>=0.13.3",
+            "sentencepiece",
+            "safetensors>=0.4.2",
+            "aiohttp>=3.11.8",
+            "yarl>=1.18.0",
+            "pyyaml",
+            "Pillow>=10.1.0",
+            "scipy",
+            "tqdm",
+            "psutil",
+            "alembic",
+            "SQLAlchemy>=2.0.0",
+            "filelock"
+          ],
+          "attempts": [
+            {
+              "path": "requirements.txt",
+              "http_status": 200,
+              "bytes": 529
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "main.py",
+          "url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/main.py",
+          "bytes": 30770,
+          "sha256": "d5f1d810946f0d26c8187c12f9cac273c4689d06466076aea360cfe405e088a2",
+          "excerpt": [
+            "import comfy.options",
+            "comfy.options.enable_args_parsing()",
+            "",
+            "from comfy.cli_args import args",
+            "from comfy.cli_args import get_console_log_level, get_file_log_outputs",
+            "",
+            "if args.list_feature_flags:",
+            "    import json",
+            "    from comfy_api.feature_flags import CLI_FEATURE_FLAG_REGISTRY",
+            "    print(json.dumps(CLI_FEATURE_FLAG_REGISTRY, indent=2))  # noqa: T201",
+            "    raise SystemExit(0)",
+            "",
+            "import os",
+            "import importlib.util",
+            "import shutil",
+            "import importlib.metadata",
+            "import folder_paths",
+            "import time",
+            "from comfy.cli_args import enables_dynamic_vram",
+            "from app import governance",
+            "from app import product_tips",
+            "from app.logger import setup_logger"
+          ],
+          "attempts": [
+            {
+              "path": "main.py",
+              "http_status": 200,
+              "bytes": 30770
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "GPL-3.0",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/LICENSE",
+        "excerpt": [
+          "                    GNU GENERAL PUBLIC LICENSE",
+          "                       Version 3, 29 June 2007",
+          "",
+          " Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+          " Everyone is permitted to copy and distribute verbatim copies",
+          " of this license document, but changing it is not allowed.",
+          "",
+          "                            Preamble"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/comfyanonymous/ComfyUI/commits/master.atom",
+        "feed_updated": "2026-11-08T08:00:02Z",
+        "most_recent_entry_updated": "2026-11-08T08:00:02Z",
+        "entry_count": 20,
+        "sample_entry_title": "[Partner Nodes] feat(OpenAI): add GPT Image V3, GIF and SVG nodes (#1…"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - Comfy-Org/ComfyUI: The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world. · GitHub",
+        "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world. - Comfy-Org/ComfyUI",
+        "bytes": 503065
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "comfyui-frontend-package==1.58.5",
+        "comfyui-workflow-templates==0.11.103",
+        "comfyui-embedded-docs==0.5.16",
+        "torch",
+        "torchsde",
+        "torchvision",
+        "numpy>=1.25.0",
+        "einops",
+        "transformers>=4.50.3",
+        "tokenizers>=0.13.3",
+        "sentencepiece",
+        "safetensors>=0.4.2",
+        "aiohttp>=3.11.8",
+        "yarl>=1.18.0",
+        "pyyaml",
+        "Pillow>=10.1.0",
+        "scipy",
+        "tqdm",
+        "psutil",
+        "alembic",
+        "SQLAlchemy>=2.0.0",
+        "filelock"
+      ]
+    },
+    {
+      "repo": "modelcontextprotocol/servers",
+      "directions": [
+        "mcp_workflow",
+        "agent_skill"
+      ],
+      "repository_url": "https://github.com/modelcontextprotocol/servers",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/README.md",
+          "bytes": 10562,
+          "sha256": "7194de8faaea9a804af4b6dc4bd24ab4545f047f7c81da678f0f77f4a802c6f9",
+          "excerpt": [
+            "# Model Context Protocol servers",
+            "",
+            "This repository is a collection of *reference implementations* for the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP), as well as references to community-built servers and ",
+            "",
+            "> [!IMPORTANT]",
+            "> If you are looking for a list of MCP servers, you can browse published servers on [the MCP Registry](https://registry.modelcontextprotocol.io/). The repository served by this README is ded",
+            "",
+            "> [!WARNING]",
+            "> The servers in this repository are intended as **reference implementations** to demonstrate MCP features and SDK usage. They are meant to serve as educational examples for developers build",
+            "",
+            "The servers in this repository showcase the versatility and extensibility of MCP, demonstrating how it can be used to give Large Language Models (LLMs) secure, controlled access to tools and",
+            "Typically, each MCP server is implemented with an MCP SDK:",
+            "",
+            "- [C# MCP SDK](https://github.com/modelcontextprotocol/csharp-sdk)",
+            "- [Go MCP SDK](https://github.com/modelcontextprotocol/go-sdk)",
+            "- [Java MCP SDK](https://github.com/modelcontextprotocol/java-sdk)",
+            "- [Kotlin MCP SDK](https://github.com/modelcontextprotocol/kotlin-sdk)",
+            "- [PHP MCP SDK](https://github.com/modelcontextprotocol/php-sdk)",
+            "- [Python MCP SDK](https://github.com/modelcontextprotocol/python-sdk)",
+            "- [Ruby MCP SDK](https://github.com/modelcontextprotocol/ruby-sdk)",
+            "- [Rust MCP SDK](https://github.com/modelcontextprotocol/rust-sdk)",
+            "- [Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk)"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 10562
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/LICENSE",
+          "bytes": 12227,
+          "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+          "excerpt": [
+            "The MCP project is undergoing a licensing transition from the MIT License to the Apache License, Version 2.0 (\"Apache-2.0\"). All new code and specification contributions to the project are l",
+            "",
+            "Contributions for which relicensing consent has been obtained are licensed under Apache-2.0. Contributions made by authors who originally licensed their work under the MIT License and who ha",
+            "",
+            "No rights beyond those granted by the applicable original license are conveyed for such contributions.",
+            "",
+            "---",
+            "",
+            "                                 Apache License",
+            "                           Version 2.0, January 2004",
+            "                        http://www.apache.org/licenses/",
+            "",
+            "   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+            "",
+            "   1. Definitions.",
+            "",
+            "      \"License\" shall mean the terms and conditions for use, reproduction,",
+            "      and distribution as defined by Sections 1 through 9 of this document.",
+            "",
+            "      \"Licensor\" shall mean the copyright owner or entity authorized by",
+            "      the copyright owner that is granting the License.",
+            ""
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 12227
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "package.json",
+          "url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/package.json",
+          "bytes": 4009,
+          "sha256": "6bc489b7cc309ace7cc757449a0665691bb3f54b5abb8d5695ff8b200ce36e25",
+          "excerpt": [
+            "{",
+            "  \"name\": \"@modelcontextprotocol/servers\",",
+            "  \"private\": true,",
+            "  \"version\": \"0.6.2\",",
+            "  \"description\": \"Model Context Protocol servers\",",
+            "  \"license\": \"SEE LICENSE IN LICENSE\",",
+            "  \"author\": \"Model Context Protocol a Series of LF Projects, LLC.\",",
+            "  \"homepage\": \"https://modelcontextprotocol.io\",",
+            "  \"bugs\": \"https://github.com/modelcontextprotocol/servers/issues\",",
+            "  \"type\": \"module\",",
+            "  \"workspaces\": [",
+            "    \"src/*\"",
+            "  ],",
+            "  \"files\": [],",
+            "  \"scripts\": {",
+            "    \"build\": \"npm run build --workspaces\",",
+            "    \"watch\": \"npm run watch --workspaces\",",
+            "    \"publish-all\": \"npm publish --workspaces --access public\",",
+            "    \"link-all\": \"npm link --workspaces\",",
+            "    \"changeset\": \"changeset\",",
+            "    \"version-packages\": \"changeset version && npm install --package-lock-only --ignore-scripts\",",
+            "    \"verify:skills\": \"node scripts/verify-skills.mjs\","
+          ],
+          "attempts": [
+            {
+              "path": "package.json",
+              "http_status": 200,
+              "bytes": 4009
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "src/filesystem/index.ts",
+          "url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/filesystem/index.ts",
+          "bytes": 8893,
+          "sha256": "807127b6f8bd7fce6c2e26e4b1f3fa7a7ef59cf0d2b169ebc2c171a37cbe7673",
+          "excerpt": [
+            "#!/usr/bin/env node",
+            "// The stdio entry point of the filesystem server (the package's bin). It",
+            "// parses the command line (its options, such as --read-only, and the allowed",
+            "// directories), resolves the allowed directories and serves",
+            "// createServer() on stdio through the SDK's serveStdio entry, which answers",
+            "// 2026-07-28 clients (server/discover, no handshake) and 2025-era clients",
+            "// (initialize, then Roots) from the same factory (#4852). Everything runs inside",
+            "// main(), and main() runs only when this file is the process entry point, so",
+            "// importing the module (as the tests do) starts nothing (#4854). main() takes",
+            "// the argv and the stdio streams as parameters so the tests can drive the real",
+            "// startup path in-process.",
+            "",
+            "import type { Readable, Writable } from \"node:stream\";",
+            "import { realpathSync } from \"fs\";",
+            "import fs from \"fs/promises\";",
+            "import path from \"path\";",
+            "import { fileURLToPath } from \"url\";",
+            "import {",
+            "  serveStdio,",
+            "  StdioServerTransport,",
+            "  type StdioServerHandle,",
+            "} from \"@modelcontextprotocol/server/stdio\";"
+          ],
+          "attempts": [
+            {
+              "path": "src/filesystem/index.ts",
+              "http_status": 200,
+              "bytes": 8893
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/LICENSE",
+        "excerpt": [
+          "The MCP project is undergoing a licensing transition from the MIT License to the Apache License, Version 2.0 (\"Apache-2.0\"). All new code and specification contributions to the project are l",
+          "",
+          "Contributions for which relicensing consent has been obtained are licensed under Apache-2.0. Contributions made by authors who originally licensed their work under the MIT License and who ha",
+          "",
+          "No rights beyond those granted by the applicable original license are conveyed for such contributions.",
+          "",
+          "---",
+          ""
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/modelcontextprotocol/servers/commits/main.atom",
+        "feed_updated": "2026-11-04T21:01:13Z",
+        "most_recent_entry_updated": "2026-11-04T21:01:13Z",
+        "entry_count": 20,
+        "sample_entry_title": "Merge pull request #5430 from modelcontextprotocol/v2/chore/5425-rele…"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - modelcontextprotocol/servers: Model Context Protocol Reference Servers · GitHub",
+        "description": "Model Context Protocol Reference Servers. Contribute to modelcontextprotocol/servers development by creating an account on GitHub.",
+        "bytes": 333680
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "{",
+        "  \"name\": \"@modelcontextprotocol/servers\",",
+        "  \"private\": true,",
+        "  \"version\": \"0.6.2\",",
+        "  \"description\": \"Model Context Protocol servers\",",
+        "  \"license\": \"SEE LICENSE IN LICENSE\",",
+        "  \"author\": \"Model Context Protocol a Series of LF Projects, LLC.\",",
+        "  \"homepage\": \"https://modelcontextprotocol.io\",",
+        "  \"bugs\": \"https://github.com/modelcontextprotocol/servers/issues\",",
+        "  \"type\": \"module\",",
+        "  \"workspaces\": [",
+        "    \"src/*\"",
+        "  ],",
+        "  \"files\": [],",
+        "  \"scripts\": {",
+        "    \"build\": \"npm run build --workspaces\",",
+        "    \"watch\": \"npm run watch --workspaces\",",
+        "    \"publish-all\": \"npm publish --workspaces --access public\",",
+        "    \"link-all\": \"npm link --workspaces\",",
+        "    \"changeset\": \"changeset\",",
+        "    \"version-packages\": \"changeset version && npm install --package-lock-only --ignore-scripts\",",
+        "    \"verify:skills\": \"node scripts/verify-skills.mjs\","
+      ]
+    },
+    {
+      "repo": "anthropics/skills",
+      "directions": [
+        "agent_skill",
+        "reusable_skill"
+      ],
+      "repository_url": "https://github.com/anthropics/skills",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/anthropics/skills/main/README.md",
+          "bytes": 5547,
+          "sha256": "1fca448ca17ccf901bd068c661209b15300bc5be3f039ba1a616c3a13a374ccb",
+          "excerpt": [
+            "> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).",
+            "",
+            "[![skills.sh](https://skills.sh/b/anthropics/skills)](https://skills.sh/anthropics/skills)",
+            "",
+            "# Skills",
+            "Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a ",
+            "",
+            "For more information, check out:",
+            "- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)",
+            "- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)",
+            "- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)",
+            "- [Equipping agents for the real world with Agent Skills](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)",
+            "",
+            "# About This Repository",
+            "",
+            "This repository contains skills that demonstrate what's possible with Claude's skills system. These skills range from creative applications (art, music, design) to technical tasks (testing w",
+            "",
+            "Each skill is self-contained in its own folder with a `SKILL.md` file containing the instructions and metadata that Claude uses. Browse through these skills to get inspiration for your own s",
+            "",
+            "Many skills in this repo are open source (Apache 2.0). We've also included the document creation & editing skills that power [Claude's document capabilities](https://www.anthropic.com/news/c",
+            "",
+            "## Disclaimer"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 5547
+            }
+          ]
+        },
+        "licence": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "deps": {
+          "found": false,
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "package.json",
+              "http_status": 404,
+              "bytes": 14
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "skills/pdf/scripts/check_bounding_boxes.py",
+          "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/scripts/check_bounding_boxes.py",
+          "bytes": 2774,
+          "sha256": "0ced522402dd7b3c82a0be9518cf4e485fa9cc0467d7beab6ddb04cb36fcc3e1",
+          "excerpt": [
+            "from dataclasses import dataclass",
+            "import json",
+            "import sys",
+            "",
+            "",
+            "",
+            "",
+            "@dataclass",
+            "class RectAndField:",
+            "    rect: list[float]",
+            "    rect_type: str",
+            "    field: dict",
+            "",
+            "",
+            "def get_bounding_box_messages(fields_json_stream) -> list[str]:",
+            "    messages = []",
+            "    fields = json.load(fields_json_stream)",
+            "    messages.append(f\"Read {len(fields['form_fields'])} fields\")",
+            "",
+            "    def rects_intersect(r1, r2):",
+            "        disjoint_horizontal = r1[0] >= r2[2] or r1[2] <= r2[0]",
+            "        disjoint_vertical = r1[1] >= r2[3] or r1[3] <= r2[1]"
+          ],
+          "attempts": [
+            {
+              "path": "skills/pdf/scripts/check_bounding_boxes.py",
+              "http_status": 200,
+              "bytes": 2774
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "UNKNOWN"
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/anthropics/skills/commits/main.atom",
+        "feed_updated": "2026-11-06T22:32:28Z",
+        "most_recent_entry_updated": "2026-11-06T22:32:28Z",
+        "entry_count": 20,
+        "sample_entry_title": "Move Office skills to the Apache 2.0 license (#2146)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - anthropics/skills: Public repository for Agent Skills · GitHub",
+        "description": "Public repository for Agent Skills. Contribute to anthropics/skills development by creating an account on GitHub.",
+        "bytes": 237364
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": []
+    },
+    {
+      "repo": "f/awesome-chatgpt-prompts",
+      "directions": [
+        "ad_scriptwriting",
+        "creative_prompts"
+      ],
+      "repository_url": "https://github.com/f/awesome-chatgpt-prompts",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/README.md",
+          "bytes": 12712,
+          "sha256": "e31838b62cf72b28573211f756898f51be18b776df71eeec2358cbd44e74e1d8",
+          "excerpt": [
+            "<h1 align=\"center\">",
+            "  <a href=\"https://prompts.chat\">",
+            "    <picture>",
+            "      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://prompts.chat/logo-dark.svg\">",
+            "      <source media=\"(prefers-color-scheme: light)\" srcset=\"https://prompts.chat/logo.svg\">",
+            "      <img height=\"60\" alt=\"prompts.chat\" src=\"https://prompts.chat/logo.svg\">",
+            "    </picture>",
+            "    <br>",
+            "    prompts.chat",
+            "  </a>",
+            "</h1>",
+            "",
+            "<p align=\"center\">",
+            "  <strong>The world's largest open-source prompt library for AI</strong><br>",
+            "  <sub>Works with ChatGPT, Claude, Gemini, Llama, Mistral, and more</sub>",
+            "</p>",
+            "<p align=\"center\">",
+            "  <sub>formerly known as Awesome ChatGPT Prompts</sub>",
+            "</p>",
+            "",
+            "<p align=\"center\">",
+            "  <a href=\"https://prompts.chat\"><img src=\"https://img.shields.io/badge/Website-prompts.chat-blue?style=flat-square\" alt=\"Website\"></a>"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 12712
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/LICENSE",
+          "bytes": 596,
+          "sha256": "82201d04d22eea74216fcacc9bc9e695184aef435a415e3564cf806c962854f8",
+          "excerpt": [
+            "This project uses a dual-license model:",
+            "",
+            "- **Source code and site-authored content** (everything under src/,",
+            "  prisma/, scripts/, and all configuration/build files) is licensed under",
+            "  the MIT License. This includes the interactive book content in",
+            "  src/content/book/.",
+            "  See LICENSE-MIT for the full text.",
+            "",
+            "- **Prompt content and data** (prompts.csv, PROMPTS.md, and all user-submitted",
+            "  prompt text) is dedicated to the public domain under CC0 1.0 Universal.",
+            "  See LICENSE-CC0 for the full text.",
+            "",
+            "If you are unsure which license applies to a particular file, the MIT License",
+            "applies by default."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 596
+            }
+          ]
+        },
+        "deps": {
+          "found": false,
+          "attempts": []
+        },
+        "source": {
+          "found": false,
+          "attempts": []
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/LICENSE",
+        "excerpt": [
+          "This project uses a dual-license model:",
+          "",
+          "- **Source code and site-authored content** (everything under src/,",
+          "  prisma/, scripts/, and all configuration/build files) is licensed under",
+          "  the MIT License. This includes the interactive book content in",
+          "  src/content/book/.",
+          "  See LICENSE-MIT for the full text.",
+          ""
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/f/awesome-chatgpt-prompts/commits/main.atom",
+        "feed_updated": "2026-11-08T03:13:33Z",
+        "most_recent_entry_updated": "2026-11-08T03:13:33Z",
+        "entry_count": 20,
+        "sample_entry_title": "Add prompt: - Egg - Adani Tea Order: 772609034"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - f/prompts.chat: f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy. · GitHub",
+        "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy. - f/prompts.chat",
+        "bytes": 396536
+      },
+      "branch_used": "main",
+      "atom_found": true,
+      "dependency_excerpt": []
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "directions": [
+        "agent_workflow",
+        "creative_pipeline"
+      ],
+      "repository_url": "https://github.com/langchain-ai/langchain",
+      "checks": {
+        "readme": {
+          "found": true,
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/langchain-ai/langchain/master/README.md",
+          "bytes": 5935,
+          "sha256": "9e6d706b38215c6979ef398ba72181b0f9099b8150f317c4c221877456c2dc2e",
+          "excerpt": [
+            "<div align=\"center\">",
+            "  <a href=\"https://docs.langchain.com/oss/python/langchain/overview\">",
+            "    <picture>",
+            "      <source media=\"(prefers-color-scheme: dark)\" srcset=\".github/images/logo-dark.svg\">",
+            "      <source media=\"(prefers-color-scheme: light)\" srcset=\".github/images/logo-light.svg\">",
+            "      <img alt=\"LangChain Logo\" src=\".github/images/logo-dark.svg\" width=\"50%\">",
+            "    </picture>",
+            "  </a>",
+            "</div>",
+            "",
+            "<div align=\"center\">",
+            "  <h3>The agent engineering platform.</h3>",
+            "</div>",
+            "",
+            "<div align=\"center\">",
+            "  <a href=\"https://opensource.org/licenses/MIT\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/l/langchain\" alt=\"PyPI - License\"></a>",
+            "  <a href=\"https://pypistats.org/packages/langchain\" target=\"_blank\"><img src=\"https://img.shields.io/pepy/dt/langchain\" alt=\"PyPI - Downloads\"></a>",
+            "  <a href=\"https://pypi.org/project/langchain/#history\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/v/langchain?label=%20\" alt=\"Version\"></a>",
+            "  <a href=\"https://x.com/langchain_oss\" target=\"_blank\"><img src=\"https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain\" alt=\"Twitte",
+            "</div>",
+            "",
+            "<br>"
+          ],
+          "attempts": [
+            {
+              "path": "README.md",
+              "http_status": 200,
+              "bytes": 5935
+            }
+          ]
+        },
+        "licence": {
+          "found": true,
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/langchain-ai/langchain/master/LICENSE",
+          "bytes": 1067,
+          "sha256": "4ec67e4ca6e6721dba849b2ca82261597c86a61ee214bbf21416006b7b2d0478",
+          "excerpt": [
+            "MIT License",
+            "",
+            "Copyright (c) LangChain, Inc.",
+            "",
+            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+            "of this software and associated documentation files (the \"Software\"), to deal",
+            "in the Software without restriction, including without limitation the rights",
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+            "copies of the Software, and to permit persons to whom the Software is",
+            "furnished to do so, subject to the following conditions:",
+            "",
+            "The above copyright notice and this permission notice shall be included in all",
+            "copies or substantial portions of the Software.",
+            "",
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+            "SOFTWARE."
+          ],
+          "attempts": [
+            {
+              "path": "LICENSE",
+              "http_status": 200,
+              "bytes": 1067
+            }
+          ]
+        },
+        "deps": {
+          "found": true,
+          "path": "libs/core/pyproject.toml",
+          "url": "https://raw.githubusercontent.com/langchain-ai/langchain/master/libs/core/pyproject.toml",
+          "bytes": 5239,
+          "sha256": "fd0773dc2fde559cbbec3d5f7256a735b64f0d970f97fe547f867075d32d9cfa",
+          "excerpt": [
+            "[build-system]",
+            "requires = [\"hatchling\"]",
+            "build-backend = \"hatchling.build\"",
+            "",
+            "[project]",
+            "name = \"langchain-core\"",
+            "description = \"Building applications with LLMs through composability\"",
+            "license = {text = \"MIT\"}",
+            "readme = \"README.md\"",
+            "classifiers = [",
+            "    \"Development Status :: 5 - Production/Stable\",",
+            "    \"Intended Audience :: Developers\",",
+            "    \"License :: OSI Approved :: MIT License\",",
+            "    \"Programming Language :: Python :: 3\",",
+            "    \"Programming Language :: Python :: 3.10\",",
+            "    \"Programming Language :: Python :: 3.11\",",
+            "    \"Programming Language :: Python :: 3.12\",",
+            "    \"Programming Language :: Python :: 3.13\",",
+            "    \"Programming Language :: Python :: 3.14\",",
+            "    \"Topic :: Scientific/Engineering :: Artificial Intelligence\",",
+            "    \"Topic :: Software Development :: Libraries :: Python Modules\",",
+            "]"
+          ],
+          "attempts": [
+            {
+              "path": "pyproject.toml",
+              "http_status": 404,
+              "bytes": 14
+            },
+            {
+              "path": "libs/core/pyproject.toml",
+              "http_status": 200,
+              "bytes": 5239
+            }
+          ]
+        },
+        "source": {
+          "found": true,
+          "path": "libs/core/langchain_core/prompts/base.py",
+          "url": "https://raw.githubusercontent.com/langchain-ai/langchain/master/libs/core/langchain_core/prompts/base.py",
+          "bytes": 17508,
+          "sha256": "f2f608fba240b0d596889a9ca96ca1f8f4f49690bc24abd094f1b87c776c7f30",
+          "excerpt": [
+            "\"\"\"Base class for prompt templates.\"\"\"",
+            "",
+            "from __future__ import annotations",
+            "",
+            "import builtins",
+            "import contextlib",
+            "import json",
+            "from abc import ABC, abstractmethod",
+            "from collections.abc import Callable, Mapping",
+            "from functools import cached_property",
+            "from pathlib import Path",
+            "from typing import TYPE_CHECKING, Any, Generic, TypeVar, cast",
+            "",
+            "import yaml",
+            "from pydantic import BaseModel, ConfigDict, Field, model_validator",
+            "from typing_extensions import Self, override",
+            "",
+            "from langchain_core._api import deprecated, suppress_langchain_deprecation_warning",
+            "from langchain_core.exceptions import ErrorCode, create_message",
+            "from langchain_core.load import dumpd",
+            "from langchain_core.output_parsers.base import BaseOutputParser",
+            "from langchain_core.prompt_values import ("
+          ],
+          "attempts": [
+            {
+              "path": "libs/core/langchain_core/prompts/base.py",
+              "http_status": 200,
+              "bytes": 17508
+            }
+          ]
+        }
+      },
+      "licence": {
+        "detected_spdx": "MIT",
+        "method": "text_pattern_in_license_file",
+        "license_file": "LICENSE",
+        "license_url": "https://raw.githubusercontent.com/langchain-ai/langchain/master/LICENSE",
+        "excerpt": [
+          "MIT License",
+          "",
+          "Copyright (c) LangChain, Inc.",
+          "",
+          "Permission is hereby granted, free of charge, to any person obtaining a copy",
+          "of this software and associated documentation files (the \"Software\"), to deal",
+          "in the Software without restriction, including without limitation the rights",
+          "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"
+        ]
+      },
+      "latest_commit": {
+        "found": true,
+        "atom_url": "https://github.com/langchain-ai/langchain/commits/master.atom",
+        "feed_updated": "2026-11-06T17:38:34Z",
+        "most_recent_entry_updated": "2026-11-06T17:38:34Z",
+        "entry_count": 20,
+        "sample_entry_title": "docs: update OpenWiki (#41726)"
+      },
+      "html": {
+        "http_status": 200,
+        "title": "GitHub - langchain-ai/langchain: The agent engineering platform. · GitHub",
+        "description": "The agent engineering platform. Contribute to langchain-ai/langchain development by creating an account on GitHub.",
+        "bytes": 280752
+      },
+      "branch_used": "master",
+      "atom_found": true,
+      "dependency_excerpt": [
+        "[build-system]",
+        "requires = [\"hatchling\"]",
+        "build-backend = \"hatchling.build\"",
+        "",
+        "[project]",
+        "name = \"langchain-core\"",
+        "description = \"Building applications with LLMs through composability\"",
+        "license = {text = \"MIT\"}",
+        "readme = \"README.md\"",
+        "classifiers = [",
+        "    \"Development Status :: 5 - Production/Stable\",",
+        "    \"Intended Audience :: Developers\",",
+        "    \"License :: OSI Approved :: MIT License\",",
+        "    \"Programming Language :: Python :: 3\",",
+        "    \"Programming Language :: Python :: 3.10\",",
+        "    \"Programming Language :: Python :: 3.11\",",
+        "    \"Programming Language :: Python :: 3.12\",",
+        "    \"Programming Language :: Python :: 3.13\",",
+        "    \"Programming Language :: Python :: 3.14\",",
+        "    \"Topic :: Scientific/Engineering :: Artificial Intelligence\",",
+        "    \"Topic :: Software Development :: Libraries :: Python Modules\",",
+        "]"
+      ]
+    }
+  ]
+}

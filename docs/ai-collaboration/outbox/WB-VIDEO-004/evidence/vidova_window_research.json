@@ -1,0 +1,171 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:52:39+08:00",
+  "purpose": "find an OFFICIAL / legal way to make a Vidova editor window available to MCP tools",
+  "boundaries": [
+    "no app installation directory modification",
+    "no project switch",
+    "no GUI automation",
+    "no asset import",
+    "no generate_asset call",
+    "no hosted quota",
+    "no token extraction"
+  ],
+  "mcp_tools_count": 18,
+  "tool_descriptions": {
+    "list_projects": {
+      "description": "List all projects stored by this local Vidova desktop app. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "get_active_project": {
+      "description": "Show which local Vidova project MCP is currently targeting. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "create_project": {
+      "description": "Create a new empty local Vidova project and set it as the active project. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [
+        "name"
+      ],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "set_active_project": {
+      "description": "Set which local Vidova project MCP should target for editor tool calls. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [
+        "projectId"
+      ],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "timeline_edit": {
+      "description": "Edit the timeline. Set action to addClip, updateClip, deleteClip, splitClip, deleteLayer, removeTimeRanges, removeSilences, addTransition, addFade, or removeTransition. Call timeline_get_state before using clip or layer ids. Never use type=text; use component clips for typography. After creating a component, place it with addClip type=component and that assetId. Omit layerId unless targeting an existing layer; addClip creates a matching layer when none exists. Pass newLayer true only when the user wants a separate layer of the same type. To shorten the timeline to N seconds: action removeTimeRanges with ranges [{from: N, to: currentEnd}]. To shorten one clip from its in-point: action updateClip with clipId and duration N. removeSilences takes only an assetId. addFade is the fade between two adjacent clips. addClip ripples later clips by default. Pass the child fields for that action. Editor must be open. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [
+        "action",
+        "assetId",
+        "clipId",
+        "clipIds",
+        "duration",
+        "fromClipId",
+        "layerId",
+        "layerIds",
+        "name",
+        "newLayer",
+        "offset",
+        "ranges",
+        "resultEnd",
+        "resultStart",
+        "ripple",
+        "snapTo",
+        "speed",
+        "start",
+        "time",
+        "toClipId",
+        "type"
+      ],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "import_asset": {
+      "description": "Bring media into the project. action web downloads a direct URL. action local imports absolute file paths. action vectorize converts a raster image or URL to SVG. Editor must be open. Does not use hosted quota. Local editor operation.",
+      "input_schema_keys": [
+        "action",
+        "resultEnd",
+        "resultStart"
+      ],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    },
+    "generate_asset": {
+      "description": "Start or poll hosted generation. kind image uses prompt, aspectRatio, imageSize. kind music uses prompt and durationSeconds. kind speech uses text and voice. kind video uses prompt, durationSeconds, aspectRatio, resolution, negativePrompt. kind status polls jobId from those jobs or from asset transcribe. Editor must be open. Image generation uses your image-generation allowance. Speech is included with a usage quota.",
+      "input_schema_keys": [
+        "kind",
+        "resultEnd",
+        "resultStart"
+      ],
+      "mentions_window_or_open": true,
+      "mentions_quota": true
+    }
+  },
+  "any_mcp_tool_can_open_editor_window": false,
+  "vidova_url_schemes_in_hkcu_classes": [
+    ".vidova",
+    "vidova",
+    "Vidova Project",
+    "Vidova Tape"
+  ],
+  "asar_bytes": 317396315,
+  "asar_path_placeholder": "%LOCALAPPDATA%/Programs/Vidova/resources/app.asar",
+  "asar_keyword_counts": {
+    "setAsDefaultProtocolClient": 1,
+    "vidova://": 1,
+    "second-instance": 1,
+    "process.argv": 103,
+    "--project": 5,
+    "open-project": 4,
+    "appTrayCommand": 4,
+    "BrowserWindow": 11,
+    "showWindow": 0,
+    "editorWindow": 0,
+    "absolutePaths": 8,
+    "openExternal": 28,
+    "deep-link": 0,
+    "openProject": 2
+  },
+  "asar_keyword_contexts": {
+    "setAsDefaultProtocolClient": [
+      "� e $ M1 D \" 0Q P � `J u % \" $ � g ��� * +� *$* B 3� \" a \" � ` � � (Ph j� setAsDefaultProtocolClient Apl �l� � � � �3� �3� � �i��� � `���� , M d�� ` $� � - `����@ ,` �c P � e @� E !\" 0Q d � `t"
+    ],
+    "vidova://": [
+      "b �ږ (�b �y � \"� � �W � \"� � e ` 0Lj �������?�������? �?�������? �? �q $Pg �� vidova://auth/callback �5 :* 6* ZT � [ { \" v e r s i o n \" : \" 1 . 0 . 6 6 \" , \" c h a n n e l \" : \" s t a b l e \" , \" u p d a t e P o l i c y \" : { \" k i n d \" : \" r e"
+    ],
+    "second-instance": [
+      "3 �h� O �m� �`���� , M d�� ` �� �� E`����@ ,` �b @ � e @� � �% Pe (�h second-instance 0Q 4 � ` u ��\" � c ��f T* +� \" a \" e e Q �m� � `���� , M d�� ` �� `� E`����@ ,` �b � e @� � �%"
+    ],
+    "process.argv": [
+      "im.ts var { binPath, isWASM } = generateBinPath(); if (isWASM) { require(\"child_process\").execFileSync(\"node\", [binPath].concat(process.argv.slice(2)), { stdio: \"inherit\" }); } else { require(\"child_process\").execFileSync(binPath, process.argv.slice(2), { stdio: \"inherit\" }); } \"",
+      "\"node\", [binPath].concat(process.argv.slice(2)), { stdio: \"inherit\" }); } else { require(\"child_process\").execFileSync(binPath, process.argv.slice(2), { stdio: \"inherit\" }); } \"use strict\"; var __create = Object.create; var __defProp = Object.defineProperty; var __getOwnPropDesc "
+    ],
+    "--project": [
+      "ripts\": { \"dev\": \"tsx watch src/index.ts\", \"clean\": \"node scripts/clean-dist.mjs\", \"build\": \"pnpm run clean && tsc --project tsconfig.build.json\", \"build:dev\": \"pnpm run clean && tsc --project tsconfig.build.json\", \"test\": \"tsx --test src/parse-tsc-diagnostics.test.ts src/custom-",
+      "ts/clean-dist.mjs\", \"build\": \"pnpm run clean && tsc --project tsconfig.build.json\", \"build:dev\": \"pnpm run clean && tsc --project tsconfig.build.json\", \"test\": \"tsx --test src/parse-tsc-diagnostics.test.ts src/custom-component-stitch.test.ts src/compiler-esbuild.barrel.test.ts sr"
+    ],
+    "open-project": [
+      "E � ܒG E 0Q H � `< u i�\" � e Ċ� ,� � B� #� \" a \" � ` % b M Pd.0B open-project -+ � � �j ��� Չ )� �3� ;� m�� � `���� , M d�� �b Rc �`����@ ]�` �c � � e @� � % �k � �",
+      "zod.z.object({}).strict(); const AppTrayCommandSchema = zod.z.discriminatedUnion(\"type\", [ zod.z.object({ type: zod.z.literal(\"open-project\"), projectId: zod.z.string().min(1) }).strict(), zod.z.object({ type: zod.z.literal(\"new-project\") }).strict(), zod.z.object({ type: zod.z.l"
+    ],
+    "appTrayCommand": [
+      "w unavailable after showMainWindow 0Q T � `X u ��\" � f �̚ $ *0J 4bH\"� ;� \" a \" � ` 9+ r] � Pe�P�B appTrayCommand % b �� ��m �3� �3� � �u � �3� Ӊ )� ;� j���� �`���� , M d�� S �S r] `����@ ��` �c P � � e @�",
+      "ingsStateChanged: \"localEmbeddings.stateChanged\", whatsNewGet: \"whatsNew.get\", whatsNewAcknowledge: \"whatsNew.acknowledge\", appTrayCommand: \"app.trayCommand\", appSetScreen: \"app.setScreen\", appMenuCommand: \"app.menuCommand\", appRendererRecovered: \"app.rendererRecovered\", supportO"
+    ],
+    "BrowserWindow": [
+      "}); }, registerFramelessWindowIpc() { electron.ipcMain.on(\"win:invoke\", (event, action) => { const win = electron.BrowserWindow.fromWebContents(event.sender); if (win) { if (action === \"show\") { win.show(); } else if (action === \"showInactive\") { win.show",
+      "} }; exports.electronApp = electronApp; exports.is = is; exports.optimizer = optimizer; exports.platform = platform; import { BrowserWindow } from 'electron'; interface Is { dev: boolean; } declare const is: Is; interface Platform { isWindows: boolean; isMacOS: boolean; isLinux: "
+    ],
+    "showWindow": [],
+    "editorWindow": [],
+    "absolutePaths": [
+      "� � � � 3 \" l � c @ f -+H � <Pm� ��0 importPaths.projectId must be a non-empty string Pe�ji� absolutePaths � � A �� �Y �Y !� �� M � �D 8 % b -+ � �B�G��� � ��G � `� 9 � ������ �� �s � � ��3 �3� � x� � # � � �t�� �� �3 ��� �",
+      "t(); const AssetStoreImportViaDialogOutputSchema = zod.z.array(AssetSchema); zod.z.object({ projectId: zod.z.string().min(1), absolutePaths: zod.z.array(zod.z.string().min(1)) }).strict(); const AssetStoreImportPathsOutputSchema = zod.z.array(AssetSchema); const AssetStoreImportB"
+    ],
+    "openExternal": [
+      "andTypes2[\"ReloadProjects\"] = \"reloadProjects\"; CommandTypes2[\"Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; Comm",
+      "Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; CommandTypes2[\"SynchronizeProjectList\"] = \"synchronizeProjectList\";"
+    ],
+    "deep-link": [],
+    "openProject": [
+      "row-up','assertActive','invokeOnInitCallbacks','encryptionAuxInfo','fill-box','\\x20cursor','Clip-local\\x20time\\x20in\\x20seconds','openProjectId','boz','orthodox','M12\\x2012h.01','Cannot\\x20seek:\\x20moov\\x20not\\x20received!','lockRef','BottomRight','#8b5cf6','iridescenceThicknessR",
+      "_0x6a72cb[_0x586a28(0x38ec)],'existingProjectIds':new Set(_0x6a72cb[_0x586a28(_0x1f60d9._0x3d4889)](_0x539773=>_0x539773['id'])),'openProjectId':_0x2ba952?_0x3dcf96:null},_0xb87cd=_0x29f248===void 0x0?await bsn(_0x45098f):await oDe(_0x29f248,_0x45098f);if(_0xb87cd[_0x586a28(0xf98"
+    ]
+  },
+  "findings": [
+    "MCP tool list exposes no tool that opens an editor window; project creation does not register a GUI editor.",
+    "open-project is a renderer-internal tray IPC command (AppTrayCommandSchema), not an external API.",
+    "If no URL scheme / CLI project flag exists, the only legal route is a real GUI tray click or bounded UI Automation on an explicitly named window.",
+    "Zero-quota tests that remain legal: initialize, tools/list, list_projects, get_active_project, inspect_media on local files, and static asar inspection."
+  ],
+  "status": "RESEARCH_ONLY__NO_WINDOW_OPENED__NO_QUOTA_USED"
+}

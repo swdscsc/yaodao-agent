@@ -1,0 +1,89 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:53:47+08:00",
+  "purpose": "determine whether a registered URL scheme or CLI flag can open a project window legally",
+  "not_done": [
+    "no deep link invoked",
+    "no process launched",
+    "no GUI control",
+    "no project switch",
+    "no token/credential read"
+  ],
+  "scheme_subkeys": [
+    "shell"
+  ],
+  "scheme_open_command_shape": "<VIDOVA_EXE> \"%1\"",
+  "scheme_open_command_passes_url_argument": true,
+  "keyword_counts": {
+    "vidova://": 1,
+    "auth/callback": 2,
+    "OpenExternalProject": 8,
+    "openExternalProject": 22,
+    "showMainWindow": 2,
+    "protocol.handle": 6,
+    "registerSchemesAsPrivileged": 1,
+    "open-url": 1,
+    "second-instance": 1,
+    "setAsDefaultProtocolClient": 1,
+    "projectId=": 0,
+    "openProjectId": 2,
+    "deeplink": 0,
+    "deepLink": 0,
+    "--open-project": 0
+  },
+  "keyword_contexts": {
+    "vidova://": [
+      "M � & �b �ږ (�b �y � \"� � �W � \"� � e ` 0Lj �������?�������? �?�������? �? �q $Pg �� vidova://auth/callback �5 :* 6* ZT � [ { \" v e r s i o n \" : \" 1 . 0 . 6 6 \" , \" c h a n n e l \" : \" s t a b l e \" , \" u p d a t e P o l i c y \" : { \" k i n d \" : \" r e c o m m e n d e d \" } , \" w h a t s N e w \" : { \" m o d e \" : \" n "
+    ],
+    "auth/callback": [
+      "+� Lb +� � � � � K� J *� R � � D +Bdj(+\\r� j� C� \" �d � \" h � ` 2� !� = Pe�X � http://127.0.0.1 a� Pe�b�� /auth/callback Pd�Y� Not found. �k I �� 4Pk��� ' Auth callback is missing code or state. DPo��ٌ7 Signed in. You can close this tab and return to Vidova. Pc2�~! ?code= Ҁ Pc֟�� &state= � 0Q D � `2 u �# \"",
+      "M � & �b �ږ (�b �y � \"� � �W � \"� � e ` 0Lj �������?�������? �?�������? �? �q $Pg �� vidova://auth/callback �5 :* 6* ZT � [ { \" v e r s i o n \" : \" 1 . 0 . 6 6 \" , \" c h a n n e l \" : \" s t a b l e \" , \" u p d a t e P o l i c y \" : { \" k i n d \" : \" r e c o m m e n d e d \" } , \" w h a t s N e w \" : { \" m o d e \" : \" n "
+    ],
+    "OpenExternalProject": [
+      "Types2[\"ProjectInfo\"] = \"projectInfo\"; CommandTypes2[\"ReloadProjects\"] = \"reloadProjects\"; CommandTypes2[\"Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; C",
+      "ojects\"] = \"reloadProjects\"; CommandTypes2[\"Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; CommandTypes2[\"SynchronizeProjectList\"] = \"synchronizeProjectLi",
+      "pan, project.getSourceMapper(), (p) => project.projectService.fileExists(p)); } var <OPAQUE_TOKEN> = [ \"openExternalProject\" /* OpenExternalProject */, \"openExternalProjects\" /* OpenExternalProjects */, \"closeExternalProject\" /* CloseExternalProject */, \"synchronizeProjectList\" /* SynchronizeProject"
+    ],
+    "openExternalProject": [
+      "projectInfo\"; CommandTypes2[\"ReloadProjects\"] = \"reloadProjects\"; CommandTypes2[\"Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; CommandTypes2[\"Synchronize",
+      "\"; CommandTypes2[\"Unknown\"] = \"unknown\"; CommandTypes2[\"OpenExternalProject\"] = \"openExternalProject\"; CommandTypes2[\"OpenExternalProjects\"] = \"openExternalProjects\"; CommandTypes2[\"CloseExternalProject\"] = \"closeExternalProject\"; CommandTypes2[\"SynchronizeProjectList\"] = \"synchronizeProjectList\"; CommandTypes2[\"ApplyC",
+      "removeProject(externalProject); } } if (cleanupAfter) { this.cleanupConfiguredProjects(); this.printProjects(); } } openExternalProjects(projects) { const projectsToClose = new Set(this.externalProjects.map((p) => p.getProjectName())); this.<OPAQUE_TOKEN>.forEach((_, externalProjectName) => proje"
+    ],
+    "showMainWindow": [
+      "dClipboardTextOutputSchema `� 0Pj>���$ <OPAQUE_TOKEN>`\" � ,PiN��4 <OPAQUE_TOKEN>`� PeR �v showMainWindow `� � 8Plb��v* <OPAQUE_TOKEN> ` � Pev]�d devNativePath ` � (Ph��Ty VIDEO_EMBEDDING_DIMENSIONS ` � (Ph�][U measureDurationByDecoding `r 0Pj��P�$ McpL",
+      "* 3L *0B C� #0 \" a \" ( � ` < M d�� ` �Q �T Pc��qV command ��a� @ Y `����@ ,` � 8PlF�+�, Main window unavailable after showMainWindow 0Q T � `X u ��\" � f �̚ $ *0J 4bH\"� ;� \" a \" � ` 9+ r] � Pe�P�B appTrayCommand % b �� ��m �3� �3� � �u � �3� Ӊ )� ;� j���� �`���� , M d�� S �S r] `����@ ��`"
+    ],
+    "protocol.handle": [
+      ",i)},handleMessage:(r,i,s)=>this._handleMessage(r,i,s),handleEvent:(r,i,s)=>this._handleEvent(r,i,s)}),this.requestHandler=n(this)}onmessage(e){this._protocol.handleMessage(e)}_handleMessage(e,n,r){if(e===Yr&&n===$h)return this.initialize(r[0]);const i=e===Yr?this.requestHandler:this._localChannels.get(e);if(!i)return ",
+      ",s)},handleMessage:(r,s,i)=>this._handleMessage(r,s,i),handleEvent:(r,s,i)=>this._handleEvent(r,s,i)}),this.requestHandler=n(this)}onmessage(e){this._protocol.handleMessage(e)}_handleMessage(e,n,r){if(e===en&&n===vi)return this.initialize(r[0]);const s=e===en?this.requestHandler:this._localChannels.get(e);if(!s)return ",
+      ",r)},handleMessage:(i,r,s)=>this._handleMessage(i,r,s),handleEvent:(i,r,s)=>this._handleEvent(i,r,s)}),this.requestHandler=n(this)}onmessage(e){this._protocol.handleMessage(e)}_handleMessage(e,n,i){if(e===Pn&&n===Bo)return this.initialize(i[0]);const r=e===Pn?this.requestHandler:this._localChannels.get(e);if(!r)return "
+    ],
+    "registerSchemesAsPrivileged": [
+      "� 4� � `����@ ,` �c @ � e \" @� : X 0Q < � `\" u 5P\" � c ��. `R 3� \" a \" � ` (Phz�y. registerSchemesAsPrivileged e ` J` % b PcBز& scheme PdrP � vidova-asset Pdvjl privileges @�b C PcB�}� secure C Pe�ؼE supportFetchAPI C �� C Pd�� [ corsEnabled C Pd&�E bypassCSP Dg"
+    ],
+    "open-url": [
+      "@ @ �e # @� F \"\" B% 0Q l � `� u j% \" ( � h ��� * p*$* j 3� $* j ;� \" a \" $ � ` � �  Pc�;� open-url 0Q L� `H � �% \" �e ��� d* #X* *hR 3� \"�\" �` � � 0Q @� `0 � �% \" �d ��� � +*dR(+L\"�\" �` � 1 � h # } � 3 � # �m� �`���� , M d�� ` �� d� E`����@ ,` �c � �"
+    ],
+    "second-instance": [
+      "�\" �` � g 3 �h� O �m� �`���� , M d�� ` �� �� E`����@ ,` �b @ � e @� � �% Pe (�h second-instance 0Q 4 � ` u ��\" � c ��f T* +� \" a \" e e Q �m� � `���� , M d�� ` �� `� E`����@ ,` �b � e @� � �% q � �3� �3� � Ӎ �j���� �3� �3� � Ӎ �j����"
+    ],
+    "setAsDefaultProtocolClient": [
+      "� � � ��Z L � e $ M1 D \" 0Q P � `J u % \" $ � g ��� * +� *$* B 3� \" a \" � ` � � (Ph j� setAsDefaultProtocolClient Apl �l� � � � �3� �3� � �i��� � `���� , M d�� ` $� � - `����@ ,` �c P � e @� E !\" 0Q d � `t u 2% \" ( � h ��� * \" Kx* +� ` * *� R 3� \" a \" � ` �"
+    ],
+    "projectId=": [],
+    "openProjectId": [
+      "empty\\x20string','arrow-up','assertActive','invokeOnInitCallbacks','encryptionAuxInfo','fill-box','\\x20cursor','Clip-local\\x20time\\x20in\\x20seconds','openProjectId','boz','orthodox','M12\\x2012h.01','Cannot\\x20seek:\\x20moov\\x20not\\x20received!','lockRef','BottomRight','#8b5cf6','iridescenceThicknessRange','centiseconds'",
+      "urrentProjectCount':_0x6a72cb[_0x586a28(0x38ec)],'existingProjectIds':new Set(_0x6a72cb[_0x586a28(_0x1f60d9._0x3d4889)](_0x539773=>_0x539773['id'])),'openProjectId':_0x2ba952?_0x3dcf96:null},_0xb87cd=_0x29f248===void 0x0?await bsn(_0x45098f):await oDe(_0x29f248,_0x45098f);if(_0xb87cd[_0x586a28(0xf98)]==='canceled')retu"
+    ],
+    "deeplink": [],
+    "deepLink": [],
+    "--open-project": []
+  },
+  "assessment": [
+    "A custom protocol IS registered and its open command receives the URL argument.",
+    "The only vidova:// URL string found in the bundle is an auth callback, not a documented project-open URL.",
+    "Command types such as OpenExternalProject exist in the bundle, but no external, documented, callable project-open URL/flag was confirmed.",
+    "Therefore this is a LEAD for the next stage, NOT a verified solution. It must not be reported as 'window gate solved'."
+  ],
+  "status": "DETECTED_LEAD__NOT_VERIFIED__NO_WINDOW_OPENED"
+}

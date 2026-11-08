@@ -1,0 +1,42 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "note": "SHA-256 of every committed evidence file except this manifest itself",
+  "files": {
+    "github_repo_probe.json": {
+      "bytes": 145112,
+      "sha256": "8516b384fce2a4f92dc995a6a52666ff511e7cb3d9f86980fe81eb29c45e7b2f"
+    },
+    "github_repo_probe_addendum.json": {
+      "bytes": 10167,
+      "sha256": "c51103dfc215f4bc481407337a8900cf9fbdd4ab56bd3b0118285c5e285698ba"
+    },
+    "jianying_host_research.json": {
+      "bytes": 1546,
+      "sha256": "6d5d8c909d2eaa622490a2b9d6abab443e27a25b4f64a58ef00d50fb0a13222e"
+    },
+    "secret_scan_004.json": {
+      "bytes": 610,
+      "sha256": "2eaaae94136cdb725440f19eae3c43902ab433465ae1553ac42c0f4ee71fbd36"
+    },
+    "signoff_before_after.json": {
+      "bytes": 3222,
+      "sha256": "272f099cdc2a735422ee369d0b1e643694735df3cf133c9efd3b21d01ce2ce3b"
+    },
+    "signoff_sample_contact_sheet.jpg": {
+      "bytes": 8937,
+      "sha256": "d21c9d7d77ea2e29ee8b040c927fef288d82b0e6186f2942b74ecd8b4bd1b13a"
+    },
+    "tts_probe_004.json": {
+      "bytes": 2911,
+      "sha256": "2cdba1f6abdba17e59e47336c7f531b90d869e83996b649296cfa097a1669e74"
+    },
+    "vidova_deeplink_research.json": {
+      "bytes": 9220,
+      "sha256": "1ee0d343734df78c3c64e161d13141c16e035b199e6b8812df3346eac7408b87"
+    },
+    "vidova_window_research.json": {
+      "bytes": 11815,
+      "sha256": "8e34676fbc80ca562dc28ab1bf1a89a8325392646778230f038716a7e526b518"
+    }
+  }
+}

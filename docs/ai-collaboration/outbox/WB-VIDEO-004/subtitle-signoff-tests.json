@@ -1,0 +1,526 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:46:36+08:00",
+  "timezone": "Asia/Shanghai (UTC+08:00)",
+  "module_under_test": "outbox/WB-VIDEO-004/subtitle_checks.py",
+  "policy": "per_item_signoff_v1",
+  "media_generation": "Local PIL test frames + local SRT only. Synthetic TEST SIGNAL frames are NOT real footage and NOT AI-generated assets. No network, no hosted quota, no paid service.",
+  "signoff_disclaimer": "All reviewer names in this test file are synthetic test data. No real human sign-off was performed and NO production sign-off ledger in the repository was written. D004 remains STILL_FAILING / REVIEW_REQUIRED.",
+  "signoff_policy": {
+    "required_items": [
+      "text_content_matches_srt",
+      "semantic_readability",
+      "occlusion_by_undeclared_content"
+    ],
+    "required_fields_per_item": [
+      "reviewer",
+      "reviewed_at",
+      "item_id",
+      "verdict",
+      "evidence",
+      "notes"
+    ],
+    "required_binding_fields_per_item": [
+      "frame_ref",
+      "time_range",
+      "video_version",
+      "subtitle_version"
+    ],
+    "spec_binding_anchors": [
+      "frame_id",
+      "review_time_range",
+      "video_version",
+      "subtitle_version"
+    ],
+    "rejects": [
+      "empty reviewer",
+      "empty/placeholder evidence",
+      "missing timestamp",
+      "future timestamp",
+      "wrong video version",
+      "wrong subtitle version",
+      "wrong frame reference",
+      "out-of-window time range",
+      "duplicate item record",
+      "non-APPROVED verdict",
+      "synthetic/test reviewer in production context",
+      "single global APPROVED object"
+    ],
+    "auto_pass_is_not_human_pass": true,
+    "human_cannot_override_automatic_fail": true
+  },
+  "summary": {
+    "total": 26,
+    "passed": 26,
+    "failed": 0,
+    "all_passed": true
+  },
+  "exit_code": 0,
+  "cases": [
+    {
+      "group": "P0_signoff",
+      "name": "all_three_items_approved",
+      "expected": "FIXED with 3 independent per-item records",
+      "actual": "FIXED",
+      "passed": true,
+      "evidence": {
+        "approved_items": [
+          "text_content_matches_srt",
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ],
+        "prerequisites": {
+          "no_automatic_failure": true,
+          "burned_in_pixel_proof": true,
+          "render_produced": true,
+          "font_size_frame_measured_pass": true,
+          "text_contrast_measured_pass": true,
+          "all_three_manual_items_individually_approved": true,
+          "signoff_binding_valid": true
+        },
+        "automatic_verdict": "PASS"
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "only_one_item_approved",
+      "expected": "NOT FIXED, 2 items still missing",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "approved_items": [
+          "text_content_matches_srt"
+        ],
+        "missing": [
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "one_item_not_reviewed",
+      "expected": "NOT_REVIEWED blocks FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "target_item_status": "NOT_REVIEWED",
+        "missing": [
+          "occlusion_by_undeclared_content"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "empty_reviewer_rejected",
+      "expected": "record invalid, no FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "empty_reviewer",
+          "synthetic_test_reviewer_not_admissible_in_production:reviewer_is_mock_or_anonymous"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "empty_evidence_rejected",
+      "expected": "record invalid, no FIXED",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "invalid_evidence:evidence text shorter than 12 characters"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_video_version_rejected",
+      "expected": "binding fails, no FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "video_version_does_not_match_spec"
+        ],
+        "binding_valid": false
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_subtitle_version_rejected",
+      "expected": "binding fails, no FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "subtitle_version_does_not_match_spec"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "auto_fail_but_human_approved",
+      "expected": "STILL_FAILING; human cannot override automatic FAIL",
+      "actual": "STILL_FAILING",
+      "passed": true,
+      "evidence": {
+        "automatic_failures": [
+          "contrast"
+        ],
+        "human_approved": true,
+        "human_cannot_override_automatic_fail": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "auto_pass_but_human_not_reviewed",
+      "expected": "NEEDS_MANUAL_REVIEW; auto PASS is not a human PASS",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "automatic_verdict": "PASS",
+        "missing": [
+          "text_content_matches_srt",
+          "semantic_readability",
+          "occlusion_by_undeclared_content"
+        ],
+        "auto_pass_is_not_human_pass": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "synthetic_reviewer_cannot_impersonate_production",
+      "expected": "all records invalid in production + ledger write refused",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "errors": {
+          "text_content_matches_srt": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "semantic_readability": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ],
+          "occlusion_by_undeclared_content": [
+            "synthetic_test_reviewer_not_admissible_in_production:test_only_flag_true,review_source_is_synthetic,reviewer_name_contains_synthetic_token"
+          ]
+        },
+        "production_ledger_write_refused": true,
+        "production_ledger_exists": false
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "legacy_global_approved_object_rejected",
+      "expected": "old gate signed=True; new gate requires 3 per-item records",
+      "actual": "NOT_PERFORMED",
+      "passed": true,
+      "evidence": {
+        "old_gate_signed_off": true,
+        "new_gate_approved_items": [],
+        "extraneous_records": [
+          {
+            "record": {
+              "verdict": "APPROVED",
+              "reviewer": "QA_LEAD_AAA",
+              "evidence": "looks good"
+            },
+            "reason": "legacy_global_signoff_object_has_no_per_item_records"
+          }
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "future_reviewed_at_rejected",
+      "expected": "invalid timestamp rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "invalid_reviewed_at:reviewed_at is in the future"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "wrong_frame_ref_rejected",
+      "expected": "frame binding rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "frame_ref_does_not_match_specified_frame"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "time_range_outside_window_rejected",
+      "expected": "time binding rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "time_range_outside_specified_review_window"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "duplicate_item_record_rejected",
+      "expected": "duplicate rejected",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "duplicate_records_for_item:2"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "human_rejected_item_cannot_fix",
+      "expected": "REJECTED blocks FIXED",
+      "actual": "REJECTED",
+      "passed": true,
+      "evidence": {
+        "errors": [
+          "verdict_is_not_APPROVED"
+        ]
+      }
+    },
+    {
+      "group": "font",
+      "name": "font_size_render_param_only_not_pass",
+      "expected": "NEEDS_MANUAL_REVIEW; render param has decision_weight 0",
+      "actual": "NEEDS_MANUAL_REVIEW",
+      "passed": true,
+      "evidence": {
+        "font_size": {
+          "font_px_render_param": 36,
+          "render_param_used_for_verdict": false,
+          "render_param_decision_weight": 0,
+          "font_px_measured": null,
+          "font_px_human_confirmed": null,
+          "measurement_method": null,
+          "measurement_confidence": null,
+          "measurement_note": "no-subtitle reference missing/undecodable",
+          "minimum_px": 24,
+          "three_states_recorded_separately": true,
+          "verdict": "NEEDS_MANUAL_REVIEW",
+          "reason": "no reliable frame measurement; renderer parameter is not evidence"
+        }
+      }
+    },
+    {
+      "group": "font",
+      "name": "font_three_states_recorded_separately",
+      "expected": "render / measured / human-confirmed are distinct fields",
+      "actual": [
+        "render_parameter",
+        "frame_measured",
+        "human_confirmed",
+        "note"
+      ],
+      "passed": true,
+      "evidence": {
+        "states": {
+          "render_parameter": 36,
+          "frame_measured": 26,
+          "human_confirmed": null,
+          "note": "human_confirmed is populated only by a real production sign-off record, never by a test"
+        },
+        "note": "human_confirmed is populated only by a real production sign-off record, never by a test"
+      }
+    },
+    {
+      "group": "contrast",
+      "name": "contrast_measures_text_not_whole_band",
+      "expected": "FAIL even though band luma spread is large",
+      "actual": "FAIL",
+      "passed": true,
+      "evidence": {
+        "contrast": {
+          "method": "text_mask_from_frame_difference_vs_adjacent_background_ring",
+          "measurement_confidence": "estimate_srgb_gray_proxy_not_certified_wcag",
+          "band_spread_diagnostic_only": 145.0,
+          "band_spread_used_for_verdict": false,
+          "whole_band_spread_is_not_text_contrast": true,
+          "minimum_spread_diagnostic_only": 55.0,
+          "text_pixels": 1913,
+          "background_pixels": 3496,
+          "median_text_luma": 112.0,
+          "median_adjacent_background_luma": 101.0,
+          "contrast_ratio": 1.177,
+          "abs_luma_delta": 11.0,
+          "minimum_contrast_ratio": 4.5,
+          "verdict": "FAIL",
+          "note": null
+        }
+      }
+    },
+    {
+      "group": "contrast",
+      "name": "high_contrast_text_passes_real_measurement",
+      "expected": "PASS with measured ratio and luma delta",
+      "actual": "PASS",
+      "passed": true,
+      "evidence": {
+        "contrast": {
+          "method": "text_mask_from_frame_difference_vs_adjacent_background_ring",
+          "measurement_confidence": "estimate_srgb_gray_proxy_not_certified_wcag",
+          "band_spread_diagnostic_only": 215.0,
+          "band_spread_used_for_verdict": false,
+          "whole_band_spread_is_not_text_contrast": true,
+          "minimum_spread_diagnostic_only": 55.0,
+          "text_pixels": 4385,
+          "background_pixels": 5175,
+          "median_text_luma": 245.0,
+          "median_adjacent_background_luma": 38.0,
+          "contrast_ratio": 13.881,
+          "abs_luma_delta": 207.0,
+          "minimum_contrast_ratio": 4.5,
+          "verdict": "PASS",
+          "note": null
+        }
+      }
+    },
+    {
+      "group": "occlusion",
+      "name": "small_occluder_iou_miss_detected",
+      "expected": "new coverage signal FAILs where legacy IoU would PASS",
+      "actual": "FAIL",
+      "passed": true,
+      "evidence": {
+        "occlusion": {
+          "pairs": [
+            {
+              "box": [
+                300,
+                300,
+                8,
+                8
+              ],
+              "intersection_px": 64.0,
+              "iou": 0.0025,
+              "intersection_over_subject": 1.0,
+              "intersection_over_subtitle": 0.0025,
+              "subject_contained_in_subtitle": true
+            }
+          ],
+          "max_iou": 0.0025,
+          "max_intersection_over_subject": 1.0,
+          "max_intersection_over_subtitle": 0.0025,
+          "legacy_iou_would_pass": true,
+          "coverage_signal_detected": true,
+          "verdict": "FAIL"
+        }
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "automatic_and_manual_structures_separate",
+      "expected": "two independent data structures",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "automatic_keys": [
+          "checks",
+          "failures",
+          "needs_review",
+          "verdict"
+        ],
+        "manual_keys": [
+          "all_items_approved",
+          "approved_items",
+          "context",
+          "extraneous_records",
+          "items",
+          "missing_or_invalid_items",
+          "policy",
+          "required_items",
+          "signoff_integrity",
+          "verdict"
+        ]
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "per_item_independent_records",
+      "expected": "3 distinct reviewers, timestamps, evidence hashes",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "reviewers": [
+          "QA_LEAD_AAA",
+          "QA_LEAD_BBB",
+          "QA_LEAD_CCC"
+        ],
+        "timestamps": [
+          "2026-11-08T16:12:00+08:00",
+          "2026-11-08T16:15:00+08:00",
+          "2026-11-08T16:18:00+08:00"
+        ],
+        "signoff_hash": "8b9c786ebf948f2c50b2bba5c9968554504e216d9211177b452e2f276906bbfc"
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "synthetic_reviewers_confined_to_unit_test",
+      "expected": "allowed in unit_test only; never production-admissible",
+      "actual": {
+        "unit_test": true,
+        "production": false
+      },
+      "passed": true,
+      "evidence": {
+        "unit_test_admissible": false,
+        "production_admissible": false
+      }
+    },
+    {
+      "group": "regression",
+      "name": "srt_exists_but_no_burned_in_subtitle",
+      "expected": "automatic FAIL -> STILL_FAILING despite full sign-off",
+      "actual": "STILL_FAILING",
+      "passed": true,
+      "evidence": {
+        "burned_in_evidence": {
+          "verdict": "FAIL",
+          "available": true,
+          "mean_abs_diff": 0.0,
+          "threshold": 2.0,
+          "subtitle_visible_in_frame": false,
+          "note": "SRT exists but the rendered frame is identical to the no-subtitle frame"
+        },
+        "human_approved": true
+      }
+    },
+    {
+      "group": "P0_signoff",
+      "name": "production_ledger_accepts_valid_signoff",
+      "expected": "valid non-synthetic per-item sign-off is auditable",
+      "actual": true,
+      "passed": true,
+      "evidence": {
+        "result": {
+          "written": true,
+          "lines_appended": 1,
+          "signoff_hash": "8b9c786ebf948f2c50b2bba5c9968554504e216d9211177b452e2f276906bbfc",
+          "ledger": "production"
+        },
+        "note": "test-only ledger in a local scratch directory; no production defect was signed off"
+      }
+    }
+  ],
+  "limitations": [
+    "Frame-measured font size is an estimated glyph height, not a certified font metric.",
+    "Contrast is a sRGB grey-proxy estimate against adjacent background pixels, not a certified WCAG audit.",
+    "Occlusion coverage only covers DECLARED subject boxes; undeclared content stays a human item.",
+    "Tests prove the gate logic on synthetic frames; they do NOT prove any real subtitle defect was fixed."
+  ]
+}

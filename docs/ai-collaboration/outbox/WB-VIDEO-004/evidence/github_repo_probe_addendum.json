@@ -1,0 +1,239 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:49:55+08:00",
+  "purpose": "addendum: fix branch guess, verify licence text where auto-detection was ambiguous, inspect one real SKILL.md",
+  "checks": [
+    {
+      "case": "ShortGPT_master_README.md",
+      "http_status": 200,
+      "bytes": 7599,
+      "sha256": "1acbaa17ea48a5c200ab19a7363f294583d73ee6aa4b44fe1d8ff7520fa3e88e",
+      "excerpt": [
+        "# 🚀🎬 ShortGPT ",
+        "## AI video automation framework",
+        "<p align=\"center\">",
+        "  <a href=\"https://discord.gg/uERx39ru3R\">",
+        "    <img src=\"https://dcbadge.vercel.app/api/server/uERx39ru3R?compact=true&style=flat\">",
+        "  </a>",
+        "  <a href=\"https://star-history.com/#rayventura/shortgpt)\">",
+        "    <img src=\"https://img.shields.io/github/stars/rayventura/shortgpt?style=social\">",
+        "  </a>",
+        "  <a href=\"https://pypi.org/project/shortgpt/\">"
+      ]
+    },
+    {
+      "case": "ShortGPT_master_LICENSE",
+      "http_status": 200,
+      "bytes": 1067,
+      "sha256": "4ca824125b89b466667f5f56b8a9e10e7bcd8973f36e4eacc72dadc3d628cd4e",
+      "excerpt": [
+        "MIT License",
+        "",
+        "Copyright (c) 2024 Ray Ventura",
+        "",
+        "Permission is hereby granted, free of charge, to any person obtaining a copy",
+        "of this software and associated documentation files (the \"Software\"), to deal",
+        "in the Software without restriction, including without limitation the rights",
+        "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+        "copies of the Software, and to permit persons to whom the Software is",
+        "furnished to do so, subject to the following conditions:"
+      ]
+    },
+    {
+      "case": "ShortGPT_master_requirements.txt",
+      "http_status": 200,
+      "bytes": 270,
+      "sha256": "a6f42e744f990d6f0c21ff25142d905cb0ad2760efe0360e8f1a15c9ccecbe1f",
+      "excerpt": [
+        "python-dotenv",
+        "gradio_client==1.5.4",
+        "gradio==5.12.0",
+        "openai==1.37.0",
+        "httpx==0.27.2",
+        "tiktoken",
+        "tinydb",
+        "tinymongo",
+        "proglog",
+        "yt-dlp>=2025.1.12"
+      ]
+    },
+    {
+      "case": "ShortGPT_master_shortgpt/engine/content_video_engine.py",
+      "http_status": 404,
+      "bytes": 14,
+      "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+      "excerpt": []
+    },
+    {
+      "case": "ShortGPT_master_shortgpt/config.py",
+      "http_status": 404,
+      "bytes": 14,
+      "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+      "excerpt": []
+    },
+    {
+      "case": "anthropics_skills_LICENSE",
+      "http_status": 404,
+      "bytes": 14,
+      "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+      "excerpt": []
+    },
+    {
+      "case": "anthropics_skills_skills/pdf/SKILL.md",
+      "http_status": 200,
+      "bytes": 8058,
+      "sha256": "d1c7caf5f35eb7d37877dd7fc33a095037be2b34fb5d2f7f4d43bde3165bb4ee",
+      "excerpt": [
+        "---",
+        "name: pdf",
+        "description: Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs int",
+        "license: Complete terms in LICENSE.txt",
+        "---",
+        "",
+        "# PDF Processing Guide",
+        "",
+        "## Overview",
+        "",
+        "This guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see REFEREN",
+        "",
+        "## Quick Start",
+        ""
+      ]
+    },
+    {
+      "case": "anthropics_skills_skills/docx/SKILL.md",
+      "http_status": 200,
+      "bytes": 6897,
+      "sha256": "9e8202e2524a9ed87da67a5b3eaa76e8e6038f4171f8251ad6aaefd34e82a3df",
+      "excerpt": [
+        "---",
+        "name: docx",
+        "description: \"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mentio",
+        "license: Complete terms in LICENSE.txt",
+        "---",
+        "",
+        "# DOCX creation, editing, and analysis",
+        "",
+        "A `.docx` is a ZIP archive of XML files. Choose your approach by task:",
+        "",
+        "| Task | Approach |",
+        "|---|---|",
+        "| **Create** a new document | Write a `docx` (npm) script — see gotchas below |",
+        "| **Edit** an existing document | `unzip` → edit `word/document.xml` → `zip` (docx-js cannot open existing files) |"
+      ]
+    },
+    {
+      "case": "anthropics_skills_README.md",
+      "http_status": 200,
+      "bytes": 5547,
+      "sha256": "1fca448ca17ccf901bd068c661209b15300bc5be3f039ba1a616c3a13a374ccb",
+      "excerpt": [
+        "> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).",
+        "",
+        "[![skills.sh](https://skills.sh/b/anthropics/skills)](https://skills.sh/anthropics/skills)",
+        "",
+        "# Skills",
+        "Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific t",
+        "",
+        "For more information, check out:",
+        "- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)",
+        "- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)",
+        "- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)",
+        "- [Equipping agents for the real world with Agent Skills](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)",
+        "",
+        "# About This Repository"
+      ]
+    },
+    {
+      "case": "rany2/edge-tts_licence_head",
+      "http_status": 200,
+      "bytes": 9041,
+      "sha256": "3613045a46a5bce847f80eadbbf013e4260ef19d728ffd061d61e792689ec3a8",
+      "excerpt": [
+        "The MIT license is used for 'src/edge_tts/srt_composer.py' only. All",
+        "remaining files are licensed under the LGPLv3.",
+        "",
+        "-----------------------------------------------------------------------",
+        "",
+        "The MIT License",
+        "",
+        "Copyright (c) 2014-2023 Christopher Down",
+        "Copyright (c) 2025- rany <rany@riseup.net>",
+        ""
+      ]
+    },
+    {
+      "case": "Aegisub/Aegisub_licence_head",
+      "http_status": 200,
+      "bytes": 1980,
+      "sha256": "dac4a32575f6272a1285e03e957d5f67cd8682db717cab92d83c55a9dadbe748",
+      "excerpt": [
+        "Copyright (c) 2004-2012, Aegisub Project",
+        "All rights reserved.",
+        "",
+        "Redistribution and use in source and binary forms, with or without",
+        "modification, are permitted provided that the following conditions are met:",
+        "",
+        "  * Redistributions of source code must retain the above copyright notice,",
+        "    this list of conditions and the following disclaimer.",
+        "  * Redistributions in binary form must reproduce the above copyright notice,",
+        "    this list of conditions and the following disclaimer in the documentation"
+      ]
+    },
+    {
+      "case": "Netflix/vmaf_licence_head",
+      "http_status": 200,
+      "bytes": 2833,
+      "sha256": "a6fdb51d02b9dfe198e55534bb8047fe6d756eda117f4ff83de98f92c1952710",
+      "excerpt": [
+        "LICENSE - BSD+Patent",
+        "SPDX short identifier: BSD-2-Clause-Patent",
+        "",
+        "Note: This license is designed to provide: a) a simple permissive license; b) that is compatible with the GNU General",
+        "Public License (GPL), version 2; and c) which also has an express patent grant included.",
+        "",
+        "Copyright (c) 2020 Netflix, Inc.",
+        "",
+        "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the",
+        "following conditions are met:"
+      ]
+    },
+    {
+      "case": "comfyanonymous/ComfyUI_licence_head",
+      "http_status": 200,
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "excerpt": [
+        "                    GNU GENERAL PUBLIC LICENSE",
+        "                       Version 3, 29 June 2007",
+        "",
+        " Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>",
+        " Everyone is permitted to copy and distribute verbatim copies",
+        " of this license document, but changing it is not allowed.",
+        "",
+        "                            Preamble",
+        "",
+        "  The GNU General Public License is a free, copyleft license for"
+      ]
+    },
+    {
+      "case": "modelcontextprotocol/servers_licence_head",
+      "http_status": 200,
+      "bytes": 12227,
+      "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+      "excerpt": [
+        "The MCP project is undergoing a licensing transition from the MIT License to the Apache License, Version 2.0 (\"Apache-2.0\"). All new code and specification contributions to the pro",
+        "",
+        "Contributions for which relicensing consent has been obtained are licensed under Apache-2.0. Contributions made by authors who originally licensed their work under the MIT License ",
+        "",
+        "No rights beyond those granted by the applicable original license are conveyed for such contributions.",
+        "",
+        "---",
+        "",
+        "                                 Apache License",
+        "                           Version 2.0, January 2004"
+      ]
+    }
+  ],
+  "anthropics_skills_html_license_mentions": []
+}

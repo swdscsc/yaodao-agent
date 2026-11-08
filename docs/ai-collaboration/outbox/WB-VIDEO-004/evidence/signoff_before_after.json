@@ -1,0 +1,99 @@
+{
+  "task_id": "WB-VIDEO-004",
+  "captured_at": "2026-11-08T16:46:36+08:00",
+  "defect": "WB-VIDEO-003 evaluate_subtitle_fix accepted ONE global APPROVED object; MANUAL_ITEMS were never individually reviewed",
+  "before": {
+    "source": "docs/ai-collaboration/outbox/WB-VIDEO-003/subtitle_checks.py lines 319-320",
+    "legacy_expression": "signed = bool(review.get('verdict') == 'APPROVED' and review.get('reviewer') and review.get('evidence'))",
+    "input": {
+      "verdict": "APPROVED",
+      "reviewer": "QA_LEAD_AAA",
+      "evidence": "looks good"
+    },
+    "result": {
+      "source": "WB-VIDEO-003/subtitle_checks.py:319-320",
+      "input": {
+        "verdict": "APPROVED",
+        "reviewer": "QA_LEAD_AAA",
+        "evidence": "looks good"
+      },
+      "signed_off": true,
+      "per_item_records_checked": 0,
+      "warning": "This is the DEFECTIVE behaviour; reproduced for evidence only."
+    }
+  },
+  "after": {
+    "source": "docs/ai-collaboration/outbox/WB-VIDEO-004/subtitle_checks.py verify_signoff_set()",
+    "input": {
+      "verdict": "APPROVED",
+      "reviewer": "QA_LEAD_AAA",
+      "evidence": "looks good"
+    },
+    "result": {
+      "policy": "per_item_signoff_v1",
+      "context": "production",
+      "required_items": [
+        "text_content_matches_srt",
+        "semantic_readability",
+        "occlusion_by_undeclared_content"
+      ],
+      "items": {
+        "text_content_matches_srt": {
+          "verdict": "NOT_REVIEWED",
+          "valid": false,
+          "errors": [
+            "no_review_record_for_this_item"
+          ],
+          "record_sha256": null
+        },
+        "semantic_readability": {
+          "verdict": "NOT_REVIEWED",
+          "valid": false,
+          "errors": [
+            "no_review_record_for_this_item"
+          ],
+          "record_sha256": null
+        },
+        "occlusion_by_undeclared_content": {
+          "verdict": "NOT_REVIEWED",
+          "valid": false,
+          "errors": [
+            "no_review_record_for_this_item"
+          ],
+          "record_sha256": null
+        }
+      },
+      "approved_items": [],
+      "missing_or_invalid_items": [
+        "text_content_matches_srt",
+        "semantic_readability",
+        "occlusion_by_undeclared_content"
+      ],
+      "all_items_approved": false,
+      "extraneous_records": [
+        {
+          "record": {
+            "verdict": "APPROVED",
+            "reviewer": "QA_LEAD_AAA",
+            "evidence": "looks good"
+          },
+          "reason": "legacy_global_signoff_object_has_no_per_item_records"
+        }
+      ],
+      "verdict": "NOT_PERFORMED",
+      "signoff_integrity": {
+        "signoff_hash": null,
+        "binding_valid": false,
+        "synthetic_records": 0,
+        "production_admissible": false,
+        "automatic_and_manual_recorded_separately": true
+      }
+    },
+    "required_per_item_records": [
+      "text_content_matches_srt",
+      "semantic_readability",
+      "occlusion_by_undeclared_content"
+    ]
+  },
+  "comparison": "same single global APPROVED input: old gate signed_off=true; new gate approved 0 of 3 items and refuses FIXED"
+}
