@@ -261,4 +261,26 @@ python rework.py  --root <本机 pipeline 目录> --config <config.local.json> -
 - 未公开发布任何内容；推送仅限用户指定的私有协作仓库 `main` 分支，无 force-push。
 - **参考链路端到端成功 ≠ 整条流水线成功**，下一阶段仍需 ChatGPT 审核后再执行。
 
-**本轮到此停止，等待审核。**
+---
+
+## 11. 提交与可验证链接（推送完成后补记）
+
+| 项 | 值 |
+|---|---|
+| 仓库 / 分支 | `swdscsc/yaodao-agent` / `main` |
+| 基线提交 | `5a5dbb6fde2d4bb6182328c31b4a3a2cf9fdb9c9` |
+| **主体交付提交 SHA**（含本报告、源码、全部证据） | **`66d63f869116a25e88d07c5fc505721709d9af86`** |
+| 推送结果 | `5a5dbb6..66d63f8  main -> main`，`push` 退出码 0；`ls-remote origin HEAD` = `66d63f8…` |
+| 提交文件数 | 22（报告 1、源码 5、`.gitignore` 1、证据 14、状态文件 1） |
+| 提交时间 | 2026-11-08 15:26 +0800 |
+| 补记说明 | 本节为推送成功后追加的元数据，随一次独立的小修订提交推送；**最终远端 HEAD 会晚于 `66d63f8`**，以会话中回报的 `ls-remote` 结果为准。主体交付内容未变。 |
+
+- 报告：<https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-002-report.md>
+- 源码目录：<https://github.com/swdscsc/yaodao-agent/tree/main/docs/ai-collaboration/outbox/WB-VIDEO-002>
+- 证据目录：<https://github.com/swdscsc/yaodao-agent/tree/main/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence>
+- 校验和清单：<https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/outbox/WB-VIDEO-002/evidence/manifest.sha256.json>
+- 状态文件：<https://github.com/swdscsc/yaodao-agent/blob/main/docs/ai-collaboration/status/pipeline-status.json>
+
+提交前校验：10 个 JSON 全部解析通过、4 个 Python 文件语法编译通过、13 个证据文件 SHA-256 与 `manifest.sha256.json` 全部一致、全量文本敏感扫描 `leaks: []`（无 PAT / 绝对路径 / 用户名）。凭据仅通过按命令临时认证头使用，未写入仓库、remote 或全局 git 配置，未使用 force-push。
+
+**本轮到此停止，等待 ChatGPT 审核后再执行 WB-VIDEO-003。**

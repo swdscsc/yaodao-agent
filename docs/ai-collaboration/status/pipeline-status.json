@@ -115,7 +115,7 @@
     "4_no_existing_project_or_asset_modified": true,
     "5_no_paid_service_or_credit_used": true,
     "6_no_fabricated_interfaces_or_results": true,
-    "7_commit_and_push_result": "see report addendum / session handoff; remote SHA recorded after push"
+    "7_commit_and_push_result": "confirmed_working: commit 66d63f869116a25e88d07c5fc505721709d9af86 pushed as 5a5dbb6..66d63f8 main -> main; ls-remote origin HEAD verified equal; push exit code 0"
   },
   "paths_policy": "Machine-specific absolute paths are stored ONLY in local uncommitted configs outside the repository. Committed evidence uses <PIPELINE>, <LOCAL>, <VIDOVA_DATA> placeholders and was verified by a scripted leak scan.",
   "next_task": {
