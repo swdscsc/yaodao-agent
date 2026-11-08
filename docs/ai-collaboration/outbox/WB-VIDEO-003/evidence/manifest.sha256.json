@@ -1,0 +1,29 @@
+{
+  "files": {
+    "before_after.json": {
+      "bytes": 1780,
+      "sha256": "90bf86b2f6a7d36c3525e042f6f078e87140dcd56389548bb47ef2dd7c69ca94"
+    },
+    "d004_reassessment.json": {
+      "bytes": 15103,
+      "sha256": "d357175876077ad9a69d09739a86b9587f1d82a91627524d41cd51077189e0d3"
+    },
+    "environment_probe.json": {
+      "bytes": 8155,
+      "sha256": "82fbaa194a5fadbca708e47af475e8199a42dc4350fbd2e5442a6d4cea24c9c7"
+    },
+    "freeze_intervals.json": {
+      "bytes": 2302,
+      "sha256": "99ed2519124bac54be1db2ef7c96397f314c924431bc28cbb4bd5424732c31e2"
+    },
+    "shot_manifest.json": {
+      "bytes": 2921,
+      "sha256": "c1b9368b4e36cf6f19ff4aa864eb3aa7c2966cf47ff495a75d19ffefd038db63"
+    },
+    "subtitle_contact_sheet.jpg": {
+      "bytes": 35854,
+      "sha256": "6b8386d6b9bbe23d65d8188ee187e42058dc515b63bc3e425ee6c3d130f7b211"
+    }
+  },
+  "note": "SHA-256 of committed WB-VIDEO-003 evidence files"
+}

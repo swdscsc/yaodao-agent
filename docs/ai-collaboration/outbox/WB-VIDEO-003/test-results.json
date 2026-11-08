@@ -1,0 +1,638 @@
+{
+  "task_id": "WB-VIDEO-003",
+  "generated_at": "2026-11-08T15:57:43+08:00",
+  "timezone": "Asia/Shanghai (UTC+08:00)",
+  "environment": {
+    "media_generation": "local FFmpeg lavfi (testsrc2 / color / freezeframes / sine)",
+    "frames": "local PIL",
+    "hosted_quota_calls": 0,
+    "network_calls": 0,
+    "user_projects_touched": false,
+    "note": "all media generated under a local scratch dir; only small JPG evidence is committed"
+  },
+  "summary": {
+    "total": 17,
+    "passed": 17,
+    "failed": 0,
+    "all_passed": true
+  },
+  "groups": {
+    "P0-1_freeze_whitelist": [
+      {
+        "group": "P0-1",
+        "name": "normal_dynamic_video_no_freeze",
+        "expected": "PASS / frozen_frame=PASS",
+        "actual": "PASS / PASS",
+        "passed": true,
+        "evidence": {
+          "freeze_intervals": [],
+          "problems": []
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "dynamic_video_mid_freeze_detected",
+        "expected": "FAIL + frozen_frames_outside_whitelist",
+        "actual": "FAIL / ['frozen_frames_outside_whitelist']",
+        "passed": true,
+        "evidence": {
+          "evaluated_intervals": [
+            {
+              "start": 1.5,
+              "end": 3.533,
+              "duration": 2.033,
+              "raw_interval": {
+                "start": 1.5,
+                "end": 3.533333,
+                "duration": 2.033333
+              },
+              "covered_by": null,
+              "decision": "FAIL",
+              "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+            }
+          ],
+          "raw_intervals": [
+            {
+              "start": 1.5,
+              "end": 3.533333,
+              "duration": 2.033333
+            }
+          ],
+          "dynamic_footage_always_checked": true
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "legal_static_intro_whitelisted",
+        "expected": "PASS_ALLOWED_STATIC / verdict=PASS",
+        "actual": "PASS_ALLOWED_STATIC / PASS",
+        "passed": true,
+        "evidence": {
+          "whitelist": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "reason": "confirmed static intro title card"
+            }
+          ],
+          "evaluated_intervals": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "duration": 1.5,
+              "raw_interval": {
+                "start": 0.0,
+                "end": 1.5,
+                "duration": 1.5
+              },
+              "covered_by": {
+                "start": 0.0,
+                "end": 1.5,
+                "reason": "confirmed static intro title card"
+              },
+              "decision": "ALLOWED_STATIC",
+              "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+            }
+          ],
+          "coverage": 0.3
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "static_intro_then_dynamic_freeze_not_exempted",
+        "expected": "FAIL with >=1 interval outside whitelist",
+        "actual": "FAIL / outside=1",
+        "passed": true,
+        "evidence": {
+          "whitelist": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "reason": "confirmed static intro title card"
+            }
+          ],
+          "evaluated_intervals": [
+            {
+              "start": 0.0,
+              "end": 1.5,
+              "duration": 1.5,
+              "raw_interval": {
+                "start": 0.0,
+                "end": 1.5,
+                "duration": 1.5
+              },
+              "covered_by": {
+                "start": 0.0,
+                "end": 1.5,
+                "reason": "confirmed static intro title card"
+              },
+              "decision": "ALLOWED_STATIC",
+              "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+            },
+            {
+              "start": 3.0,
+              "end": 6.0,
+              "duration": 3.0,
+              "raw_interval": {
+                "start": 3.0,
+                "end": null,
+                "duration": null,
+                "note": "freeze until EOF (no freeze_end emitted)"
+              },
+              "covered_by": null,
+              "decision": "FAIL",
+              "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+            }
+          ],
+          "outside_whitelist": [
+            {
+              "start": 3.0,
+              "end": 6.0,
+              "duration": 3.0,
+              "raw_interval": {
+                "start": 3.0,
+                "end": null,
+                "duration": null,
+                "note": "freeze until EOF (no freeze_end emitted)"
+              },
+              "covered_by": null,
+              "decision": "FAIL",
+              "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+            }
+          ]
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "whitelist_config_errors_are_fail_closed",
+        "expected": "all 4 bad configs FAIL, zero exemptions applied",
+        "actual": "ok=True",
+        "passed": true,
+        "evidence": {
+          "overlapping": {
+            "verdict": "FAIL",
+            "errors": [
+              "interval[1]: CONFIG_ERROR overlaps interval[0]"
+            ],
+            "frozen_frame": "FAIL_INVALID_WHITELIST",
+            "exemptions_applied": 0
+          },
+          "reversed": {
+            "verdict": "FAIL",
+            "errors": [
+              "interval[0]: CONFIG_ERROR end 0.5 <= start 1.5"
+            ],
+            "frozen_frame": "FAIL_INVALID_WHITELIST",
+            "exemptions_applied": 0
+          },
+          "missing_reason": {
+            "verdict": "FAIL",
+            "errors": [
+              "interval[0]: CONFIG_ERROR missing reason (only CONFIRMED static cards are allowed)"
+            ],
+            "frozen_frame": "FAIL_INVALID_WHITELIST",
+            "exemptions_applied": 0
+          },
+          "coverage_exceeds_50pct": {
+            "verdict": "FAIL",
+            "errors": [
+              "CONFIG_ERROR whitelist covers 88.0% of the video, exceeds 50% limit (whole-video exemption is forbidden)"
+            ],
+            "frozen_frame": "FAIL_INVALID_WHITELIST",
+            "exemptions_applied": 0
+          }
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "whitelist_interval_out_of_range",
+        "expected": "FAIL + OUT_OF_RANGE error",
+        "actual": "FAIL / ['interval[0]: OUT_OF_RANGE end 999.0 exceeds media duration 5.0']",
+        "passed": true,
+        "evidence": {
+          "whitelist_errors": [
+            "interval[0]: OUT_OF_RANGE end 999.0 exceeds media duration 5.0"
+          ],
+          "media_duration": 5.0
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "legacy_global_exemption_is_removed",
+        "expected": "ValueError (no caller can bypass)",
+        "actual": "rejected=True",
+        "passed": true,
+        "evidence": {
+          "error": "P0-1: the whole-video freeze exemption 'static_material_expected' has been REMOVED. Use explicit static_intervals=[{start,end,reason}]."
+        }
+      },
+      {
+        "group": "P0-1",
+        "name": "before_after_legacy_bypass_reproduced",
+        "expected": "before hides freeze / after reports FAIL",
+        "actual": "before=EXPECTED_STATIC after=FAIL",
+        "passed": true,
+        "evidence": {
+          "same_media": "dynamic_mid_freeze.mp4",
+          "before": {
+            "module": "WB-VIDEO-002/qa.py",
+            "call": "qa_media(..., static_material_expected=True)",
+            "frozen_frame": "EXPECTED_STATIC",
+            "verdict": "PASS",
+            "problems": [],
+            "qa_policy": {
+              "static_material_expected": true,
+              "freeze_detector_hit": true,
+              "note": "A freeze was detected but this asset is declared static. The raw interval data is retained above; production footage must NOT set this flag."
+            }
+          },
+          "after": {
+            "module": "WB-VIDEO-003/qa.py",
+            "call": "qa_media(..., static_intervals=None)",
+            "frozen_frame": "FAIL",
+            "verdict": "FAIL",
+            "problems": [
+              "frozen_frames_outside_whitelist"
+            ],
+            "whitelist_errors": [],
+            "evaluated_intervals": [
+              {
+                "start": 1.5,
+                "end": 3.533,
+                "duration": 2.033,
+                "raw_interval": {
+                  "start": 1.5,
+                  "end": 3.533333,
+                  "duration": 2.033333
+                },
+                "covered_by": null,
+                "decision": "FAIL",
+                "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+              }
+            ]
+          },
+          "conclusion": "the legacy global flag hid a real freeze; the strict policy reports it"
+        }
+      }
+    ],
+    "P0-2_subtitle_quality": [
+      {
+        "group": "P0-2",
+        "name": "normal_subtitle_automatic_pass_but_needs_human_review",
+        "expected": "automatic=PASS, fix_result=NEEDS_MANUAL_REVIEW",
+        "actual": "PASS / NEEDS_MANUAL_REVIEW",
+        "passed": true,
+        "evidence": {
+          "automatic_failures": [],
+          "burned_in_evidence": {
+            "verdict": "PASS",
+            "available": true,
+            "mean_abs_diff": 82.325,
+            "threshold": 2.0,
+            "subtitle_visible_in_frame": true,
+            "note": "subtitle pixels differ from the no-subtitle reference"
+          },
+          "manual_items": [
+            "text_content_matches_srt",
+            "semantic_readability",
+            "occlusion_by_undeclared_content"
+          ],
+          "can_mark_fixed": false
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "normal_subtitle_with_human_signoff_can_be_FIXED",
+        "expected": "fix_result=FIXED",
+        "actual": "FIXED",
+        "passed": true,
+        "evidence": {
+          "manual_review": {
+            "items": {
+              "text_content_matches_srt": {
+                "verdict": "NEEDS_MANUAL_REVIEW",
+                "reason": "requires OCR or a human reading the burned-in text"
+              },
+              "semantic_readability": {
+                "verdict": "NEEDS_MANUAL_REVIEW",
+                "reason": "legibility / wording / rhythm requires human judgement"
+              },
+              "occlusion_by_undeclared_content": {
+                "verdict": "NEEDS_MANUAL_REVIEW",
+                "reason": "undeclared subjects or UI cannot be enumerated reliably"
+              }
+            },
+            "signed_off": true,
+            "reviewer": "test-harness-named-reviewer",
+            "evidence": "evidence/subtitle_contact_sheet.jpg",
+            "verdict": "APPROVED",
+            "note": "separate human review record; automatic checks are stored above independently"
+          },
+          "automatic": "PASS",
+          "decision_rule": "FIXED requires: no automatic FAIL + explicit named human APPROVED sign-off + positive burn-in pixel proof + produced render. File existence alone has decision_weight=0."
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "subtitle_outside_canvas_detected",
+        "expected": "FAIL / box_within_canvas=FAIL",
+        "actual": "FAIL / FAIL",
+        "passed": true,
+        "evidence": {
+          "box_within_canvas": {
+            "verdict": "FAIL",
+            "box": [
+              1600,
+              880,
+              500,
+              120
+            ],
+            "canvas": [
+              1920,
+              1080
+            ],
+            "overflow_right": 180,
+            "overflow_bottom": 0
+          }
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "subtitle_too_close_to_bottom_edge",
+        "expected": "FAIL / safe_area=FAIL",
+        "actual": "FAIL / FAIL",
+        "passed": true,
+        "evidence": {
+          "safe_area": {
+            "verdict": "FAIL",
+            "orientation": "horizontal",
+            "allowed_band_fraction": [
+              0.7,
+              0.94
+            ],
+            "box_center_y_fraction": 0.9583,
+            "midframe_defect": false,
+            "reason": "subtitle band outside the declared safe area"
+          }
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "subtitle_overlapping_subject_detected",
+        "expected": "FAIL / subject_overlap=FAIL",
+        "actual": "FAIL / FAIL",
+        "passed": true,
+        "evidence": {
+          "subject_overlap": {
+            "verdict": "FAIL",
+            "pairs": [
+              {
+                "box": [
+                  200,
+                  850,
+                  800,
+                  200
+                ],
+                "iou": 0.375
+              }
+            ],
+            "max_iou": 0.375
+          }
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "vertical_subtitle_position_and_safe_area",
+        "expected": "midframe=FAIL, bottom-placed=PASS",
+        "actual": "mid=FAIL bottom=PASS",
+        "passed": true,
+        "evidence": {
+          "vertical_midframe": {
+            "verdict": "FAIL",
+            "orientation": "vertical",
+            "allowed_band_fraction": [
+              0.72,
+              0.94
+            ],
+            "box_center_y_fraction": 0.5026,
+            "midframe_defect": true,
+            "reason": "vertical subtitle sits in the middle of the frame"
+          },
+          "vertical_bottom": {
+            "verdict": "PASS",
+            "orientation": "vertical",
+            "allowed_band_fraction": [
+              0.72,
+              0.94
+            ],
+            "box_center_y_fraction": 0.8151,
+            "midframe_defect": false,
+            "reason": "inside safe area"
+          }
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "srt_exists_but_subtitle_not_visible_in_frame",
+        "expected": "FAIL / burned_in_evidence=FAIL",
+        "actual": "FAIL / FAIL",
+        "passed": true,
+        "evidence": {
+          "srt_parse": {
+            "verdict": "PASS",
+            "exists": true,
+            "entry_count": 2,
+            "note": "a valid SRT file is necessary but not sufficient"
+          },
+          "burned_in_evidence": {
+            "verdict": "FAIL",
+            "available": true,
+            "mean_abs_diff": 0.0,
+            "threshold": 2.0,
+            "subtitle_visible_in_frame": false,
+            "note": "SRT exists but the rendered frame is identical to the no-subtitle frame"
+          }
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "file_existence_alone_never_marks_FIXED",
+        "expected": "legacy=FIXED but corrected result!=FIXED",
+        "actual": "legacy=FIXED corrected=STILL_FAILING",
+        "passed": true,
+        "evidence": {
+          "legacy": {
+            "legacy_expression": "bool(v2.exists() and v2.stat().st_size > 0)",
+            "file_exists": true,
+            "size_bytes": 56515,
+            "legacy_result": "FIXED",
+            "warning": "This is the DEFECTIVE behaviour; never use it as a decision."
+          },
+          "corrected_fix_result": "STILL_FAILING",
+          "artifact_check": {
+            "verdict": "PASS",
+            "frame_bytes": 47363,
+            "decision_weight": 0,
+            "note": "proves a render was produced; proves NOTHING about subtitle quality"
+          },
+          "decision_rule": "FIXED requires: no automatic FAIL + explicit named human APPROVED sign-off + positive burn-in pixel proof + produced render. File existence alone has decision_weight=0."
+        }
+      },
+      {
+        "group": "P0-2",
+        "name": "automatic_and_manual_review_recorded_separately",
+        "expected": "separate fields, manual NOT_PERFORMED",
+        "actual": "ok=True",
+        "passed": true,
+        "evidence": {
+          "automatic_verdict": "PASS",
+          "manual_review_verdict": "NOT_PERFORMED",
+          "manual_items": [
+            "text_content_matches_srt",
+            "semantic_readability",
+            "occlusion_by_undeclared_content"
+          ],
+          "unverified_items": [
+            "text_content_matches_srt",
+            "semantic_readability",
+            "occlusion_by_undeclared_content"
+          ]
+        }
+      }
+    ]
+  },
+  "p0_1_media": {
+    "dynamic_ok": {
+      "ok": true,
+      "stderr": "",
+      "bytes": 441900,
+      "vf": "testsrc2=size=320x180:rate=30:duration=4",
+      "duration": 4.0
+    },
+    "dynamic_mid_freeze": {
+      "ok": true,
+      "stderr": "",
+      "bytes": 364805,
+      "duration": 5.0,
+      "freeze_frames": [
+        45,
+        105
+      ],
+      "static_intro_seconds": null
+    },
+    "static_intro_dynamic": {
+      "ok": true,
+      "stderr": "",
+      "bytes": 409386,
+      "duration": 5.0
+    },
+    "static_intro_then_freeze": {
+      "ok": true,
+      "stderr": "",
+      "bytes": 238351,
+      "duration": 6.0,
+      "freeze_frames": [
+        45,
+        134
+      ],
+      "static_intro_seconds": 1.5
+    }
+  },
+  "p0_2_frames": {
+    "normal": {
+      "frame": "sub_normal.jpg",
+      "reference": "sub_normal_ref.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "box": [
+        160,
+        880,
+        1600,
+        120
+      ],
+      "draw_subtitle": true
+    },
+    "overflow": {
+      "frame": "sub_overflow.jpg",
+      "reference": "sub_overflow_ref.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "box": [
+        1600,
+        880,
+        500,
+        120
+      ],
+      "draw_subtitle": true
+    },
+    "near_bottom": {
+      "frame": "sub_near_bottom.jpg",
+      "reference": "sub_near_bottom_ref.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "box": [
+        160,
+        1000,
+        1600,
+        70
+      ],
+      "draw_subtitle": true
+    },
+    "vertical_ok": {
+      "frame": "sub_vertical_ok.jpg",
+      "reference": "sub_vertical_ok_ref.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "box": [
+        90,
+        1500,
+        900,
+        130
+      ],
+      "draw_subtitle": true
+    },
+    "vertical_midframe": {
+      "frame": "sub_vertical_midframe.jpg",
+      "reference": "sub_vertical_midframe_ref.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "box": [
+        90,
+        900,
+        900,
+        130
+      ],
+      "draw_subtitle": true
+    },
+    "not_rendered": {
+      "frame": "sub_not_rendered.jpg",
+      "reference": "sub_not_rendered_ref.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "box": [
+        160,
+        880,
+        1600,
+        120
+      ],
+      "draw_subtitle": false
+    }
+  },
+  "evidence_files": [
+    "evidence/freeze_intervals.json",
+    "evidence/before_after.json",
+    "evidence/subtitle_contact_sheet.jpg"
+  ]
+}

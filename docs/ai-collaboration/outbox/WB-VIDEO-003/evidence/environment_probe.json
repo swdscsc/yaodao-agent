@@ -1,0 +1,142 @@
+{
+  "task_id": "WB-VIDEO-003",
+  "captured_at": "2026-11-08T15:48:00+08:00",
+  "timezone": "Asia/Shanghai (UTC+08:00)",
+  "baseline_remote_main": "08ffda5199cffccf762e810f139ab8bf1522fe2b",
+  "vidova": {
+    "installed": true,
+    "product_version": "1.0.66.0",
+    "main_process_running": true,
+    "main_pid": 9196,
+    "mcp_listen": "127.0.0.1:17373 (LISTEN, owned by main PID)",
+    "mcp_endpoint": "POST /mcp (JSON-RPC 2.0, streamable HTTP)",
+    "initialize": "OK (protocolVersion 2025-06-18, vidova-desktop 1.0.0)",
+    "tools_list_count": 18,
+    "tool_names": ["list_projects", "get_active_project", "create_project", "set_active_project", "timeline_get_state", "timeline_edit", "clip_enhance", "asset", "inspect_media", "import_asset", "preview", "generate_asset", "sfx", "component", "branch_action", "project_history", "recipe", "sleep"],
+    "export_tool_present": false,
+    "create_project": {
+      "interface_exists": true,
+      "callable": true,
+      "call_success": true,
+      "notes": "WB-VIDEO-002 already created empty project 893d1af1-0d6e-42a9-9489-a996307faeb7; no NEW project was created in this stage; description says 'Does not use hosted quota'"
+    },
+    "import_asset": {
+      "interface_exists": true,
+      "callable": true,
+      "call_success": false,
+      "blocker": "No open Vidova editor window is registered for projectId 893d1af1-...",
+      "quota_free_per_description": true,
+      "real_parameter_contract_from_asar": "AssetStoreImportPathsInputSchema = zod.object({ projectId: string.min(1), absolutePaths: array(string.min(1)) }).strict()",
+      "note": "parameter is absolutePaths, NOT paths / files / filePaths; tools/list inputSchema omits it and documents it only in the description"
+    },
+    "editor_window_gate": {
+      "reproduced": true,
+      "failed_tools": ["timeline_get_state", "asset", "import_asset", "preview"],
+      "error_excerpt": "No open Vidova editor window is registered for projectId 893d1af1-0d6e-42a9-9489-a996307faeb7",
+      "control": "switching back to the GUI-open original project 042ac827-... makes timeline_get_state succeed (1 layer / 1 clip / 58.33s) and asset list return 26 assets",
+      "active_project_restored": "042ac827-fe6c-4e1e-8305-7cadf2b143fd",
+      "asar_tray_command": "AppTrayCommandSchema = zod.discriminatedUnion('type', [... open-project + projectId ...]); AppTrayCommandEventSchema = { command: ... }; delivered over electron.ipcRenderer.on(IPC_CHANNELS.appTrayCommand), i.e. renderer-internal IPC, NOT an externally callable API",
+      "tray_command_occurrence_count": 4
+    },
+    "quota_investigation": {
+      "generate_asset_called": 0,
+      "single_generation_consumes_quota": true,
+      "evidence": "generate_asset description: 'Start or poll hosted generation ... Uses hosted quota. This runs a Vidova cloud service.' / 'Image generation uses your image-generation allowance. Speech is included with a usage quota.'",
+      "free_plan_evidence_strings": ["Verify your account to use AI on the Free plan.", "Your usage limit has been reached.", "You have reached the lifetime allowance for this feature.", "Upgrade your plan to continue.", "Provide a valid credential to continue."],
+      "remaining_free_quota": "UNVERIFIED - no quota-query tool exists among the 18 MCP tools; reading an account balance would require an authenticated hosted call, outside this stage's approval",
+      "auto_renewal_or_charge_risk": "UNVERIFIED - no auto-renewal evidence found in app.asar; upgrade / verification prompts indicate a paywall exists",
+      "quota_free_operations_confirmed": ["initialize", "tools/list", "list_projects", "get_active_project", "set_active_project", "create_project"],
+      "quota_free_but_blocked": ["import_asset (editor window gate)", "timeline_edit", "preview"],
+      "decision": "STOP before any generate_asset call; user approval with an explicit quota cap is required"
+    }
+  },
+  "jianying": {
+    "installed": true,
+    "display_version": "11.7.0.14652",
+    "main_process_before": "NOT running (only VEDetector.exe helper)",
+    "main_process_launch": {
+      "authorised_by": "WB-VIDEO-003 section 4",
+      "launch_returned_pid": 21424,
+      "launch_ok": true,
+      "main_window_pid": 22220,
+      "main_window_title": "JianyingPro"
+    },
+    "local_ports_after_launch": [
+      "127.0.0.1:20066 (HTTP 401 Unauthorized, application/json, Cache-Control: no-store)",
+      "127.0.0.1:7264 (no HTTP response)",
+      "192.168.204.1:25713 (non-loopback, not probed)"
+    ],
+    "host_runtime_service": {
+      "detected": true,
+      "authenticated": false,
+      "note": "an HTTP service exists on 20066 but every GET returns 401; no token was forged or supplied"
+    },
+    "cli": {
+      "path_placeholder": "%LOCALAPPDATA%/JianyingPro/Apps/<version>/jianying-agent-cli.exe",
+      "exists": true,
+      "draft_subcommands": ["fetch-feishu-doc", "query-content", "plan-patch", "validate-patch", "apply-patch"],
+      "usage": "jianying-agent-cli draft <subcommand> --input <json file> [--output <json file>]",
+      "query_content_after_launch": {
+        "ok": false,
+        "code": "PERMISSION_DENIED",
+        "message": "JIANYING_AGENT_RUNTIME_TOKEN is required",
+        "output_file_bytes": 294
+      }
+    },
+    "runtime_token": {
+      "provided_by_legitimate_host_to_external_cli": false,
+      "env_var_names_in_this_shell": [],
+      "note": "token is Host-held; hubcli/cli.mjs states business identity, authorization and delivery are held by the Host. Not extracted, not forged, not committed."
+    },
+    "hubcli": {
+      "protocol": "custom-agent.hub-cli.v1",
+      "contract_count": 47,
+      "tts_related_commands": ["canvas.audio.add", "canvas.audio.setSubType", "canvas.audio.setTtsVoice", "canvas.audio.setSpeechRate"],
+      "tts_contract_effect": "write",
+      "tts_parameter_schema_verified": false
+    },
+    "existing_drafts": {
+      "count": 2,
+      "before": [
+        {"name": "11月7日", "bytes": 4928, "sha256_prefix": "75E07786574BF6D9"},
+        {"name": "yaodao_yaodao_ep", "bytes": 29205, "sha256_prefix": "0792B2C4E809A6B6"}
+      ],
+      "after": [
+        {"name": "11月7日", "bytes": 4928, "sha256_prefix": "75E07786574BF6D9"},
+        {"name": "yaodao_yaodao_ep", "bytes": 29205, "sha256_prefix": "0792B2C4E809A6B6"}
+      ],
+      "unchanged": true,
+      "format_note": "one draft_content.json is encrypted/base64-like text, the other is plaintext JSON; forging project files is not viable"
+    },
+    "independent_test_draft_created": false,
+    "reason": "CLI write path is token-gated; GUI / UI Automation would require desktop control of windows other than an isolated draft, which this stage did not perform"
+  },
+  "security_scan": {
+    "git_commits_scanned": 45,
+    "history_secret_findings": [],
+    "working_tree_files_scanned": 99,
+    "working_tree_findings": [],
+    "tracked_token_like_filenames": [],
+    "remote_url_has_embedded_credential": false,
+    "pat_read_printed_or_committed_this_stage": false,
+    "action_required": "the PAT that appeared in an earlier conversation in plaintext should be revoked and rotated; use the OS credential store for future pushes"
+  },
+  "tts": {
+    "local_windows_sapi_voices": [
+      "Microsoft Huihui Desktop - Chinese (Simplified)",
+      "Microsoft Huihui - Chinese (Simplified, PRC)",
+      "Microsoft Kangkang - Chinese (Simplified, PRC)",
+      "Microsoft Yaoyao - Chinese (Simplified, PRC)"
+    ],
+    "sapi_local": true,
+    "sapi_free": true,
+    "sapi_chinese_quality": "legacy desktop TTS, intelligible but mechanical",
+    "emotion_control": false,
+    "speech_rate_control": true,
+    "output_format": "PCM WAV via SAPI; FFmpeg can transcode to AAC/MP3",
+    "actually_synthesised_this_stage": false,
+    "blocker": "System.Speech .NET assembly loading (Add-Type) was blocked by the execution environment security policy; pywin32 / comtypes / edge-tts / pyttsx3 / gTTS / piper / ChatTTS / Kokoro are NOT installed",
+    "paid_or_quota_calls": 0,
+    "jianying_integration": "4 TTS-related hubcli write contracts exist, but require the Host token; integration UNVERIFIED"
+  }
+}

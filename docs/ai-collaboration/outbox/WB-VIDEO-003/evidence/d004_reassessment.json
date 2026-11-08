@@ -1,0 +1,450 @@
+{
+  "task_id": "WB-VIDEO-003-REWORK-FIX",
+  "started_at": "2026-11-08T15:57:44+08:00",
+  "quota_consuming_calls": 0,
+  "p0_1": {
+    "whitelist_validation": {
+      "normalised": [
+        {
+          "start": 0.0,
+          "end": 1.5,
+          "reason": "confirmed static intro title card"
+        },
+        {
+          "start": 4.5,
+          "end": 5.5,
+          "reason": "confirmed static chapter card"
+        },
+        {
+          "start": 10.5,
+          "end": 12.0,
+          "reason": "confirmed static outro card"
+        }
+      ],
+      "errors": []
+    },
+    "horizontal_v2": {
+      "verdict": "FAIL",
+      "problems": [
+        "frozen_frames_outside_whitelist"
+      ],
+      "frozen_frame_check": "FAIL",
+      "whitelist_errors": [],
+      "raw_freeze_intervals": [
+        {
+          "start": 0.0330078,
+          "end": 1.533008,
+          "duration": 1.5
+        },
+        {
+          "start": 4.533008,
+          "end": 5.533008,
+          "duration": 1.0
+        },
+        {
+          "start": 5.533008,
+          "end": 8.533008,
+          "duration": 3.0
+        },
+        {
+          "start": 10.533008,
+          "end": null,
+          "duration": null,
+          "note": "freeze until EOF (no freeze_end emitted)"
+        }
+      ],
+      "evaluated_freeze_intervals": [
+        {
+          "start": 0.033,
+          "end": 1.533,
+          "duration": 1.5,
+          "raw_interval": {
+            "start": 0.0330078,
+            "end": 1.533008,
+            "duration": 1.5
+          },
+          "covered_by": {
+            "start": 0.0,
+            "end": 1.5,
+            "reason": "confirmed static intro title card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+        },
+        {
+          "start": 4.533,
+          "end": 5.533,
+          "duration": 1.0,
+          "raw_interval": {
+            "start": 4.533008,
+            "end": 5.533008,
+            "duration": 1.0
+          },
+          "covered_by": {
+            "start": 4.5,
+            "end": 5.5,
+            "reason": "confirmed static chapter card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [4.5, 5.5]: confirmed static chapter card"
+        },
+        {
+          "start": 5.533,
+          "end": 8.533,
+          "duration": 3.0,
+          "raw_interval": {
+            "start": 5.533008,
+            "end": 8.533008,
+            "duration": 3.0
+          },
+          "covered_by": null,
+          "decision": "FAIL",
+          "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+        },
+        {
+          "start": 10.533,
+          "end": 12.036,
+          "duration": 1.503,
+          "raw_interval": {
+            "start": 10.533008,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          },
+          "covered_by": {
+            "start": 10.5,
+            "end": 12.0,
+            "reason": "confirmed static outro card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [10.5, 12.0]: confirmed static outro card"
+        }
+      ],
+      "needs_manual_review": true
+    },
+    "vertical_v2": {
+      "verdict": "FAIL",
+      "problems": [
+        "frozen_frames_outside_whitelist"
+      ],
+      "frozen_frame_check": "FAIL",
+      "whitelist_errors": [],
+      "raw_freeze_intervals": [
+        {
+          "start": 0.0,
+          "end": 1.5,
+          "duration": 1.5
+        },
+        {
+          "start": 4.5,
+          "end": 5.5,
+          "duration": 1.0
+        },
+        {
+          "start": 5.5,
+          "end": 8.5,
+          "duration": 3.0
+        },
+        {
+          "start": 10.5,
+          "end": null,
+          "duration": null,
+          "note": "freeze until EOF (no freeze_end emitted)"
+        }
+      ],
+      "evaluated_freeze_intervals": [
+        {
+          "start": 0.0,
+          "end": 1.5,
+          "duration": 1.5,
+          "raw_interval": {
+            "start": 0.0,
+            "end": 1.5,
+            "duration": 1.5
+          },
+          "covered_by": {
+            "start": 0.0,
+            "end": 1.5,
+            "reason": "confirmed static intro title card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+        },
+        {
+          "start": 4.5,
+          "end": 5.5,
+          "duration": 1.0,
+          "raw_interval": {
+            "start": 4.5,
+            "end": 5.5,
+            "duration": 1.0
+          },
+          "covered_by": {
+            "start": 4.5,
+            "end": 5.5,
+            "reason": "confirmed static chapter card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [4.5, 5.5]: confirmed static chapter card"
+        },
+        {
+          "start": 5.5,
+          "end": 8.5,
+          "duration": 3.0,
+          "raw_interval": {
+            "start": 5.5,
+            "end": 8.5,
+            "duration": 3.0
+          },
+          "covered_by": null,
+          "decision": "FAIL",
+          "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+        },
+        {
+          "start": 10.5,
+          "end": 12.036,
+          "duration": 1.536,
+          "raw_interval": {
+            "start": 10.5,
+            "end": null,
+            "duration": null,
+            "note": "freeze until EOF (no freeze_end emitted)"
+          },
+          "covered_by": {
+            "start": 10.5,
+            "end": 12.0,
+            "reason": "confirmed static outro card"
+          },
+          "decision": "ALLOWED_STATIC",
+          "reason": "fully inside confirmed static interval [10.5, 12.0]: confirmed static outro card"
+        }
+      ],
+      "needs_manual_review": true
+    }
+  },
+  "p0_2": {
+    "d004_reassessment": {
+      "defect_id": "D004",
+      "reassessed_at": "2026-11-08T15:57:47+08:00",
+      "cases": [
+        {
+          "label": "horizontal_v2",
+          "reference_frame_extraction": {
+            "ok": true,
+            "path": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa003\\horizontal_v2_nosub_2.5s.jpg",
+            "stderr": ""
+          },
+          "frame": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa\\keyframes\\final_horizontal_v2_f01_2.5s.jpg",
+          "srt": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\renders\\subtitles.srt",
+          "detected_band": {
+            "available": true,
+            "detected": true,
+            "box": [
+              477,
+              948,
+              1053,
+              75
+            ],
+            "box_source": "pixel_difference_vs_no_subtitle_reference",
+            "row_threshold": 49.182,
+            "max_row_mad": 59.626,
+            "band_row_mad": 54.389,
+            "band_height_px": 75,
+            "frame_size": [
+              1920,
+              1080
+            ]
+          },
+          "evaluation": {
+            "spec": {
+              "srt_path": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\renders\\subtitles.srt",
+              "frame_path": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa\\keyframes\\final_horizontal_v2_f01_2.5s.jpg",
+              "reference_frame_path": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa003\\horizontal_v2_nosub_2.5s.jpg",
+              "canvas": [
+                1920,
+                1080
+              ],
+              "orientation": "horizontal",
+              "declared_box": [
+                477,
+                948,
+                1053,
+                75
+              ],
+              "declared_box_source": "pixel_difference_vs_no_subtitle_reference",
+              "font_px": 30,
+              "subject_boxes": []
+            },
+            "automatic": {
+              "verdict": "FAIL",
+              "checks": {
+                "artifact_exists": {
+                  "verdict": "PASS",
+                  "frame_bytes": 130922,
+                  "decision_weight": 0,
+                  "note": "proves a render was produced; proves NOTHING about subtitle quality"
+                },
+                "srt_parse": {
+                  "verdict": "PASS",
+                  "exists": true,
+                  "entry_count": 3,
+                  "note": "a valid SRT file is necessary but not sufficient"
+                },
+                "box_within_canvas": {
+                  "verdict": "PASS",
+                  "box": [
+                    477,
+                    948,
+                    1053,
+                    75
+                  ],
+                  "canvas": [
+                    1920,
+                    1080
+                  ],
+                  "overflow_right": 0,
+                  "overflow_bottom": 0
+                },
+                "safe_area": {
+                  "verdict": "FAIL",
+                  "orientation": "horizontal",
+                  "allowed_band_fraction": [
+                    0.7,
+                    0.94
+                  ],
+                  "box_center_y_fraction": 0.9125,
+                  "midframe_defect": false,
+                  "reason": "subtitle band outside the declared safe area"
+                },
+                "font_size": {
+                  "verdict": "PASS",
+                  "font_px": 30,
+                  "minimum_px": 24
+                },
+                "contrast": {
+                  "verdict": "PASS",
+                  "available": true,
+                  "mean_luma": 82.92,
+                  "p5_luma": 0.0,
+                  "p95_luma": 255.0,
+                  "contrast_spread": 255.0,
+                  "std_luma": 102.36,
+                  "minimum_spread": 55.0
+                },
+                "subject_overlap": {
+                  "verdict": "NEEDS_MANUAL_REVIEW",
+                  "note": "no subject/UI boxes declared; occlusion cannot be ruled out automatically"
+                },
+                "burned_in_evidence": {
+                  "verdict": "PASS",
+                  "available": true,
+                  "mean_abs_diff": 95.261,
+                  "threshold": 2.0,
+                  "subtitle_visible_in_frame": true,
+                  "note": "subtitle pixels differ from the no-subtitle reference"
+                }
+              },
+              "failures": [
+                "safe_area"
+              ],
+              "needs_review": [
+                "subject_overlap"
+              ]
+            },
+            "manual_review": {
+              "items": {
+                "text_content_matches_srt": {
+                  "verdict": "NEEDS_MANUAL_REVIEW",
+                  "reason": "requires OCR or a human reading the burned-in text"
+                },
+                "semantic_readability": {
+                  "verdict": "NEEDS_MANUAL_REVIEW",
+                  "reason": "legibility / wording / rhythm requires human judgement"
+                },
+                "occlusion_by_undeclared_content": {
+                  "verdict": "NEEDS_MANUAL_REVIEW",
+                  "reason": "undeclared subjects or UI cannot be enumerated reliably"
+                }
+              },
+              "signed_off": false,
+              "reviewer": null,
+              "evidence": null,
+              "verdict": "NOT_PERFORMED",
+              "note": "no human sign-off: defect MUST NOT be marked FIXED"
+            },
+            "artifact_only_weight": 0,
+            "can_mark_fixed": false,
+            "fix_result": "STILL_FAILING",
+            "decision_rule": "FIXED requires: no automatic FAIL + explicit named human APPROVED sign-off + positive burn-in pixel proof + produced render. File existence alone has decision_weight=0.",
+            "automatic_and_manual_recorded_separately": true,
+            "unverified_items": [
+              "text_content_matches_srt",
+              "semantic_readability",
+              "occlusion_by_undeclared_content"
+            ]
+          },
+          "fix_result": "STILL_FAILING",
+          "status": "REASSESSED"
+        },
+        {
+          "label": "vertical_v2",
+          "reference_frame_extraction": {
+            "ok": false,
+            "path": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa003\\vertical_v2_nosub_2.5s.jpg",
+            "stderr": "9661e37e40] Terminating thread with return code -22 (Invalid argument)\n[out#0/image2 @ 0000019661e2c800] Nothing was written into output file, because at least one of its streams received no packets.\n"
+          },
+          "frame": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\qa\\keyframes\\final_vertical_v2_f01_2.5s.jpg",
+          "srt": "<LOCAL>\\WorkBuddy\\2026-11-08-14-19-50\\pipeline\\renders\\subtitles.srt",
+          "status": "MISSING_EVIDENCE",
+          "error": "cannot reassess without real frames"
+        }
+      ],
+      "legacy_decision": {
+        "legacy_expression": "bool(v2.exists() and v2.stat().st_size > 0)",
+        "file_exists": true,
+        "size_bytes": 949375,
+        "legacy_result": "FIXED",
+        "warning": "This is the DEFECTIVE behaviour; never use it as a decision."
+      },
+      "overall": {
+        "legacy_result": "FIXED",
+        "new_result": "STILL_FAILING",
+        "automatic_failures": [
+          "safe_area"
+        ],
+        "unverified_items": [
+          "occlusion_by_undeclared_content",
+          "semantic_readability",
+          "text_content_matches_srt"
+        ],
+        "human_sign_off_supplied": false,
+        "reason": "automatic subtitle checks found real defects: safe_area; the legacy FIXED verdict was therefore false"
+      }
+    },
+    "ledger_resolution": {
+      "defect_id": "D004",
+      "previous_result": "FIXED",
+      "new_result": "NEEDS_MANUAL_REVIEW",
+      "retry_count": 2,
+      "decided_at": "2026-11-08T15:57:48+08:00",
+      "decision_basis": {
+        "file_existence_weight": 0,
+        "automatic_verdict": null,
+        "human_review_verdict": null,
+        "human_review_signed_off": null,
+        "can_mark_fixed": false
+      },
+      "automatic_evidence": null,
+      "manual_review_evidence": {},
+      "unverified_items": []
+    }
+  },
+  "bounded_gate": {
+    "cycle_used": 2,
+    "max_rework_cycles": 2,
+    "third_cycle_allowed": false,
+    "human_review_gate": "REVIEW_REQUIRED",
+    "note": "rework stops at REVIEW_REQUIRED; P0 defects are not auto-resolved past the gate"
+  },
+  "ended_at": "2026-11-08T15:57:48+08:00"
+}

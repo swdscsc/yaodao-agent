@@ -1,0 +1,56 @@
+{
+  "p0_1": {
+    "same_media": "dynamic_mid_freeze.mp4",
+    "before": {
+      "module": "WB-VIDEO-002/qa.py",
+      "call": "qa_media(..., static_material_expected=True)",
+      "frozen_frame": "EXPECTED_STATIC",
+      "verdict": "PASS",
+      "problems": [],
+      "qa_policy": {
+        "static_material_expected": true,
+        "freeze_detector_hit": true,
+        "note": "A freeze was detected but this asset is declared static. The raw interval data is retained above; production footage must NOT set this flag."
+      }
+    },
+    "after": {
+      "module": "WB-VIDEO-003/qa.py",
+      "call": "qa_media(..., static_intervals=None)",
+      "frozen_frame": "FAIL",
+      "verdict": "FAIL",
+      "problems": [
+        "frozen_frames_outside_whitelist"
+      ],
+      "whitelist_errors": [],
+      "evaluated_intervals": [
+        {
+          "start": 1.5,
+          "end": 3.533,
+          "duration": 2.033,
+          "raw_interval": {
+            "start": 1.5,
+            "end": 3.533333,
+            "duration": 2.033333
+          },
+          "covered_by": null,
+          "decision": "FAIL",
+          "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+        }
+      ]
+    },
+    "conclusion": "the legacy global flag hid a real freeze; the strict policy reports it"
+  },
+  "p0_2": {
+    "before": {
+      "legacy_expression": "bool(v2.exists() and v2.stat().st_size > 0)",
+      "file_exists": true,
+      "size_bytes": 56515,
+      "legacy_result": "FIXED",
+      "warning": "This is the DEFECTIVE behaviour; never use it as a decision."
+    },
+    "after": {
+      "fix_result": "STILL_FAILING",
+      "reason": "real frame evidence + no human sign-off"
+    }
+  }
+}

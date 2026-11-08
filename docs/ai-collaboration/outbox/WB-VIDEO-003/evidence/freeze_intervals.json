@@ -1,0 +1,90 @@
+{
+  "p0_1": {
+    "dynamic_mid_freeze": [
+      {
+        "start": 1.5,
+        "end": 3.533,
+        "duration": 2.033,
+        "raw_interval": {
+          "start": 1.5,
+          "end": 3.533333,
+          "duration": 2.033333
+        },
+        "covered_by": null,
+        "decision": "FAIL",
+        "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+      }
+    ],
+    "static_intro_dynamic": [
+      {
+        "start": 0.0,
+        "end": 1.5,
+        "duration": 1.5,
+        "raw_interval": {
+          "start": 0.0,
+          "end": 1.5,
+          "duration": 1.5
+        },
+        "covered_by": {
+          "start": 0.0,
+          "end": 1.5,
+          "reason": "confirmed static intro title card"
+        },
+        "decision": "ALLOWED_STATIC",
+        "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+      }
+    ],
+    "static_intro_then_freeze": [
+      {
+        "start": 0.0,
+        "end": 1.5,
+        "duration": 1.5,
+        "raw_interval": {
+          "start": 0.0,
+          "end": 1.5,
+          "duration": 1.5
+        },
+        "covered_by": {
+          "start": 0.0,
+          "end": 1.5,
+          "reason": "confirmed static intro title card"
+        },
+        "decision": "ALLOWED_STATIC",
+        "reason": "fully inside confirmed static interval [0.0, 1.5]: confirmed static intro title card"
+      },
+      {
+        "start": 3.0,
+        "end": 6.0,
+        "duration": 3.0,
+        "raw_interval": {
+          "start": 3.0,
+          "end": null,
+          "duration": null,
+          "note": "freeze until EOF (no freeze_end emitted)"
+        },
+        "covered_by": null,
+        "decision": "FAIL",
+        "reason": "freeze outside every confirmed static interval; dynamic footage must not freeze"
+      }
+    ]
+  },
+  "p0_2_detected_band": {
+    "available": true,
+    "detected": true,
+    "box": [
+      256,
+      913,
+      1401,
+      54
+    ],
+    "box_source": "pixel_difference_vs_no_subtitle_reference",
+    "row_threshold": 82.929,
+    "max_row_mad": 111.882,
+    "band_row_mad": 111.075,
+    "band_height_px": 54,
+    "frame_size": [
+      1920,
+      1080
+    ]
+  }
+}

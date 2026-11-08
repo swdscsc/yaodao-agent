@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "task_id": "WB-VIDEO-003",
+  "document_type": "PLANNED_SHOT_REGISTRY_NOT_AN_ASSET_MANIFEST",
+  "status": "PLAN_ONLY__NO_REAL_ASSET_GENERATED",
+  "source_commit": "08ffda5199cffccf762e810f139ab8bf1522fe2b",
+  "target_duration_seconds": 18,
+  "note": "This file registers the SHOTS proposed for the minimal real E2E test in e2e-plan.md. It is NOT evidence that any asset exists. asset_path is null for every shot, generation_status is NOT_STARTED, qa_status is NOT_RUN. No synthetic pattern may be substituted for a real asset.",
+  "shots": [
+    {
+      "shot_id": "S001",
+      "purpose": "老人日常用药情景（情景演绎）",
+      "prompt": "早晨柔和光线，一位老人在家中药盒前按提示取药；只做情景演绎，画面不出现真实患者姓名、病历或可识别个人信息；不得冒充真实用户案例。",
+      "source_type": "PLANNED_VIDOVA_GENERATION_OR_LICENSED_FOOTAGE",
+      "asset_path": null,
+      "duration_seconds": 5,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "generation_status": "NOT_STARTED",
+      "qa_status": "NOT_RUN",
+      "notes": "需先获得 1 次最小额度生成批准；若无批准，改为已授权素材或明确标注的实拍。禁止用合成图案冒充。"
+    },
+    {
+      "shot_id": "S002",
+      "purpose": "药到产品科技展示",
+      "prompt": "产品界面特写与交互流程展示；必须使用真实产品界面，或在画面显著位置标注「模拟界面 / 演示」；不得宣称未上线功能已可用。",
+      "source_type": "PLANNED_REAL_PRODUCT_UI_CAPTURE_OR_LABELLED_MOCKUP",
+      "asset_path": null,
+      "duration_seconds": 6,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "generation_status": "NOT_STARTED",
+      "qa_status": "NOT_RUN",
+      "notes": "需用户提供真实产品界面或书面确认使用模拟界面；AI 生成界面必须标注演示。"
+    },
+    {
+      "shot_id": "S003",
+      "purpose": "AI 语音交互演示",
+      "prompt": "老人通过语音询问用药提醒并获得回答的演示镜头；若语音交互功能尚未实际实现，画面必须标注「演示模拟」，不得宣称真实可用。",
+      "source_type": "PLANNED_LABELLED_SIMULATION_OR_REAL_FEATURE_CAPTURE",
+      "asset_path": null,
+      "duration_seconds": 7,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "generation_status": "NOT_STARTED",
+      "qa_status": "NOT_RUN",
+      "notes": "需先核实功能是否真实存在；未核实前一律按演示模拟处理，旁白不得写「已上线」。"
+    }
+  ],
+  "required_fields_per_shot": ["shot_id", "purpose", "prompt", "source_type", "asset_path", "duration_seconds", "width", "height", "fps", "generation_status", "qa_status", "notes"],
+  "privacy": "No absolute local path, account name, token, or personal data is stored in this file."
+}
